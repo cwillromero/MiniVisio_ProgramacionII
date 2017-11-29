@@ -54,4 +54,8 @@ public class CodigoDiagramaDeClases {
     public void Final(){
         Codigo+="};\n\n\n";
     }
+    
+    public void Metodos(){
+        
+    }
 }

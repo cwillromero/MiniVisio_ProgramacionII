@@ -54,7 +54,6 @@ public class PanelPrincipal extends javax.swing.JFrame {
         mDiseno.setVisible(false);
         txConfiguracion.setEditable(false);
         txConfiguracion.setEnabled(false);
-        jbConfigurar.setVisible(false);
     }
 
     /**
@@ -102,12 +101,12 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jdAgregarMetodo = new javax.swing.JDialog();
         jPanel3 = new javax.swing.JPanel();
-        jcEncapsulamiento1 = new javax.swing.JComboBox<>();
+        jcEncapsulamientoMetodo = new javax.swing.JComboBox<>();
         jLabel26 = new javax.swing.JLabel();
-        jcTipoAtributo1 = new javax.swing.JComboBox<>();
+        jcTipoMetodo = new javax.swing.JComboBox<>();
         jLabel27 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
-        txNombreAtributo1 = new javax.swing.JTextField();
+        txNombreMetodo = new javax.swing.JTextField();
         jLabel29 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
         jpTexto = new javax.swing.JPanel();
@@ -134,7 +133,6 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         txConfiguracion = new javax.swing.JTextArea();
         jLabel21 = new javax.swing.JLabel();
-        jbConfigurar = new javax.swing.JButton();
         PanelFlujo = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         btProceso = new javax.swing.JButton();
@@ -284,7 +282,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
         });
         ppMenuClases.add(jmiEliminarArbol);
 
-        jmiMetodos.setText("Configurar Metodos");
+        jmiMetodos.setText("Agregar Métodos");
         jmiMetodos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jmiMetodosActionPerformed(evt);
@@ -371,6 +369,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
 
         jdAgregarAtributo.setTitle("Atributo");
         jdAgregarAtributo.setBackground(new java.awt.Color(204, 204, 255));
+        jdAgregarAtributo.setMaximumSize(new java.awt.Dimension(300, 300));
         jdAgregarAtributo.setMinimumSize(new java.awt.Dimension(300, 300));
         jdAgregarAtributo.setSize(new java.awt.Dimension(300, 300));
         jdAgregarAtributo.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -385,7 +384,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
 
         jLabel22.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel22.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel22.setText("Nombre de Variable:");
+        jLabel22.setText("Nombre de Método:");
         jPanel2.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 130, 20));
 
         jcTipoAtributo.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
@@ -401,13 +400,13 @@ public class PanelPrincipal extends javax.swing.JFrame {
 
         jLabel24.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel24.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel24.setText("Encapsulamiento");
+        jLabel24.setText("Encapsulamiento:");
         jPanel2.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 114, 20));
         jPanel2.add(txNombreAtributo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 260, -1));
 
         jLabel25.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel25.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel25.setText("Tipo de Variable");
+        jLabel25.setText("Tipo de Atributo:");
         jPanel2.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 114, 20));
 
         jButton2.setBackground(new java.awt.Color(204, 204, 255));
@@ -423,28 +422,29 @@ public class PanelPrincipal extends javax.swing.JFrame {
 
         jdAgregarAtributo.getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 300, 300));
 
-        jdAgregarMetodo.setTitle("Atributo");
+        jdAgregarMetodo.setTitle("Método");
         jdAgregarMetodo.setBackground(new java.awt.Color(204, 204, 255));
+        jdAgregarMetodo.setMaximumSize(new java.awt.Dimension(300, 300));
         jdAgregarMetodo.setSize(new java.awt.Dimension(300, 300));
         jdAgregarMetodo.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel3.setBackground(new java.awt.Color(0, 51, 51));
+        jPanel3.setBackground(new java.awt.Color(51, 0, 0));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jcEncapsulamiento1.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
-        jcEncapsulamiento1.setForeground(new java.awt.Color(51, 0, 51));
-        jcEncapsulamiento1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "private", "public", "protected" }));
-        jPanel3.add(jcEncapsulamiento1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, 162, 20));
+        jcEncapsulamientoMetodo.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        jcEncapsulamientoMetodo.setForeground(new java.awt.Color(51, 0, 51));
+        jcEncapsulamientoMetodo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "private", "public", "protected" }));
+        jPanel3.add(jcEncapsulamientoMetodo, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, 162, 20));
 
         jLabel26.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel26.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel26.setText("Nombre de Variable:");
+        jLabel26.setText("Nombre de Método:");
         jPanel3.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 130, 20));
 
-        jcTipoAtributo1.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
-        jcTipoAtributo1.setForeground(new java.awt.Color(51, 0, 51));
-        jcTipoAtributo1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "int", "long", "float", "double", "bool", "char", "wchar_t" }));
-        jPanel3.add(jcTipoAtributo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, 162, 20));
+        jcTipoMetodo.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        jcTipoMetodo.setForeground(new java.awt.Color(51, 0, 51));
+        jcTipoMetodo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "void", "int", "long", "float", "double", "bool", "char", "wchar_t" }));
+        jPanel3.add(jcTipoMetodo, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, 162, 20));
 
         jLabel27.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel27.setForeground(new java.awt.Color(255, 255, 255));
@@ -456,11 +456,11 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jLabel28.setForeground(new java.awt.Color(255, 255, 255));
         jLabel28.setText("Encapsulamiento");
         jPanel3.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 114, 20));
-        jPanel3.add(txNombreAtributo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 260, -1));
+        jPanel3.add(txNombreMetodo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 260, -1));
 
         jLabel29.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel29.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel29.setText("Tipo de Variable");
+        jLabel29.setText("Tipo de Método");
         jPanel3.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 114, 20));
 
         jButton4.setBackground(new java.awt.Color(204, 204, 255));
@@ -637,16 +637,6 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jLabel21.setText("Clase Seleccionada:");
         jLabel21.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
 
-        jbConfigurar.setBackground(new java.awt.Color(0, 51, 51));
-        jbConfigurar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jbConfigurar.setForeground(new java.awt.Color(204, 255, 204));
-        jbConfigurar.setText("Configurar");
-        jbConfigurar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jbConfigurarMouseClicked(evt);
-            }
-        });
-
         javax.swing.GroupLayout PanelClaseLayout = new javax.swing.GroupLayout(PanelClase);
         PanelClase.setLayout(PanelClaseLayout);
         PanelClaseLayout.setHorizontalGroup(
@@ -675,14 +665,11 @@ public class PanelPrincipal extends javax.swing.JFrame {
                 .addGroup(PanelClaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PanelClaseLayout.createSequentialGroup()
                         .addGap(26, 26, 26)
-                        .addComponent(jLabel19)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addComponent(jLabel19))
                     .addGroup(PanelClaseLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(txtConfiguracion, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jbConfigurar)))
-                .addContainerGap())
+                        .addComponent(txtConfiguracion, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(81, Short.MAX_VALUE))
             .addGroup(PanelClaseLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addGroup(PanelClaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -717,12 +704,9 @@ public class PanelPrincipal extends javax.swing.JFrame {
                 .addGap(1, 1, 1)
                 .addComponent(txSeleccionado1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
-                .addGroup(PanelClaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PanelClaseLayout.createSequentialGroup()
-                        .addComponent(txtConfiguracion, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jbConfigurar))
+                .addComponent(txtConfiguracion, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(42, Short.MAX_VALUE))
         );
 
@@ -1305,7 +1289,6 @@ public class PanelPrincipal extends javax.swing.JFrame {
         txSeleccionado.setText("");
         txConfiguracion.setText("");
         txtConfiguracion.setText("");
-        jbConfigurar.setVisible(false);
         txConfiguracion.setEditable(false);
         txSeleccionado1.setText("");
         jdAgregarAtributo.setVisible(false);
@@ -1870,8 +1853,8 @@ public class PanelPrincipal extends javax.swing.JFrame {
         boolean X = false;
         txConfiguracion.setText("");
         String Nombre = "";
-        while (X == false || Nombre == "") {
-            Nombre = JOptionPane.showInputDialog(this, "Ingrese el Nombre de la Clase:", "Ese nombre ya está usado!", 1);
+        while (X == false) {
+            Nombre = JOptionPane.showInputDialog(this, "Ingrese el Nombre de la Clase:", "Clase!", 1);
             int Y = 0;
             for (int i = 0; i < nombresdeclase.size(); i++) {
                 if (nombresdeclase.get(i).equals(Nombre)) {
@@ -1961,40 +1944,25 @@ public class PanelPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jmiEliminarArbolActionPerformed
 
     private void jmiMetodosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiMetodosActionPerformed
-        // TODO add your handling code here:
-        if (clickM == 0) {
-            txConfiguracion.setEnabled(true);
-            txtConfiguracion.setText("Ingrese los Métodos:");
-            jbConfigurar.setVisible(true);
-            txConfiguracion.setEditable(true);
-            txConfiguracion.setText(
-                    ">>Encapsulamiento:"
-                    + "Public(+), Private(-), Protected(#)\n"
-                    + ">>Tipo de Metodo\n"
-                    + "short: Entero corto, int: Entero, long: Entero largo, char: Caracter\n"
-                    + "float: Real, double: Real doble, bool: Booleano, \nstring: Conjunto Caracteres\n"
-                    + ">>Nomenclatura Adecuada:\n"
-                    + "EncapsulamientoMétodo(Variales):Tipo\n"
-                    + ">>Ejemplo:\n"
-                    + "+Calcular(Temperatura:int):int;s"
-                    + "#Deletrear():void"
-                    + "");
-            clickM++;
-        } else {
-            txConfiguracion.setEnabled(true);
-            txtConfiguracion.setText("Ingrese los Métodos:");
-            jbConfigurar.setVisible(true);
-            txConfiguracion.setEditable(true);
-            String x = "";
-            DefaultTreeModel model = (DefaultTreeModel) clases.get(0).getModel();
-            DefaultMutableTreeNode root = (DefaultMutableTreeNode) model.getRoot();
-            for (int i = 0; i < root.getChildCount(); i++) {
-                if (root.getChildAt(i).toString().equals("<Metodos>")) {
-                    x = "" + (DefaultMutableTreeNode) root.getChildAt(i).getChildAt(0);
+        String x = "";
+        DefaultTreeModel model = (DefaultTreeModel) actualT.getModel();
+        DefaultMutableTreeNode root = (DefaultMutableTreeNode) model.getRoot();
+        for (int i = 0; i < root.getChildCount(); i++) {
+            if (root.getChildAt(i).toString().equals("<Metodos>")) {
+                for (int j = 0; j < root.getChildAt(i).getChildCount(); j++) {
+                    x += "" + (DefaultMutableTreeNode) root.getChildAt(i).getChildAt(j) + "\n";
                 }
             }
-            txConfiguracion.setText(x);
         }
+        txConfiguracion.setText("Métodos de la Clase <<" + model.getRoot() + ">>:\n" + x);
+        x = "";
+        txConfiguracion.setEnabled(true);
+        txtConfiguracion.setText("Métodos:");
+        txConfiguracion.setEditable(false);
+        jdAgregarMetodo.setModal(true);
+        jdAgregarMetodo.pack();
+        jdAgregarMetodo.setLocationRelativeTo(this);
+        jdAgregarMetodo.setVisible(true);
     }//GEN-LAST:event_jmiMetodosActionPerformed
 
     private void jmiAtributosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiAtributosActionPerformed
@@ -2008,37 +1976,20 @@ public class PanelPrincipal extends javax.swing.JFrame {
                 }
             }
         }
-        txConfiguracion.setText("Atributos de la Clase " + model.getRoot() + ":\n" + x);
+        txConfiguracion.setText("Atributos de la Clase <<" + model.getRoot() + ">>:\n" + x);
+        txConfiguracion.setEnabled(true);
+        txtConfiguracion.setText("Atributos:");
+        txConfiguracion.setEditable(false);
         x = "";
         jdAgregarAtributo.setModal(true);
         jdAgregarAtributo.pack();
         jdAgregarAtributo.setLocationRelativeTo(this);
         jdAgregarAtributo.setVisible(true);
-        txConfiguracion.setEnabled(true);
-        txtConfiguracion.setText("Atributos:");
-        jbConfigurar.setVisible(true);
-        txConfiguracion.setEditable(false);
     }//GEN-LAST:event_jmiAtributosActionPerformed
 
     private void txConfiguracionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txConfiguracionMouseClicked
 
     }//GEN-LAST:event_txConfiguracionMouseClicked
-
-    private void jbConfigurarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbConfigurarMouseClicked
-//        if (txtConfiguracion.getText().equals("Ingrese los Atributos:")) {
-//            
-//        } else if (txtConfiguracion.getText().equals("Ingrese los Métodos:")) {
-//            DefaultTreeModel modelArbol = (DefaultTreeModel) actualT.getModel();
-//            DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modelArbol.getRoot();
-//            for (int i = 0; i < raiz.getChildCount(); i++) {
-//                if (raiz.getChildAt(i).toString().equals("<Metodos>")) {
-//                    DefaultMutableTreeNode p = new DefaultMutableTreeNode(Codigo);
-//                    ((DefaultMutableTreeNode) raiz.getChildAt(i)).add(p);
-//                }
-//            }
-//        }
-//        this.repaint();
-    }//GEN-LAST:event_jbConfigurarMouseClicked
 
     private void jmiCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiCodigoActionPerformed
         taCodigo.setText("");
@@ -2094,11 +2045,35 @@ public class PanelPrincipal extends javax.swing.JFrame {
         }
         txConfiguracion.setText("Atributos de la Clase <<" + model.getRoot() + ">>:\n" + x);
         x = "";
+        txtConfiguracion.setText("Atributos:");
         txNombreAtributo.setText("");
     }//GEN-LAST:event_jButton2MouseClicked
 
     private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
-        // TODO add your handling code here:
+        DefaultTreeModel modelArbol = (DefaultTreeModel) actualT.getModel();
+        DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modelArbol.getRoot();
+        String X = jcEncapsulamientoMetodo.getSelectedItem().toString() + ":_" + jcTipoMetodo.getSelectedItem().toString() + "_" + txNombreMetodo.getText();
+        for (int i = 0; i < raiz.getChildCount(); i++) {
+            if (raiz.getChildAt(i).toString().equals("<Metodos>")) {
+                DefaultMutableTreeNode p = new DefaultMutableTreeNode(X);
+                ((DefaultMutableTreeNode) raiz.getChildAt(i)).add(p);
+            }
+        }
+        JOptionPane.showMessageDialog(this, "Método Guardado.", "Método", 2);
+        String x = "";
+        DefaultTreeModel model = (DefaultTreeModel) actualT.getModel();
+        DefaultMutableTreeNode root = (DefaultMutableTreeNode) model.getRoot();
+        for (int i = 0; i < root.getChildCount(); i++) {
+            if (root.getChildAt(i).toString().equals("<Metodos>")) {
+                for (int j = 0; j < root.getChildAt(i).getChildCount(); j++) {
+                    x += "" + (DefaultMutableTreeNode) root.getChildAt(i).getChildAt(j) + "\n";
+                }
+            }
+        }
+        txConfiguracion.setText("Métodos de la Clase <<" + model.getRoot() + ">>:\n" + x);
+        x = "";
+        txtConfiguracion.setText("Métodos:");
+        txNombreMetodo.setText("");
     }//GEN-LAST:event_jButton4MouseClicked
 
     /**
@@ -2264,15 +2239,14 @@ public class PanelPrincipal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable jTable1;
-    private javax.swing.JButton jbConfigurar;
     private javax.swing.JButton jbEliminar;
     private javax.swing.JButton jbGuardarCodigo;
     private javax.swing.JButton jbSetTexto;
     private javax.swing.JButton jbtDiagramaClases;
     private javax.swing.JComboBox<String> jcEncapsulamiento;
-    private javax.swing.JComboBox<String> jcEncapsulamiento1;
+    private javax.swing.JComboBox<String> jcEncapsulamientoMetodo;
     private javax.swing.JComboBox<String> jcTipoAtributo;
-    private javax.swing.JComboBox<String> jcTipoAtributo1;
+    private javax.swing.JComboBox<String> jcTipoMetodo;
     private javax.swing.JDialog jdAgregarAtributo;
     private javax.swing.JDialog jdAgregarMetodo;
     private javax.swing.JDialog jdCodigo;
@@ -2307,7 +2281,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
     private javax.swing.JTextArea taCodigo;
     private javax.swing.JTextArea txConfiguracion;
     private javax.swing.JTextField txNombreAtributo;
-    private javax.swing.JTextField txNombreAtributo1;
+    private javax.swing.JTextField txNombreMetodo;
     private javax.swing.JTextField txSeleccionado;
     private javax.swing.JTextField txSeleccionado1;
     private javax.swing.JLabel txtConfiguracion;
