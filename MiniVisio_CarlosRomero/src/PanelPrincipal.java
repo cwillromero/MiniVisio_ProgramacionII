@@ -328,7 +328,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 38, Short.MAX_VALUE)
+                .addGap(0, 54, Short.MAX_VALUE)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 507, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(53, 53, 53))
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -356,9 +356,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jdCodigo.getContentPane().setLayout(jdCodigoLayout);
         jdCodigoLayout.setHorizontalGroup(
             jdCodigoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jdCodigoLayout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 16, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 616, Short.MAX_VALUE)
         );
         jdCodigoLayout.setVerticalGroup(
             jdCodigoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -369,7 +367,6 @@ public class PanelPrincipal extends javax.swing.JFrame {
 
         jdAgregarAtributo.setTitle("Atributo");
         jdAgregarAtributo.setBackground(new java.awt.Color(204, 204, 255));
-        jdAgregarAtributo.setMaximumSize(new java.awt.Dimension(300, 300));
         jdAgregarAtributo.setMinimumSize(new java.awt.Dimension(300, 300));
         jdAgregarAtributo.setSize(new java.awt.Dimension(300, 300));
         jdAgregarAtributo.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -424,7 +421,6 @@ public class PanelPrincipal extends javax.swing.JFrame {
 
         jdAgregarMetodo.setTitle("Método");
         jdAgregarMetodo.setBackground(new java.awt.Color(204, 204, 255));
-        jdAgregarMetodo.setMaximumSize(new java.awt.Dimension(300, 300));
         jdAgregarMetodo.setSize(new java.awt.Dimension(300, 300));
         jdAgregarMetodo.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
