@@ -90,6 +90,26 @@ public class PanelPrincipal extends javax.swing.JFrame {
         taCodigo = new javax.swing.JTextArea();
         jbGuardarCodigo = new javax.swing.JButton();
         jLabel16 = new javax.swing.JLabel();
+        jdAgregarAtributo = new javax.swing.JDialog();
+        jPanel2 = new javax.swing.JPanel();
+        jcEncapsulamiento = new javax.swing.JComboBox<>();
+        jLabel22 = new javax.swing.JLabel();
+        jcTipoAtributo = new javax.swing.JComboBox<>();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        txNombreAtributo = new javax.swing.JTextField();
+        jLabel25 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
+        jdAgregarMetodo = new javax.swing.JDialog();
+        jPanel3 = new javax.swing.JPanel();
+        jcEncapsulamiento1 = new javax.swing.JComboBox<>();
+        jLabel26 = new javax.swing.JLabel();
+        jcTipoAtributo1 = new javax.swing.JComboBox<>();
+        jLabel27 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
+        txNombreAtributo1 = new javax.swing.JTextField();
+        jLabel29 = new javax.swing.JLabel();
+        jButton4 = new javax.swing.JButton();
         jpTexto = new javax.swing.JPanel();
         jButton3 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
@@ -272,7 +292,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
         });
         ppMenuClases.add(jmiMetodos);
 
-        jmiAtributos.setText("Configurar Atributos");
+        jmiAtributos.setText("Agregar Atributos");
         jmiAtributos.setActionCommand("");
         jmiAtributos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -281,6 +301,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
         });
         ppMenuClases.add(jmiAtributos);
 
+        jdCodigo.setTitle("Código");
         jdCodigo.setMinimumSize(new java.awt.Dimension(600, 500));
 
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -290,6 +311,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
 
         taCodigo.setEditable(false);
         taCodigo.setColumns(20);
+        taCodigo.setFont(new java.awt.Font("Monospaced", 1, 16)); // NOI18N
         taCodigo.setRows(5);
         jScrollPane3.setViewportView(taCodigo);
 
@@ -347,7 +369,115 @@ public class PanelPrincipal extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
+        jdAgregarAtributo.setTitle("Atributo");
+        jdAgregarAtributo.setBackground(new java.awt.Color(204, 204, 255));
+        jdAgregarAtributo.setMinimumSize(new java.awt.Dimension(300, 300));
+        jdAgregarAtributo.setSize(new java.awt.Dimension(300, 300));
+        jdAgregarAtributo.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel2.setBackground(new java.awt.Color(0, 51, 51));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jcEncapsulamiento.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        jcEncapsulamiento.setForeground(new java.awt.Color(51, 0, 51));
+        jcEncapsulamiento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "private", "public", "protected" }));
+        jPanel2.add(jcEncapsulamiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, 162, 20));
+
+        jLabel22.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel22.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel22.setText("Nombre de Variable:");
+        jPanel2.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 130, 20));
+
+        jcTipoAtributo.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        jcTipoAtributo.setForeground(new java.awt.Color(51, 0, 51));
+        jcTipoAtributo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "int", "long", "float", "double", "bool", "char", "wchar_t" }));
+        jPanel2.add(jcTipoAtributo, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, 162, 20));
+
+        jLabel23.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel23.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel23.setText("Atributos");
+        jPanel2.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, 114, 20));
+
+        jLabel24.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel24.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel24.setText("Encapsulamiento");
+        jPanel2.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 114, 20));
+        jPanel2.add(txNombreAtributo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 260, -1));
+
+        jLabel25.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel25.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel25.setText("Tipo de Variable");
+        jPanel2.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 114, 20));
+
+        jButton2.setBackground(new java.awt.Color(204, 204, 255));
+        jButton2.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(51, 0, 51));
+        jButton2.setText("Agregar");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
+        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 210, -1, -1));
+
+        jdAgregarAtributo.getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 300, 300));
+
+        jdAgregarMetodo.setTitle("Atributo");
+        jdAgregarMetodo.setBackground(new java.awt.Color(204, 204, 255));
+        jdAgregarMetodo.setSize(new java.awt.Dimension(300, 300));
+        jdAgregarMetodo.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel3.setBackground(new java.awt.Color(0, 51, 51));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jcEncapsulamiento1.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        jcEncapsulamiento1.setForeground(new java.awt.Color(51, 0, 51));
+        jcEncapsulamiento1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "private", "public", "protected" }));
+        jPanel3.add(jcEncapsulamiento1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, 162, 20));
+
+        jLabel26.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel26.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel26.setText("Nombre de Variable:");
+        jPanel3.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 130, 20));
+
+        jcTipoAtributo1.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        jcTipoAtributo1.setForeground(new java.awt.Color(51, 0, 51));
+        jcTipoAtributo1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "int", "long", "float", "double", "bool", "char", "wchar_t" }));
+        jPanel3.add(jcTipoAtributo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, 162, 20));
+
+        jLabel27.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel27.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel27.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel27.setText("Métodos");
+        jPanel3.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, 114, 20));
+
+        jLabel28.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel28.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel28.setText("Encapsulamiento");
+        jPanel3.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 114, 20));
+        jPanel3.add(txNombreAtributo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 260, -1));
+
+        jLabel29.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel29.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel29.setText("Tipo de Variable");
+        jPanel3.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 114, 20));
+
+        jButton4.setBackground(new java.awt.Color(204, 204, 255));
+        jButton4.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        jButton4.setForeground(new java.awt.Color(51, 0, 51));
+        jButton4.setText("Agregar");
+        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton4MouseClicked(evt);
+            }
+        });
+        jPanel3.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 210, -1, -1));
+
+        jdAgregarMetodo.getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 300, 300));
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("MiniVisio - Carlos Wilfredo Romero Maradiaga");
         addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 formMouseClicked(evt);
@@ -494,6 +624,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
 
         txConfiguracion.setEditable(false);
         txConfiguracion.setColumns(20);
+        txConfiguracion.setFont(new java.awt.Font("Monospaced", 1, 15)); // NOI18N
         txConfiguracion.setRows(5);
         txConfiguracion.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -921,11 +1052,11 @@ public class PanelPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jmiNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiNuevoActionPerformed
-        jdNuevo.setLocationRelativeTo(this);
-        jdNuevo.pack();
         jdNuevo.getContentPane().setBackground(Color.WHITE);
-        jdNuevo.setVisible(true);
         jdNuevo.setModal(true);
+        jdNuevo.pack();
+        jdNuevo.setLocationRelativeTo(this);      
+        jdNuevo.setVisible(true);
     }//GEN-LAST:event_jmiNuevoActionPerformed
 
     private void mArchivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mArchivoActionPerformed
@@ -1177,6 +1308,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jbConfigurar.setVisible(false);
         txConfiguracion.setEditable(false);
         txSeleccionado1.setText("");
+        jdAgregarAtributo.setVisible(false);
     }//GEN-LAST:event_jpBaseMouseClicked
 
     private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
@@ -1736,6 +1868,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
 
     private void btClaseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btClaseMouseClicked
         boolean X = false;
+        txConfiguracion.setText("");
         String Nombre = "";
         while (X == false || Nombre == "") {
             Nombre = JOptionPane.showInputDialog(this, "Ingrese el Nombre de la Clase:", "Ese nombre ya está usado!", 1);
@@ -1865,77 +1998,46 @@ public class PanelPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jmiMetodosActionPerformed
 
     private void jmiAtributosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiAtributosActionPerformed
-        // TODO add your handling code here:
-        if (clickA == 0) {
-            txConfiguracion.setEnabled(true);
-            txtConfiguracion.setText("Ingrese los Atributos:");
-            jbConfigurar.setVisible(true);
-            txConfiguracion.setEditable(true);
-            txConfiguracion.setText(
-                    ">>Encapsulamiento:"
-                    + "Public(+), Private(-), Protected(#)\n"
-                    + ">>Tipo de Variable\n"
-                    + "short: Entero corto, int: Entero, long: Entero largo, char: Caracter\n"
-                    + "float: Real, double: Real doble, bool: Booleano, \nstring: Conjunto Caracteres\n"
-                    + ">>Nomenclatura Adecuada:\n"
-                    + "EncapsulamientoVariable:Tipo\n"
-                    + ">>Ejemplo:\n"
-                    + "+Temperatura:int;"
-                    + "#Frase:string"
-                    + "");
-            clickA++;
-        } else {
-            txConfiguracion.setEnabled(true);
-            txtConfiguracion.setText("Ingrese los Atributos:");
-            jbConfigurar.setVisible(true);
-            txConfiguracion.setEditable(true);
-            String x = "";
-            DefaultTreeModel model = (DefaultTreeModel) clases.get(0).getModel();
-            DefaultMutableTreeNode root = (DefaultMutableTreeNode) model.getRoot();
-            for (int i = 0; i < root.getChildCount(); i++) {
-                if (root.getChildAt(i).toString().equals("<Atributos>")) {
-                    x = "" + (DefaultMutableTreeNode) root.getChildAt(i).getChildAt(0);
+        String x = "";
+        DefaultTreeModel model = (DefaultTreeModel) actualT.getModel();
+        DefaultMutableTreeNode root = (DefaultMutableTreeNode) model.getRoot();
+        for (int i = 0; i < root.getChildCount(); i++) {
+            if (root.getChildAt(i).toString().equals("<Atributos>")) {
+                for (int j = 0; j < root.getChildAt(i).getChildCount(); j++) {
+                    x += "" + (DefaultMutableTreeNode) root.getChildAt(i).getChildAt(j) + "\n";
                 }
             }
-            txConfiguracion.setText(x);
         }
+        txConfiguracion.setText("Atributos de la Clase " + model.getRoot() + ":\n" + x);
+        x = "";
+        jdAgregarAtributo.setModal(true);
+        jdAgregarAtributo.pack();
+        jdAgregarAtributo.setLocationRelativeTo(this);
+        jdAgregarAtributo.setVisible(true);
+        txConfiguracion.setEnabled(true);
+        txtConfiguracion.setText("Atributos:");
+        jbConfigurar.setVisible(true);
+        txConfiguracion.setEditable(false);
     }//GEN-LAST:event_jmiAtributosActionPerformed
 
     private void txConfiguracionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txConfiguracionMouseClicked
-        if (clickA == 0 || clickM == 0) {
-            txConfiguracion.setText("");
-        }
+
     }//GEN-LAST:event_txConfiguracionMouseClicked
 
     private void jbConfigurarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbConfigurarMouseClicked
-        Codigo = txConfiguracion.getText();
-        DefaultTreeModel model = (DefaultTreeModel) actualT.getModel();
-        DefaultMutableTreeNode root = (DefaultMutableTreeNode) model.getRoot();
-//        if(root.getChildCount()>3){
-//            JOptionPane.showMessageDialog(this, "Esta Clase Ya tiene los metodos Configurados", "Advertencia", 0);
+//        if (txtConfiguracion.getText().equals("Ingrese los Atributos:")) {
 //            
-//        }//pendiente
-
-        if (txtConfiguracion.getText().equals("Ingrese los Atributos:")) {
-            DefaultTreeModel modelArbol = (DefaultTreeModel) actualT.getModel();
-            DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modelArbol.getRoot();
-            for (int i = 0; i < raiz.getChildCount(); i++) {
-                if (raiz.getChildAt(i).toString().equals("<Atributos>")) {
-                    DefaultMutableTreeNode p = new DefaultMutableTreeNode(Codigo);
-                    ((DefaultMutableTreeNode) raiz.getChildAt(i)).add(p);
-                }
-            }
-        } else if (txtConfiguracion.getText().equals("Ingrese los Métodos:")) {
-            DefaultTreeModel modelArbol = (DefaultTreeModel) actualT.getModel();
-            DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modelArbol.getRoot();
-            for (int i = 0; i < raiz.getChildCount(); i++) {
-                if (raiz.getChildAt(i).toString().equals("<Metodos>")) {
-                    DefaultMutableTreeNode p = new DefaultMutableTreeNode(Codigo);
-                    ((DefaultMutableTreeNode) raiz.getChildAt(i)).add(p);
-                }
-            }
-        }
-        this.repaint();
+//        } else if (txtConfiguracion.getText().equals("Ingrese los Métodos:")) {
+//            DefaultTreeModel modelArbol = (DefaultTreeModel) actualT.getModel();
+//            DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modelArbol.getRoot();
+//            for (int i = 0; i < raiz.getChildCount(); i++) {
+//                if (raiz.getChildAt(i).toString().equals("<Metodos>")) {
+//                    DefaultMutableTreeNode p = new DefaultMutableTreeNode(Codigo);
+//                    ((DefaultMutableTreeNode) raiz.getChildAt(i)).add(p);
+//                }
+//            }
+//        }
+//        this.repaint();
     }//GEN-LAST:event_jbConfigurarMouseClicked
 
     private void jmiCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiCodigoActionPerformed
@@ -1943,66 +2045,61 @@ public class PanelPrincipal extends javax.swing.JFrame {
         String c = "";
         try {
             if (centinela == 2) {
-                for (int I = 0; I < clases.size(); I++) {
-                    //ESTO ES PARA GENERAR LOS ATRIBUTOS
-                    String ATRIBUTO = "";
-                    DefaultTreeModel model = (DefaultTreeModel) clases.get(I).getModel();
-                    DefaultMutableTreeNode root = (DefaultMutableTreeNode) model.getRoot();
-                    for (int i = 0; i < root.getChildCount(); i++) {
-                        if (root.getChildAt(i).toString().equals("<Atributos>")) {
-                            ATRIBUTO = "" + (DefaultMutableTreeNode) root.getChildAt(i).getChildAt(0);
-                        }
-                    }
-                    String tipo, variable;
-                    String atributos = "";
-                    String[] Split = ATRIBUTO.split(";");
-                    for (int i = 0; i < Split.length; i++) {
-                        String[] S = Split[i].split(":");
-                        tipo = S[1];
-                        variable = S[0];
-                        String alcance = "";
-                        if (variable.charAt(0) == '+') {
-                            tipo = tipo.replace("" + variable.charAt(0), "");
-                            alcance = "public ";
-                        }
-                        if (variable.charAt(0) == '-') {
-                            tipo = tipo.replace("" + variable.charAt(0), "");
-                            alcance = "private ";
-                        }
-                        if (variable.charAt(0) == '#') {
-                            tipo = tipo.replace("" + variable.charAt(0), "");
-                            alcance = "protected ";
-                        }
-                        atributos += alcance + tipo + " " + variable + ";\n";
-                        tipo = "";
-                        variable = "";
-                        S = null;
-                    }
-                    c
-                            = "#include <iostream>\n"
-                            + "using namespace std;\n\n"
-                            + "public calss " + model.getRoot() + " {\n"
-                            + atributos
-                            + "}";
-
-                    System.out.println(ATRIBUTO);
-                    taCodigo.append("CLASE" + I + "\n" + c + "\n");
-                    atributos = "";
+                for (int i = 0; i < clases.size(); i++) {
+                    CodigoDiagramaDeClases cod = new CodigoDiagramaDeClases((JTree) clases.get(i));
+                    cod.Inicio();
+                    cod.Atributos();
+                    cod.Final();
+                    c += cod.getCodigo();
                 }
+                taCodigo.setText(c);
             }
-            jdCodigo.setVisible(true);
-            jdCodigo.pack();
-            jdCodigo.setModal(true);
-            jdCodigo.setLocationRelativeTo(this);
             jPanel1.setBackground(Color.BLACK);
+            jdCodigo.setModal(true);
+            jdCodigo.pack();
+            jdCodigo.setLocationRelativeTo(this);
+            jdCodigo.setVisible(true);
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Ocurrió un Error! \nEs probable que usted haya Ingresado mal un Dato.", "Error", 0);
+            JOptionPane.showMessageDialog(null, "Ocurrió un Error! \nEs probable que usted haya Ingresado mal un Dato.", "Error", 0);
         }
     }//GEN-LAST:event_jmiCodigoActionPerformed
 
     private void sptamanioStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_sptamanioStateChanged
         CambiarTamanio();
     }//GEN-LAST:event_sptamanioStateChanged
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        //Se toma el modelo del arbol:
+        DefaultTreeModel modelArbol = (DefaultTreeModel) actualT.getModel();
+        //Se toma la raiz del arbol
+        DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modelArbol.getRoot();
+        //Este String es la variable
+        String X = jcEncapsulamiento.getSelectedItem().toString() + ":_" + jcTipoAtributo.getSelectedItem().toString() + "_" + txNombreAtributo.getText();
+        for (int i = 0; i < raiz.getChildCount(); i++) {
+            if (raiz.getChildAt(i).toString().equals("<Atributos>")) {
+                DefaultMutableTreeNode p = new DefaultMutableTreeNode(X);
+                ((DefaultMutableTreeNode) raiz.getChildAt(i)).add(p);
+            }
+        }
+        JOptionPane.showMessageDialog(this, "Atributo Guardado.", "Atributo", 2);
+        String x = "";
+        DefaultTreeModel model = (DefaultTreeModel) actualT.getModel();
+        DefaultMutableTreeNode root = (DefaultMutableTreeNode) model.getRoot();
+        for (int i = 0; i < root.getChildCount(); i++) {
+            if (root.getChildAt(i).toString().equals("<Atributos>")) {
+                for (int j = 0; j < root.getChildAt(i).getChildCount(); j++) {
+                    x += "" + (DefaultMutableTreeNode) root.getChildAt(i).getChildAt(j) + "\n";
+                }
+            }
+        }
+        txConfiguracion.setText("Atributos de la Clase <<" + model.getRoot() + ">>:\n" + x);
+        x = "";
+        txNombreAtributo.setText("");
+    }//GEN-LAST:event_jButton2MouseClicked
+
+    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton4MouseClicked
 
     /**
      * @param args the command line arguments
@@ -2127,7 +2224,9 @@ public class PanelPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btSubproceso;
     private javax.swing.JButton jBTamanio;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -2143,6 +2242,14 @@ public class PanelPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -2151,6 +2258,8 @@ public class PanelPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -2160,6 +2269,12 @@ public class PanelPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jbGuardarCodigo;
     private javax.swing.JButton jbSetTexto;
     private javax.swing.JButton jbtDiagramaClases;
+    private javax.swing.JComboBox<String> jcEncapsulamiento;
+    private javax.swing.JComboBox<String> jcEncapsulamiento1;
+    private javax.swing.JComboBox<String> jcTipoAtributo;
+    private javax.swing.JComboBox<String> jcTipoAtributo1;
+    private javax.swing.JDialog jdAgregarAtributo;
+    private javax.swing.JDialog jdAgregarMetodo;
     private javax.swing.JDialog jdCodigo;
     private javax.swing.JDialog jdNuevo;
     private javax.swing.JMenuItem jmiAbrir;
@@ -2191,6 +2306,8 @@ public class PanelPrincipal extends javax.swing.JFrame {
     private javax.swing.JSpinner sptamanio;
     private javax.swing.JTextArea taCodigo;
     private javax.swing.JTextArea txConfiguracion;
+    private javax.swing.JTextField txNombreAtributo;
+    private javax.swing.JTextField txNombreAtributo1;
     private javax.swing.JTextField txSeleccionado;
     private javax.swing.JTextField txSeleccionado1;
     private javax.swing.JLabel txtConfiguracion;
@@ -2212,7 +2329,6 @@ public class PanelPrincipal extends javax.swing.JFrame {
     int desicion = 1;
     ArrayList nombresdeclase = new ArrayList();
     ArrayList<JTree> clases = new ArrayList();
-    String Codigo;
     int centinela;
     int clickA = 0;
     int clickM = 0;
