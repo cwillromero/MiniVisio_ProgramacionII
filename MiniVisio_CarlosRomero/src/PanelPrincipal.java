@@ -83,6 +83,8 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jmiEliminarArbol = new javax.swing.JMenuItem();
         jmiMetodos = new javax.swing.JMenuItem();
         jmiAtributos = new javax.swing.JMenuItem();
+        jmiColorClase = new javax.swing.JMenuItem();
+        jmiFuente = new javax.swing.JMenuItem();
         jdCodigo = new javax.swing.JDialog();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -299,6 +301,22 @@ public class PanelPrincipal extends javax.swing.JFrame {
         });
         ppMenuClases.add(jmiAtributos);
 
+        jmiColorClase.setText("Cambiar Color de Clase");
+        jmiColorClase.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiColorClaseActionPerformed(evt);
+            }
+        });
+        ppMenuClases.add(jmiColorClase);
+
+        jmiFuente.setText("Cambiar Fuente");
+        jmiFuente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiFuenteActionPerformed(evt);
+            }
+        });
+        ppMenuClases.add(jmiFuente);
+
         jdCodigo.setTitle("Código");
         jdCodigo.setMinimumSize(new java.awt.Dimension(600, 500));
 
@@ -328,17 +346,17 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 54, Short.MAX_VALUE)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 507, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(53, 53, 53))
+                .addGap(0, 27, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 555, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(191, 191, 191)
-                        .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(182, 182, 182)
+                        .addComponent(jbGuardarCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(179, 179, 179)
-                        .addComponent(jbGuardarCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(194, 194, 194)
+                        .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -346,10 +364,10 @@ public class PanelPrincipal extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 373, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jbGuardarCodigo)
-                .addContainerGap(64, Short.MAX_VALUE))
+                .addGap(18, 18, 18))
         );
 
         javax.swing.GroupLayout jdCodigoLayout = new javax.swing.GroupLayout(jdCodigo.getContentPane());
@@ -377,6 +395,11 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jcEncapsulamiento.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
         jcEncapsulamiento.setForeground(new java.awt.Color(51, 0, 51));
         jcEncapsulamiento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "private", "public", "protected" }));
+        jcEncapsulamiento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcEncapsulamientoActionPerformed(evt);
+            }
+        });
         jPanel2.add(jcEncapsulamiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, 162, 20));
 
         jLabel22.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -386,7 +409,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
 
         jcTipoAtributo.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
         jcTipoAtributo.setForeground(new java.awt.Color(51, 0, 51));
-        jcTipoAtributo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "int", "long", "float", "double", "bool", "char", "wchar_t" }));
+        jcTipoAtributo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "int", "long", "float", "double", "string", "bool", "char", "wchar_t" }));
         jPanel2.add(jcTipoAtributo, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, 162, 20));
 
         jLabel23.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -404,6 +427,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jLabel25.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel25.setForeground(new java.awt.Color(255, 255, 255));
         jLabel25.setText("Tipo de Atributo:");
+        jLabel25.setName("hahsadbsnbdnbsdnbavnbdnasbdnbasndbvsnabvdnbsavdnbsa"); // NOI18N
         jPanel2.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 114, 20));
 
         jButton2.setBackground(new java.awt.Color(204, 204, 255));
@@ -439,7 +463,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
 
         jcTipoMetodo.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
         jcTipoMetodo.setForeground(new java.awt.Color(51, 0, 51));
-        jcTipoMetodo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "void", "int", "long", "float", "double", "bool", "char", "wchar_t" }));
+        jcTipoMetodo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "void", "int", "long", "float", "double", "bool", "char", "string", "wchar_t" }));
         jPanel3.add(jcTipoMetodo, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, 162, 20));
 
         jLabel27.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -1996,6 +2020,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
                     CodigoDiagramaDeClases cod = new CodigoDiagramaDeClases((JTree) clases.get(i));
                     cod.Inicio();
                     cod.Atributos();
+                    cod.Constructor();
                     cod.Final();
                     c += cod.getCodigo();
                 }
@@ -2021,7 +2046,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
         //Se toma la raiz del arbol
         DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modelArbol.getRoot();
         //Este String es la variable
-        String X = jcEncapsulamiento.getSelectedItem().toString() + ":_" + jcTipoAtributo.getSelectedItem().toString() + "_" + txNombreAtributo.getText();
+        String X = jcEncapsulamiento.getSelectedItem().toString() + ": " + jcTipoAtributo.getSelectedItem().toString() + " " + txNombreAtributo.getText();
         for (int i = 0; i < raiz.getChildCount(); i++) {
             if (raiz.getChildAt(i).toString().equals("<Atributos>")) {
                 DefaultMutableTreeNode p = new DefaultMutableTreeNode(X);
@@ -2071,6 +2096,22 @@ public class PanelPrincipal extends javax.swing.JFrame {
         txtConfiguracion.setText("Métodos:");
         txNombreMetodo.setText("");
     }//GEN-LAST:event_jButton4MouseClicked
+
+    private void jmiColorClaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiColorClaseActionPerformed
+        actualT.setBackground(JColorChooser.showDialog(this, "Seleccione el Color:", Color.WHITE));
+        this.repaint();
+    }//GEN-LAST:event_jmiColorClaseActionPerformed
+
+    private void jmiFuenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiFuenteActionPerformed
+        String[] Fuentes = GraphicsEnvironment.getLocalGraphicsEnvironment().getAvailableFontFamilyNames();
+        fuente = (String) JOptionPane.showInputDialog(null, "Seleccione una Fuente:", "Fuentes", 3, null, Fuentes, Fuentes[0]);
+        actualT.setFont(new java.awt.Font(fuente, 1, 11));
+        this.repaint();
+    }//GEN-LAST:event_jmiFuenteActionPerformed
+
+    private void jcEncapsulamientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcEncapsulamientoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jcEncapsulamientoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -2254,8 +2295,10 @@ public class PanelPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jmiCambiarFuente;
     private javax.swing.JMenuItem jmiCambiarTexto;
     private javax.swing.JMenuItem jmiCodigo;
+    private javax.swing.JMenuItem jmiColorClase;
     private javax.swing.JMenuItem jmiColorTexto;
     private javax.swing.JMenuItem jmiEliminarArbol;
+    private javax.swing.JMenuItem jmiFuente;
     private javax.swing.JMenuItem jmiGuardar;
     private javax.swing.JMenuItem jmiGuardarComo;
     private javax.swing.JMenuItem jmiMetodos;
@@ -2300,6 +2343,4 @@ public class PanelPrincipal extends javax.swing.JFrame {
     ArrayList nombresdeclase = new ArrayList();
     ArrayList<JTree> clases = new ArrayList();
     int centinela;
-    int clickA = 0;
-    int clickM = 0;
 }

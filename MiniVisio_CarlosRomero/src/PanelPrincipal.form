@@ -231,6 +231,22 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jmiAtributosActionPerformed"/>
           </Events>
         </MenuItem>
+        <MenuItem class="javax.swing.JMenuItem" name="jmiColorClase">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Cambiar Color de Clase"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jmiColorClaseActionPerformed"/>
+          </Events>
+        </MenuItem>
+        <MenuItem class="javax.swing.JMenuItem" name="jmiFuente">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Cambiar Fuente"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jmiFuenteActionPerformed"/>
+          </Events>
+        </MenuItem>
       </SubComponents>
     </Container>
     <Container class="javax.swing.JDialog" name="jdCodigo">
@@ -279,19 +295,19 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="0" pref="54" max="32767" attributes="0"/>
-                      <Component id="jScrollPane3" min="-2" pref="507" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="27" max="32767" attributes="0"/>
+                      <Component id="jScrollPane3" min="-2" pref="555" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="191" max="-2" attributes="0"/>
-                              <Component id="jLabel16" min="-2" pref="197" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="182" max="-2" attributes="0"/>
+                              <Component id="jbGuardarCodigo" min="-2" pref="223" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="179" max="-2" attributes="0"/>
-                              <Component id="jbGuardarCodigo" min="-2" pref="223" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="194" max="-2" attributes="0"/>
+                              <Component id="jLabel16" min="-2" pref="197" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
@@ -303,10 +319,10 @@
                   <Group type="102" alignment="1" attributes="0">
                       <Component id="jLabel16" min="-2" pref="61" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jScrollPane3" min="-2" pref="327" max="-2" attributes="0"/>
+                      <Component id="jScrollPane3" pref="373" max="32767" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jbGuardarCodigo" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="64" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -411,6 +427,9 @@
                   </StringArray>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jcEncapsulamientoActionPerformed"/>
+              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
@@ -445,14 +464,15 @@
                   <Color blue="33" green="0" red="33" type="rgb"/>
                 </Property>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="7">
+                  <StringArray count="8">
                     <StringItem index="0" value="int"/>
                     <StringItem index="1" value="long"/>
                     <StringItem index="2" value="float"/>
                     <StringItem index="3" value="double"/>
-                    <StringItem index="4" value="bool"/>
-                    <StringItem index="5" value="char"/>
-                    <StringItem index="6" value="wchar_t"/>
+                    <StringItem index="4" value="string"/>
+                    <StringItem index="5" value="bool"/>
+                    <StringItem index="6" value="char"/>
+                    <StringItem index="7" value="wchar_t"/>
                   </StringArray>
                 </Property>
               </Properties>
@@ -514,6 +534,7 @@
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Tipo de Atributo:"/>
+                <Property name="name" type="java.lang.String" value="hahsadbsnbdnbsdnbavnbdnasbdnbasndbvsnabvdnbsavdnbsa" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -628,7 +649,7 @@
                   <Color blue="33" green="0" red="33" type="rgb"/>
                 </Property>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="8">
+                  <StringArray count="9">
                     <StringItem index="0" value="void"/>
                     <StringItem index="1" value="int"/>
                     <StringItem index="2" value="long"/>
@@ -636,7 +657,8 @@
                     <StringItem index="4" value="double"/>
                     <StringItem index="5" value="bool"/>
                     <StringItem index="6" value="char"/>
-                    <StringItem index="7" value="wchar_t"/>
+                    <StringItem index="7" value="string"/>
+                    <StringItem index="8" value="wchar_t"/>
                   </StringArray>
                 </Property>
               </Properties>
