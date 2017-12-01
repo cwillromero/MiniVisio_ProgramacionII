@@ -2,8 +2,11 @@
 import com.sun.xml.internal.bind.v2.schemagen.episode.Klass;
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Component;
+import java.awt.Container;
 import java.awt.Cursor;
 import java.awt.Dimension;
+import java.awt.Graphics2D;
 import java.awt.GraphicsEnvironment;
 import java.awt.Image;
 import java.awt.Point;
@@ -12,9 +15,13 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.BorderFactory;
 import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
@@ -124,6 +131,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jLabel33 = new javax.swing.JLabel();
         jbAgregarParametro = new javax.swing.JButton();
         jcTipoParametro = new javax.swing.JComboBox<>();
+        jMenuItem2 = new javax.swing.JMenuItem();
         jpTexto = new javax.swing.JPanel();
         jButton3 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
@@ -574,6 +582,8 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jPanel4.add(jcTipoParametro, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, 150, 20));
 
         jdParametro.getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 300, 210));
+
+        jMenuItem2.setText("jMenuItem2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("MiniVisio - Carlos Wilfredo Romero Maradiaga");
@@ -1192,7 +1202,12 @@ public class PanelPrincipal extends javax.swing.JFrame {
         mArchivo.add(jmiGuardar);
 
         jmiGuardarComo.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_G, java.awt.event.InputEvent.ALT_MASK));
-        jmiGuardarComo.setText("Guardar como");
+        jmiGuardarComo.setText("Guardar Diagrama Como");
+        jmiGuardarComo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiGuardarComoActionPerformed(evt);
+            }
+        });
         mArchivo.add(jmiGuardarComo);
 
         jmiCodigo.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.ALT_MASK));
@@ -1277,8 +1292,8 @@ public class PanelPrincipal extends javax.swing.JFrame {
         centinela = 1;
         jmiCodigo.setEnabled(true);
         jmiCodigo.setEnabled(true);
-        clases=new ArrayList();
-        nombresdeclase=new ArrayList();
+        clases = new ArrayList();
+        nombresdeclase = new ArrayList();
         this.repaint();
     }//GEN-LAST:event_btNuevoDiagramaDeFlujoMouseClicked
 
@@ -2451,8 +2466,15 @@ public class PanelPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jmPropiedadesMouseClicked
 
     private void stamanioclaseStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_stamanioclaseStateChanged
-        actualT.setFont(new java.awt.Font(fuenteclase, 1,(Integer) stamanioclase.getValue()));
+        actualT.setFont(new java.awt.Font(fuenteclase, 1, (Integer) stamanioclase.getValue()));
     }//GEN-LAST:event_stamanioclaseStateChanged
+
+    private void jmiGuardarComoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiGuardarComoActionPerformed
+        GuardarImagen img = new GuardarImagen();
+        img.setBase(jpBase);
+        img.CrearImagen();
+        img.EscribirImagen();
+    }//GEN-LAST:event_jmiGuardarComoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -2543,7 +2565,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
 
     public void CambiarFuente() {
         String[] Fuentes = GraphicsEnvironment.getLocalGraphicsEnvironment().getAvailableFontFamilyNames();
-        fuente = (String) JOptionPane.showInputDialog(null, "Seleccione una Fuente:", "Fuentes", 3, null, Fuentes, Fuentes[0]);
+        fuente = (String) JOptionPane.showInputDialog(this, "Seleccione una Fuente:", "Fuentes", 3, null, Fuentes, Fuentes[0]);
         actual.setFont(new java.awt.Font(fuente, 1, (Integer) sptamanio.getValue()));
         this.repaint();
     }
@@ -2615,6 +2637,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
