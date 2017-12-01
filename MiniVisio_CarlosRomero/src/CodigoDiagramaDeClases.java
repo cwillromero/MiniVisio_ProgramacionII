@@ -58,10 +58,10 @@ public class CodigoDiagramaDeClases {
         DefaultMutableTreeNode root = (DefaultMutableTreeNode) model.getRoot();
         String atributo;
         String ListaAtributos = "";
-        String publico="   public:\n";
-        String privado ="   private:\n";
-        String protecte="   protected:\n";
-        String demas="";
+        String publico = "   public:\n";
+        String privado = "   private:\n";
+        String protecte = "   protected:\n";
+        String demas = "";
         for (int i = 0; i < root.getChildCount(); i++) {
             if (root.getChildAt(i).toString().equals("<Atributos>")) {
                 for (int j = 0; j < root.getChildAt(i).getChildCount(); j++) {
@@ -70,19 +70,28 @@ public class CodigoDiagramaDeClases {
                     String alcance = componentes[0];
                     String tipo = componentes[1];
                     String identificador = componentes[2];
-                    if(alcance.equals("public:")){
-                        publico+="      "+tipo + " " + identificador + ";\n";
-                    }else if(alcance.equals("private:")){
-                        privado+="      "+tipo + " " + identificador + ";\n";
-                    }else if(alcance.equals("protected:")){
-                        protecte+="      "+tipo + " " + identificador + ";\n";
-                    }else{
-                        demas+="   "+alcance+" "+tipo + " " + identificador + ";\n";
+                    if (alcance.equals("public:")) {
+                        publico += "      " + tipo + " " + identificador + ";\n";
+                    } else if (alcance.equals("private:")) {
+                        privado += "      " + tipo + " " + identificador + ";\n";
+                    } else if (alcance.equals("protected:")) {
+                        protecte += "      " + tipo + " " + identificador + ";\n";
+                    } else {
+                        demas += "   " + alcance + " " + tipo + " " + identificador + ";\n";
                     }
                 }
             }
         }
-        ListaAtributos = publico+privado+protecte;
+        if(publico.equals("   public:\n")){
+            publico="";
+        }
+        if(privado.equals("   private:\n")){
+            privado="";
+        }
+        if(protecte.equals("   protected:\n")){
+            protecte="";
+        }
+        ListaAtributos = publico + privado + protecte;
         Codigo += ListaAtributos;
     }
 
@@ -120,10 +129,45 @@ public class CodigoDiagramaDeClases {
                 + "      //Constructor\n" + "      "
                 + model.getRoot().toString()
                 + "(" + ListaAtributos + ");\n";
-        String ConstructorporDefecto = "   public:\n"
-                + "      //Constructor por Defecto\n" + "      "
+        String ConstructorporDefecto = "      //Constructor por Defecto\n" + "      "
                 + model.getRoot().toString()
                 + "(" + " " + ");\n";
         Codigo += NombreConstructor + ConstructorporDefecto;
+    }
+
+    public void Metodo() {
+        DefaultTreeModel model = (DefaultTreeModel) arbol.getModel();
+        DefaultMutableTreeNode root = (DefaultMutableTreeNode) model.getRoot();
+        String metodo;
+        String Metodo = "      //Metodos Miembros de la Clase\n";
+        for (int i = 0; i < root.getChildCount(); i++) {
+            if (root.getChildAt(i).toString().equals("<Metodos>")) {
+                for (int j = 0; j < root.getChildAt(i).getChildCount(); j++) {
+                    metodo = "" + (DefaultMutableTreeNode) root.getChildAt(i).getChildAt(j);
+                    String[] componentes = metodo.split("_");
+                    String tipo = componentes[0];
+                    String nombre = componentes[1];
+                    String parametros = componentes[2];
+                    if (parametros.equals("|")) {
+                        Metodo +="      "+ tipo + " " + nombre + " ( );\n";
+                    } else {
+                        String variables = "";
+                        String[] Parametros = parametros.split(",");
+                        for (int k = 0; k < Parametros.length; k++) {
+                            String[] X = Parametros[k].split(":");
+                            String tipop = X[0];
+                            String nombrep = X[1];
+                            if (k == Parametros.length - 1) {
+                                variables += tipop + " " + nombrep;
+                            } else {
+                                variables += tipop + " " + nombrep + ",";
+                            }
+                        }
+                        Metodo +="      "+ tipo + " " + nombre + " (" + variables + ");\n";
+                    }
+                }
+            }
+        }
+        Codigo += Metodo;
     }
 }

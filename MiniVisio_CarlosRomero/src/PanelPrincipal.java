@@ -5,7 +5,9 @@ import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.GraphicsEnvironment;
+import java.awt.Image;
 import java.awt.Point;
+import java.awt.Toolkit;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.WindowAdapter;
@@ -54,6 +56,9 @@ public class PanelPrincipal extends javax.swing.JFrame {
         mDiseno.setVisible(false);
         txConfiguracion.setEditable(false);
         txConfiguracion.setEnabled(false);
+        jpPropiedadesClase.setVisible(false);
+        jmPropiedades.setVisible(false);
+        jmPropiedades.setEnabled(false);
     }
 
     /**
@@ -81,8 +86,8 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         ppMenuClases = new javax.swing.JPopupMenu();
         jmiEliminarArbol = new javax.swing.JMenuItem();
-        jmiMetodos = new javax.swing.JMenuItem();
         jmiAtributos = new javax.swing.JMenuItem();
+        jmiMetodos = new javax.swing.JMenuItem();
         jmiColorClase = new javax.swing.JMenuItem();
         jmiFuente = new javax.swing.JMenuItem();
         jdCodigo = new javax.swing.JDialog();
@@ -103,24 +108,44 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jdAgregarMetodo = new javax.swing.JDialog();
         jPanel3 = new javax.swing.JPanel();
-        jcEncapsulamientoMetodo = new javax.swing.JComboBox<>();
+        jcParametros = new javax.swing.JComboBox<>();
         jLabel26 = new javax.swing.JLabel();
         jcTipoMetodo = new javax.swing.JComboBox<>();
         jLabel27 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
         txNombreMetodo = new javax.swing.JTextField();
         jLabel29 = new javax.swing.JLabel();
-        jButton4 = new javax.swing.JButton();
+        jbAgregarMetodo = new javax.swing.JButton();
+        jdParametro = new javax.swing.JDialog();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel30 = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
+        txNombreParametro = new javax.swing.JTextField();
+        jLabel33 = new javax.swing.JLabel();
+        jbAgregarParametro = new javax.swing.JButton();
+        jcTipoParametro = new javax.swing.JComboBox<>();
         jpTexto = new javax.swing.JPanel();
         jButton3 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jbSetTexto = new javax.swing.JButton();
-        jBTamanio = new javax.swing.JButton();
         sptamanio = new javax.swing.JSpinner();
+        jLabel35 = new javax.swing.JLabel();
+        jLabel36 = new javax.swing.JLabel();
+        jpPropiedadesClase = new javax.swing.JPanel();
+        jbVerMetodos = new javax.swing.JButton();
+        jbVerAtributo = new javax.swing.JButton();
+        jbMetodo = new javax.swing.JButton();
+        jbAtributo = new javax.swing.JButton();
+        jbColorClase = new javax.swing.JButton();
+        jbFuenteClase = new javax.swing.JButton();
+        stamanioclase = new javax.swing.JSpinner();
+        jLabel32 = new javax.swing.JLabel();
+        jLabel34 = new javax.swing.JLabel();
         jpDiseno = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jbEliminar = new javax.swing.JButton();
         jmiPropiedades = new javax.swing.JButton();
+        jmiPropiedades1 = new javax.swing.JButton();
         jpBase0 = new javax.swing.JPanel();
         PanelClase = new javax.swing.JPanel();
         txtConfiguracion = new javax.swing.JLabel();
@@ -169,6 +194,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jmiAcercaDe = new javax.swing.JMenuItem();
         mEdiciontx = new javax.swing.JMenu();
         mDiseno = new javax.swing.JMenu();
+        jmPropiedades = new javax.swing.JMenu();
 
         miEliminar.setText("Eliminar");
         miEliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -284,15 +310,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
         });
         ppMenuClases.add(jmiEliminarArbol);
 
-        jmiMetodos.setText("Agregar Métodos");
-        jmiMetodos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jmiMetodosActionPerformed(evt);
-            }
-        });
-        ppMenuClases.add(jmiMetodos);
-
-        jmiAtributos.setText("Agregar Atributos");
+        jmiAtributos.setText("Ver y Agregar Atributos");
         jmiAtributos.setActionCommand("");
         jmiAtributos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -300,6 +318,14 @@ public class PanelPrincipal extends javax.swing.JFrame {
             }
         });
         ppMenuClases.add(jmiAtributos);
+
+        jmiMetodos.setText("Agregar Métodos");
+        jmiMetodos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiMetodosActionPerformed(evt);
+            }
+        });
+        ppMenuClases.add(jmiMetodos);
 
         jmiColorClase.setText("Cambiar Color de Clase");
         jmiColorClase.addActionListener(new java.awt.event.ActionListener() {
@@ -451,10 +477,15 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(51, 0, 0));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jcEncapsulamientoMetodo.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
-        jcEncapsulamientoMetodo.setForeground(new java.awt.Color(51, 0, 51));
-        jcEncapsulamientoMetodo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "private", "public", "protected" }));
-        jPanel3.add(jcEncapsulamientoMetodo, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, 162, 20));
+        jcParametros.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        jcParametros.setForeground(new java.awt.Color(51, 0, 51));
+        jcParametros.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ninguno", "Agregar Parámetro" }));
+        jcParametros.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jcParametrosItemStateChanged(evt);
+            }
+        });
+        jPanel3.add(jcParametros, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, 162, 20));
 
         jLabel26.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel26.setForeground(new java.awt.Color(255, 255, 255));
@@ -474,7 +505,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
 
         jLabel28.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel28.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel28.setText("Encapsulamiento");
+        jLabel28.setText("Parámetros:");
         jPanel3.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 114, 20));
         jPanel3.add(txNombreMetodo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 260, -1));
 
@@ -483,18 +514,66 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jLabel29.setText("Tipo de Método");
         jPanel3.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 114, 20));
 
-        jButton4.setBackground(new java.awt.Color(204, 204, 255));
-        jButton4.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(51, 0, 51));
-        jButton4.setText("Agregar");
-        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+        jbAgregarMetodo.setBackground(new java.awt.Color(204, 204, 255));
+        jbAgregarMetodo.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        jbAgregarMetodo.setForeground(new java.awt.Color(51, 0, 51));
+        jbAgregarMetodo.setText("Agregar");
+        jbAgregarMetodo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton4MouseClicked(evt);
+                jbAgregarMetodoMouseClicked(evt);
             }
         });
-        jPanel3.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 210, -1, -1));
+        jPanel3.add(jbAgregarMetodo, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 210, -1, -1));
 
         jdAgregarMetodo.getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 300, 300));
+
+        jdParametro.setTitle("Parámetros");
+        jdParametro.setMinimumSize(new java.awt.Dimension(300, 200));
+        jdParametro.setResizable(false);
+        jdParametro.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel4.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel30.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel30.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel30.setText("Nombre de Parámetro:");
+        jPanel4.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 130, 20));
+
+        jLabel31.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel31.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel31.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel31.setText("Parámetro");
+        jPanel4.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 0, 114, 20));
+        jPanel4.add(txNombreParametro, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 260, -1));
+
+        jLabel33.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel33.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel33.setText("Tipo de Parámetro:");
+        jPanel4.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 114, 20));
+
+        jbAgregarParametro.setBackground(new java.awt.Color(204, 204, 255));
+        jbAgregarParametro.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        jbAgregarParametro.setForeground(new java.awt.Color(51, 0, 51));
+        jbAgregarParametro.setText("Agregar");
+        jbAgregarParametro.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jbAgregarParametroMouseClicked(evt);
+            }
+        });
+        jbAgregarParametro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbAgregarParametroActionPerformed(evt);
+            }
+        });
+        jPanel4.add(jbAgregarParametro, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, -1, -1));
+
+        jcTipoParametro.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        jcTipoParametro.setForeground(new java.awt.Color(51, 0, 51));
+        jcTipoParametro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "int", "long", "float", "double", "string", "bool", "char", "wchar_t" }));
+        jPanel4.add(jcTipoParametro, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, 150, 20));
+
+        jdParametro.getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 300, 210));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("MiniVisio - Carlos Wilfredo Romero Maradiaga");
@@ -518,7 +597,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
                 jButton3MouseClicked(evt);
             }
         });
-        jpTexto.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 20, 170, 40));
+        jpTexto.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 20, 170, 40));
 
         jButton5.setBackground(new java.awt.Color(153, 153, 255));
         jButton5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -529,7 +608,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
                 jButton5MouseClicked(evt);
             }
         });
-        jpTexto.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 20, 170, 40));
+        jpTexto.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 20, 170, 40));
 
         jbSetTexto.setBackground(new java.awt.Color(153, 255, 153));
         jbSetTexto.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -540,28 +619,128 @@ public class PanelPrincipal extends javax.swing.JFrame {
                 jbSetTextoMouseClicked(evt);
             }
         });
-        jpTexto.add(jbSetTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 170, 40));
+        jpTexto.add(jbSetTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 170, 40));
 
-        jBTamanio.setBackground(new java.awt.Color(0, 51, 102));
-        jBTamanio.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jBTamanio.setForeground(new java.awt.Color(0, 204, 204));
-        jBTamanio.setText("Cambiar Tamaño de Texto");
-        jBTamanio.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jBTamanioMouseClicked(evt);
-            }
-        });
-        jpTexto.add(jBTamanio, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 20, 180, 40));
-
+        sptamanio.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
         sptamanio.setModel(new javax.swing.SpinnerNumberModel(11, 3, 36, 1));
         sptamanio.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 sptamanioStateChanged(evt);
             }
         });
-        jpTexto.add(sptamanio, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 20, 60, 40));
+        jpTexto.add(sptamanio, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 20, 60, 40));
+
+        jLabel35.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        jLabel35.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel35.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel35.setText("Tamaño");
+        jpTexto.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 20, 80, 20));
+
+        jLabel36.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        jLabel36.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel36.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel36.setText("Texto");
+        jpTexto.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 40, 80, 20));
 
         getContentPane().add(jpTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 10, 950, 70));
+
+        jpPropiedadesClase.setBackground(new java.awt.Color(0, 102, 102));
+        jpPropiedadesClase.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jpPropiedadesClase.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jbVerMetodos.setBackground(new java.awt.Color(51, 0, 0));
+        jbVerMetodos.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jbVerMetodos.setForeground(new java.awt.Color(255, 204, 204));
+        jbVerMetodos.setText("Ver Métodos");
+        jbVerMetodos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jbVerMetodosMouseClicked(evt);
+            }
+        });
+        jpPropiedadesClase.add(jbVerMetodos, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 20, 130, 40));
+
+        jbVerAtributo.setBackground(new java.awt.Color(0, 0, 51));
+        jbVerAtributo.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jbVerAtributo.setForeground(new java.awt.Color(204, 204, 255));
+        jbVerAtributo.setText("Ver Atributos");
+        jbVerAtributo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jbVerAtributoMouseClicked(evt);
+            }
+        });
+        jpPropiedadesClase.add(jbVerAtributo, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 20, 130, 40));
+
+        jbMetodo.setBackground(new java.awt.Color(153, 255, 153));
+        jbMetodo.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jbMetodo.setForeground(new java.awt.Color(102, 0, 0));
+        jbMetodo.setText("Agregar Métodos");
+        jbMetodo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jbMetodoMouseClicked(evt);
+            }
+        });
+        jpPropiedadesClase.add(jbMetodo, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 20, 130, 40));
+
+        jbAtributo.setBackground(new java.awt.Color(0, 51, 51));
+        jbAtributo.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jbAtributo.setForeground(new java.awt.Color(204, 255, 204));
+        jbAtributo.setText("Agregar Atributos");
+        jbAtributo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jbAtributoMouseClicked(evt);
+            }
+        });
+        jpPropiedadesClase.add(jbAtributo, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 20, 130, 40));
+
+        jbColorClase.setBackground(new java.awt.Color(51, 0, 51));
+        jbColorClase.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jbColorClase.setForeground(new java.awt.Color(255, 204, 204));
+        jbColorClase.setText("Color Clase");
+        jbColorClase.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jbColorClaseMouseClicked(evt);
+            }
+        });
+        jbColorClase.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbColorClaseActionPerformed(evt);
+            }
+        });
+        jpPropiedadesClase.add(jbColorClase, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 20, 110, 40));
+
+        jbFuenteClase.setBackground(new java.awt.Color(204, 204, 255));
+        jbFuenteClase.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jbFuenteClase.setForeground(new java.awt.Color(51, 0, 51));
+        jbFuenteClase.setText("Fuente");
+        jbFuenteClase.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jbFuenteClaseMouseClicked(evt);
+            }
+        });
+        jpPropiedadesClase.add(jbFuenteClase, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 110, 40));
+
+        stamanioclase.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        stamanioclase.setModel(new javax.swing.SpinnerNumberModel(11, 11, null, 1));
+        stamanioclase.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                stamanioclaseStateChanged(evt);
+            }
+        });
+        jpPropiedadesClase.add(stamanioclase, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 20, 50, 40));
+
+        jLabel32.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        jLabel32.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel32.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel32.setText("Texto");
+        jpPropiedadesClase.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 40, 80, 20));
+
+        jLabel34.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        jLabel34.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel34.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel34.setText("Tamaño");
+        jpPropiedadesClase.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 20, 80, 20));
+
+        getContentPane().add(jpPropiedadesClase, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 10, 950, 70));
 
         jpDiseno.setBackground(new java.awt.Color(0, 102, 102));
         jpDiseno.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -576,11 +755,11 @@ public class PanelPrincipal extends javax.swing.JFrame {
                 jButton1MouseClicked(evt);
             }
         });
-        jpDiseno.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 20, 170, 40));
+        jpDiseno.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 20, 170, 40));
 
-        jbEliminar.setBackground(new java.awt.Color(153, 255, 153));
+        jbEliminar.setBackground(new java.awt.Color(255, 153, 153));
         jbEliminar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jbEliminar.setForeground(new java.awt.Color(102, 0, 0));
+        jbEliminar.setForeground(new java.awt.Color(51, 0, 0));
         jbEliminar.setText("Eliminar Componente");
         jbEliminar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -589,8 +768,17 @@ public class PanelPrincipal extends javax.swing.JFrame {
         });
         jpDiseno.add(jbEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 170, 40));
 
-        jmiPropiedades.setText("Propiedades");
-        jpDiseno.add(jmiPropiedades, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 20, 170, 40));
+        jmiPropiedades.setBackground(new java.awt.Color(51, 0, 51));
+        jmiPropiedades.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jmiPropiedades.setForeground(new java.awt.Color(255, 204, 204));
+        jmiPropiedades.setText("Agregar Propiedades");
+        jpDiseno.add(jmiPropiedades, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 20, 170, 40));
+
+        jmiPropiedades1.setBackground(new java.awt.Color(0, 0, 51));
+        jmiPropiedades1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jmiPropiedades1.setForeground(new java.awt.Color(204, 204, 255));
+        jmiPropiedades1.setText("Ver Propiedades");
+        jpDiseno.add(jmiPropiedades1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 20, 170, 40));
 
         getContentPane().add(jpDiseno, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 10, 950, 70));
 
@@ -1050,6 +1238,16 @@ public class PanelPrincipal extends javax.swing.JFrame {
         });
         mbPrincipal.add(mDiseno);
 
+        jmPropiedades.setForeground(new java.awt.Color(247, 173, 124));
+        jmPropiedades.setText("Propiedades");
+        jmPropiedades.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jmPropiedades.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jmPropiedadesMouseClicked(evt);
+            }
+        });
+        mbPrincipal.add(jmPropiedades);
+
         setJMenuBar(mbPrincipal);
 
         pack();
@@ -1059,7 +1257,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jdNuevo.getContentPane().setBackground(Color.WHITE);
         jdNuevo.setModal(true);
         jdNuevo.pack();
-        jdNuevo.setLocationRelativeTo(this);      
+        jdNuevo.setLocationRelativeTo(this);
         jdNuevo.setVisible(true);
     }//GEN-LAST:event_jmiNuevoActionPerformed
 
@@ -1079,6 +1277,8 @@ public class PanelPrincipal extends javax.swing.JFrame {
         centinela = 1;
         jmiCodigo.setEnabled(true);
         jmiCodigo.setEnabled(true);
+        clases=new ArrayList();
+        nombresdeclase=new ArrayList();
         this.repaint();
     }//GEN-LAST:event_btNuevoDiagramaDeFlujoMouseClicked
 
@@ -1312,6 +1512,8 @@ public class PanelPrincipal extends javax.swing.JFrame {
         txConfiguracion.setEditable(false);
         txSeleccionado1.setText("");
         jdAgregarAtributo.setVisible(false);
+        jpPropiedadesClase.setVisible(false);
+        jmPropiedades.setEnabled(false);
     }//GEN-LAST:event_jpBaseMouseClicked
 
     private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
@@ -1344,6 +1546,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
         clases = new ArrayList();
         nombresdeclase = new ArrayList();
         this.repaint();
+        jmPropiedades.setVisible(true);
     }//GEN-LAST:event_jbtDiagramaClasesMouseClicked
 
     private void jmiCambiarTextoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiCambiarTextoActionPerformed
@@ -1366,18 +1569,6 @@ public class PanelPrincipal extends javax.swing.JFrame {
         EliminarComponente();
     }//GEN-LAST:event_jbEliminarMouseClicked
 
-    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
-        CambiarColorTexto();
-    }//GEN-LAST:event_jButton3MouseClicked
-
-    private void jbSetTextoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbSetTextoMouseClicked
-        CambiarTexto();
-    }//GEN-LAST:event_jbSetTextoMouseClicked
-
-    private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
-        CambiarFuente();
-    }//GEN-LAST:event_jButton5MouseClicked
-
     private void mEdiciontxMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mEdiciontxMouseClicked
         // TODO add your handling code here:
         if (mDiseno.isEnabled()) {
@@ -1389,10 +1580,6 @@ public class PanelPrincipal extends javax.swing.JFrame {
     private void jmiCambiarFuenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiCambiarFuenteActionPerformed
         CambiarFuente();
     }//GEN-LAST:event_jmiCambiarFuenteActionPerformed
-
-    private void jBTamanioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBTamanioMouseClicked
-        CambiarTamanio();
-    }//GEN-LAST:event_jBTamanioMouseClicked
 
     private void btInicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btInicioMouseClicked
         String Nombre = "Inicio/Finalizacion";
@@ -1906,6 +2093,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
         arbol.addMouseListener(new MouseListener() {
             public void mouseClicked(MouseEvent evt) {
                 actualT = arbol;
+                jmPropiedades.setEnabled(true);
                 txSeleccionado1.setText(modelo.getRoot().toString());
                 int row = arbol.getClosestRowForLocation(evt.getX(), evt.getY());
                 arbol.setSelectionRow(row);
@@ -1958,8 +2146,13 @@ public class PanelPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btClaseMouseClicked
 
     private void jmiEliminarArbolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiEliminarArbolActionPerformed
+        DefaultTreeModel model = (DefaultTreeModel) actualT.getModel();
+        nombresdeclase.remove(model.getRoot().toString());
+        clases.remove(actualT);
         jpBase.remove(actualT);
         txSeleccionado1.setText("");
+        System.out.println(clases);
+        System.out.println(nombresdeclase);
         this.repaint();
     }//GEN-LAST:event_jmiEliminarArbolActionPerformed
 
@@ -2021,6 +2214,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
                     cod.Inicio();
                     cod.Atributos();
                     cod.Constructor();
+                    cod.Metodo();
                     cod.Final();
                     c += cod.getCodigo();
                 }
@@ -2032,13 +2226,10 @@ public class PanelPrincipal extends javax.swing.JFrame {
             jdCodigo.setLocationRelativeTo(this);
             jdCodigo.setVisible(true);
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Ocurrió un Error! \nEs probable que usted haya Ingresado mal un Dato.", "Error", 0);
+            JOptionPane.showMessageDialog(null, "Ocurrió un Error! \nEs probable que usted haya Ingresado mal un Dato.\nFavor Revisar las Clases", "Error", 0);
+            e.printStackTrace();
         }
     }//GEN-LAST:event_jmiCodigoActionPerformed
-
-    private void sptamanioStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_sptamanioStateChanged
-        CambiarTamanio();
-    }//GEN-LAST:event_sptamanioStateChanged
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         //Se toma el modelo del arbol:
@@ -2070,10 +2261,13 @@ public class PanelPrincipal extends javax.swing.JFrame {
         txNombreAtributo.setText("");
     }//GEN-LAST:event_jButton2MouseClicked
 
-    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
+    private void jbAgregarMetodoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbAgregarMetodoMouseClicked
+        if (jcParametros.getSelectedIndex() == 0) {
+            parametros = "|";
+        }
         DefaultTreeModel modelArbol = (DefaultTreeModel) actualT.getModel();
         DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modelArbol.getRoot();
-        String X = jcEncapsulamientoMetodo.getSelectedItem().toString() + ":_" + jcTipoMetodo.getSelectedItem().toString() + "_" + txNombreMetodo.getText();
+        String X = jcTipoMetodo.getSelectedItem().toString() + "_" + txNombreMetodo.getText() + "_" + parametros;
         for (int i = 0; i < raiz.getChildCount(); i++) {
             if (raiz.getChildAt(i).toString().equals("<Metodos>")) {
                 DefaultMutableTreeNode p = new DefaultMutableTreeNode(X);
@@ -2095,7 +2289,10 @@ public class PanelPrincipal extends javax.swing.JFrame {
         x = "";
         txtConfiguracion.setText("Métodos:");
         txNombreMetodo.setText("");
-    }//GEN-LAST:event_jButton4MouseClicked
+        jcParametros.setSelectedIndex(0);
+        parametros = " ";
+        this.repaint();
+    }//GEN-LAST:event_jbAgregarMetodoMouseClicked
 
     private void jmiColorClaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiColorClaseActionPerformed
         actualT.setBackground(JColorChooser.showDialog(this, "Seleccione el Color:", Color.WHITE));
@@ -2112,6 +2309,150 @@ public class PanelPrincipal extends javax.swing.JFrame {
     private void jcEncapsulamientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcEncapsulamientoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jcEncapsulamientoActionPerformed
+
+    private void jbAgregarParametroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbAgregarParametroMouseClicked
+        parametros += jcTipoParametro.getSelectedItem().toString() + ":" + txNombreParametro.getText() + ",";
+        JOptionPane.showMessageDialog(jdParametro, "Parámetro Guardado", "Parámetros", 2);
+        txNombreParametro.setText("");
+    }//GEN-LAST:event_jbAgregarParametroMouseClicked
+
+    private void jcParametrosItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jcParametrosItemStateChanged
+        //Con esto vemos si el que está seleccionado es la de Agreagr Parametro para mostarr el Jdialog de agregar parametros
+        if (jcParametros.getSelectedItem().equals("Agregar Parámetro")) {
+            jdParametro.setModal(true);
+            jdParametro.pack();
+            jdParametro.setLocationRelativeTo(this);
+            jdParametro.setVisible(true);
+        }
+    }//GEN-LAST:event_jcParametrosItemStateChanged
+
+    private void jbAgregarParametroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAgregarParametroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbAgregarParametroActionPerformed
+
+    private void jbVerMetodosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbVerMetodosMouseClicked
+        String x = "";
+        DefaultTreeModel model = (DefaultTreeModel) actualT.getModel();
+        DefaultMutableTreeNode root = (DefaultMutableTreeNode) model.getRoot();
+        for (int i = 0; i < root.getChildCount(); i++) {
+            if (root.getChildAt(i).toString().equals("<Metodos>")) {
+                for (int j = 0; j < root.getChildAt(i).getChildCount(); j++) {
+                    x += "" + (DefaultMutableTreeNode) root.getChildAt(i).getChildAt(j) + "\n";
+                }
+            }
+        }
+        txConfiguracion.setText("Métodos de la Clase <<" + model.getRoot() + ">>:\n" + x);
+        x = "";
+        txConfiguracion.setEnabled(true);
+        txtConfiguracion.setText("Métodos:");
+        txConfiguracion.setEditable(false);
+        JOptionPane.showMessageDialog(this, "Vea el Panel de la Izquierda.", "Información", 1);
+    }//GEN-LAST:event_jbVerMetodosMouseClicked
+
+    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
+        CambiarColorTexto();
+    }//GEN-LAST:event_jButton3MouseClicked
+
+    private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
+        CambiarFuente();
+    }//GEN-LAST:event_jButton5MouseClicked
+
+    private void jbSetTextoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbSetTextoMouseClicked
+        CambiarTexto();
+    }//GEN-LAST:event_jbSetTextoMouseClicked
+
+    private void sptamanioStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_sptamanioStateChanged
+        CambiarTamanio();
+    }//GEN-LAST:event_sptamanioStateChanged
+
+    private void jbVerAtributoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbVerAtributoMouseClicked
+        String x = "";
+        DefaultTreeModel model = (DefaultTreeModel) actualT.getModel();
+        DefaultMutableTreeNode root = (DefaultMutableTreeNode) model.getRoot();
+        for (int i = 0; i < root.getChildCount(); i++) {
+            if (root.getChildAt(i).toString().equals("<Atributos>")) {
+                for (int j = 0; j < root.getChildAt(i).getChildCount(); j++) {
+                    x += "" + (DefaultMutableTreeNode) root.getChildAt(i).getChildAt(j) + "\n";
+                }
+            }
+        }
+        txConfiguracion.setText("Atributos de la Clase <<" + model.getRoot() + ">>:\n" + x);
+        txConfiguracion.setEnabled(true);
+        txtConfiguracion.setText("Atributos:");
+        txConfiguracion.setEditable(false);
+        x = "";
+        JOptionPane.showMessageDialog(this, "Vea el Panel de la Izquierda.", "Información", 1);
+    }//GEN-LAST:event_jbVerAtributoMouseClicked
+
+    private void jbMetodoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbMetodoMouseClicked
+        String x = "";
+        DefaultTreeModel model = (DefaultTreeModel) actualT.getModel();
+        DefaultMutableTreeNode root = (DefaultMutableTreeNode) model.getRoot();
+        for (int i = 0; i < root.getChildCount(); i++) {
+            if (root.getChildAt(i).toString().equals("<Metodos>")) {
+                for (int j = 0; j < root.getChildAt(i).getChildCount(); j++) {
+                    x += "" + (DefaultMutableTreeNode) root.getChildAt(i).getChildAt(j) + "\n";
+                }
+            }
+        }
+        txConfiguracion.setText("Métodos de la Clase <<" + model.getRoot() + ">>:\n" + x);
+        x = "";
+        txConfiguracion.setEnabled(true);
+        txtConfiguracion.setText("Métodos:");
+        txConfiguracion.setEditable(false);
+        jdAgregarMetodo.setModal(true);
+        jdAgregarMetodo.pack();
+        jdAgregarMetodo.setLocationRelativeTo(this);
+        jdAgregarMetodo.setVisible(true);
+    }//GEN-LAST:event_jbMetodoMouseClicked
+
+    private void jbAtributoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbAtributoMouseClicked
+        String x = "";
+        DefaultTreeModel model = (DefaultTreeModel) actualT.getModel();
+        DefaultMutableTreeNode root = (DefaultMutableTreeNode) model.getRoot();
+        for (int i = 0; i < root.getChildCount(); i++) {
+            if (root.getChildAt(i).toString().equals("<Atributos>")) {
+                for (int j = 0; j < root.getChildAt(i).getChildCount(); j++) {
+                    x += "" + (DefaultMutableTreeNode) root.getChildAt(i).getChildAt(j) + "\n";
+                }
+            }
+        }
+        txConfiguracion.setText("Atributos de la Clase <<" + model.getRoot() + ">>:\n" + x);
+        txConfiguracion.setEnabled(true);
+        txtConfiguracion.setText("Atributos:");
+        txConfiguracion.setEditable(false);
+        x = "";
+        jdAgregarAtributo.setModal(true);
+        jdAgregarAtributo.pack();
+        jdAgregarAtributo.setLocationRelativeTo(this);
+        jdAgregarAtributo.setVisible(true);
+    }//GEN-LAST:event_jbAtributoMouseClicked
+
+    private void jbColorClaseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbColorClaseMouseClicked
+        actualT.setBackground(JColorChooser.showDialog(this, "Seleccione el Color:", Color.WHITE));
+        this.repaint();
+    }//GEN-LAST:event_jbColorClaseMouseClicked
+
+    private void jbFuenteClaseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbFuenteClaseMouseClicked
+        String[] Fuentes = GraphicsEnvironment.getLocalGraphicsEnvironment().getAvailableFontFamilyNames();
+        fuenteclase = (String) JOptionPane.showInputDialog(null, "Seleccione una Fuente:", "Fuentes", 3, null, Fuentes, Fuentes[0]);
+        actualT.setFont(new java.awt.Font(fuenteclase, 1, 11));
+        this.repaint();
+    }//GEN-LAST:event_jbFuenteClaseMouseClicked
+
+    private void jbColorClaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbColorClaseActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbColorClaseActionPerformed
+
+    private void jmPropiedadesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jmPropiedadesMouseClicked
+        if (jmPropiedades.isEnabled()) {
+            jpPropiedadesClase.setVisible(true);
+        }
+    }//GEN-LAST:event_jmPropiedadesMouseClicked
+
+    private void stamanioclaseStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_stamanioclaseStateChanged
+        actualT.setFont(new java.awt.Font(fuenteclase, 1,(Integer) stamanioclase.getValue()));
+    }//GEN-LAST:event_stamanioclaseStateChanged
 
     /**
      * @param args the command line arguments
@@ -2234,11 +2575,9 @@ public class PanelPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btSeparadorV;
     private javax.swing.JButton btSeparadorV1;
     private javax.swing.JButton btSubproceso;
-    private javax.swing.JButton jBTamanio;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -2263,6 +2602,13 @@ public class PanelPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -2272,22 +2618,35 @@ public class PanelPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable jTable1;
+    private javax.swing.JButton jbAgregarMetodo;
+    private javax.swing.JButton jbAgregarMetodos1;
+    private javax.swing.JButton jbAgregarParametro;
+    private javax.swing.JButton jbAtributo;
+    private javax.swing.JButton jbColorClase;
     private javax.swing.JButton jbEliminar;
+    private javax.swing.JButton jbFuenteClase;
     private javax.swing.JButton jbGuardarCodigo;
+    private javax.swing.JButton jbMetodo;
     private javax.swing.JButton jbSetTexto;
+    private javax.swing.JButton jbVerAtributo;
+    private javax.swing.JButton jbVerMetodos;
     private javax.swing.JButton jbtDiagramaClases;
     private javax.swing.JComboBox<String> jcEncapsulamiento;
-    private javax.swing.JComboBox<String> jcEncapsulamientoMetodo;
+    private javax.swing.JComboBox<String> jcParametros;
     private javax.swing.JComboBox<String> jcTipoAtributo;
     private javax.swing.JComboBox<String> jcTipoMetodo;
+    private javax.swing.JComboBox<String> jcTipoParametro;
     private javax.swing.JDialog jdAgregarAtributo;
     private javax.swing.JDialog jdAgregarMetodo;
     private javax.swing.JDialog jdCodigo;
     private javax.swing.JDialog jdNuevo;
+    private javax.swing.JDialog jdParametro;
+    private javax.swing.JMenu jmPropiedades;
     private javax.swing.JMenuItem jmiAbrir;
     private javax.swing.JMenuItem jmiAcercaDe;
     private javax.swing.JMenuItem jmiAtributos;
@@ -2304,10 +2663,13 @@ public class PanelPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jmiMetodos;
     private javax.swing.JMenuItem jmiNuevo;
     private javax.swing.JButton jmiPropiedades;
+    private javax.swing.JButton jmiPropiedades1;
     private javax.swing.JPanel jpBase;
     private javax.swing.JPanel jpBase0;
     private javax.swing.JPanel jpDiseno;
+    private javax.swing.JPanel jpPropiedadesClase;
     private javax.swing.JPanel jpTexto;
+    private javax.swing.JPanel jpTexto2;
     private javax.swing.JLabel lbFondo;
     private javax.swing.JMenu mArchivo;
     private javax.swing.JMenu mDiseno;
@@ -2317,16 +2679,19 @@ public class PanelPrincipal extends javax.swing.JFrame {
     private javax.swing.JPopupMenu ppMenu;
     private javax.swing.JPopupMenu ppMenuClases;
     private javax.swing.JSpinner sptamanio;
+    private javax.swing.JSpinner stamanioclase;
     private javax.swing.JTextArea taCodigo;
     private javax.swing.JTextArea txConfiguracion;
     private javax.swing.JTextField txNombreAtributo;
     private javax.swing.JTextField txNombreMetodo;
+    private javax.swing.JTextField txNombreParametro;
     private javax.swing.JTextField txSeleccionado;
     private javax.swing.JTextField txSeleccionado1;
     private javax.swing.JLabel txtConfiguracion;
     // End of variables declaration//GEN-END:variables
     Color color;
     String fuente = "Tahoma";
+    String fuenteclase = "Tahoma";
     JLabel actual = null;
     JTree actualT = null;
     DefaultMutableTreeNode nodoS;
@@ -2343,4 +2708,5 @@ public class PanelPrincipal extends javax.swing.JFrame {
     ArrayList nombresdeclase = new ArrayList();
     ArrayList<JTree> clases = new ArrayList();
     int centinela;
+    String parametros = " ";
 }
