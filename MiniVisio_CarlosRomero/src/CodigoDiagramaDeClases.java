@@ -96,7 +96,7 @@ public class CodigoDiagramaDeClases {
     }
 
     public void Final() {
-        Codigo += "};\n_____________________________________________________\n";
+        Codigo += "};\n___________________________________________________________________________\n";
     }
 
     public void Constructor() {
