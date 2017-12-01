@@ -28,7 +28,6 @@ public class GuardarImagen {
 
     private JPanel base = new JPanel();
     private File archivo = null;
-    JFileChooser jfc = new JFileChooser();
     BufferedImage Imagen;
     int seleccion;
 
@@ -43,52 +42,51 @@ public class GuardarImagen {
         this.base = Base;
     }
 
-    public void CrearImagen(){
+    public void CrearImagen() {
         //ESTO CREA LA IMAGEN SOLO CON EL TAMAÑO DEL PANEL
-        this.Imagen=new BufferedImage(base.getWidth(), base.getHeight(), BufferedImage.TYPE_INT_RGB);
+        this.Imagen = new BufferedImage(base.getWidth(), base.getHeight(), BufferedImage.TYPE_INT_RGB);
         //ESTO TOMA LOS COMPONENTES DE LA IMAGEN(EN CUANTO AL DIAGRAMA DE CLASES, PARA
         //PODER VER SUS COMPONENTE SE NECESITA QUE EL ARBOL ESTE DESPLEGAD0)
         Graphics G = Imagen.getGraphics();
         base.paintAll(G);
     }
-    
-    public void EscribirImagen(){
+
+    public boolean EscribirImagen() {
+        archivo = null;
+        JFileChooser jfc = new JFileChooser();
+        //Extensiones
+        FileNameExtensionFilter filtro = new FileNameExtensionFilter("Imagen PNG", "PNG");
+        jfc.addChoosableFileFilter(filtro);
+        FileNameExtensionFilter filtro1 = new FileNameExtensionFilter("Imagen JPG-JPEG", "JPEG");
+        jfc.addChoosableFileFilter(filtro1);
+        FileNameExtensionFilter filtro2 = new FileNameExtensionFilter("Imagen GIF", "GIF");
+        jfc.addChoosableFileFilter(filtro2);
+        FileNameExtensionFilter filtro3 = new FileNameExtensionFilter("Archivo PDF", "PDF");
+        jfc.addChoosableFileFilter(filtro3);
+        //FORMATO ELEGIDO
+        String formato;
         //ESTO TOMA LA RUTA ELEGIDA POR EL USUARIO
         seleccion = jfc.showSaveDialog(base);
-        //LA LISTA DE LOS FORMATOS EN QUE SE PUEDE GUARDAR
-        String[] S={"JPEG","JPG","PNG","BMP","GIF","PDF"};
-        //ESTE PONE LA EXTENSION
-        String formato=(String)JOptionPane.showInputDialog(null, "Seleccione un Formato:", "Formato", 3, null, S, S[0]);
-        archivo = new File(jfc.getSelectedFile().getPath()+"."+formato);
+        if (jfc.getFileFilter().getDescription().equals("Imagen PNG")) {
+            formato = "PNG";
+        }else if (jfc.getFileFilter().getDescription().equals("Imagen JPG-JPEG")) {
+            formato = "JPEG";
+        }else if (jfc.getFileFilter().getDescription().equals("Imagen GIF")) {
+            formato = "GIF";
+        }else if (jfc.getFileFilter().getDescription().equals("Archivo PDF")) {
+            JOptionPane.showMessageDialog(null, "Todavía en Desarrollo", "En Desarrollo", 0);
+            return false;
+        }else{
+            formato = "PNG";
+        }
+        archivo = new File(jfc.getSelectedFile().getPath() + "." + formato);
         try {
             //ESTE GUARDA LA IMAGEN
             ImageIO.write(Imagen, formato, archivo);
-            JOptionPane.showMessageDialog(null, "Archivo "+formato+" guardado correctamente.", "Guardar", 3);
+            JOptionPane.showMessageDialog(null, "Archivo " + formato + " guardado correctamente.", "Guardar", 3);
         } catch (IOException e) {
-            System.out.println("Error de escritura");
+            JOptionPane.showMessageDialog(null, "Error al guardar Archivo-", "Error", 0);
         }
-//        String formato;
-//        FileNameExtensionFilter filtro = new FileNameExtensionFilter("Imagen PNG", "PNG");
-//        jfc.addChoosableFileFilter(filtro);
-//        FileNameExtensionFilter filtro1 = new FileNameExtensionFilter("Imagen JPG-JPEG", "JPEG");
-//        jfc.addChoosableFileFilter(filtro1);
-//        FileNameExtensionFilter filtro2 = new FileNameExtensionFilter("Imagen BPM", "BPM");
-//        jfc.addChoosableFileFilter(filtro2);
-//        FileNameExtensionFilter filtro3 = new FileNameExtensionFilter("Archivo PDF", "PDF");
-//        jfc.addChoosableFileFilter(filtro3);
-//        //ESTO TOMA LA RUTA ELEGIDA POR EL USUARIO
-//        seleccion = jfc.showSaveDialog(base);
-//        //IMPLEMENTA LAS EXTENSIONES
-//        if (jfc.getFileFilter().getDescription().equals("Imagen PNG")) {
-//            formato = "PNG";
-//        }else if (jfc.getFileFilter().getDescription().equals("Imagen JPEG")) {
-//            formato = "JPEG";
-//        }else if (jfc.getFileFilter().getDescription().equals("Imagen BPM")) {
-//            formato = "BPM";
-//        }else if (jfc.getFileFilter().getDescription().equals("Archivo PDF")) {
-//            formato = "PDF";
-//        }else{
-//            formato = "PNG";
-//        }
+        return true;
     }
 }
