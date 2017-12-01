@@ -24,14 +24,14 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  *
  * @author Will
  */
-public class GuardarImagen {
+public class GuardarComo {
 
     private JPanel base = new JPanel();
     private File archivo = null;
     BufferedImage Imagen;
     int seleccion;
 
-    public GuardarImagen() {
+    public GuardarComo() {
     }
 
     public JPanel getBase() {
@@ -52,6 +52,7 @@ public class GuardarImagen {
     }
 
     public boolean EscribirImagen() {
+        try{
         archivo = null;
         JFileChooser jfc = new JFileChooser();
         //Extensiones
@@ -85,7 +86,9 @@ public class GuardarImagen {
             ImageIO.write(Imagen, formato, archivo);
             JOptionPane.showMessageDialog(null, "Archivo " + formato + " guardado correctamente.", "Guardar", 3);
         } catch (IOException e) {
-            JOptionPane.showMessageDialog(null, "Error al guardar Archivo-", "Error", 0);
+            JOptionPane.showMessageDialog(null, "Error al guardar Archivo.", "Error", 0);
+        }
+        }catch(Exception e){  
         }
         return true;
     }

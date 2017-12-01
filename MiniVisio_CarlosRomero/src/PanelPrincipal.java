@@ -16,6 +16,7 @@ import java.awt.event.MouseListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -26,6 +27,7 @@ import javax.swing.BorderFactory;
 import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
 import javax.swing.JColorChooser;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -34,9 +36,11 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTree;
 import javax.swing.SwingConstants;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
+import javax.swing.tree.TreeNode;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -66,6 +70,9 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jpPropiedadesClase.setVisible(false);
         jmPropiedades.setVisible(false);
         jmPropiedades.setEnabled(false);
+        jmiGDiagramaFlujo.setEnabled(false);
+        jmiGDiagramaClases.setEnabled(false);
+        jmiAbrir.setEnabled(false);
     }
 
     /**
@@ -196,7 +203,9 @@ public class PanelPrincipal extends javax.swing.JFrame {
         mArchivo = new javax.swing.JMenu();
         jmiNuevo = new javax.swing.JMenuItem();
         jmiAbrir = new javax.swing.JMenuItem();
-        jmiGuardar = new javax.swing.JMenuItem();
+        jMenu1 = new javax.swing.JMenu();
+        jmiGDiagramaFlujo = new javax.swing.JMenuItem();
+        jmiGDiagramaClases = new javax.swing.JMenuItem();
         jmiGuardarComo = new javax.swing.JMenuItem();
         jmiCodigo = new javax.swing.JMenuItem();
         jmiAcercaDe = new javax.swing.JMenuItem();
@@ -251,7 +260,6 @@ public class PanelPrincipal extends javax.swing.JFrame {
 
         btNuevoDiagramaDeFlujo.setBackground(new java.awt.Color(255, 255, 255));
         btNuevoDiagramaDeFlujo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/DiagramaDeFlujo.png"))); // NOI18N
-        btNuevoDiagramaDeFlujo.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btNuevoDiagramaDeFlujo.setMaximumSize(new java.awt.Dimension(153, 153));
         btNuevoDiagramaDeFlujo.setMinimumSize(new java.awt.Dimension(153, 153));
         btNuevoDiagramaDeFlujo.setPreferredSize(new java.awt.Dimension(153, 153));
@@ -260,12 +268,16 @@ public class PanelPrincipal extends javax.swing.JFrame {
                 btNuevoDiagramaDeFlujoMouseClicked(evt);
             }
         });
+        btNuevoDiagramaDeFlujo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btNuevoDiagramaDeFlujoActionPerformed(evt);
+            }
+        });
         jdNuevo.getContentPane().add(btNuevoDiagramaDeFlujo);
         btNuevoDiagramaDeFlujo.setBounds(50, 130, 170, 160);
 
         jbtDiagramaClases.setBackground(new java.awt.Color(255, 255, 255));
         jbtDiagramaClases.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Diagrama de Clases.png"))); // NOI18N
-        jbtDiagramaClases.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jbtDiagramaClases.setMaximumSize(new java.awt.Dimension(153, 153));
         jbtDiagramaClases.setMinimumSize(new java.awt.Dimension(153, 153));
         jbtDiagramaClases.setPreferredSize(new java.awt.Dimension(153, 153));
@@ -1195,11 +1207,29 @@ public class PanelPrincipal extends javax.swing.JFrame {
 
         jmiAbrir.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_MASK));
         jmiAbrir.setText("Abrir");
+        jmiAbrir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiAbrirActionPerformed(evt);
+            }
+        });
         mArchivo.add(jmiAbrir);
 
-        jmiGuardar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_G, java.awt.event.InputEvent.CTRL_MASK));
-        jmiGuardar.setText("Guardar");
-        mArchivo.add(jmiGuardar);
+        jMenu1.setText("Guardar Diagrama");
+
+        jmiGDiagramaFlujo.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.CTRL_MASK));
+        jmiGDiagramaFlujo.setText("Diagrama De Flujo");
+        jMenu1.add(jmiGDiagramaFlujo);
+
+        jmiGDiagramaClases.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
+        jmiGDiagramaClases.setText("Diagrama de Clases");
+        jmiGDiagramaClases.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiGDiagramaClasesActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jmiGDiagramaClases);
+
+        mArchivo.add(jMenu1);
 
         jmiGuardarComo.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_G, java.awt.event.InputEvent.ALT_MASK));
         jmiGuardarComo.setText("Guardar Diagrama Como");
@@ -1274,6 +1304,10 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jdNuevo.pack();
         jdNuevo.setLocationRelativeTo(this);
         jdNuevo.setVisible(true);
+        jpPropiedadesClase.setVisible(false);
+        jpDiseno.setVisible(false);
+        jpTexto.setVisible(false);
+        jmiAbrir.setEnabled(true);
     }//GEN-LAST:event_jmiNuevoActionPerformed
 
     private void mArchivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mArchivoActionPerformed
@@ -1294,6 +1328,8 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jmiCodigo.setEnabled(true);
         clases = new ArrayList();
         nombresdeclase = new ArrayList();
+        jmiGDiagramaClases.setEnabled(false);
+        jmiGDiagramaFlujo.setEnabled(true);
         this.repaint();
     }//GEN-LAST:event_btNuevoDiagramaDeFlujoMouseClicked
 
@@ -1560,8 +1596,10 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jmiCodigo.setEnabled(true);
         clases = new ArrayList();
         nombresdeclase = new ArrayList();
-        this.repaint();
+        jmiGDiagramaClases.setEnabled(true);
+        jmiGDiagramaFlujo.setEnabled(false);
         jmPropiedades.setVisible(true);
+        this.repaint();
     }//GEN-LAST:event_jbtDiagramaClasesMouseClicked
 
     private void jmiCambiarTextoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiCambiarTextoActionPerformed
@@ -2259,7 +2297,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
                 ((DefaultMutableTreeNode) raiz.getChildAt(i)).add(p);
             }
         }
-        JOptionPane.showMessageDialog(this, "Atributo Guardado.", "Atributo", 2);
+        JOptionPane.showMessageDialog(this, "Atributo Guardado.", "Atributo", 3);
         String x = "";
         DefaultTreeModel model = (DefaultTreeModel) actualT.getModel();
         DefaultMutableTreeNode root = (DefaultMutableTreeNode) model.getRoot();
@@ -2289,7 +2327,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
                 ((DefaultMutableTreeNode) raiz.getChildAt(i)).add(p);
             }
         }
-        JOptionPane.showMessageDialog(this, "Método Guardado.", "Método", 2);
+        JOptionPane.showMessageDialog(this, "Método Guardado.", "Método", 3);
         String x = "";
         DefaultTreeModel model = (DefaultTreeModel) actualT.getModel();
         DefaultMutableTreeNode root = (DefaultMutableTreeNode) model.getRoot();
@@ -2327,7 +2365,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
 
     private void jbAgregarParametroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbAgregarParametroMouseClicked
         parametros += jcTipoParametro.getSelectedItem().toString() + ":" + txNombreParametro.getText() + ",";
-        JOptionPane.showMessageDialog(jdParametro, "Parámetro Guardado", "Parámetros", 2);
+        JOptionPane.showMessageDialog(jdParametro, "Parámetro Guardado", "Parámetros", 3);
         txNombreParametro.setText("");
     }//GEN-LAST:event_jbAgregarParametroMouseClicked
 
@@ -2470,11 +2508,25 @@ public class PanelPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_stamanioclaseStateChanged
 
     private void jmiGuardarComoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiGuardarComoActionPerformed
-        GuardarImagen img = new GuardarImagen();
+        GuardarComo img = new GuardarComo();
         img.setBase(jpBase);
         img.CrearImagen();
         img.EscribirImagen();
     }//GEN-LAST:event_jmiGuardarComoActionPerformed
+
+    private void jmiGDiagramaClasesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiGDiagramaClasesActionPerformed
+        GuardarDiagramaDeClases("Diagrama de Clases", "DDC", "Diagramas De Clases");
+    }//GEN-LAST:event_jmiGDiagramaClasesActionPerformed
+
+    private void jmiAbrirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiAbrirActionPerformed
+        if(centinela==2){
+            AbrirDiagramaDeClases();
+        }
+    }//GEN-LAST:event_jmiAbrirActionPerformed
+
+    private void btNuevoDiagramaDeFlujoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNuevoDiagramaDeFlujoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btNuevoDiagramaDeFlujoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -2581,6 +2633,111 @@ public class PanelPrincipal extends javax.swing.JFrame {
         this.repaint();
     }
 
+    public void GuardarDiagramaDeClases(String Nombre, String Extension, String Tipo) {
+        JFileChooser jfc = new JFileChooser();
+        //El tipo de aquí es Diagrama de Clases
+        //La extension "DDC"
+        FileNameExtensionFilter filtro = new FileNameExtensionFilter(Tipo, Extension);
+        jfc.addChoosableFileFilter(filtro);
+        jfc.setSelectedFile(new File(Nombre + "." + Extension));
+        int seleccion = jfc.showSaveDialog(this);
+        if (seleccion == JFileChooser.APPROVE_OPTION) {
+            System.out.println(jfc.getSelectedFile().getPath());
+            AdministracionDiagramaClases ad = new AdministracionDiagramaClases(jfc.getSelectedFile().getPath());
+            ad.CargarArchivo();
+            //Este arreglo toma los componentes del panel donde se ponen las clases
+            Object Clases[] = jpBase.getComponents();
+            System.out.println("Las clases que se guardarán son:");
+            for (int i = 0; i < Clases.length; i++) {
+                ad.AgregarClase((JTree) Clases[i]);
+                System.out.println(Clases[i]);
+            }
+            try {
+                ad.EscribirArchivo();
+            } catch (IOException ex) {
+                Logger.getLogger(JFrame.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            JOptionPane.showMessageDialog(this, "Diagrama de Clases guardado correctamente.", "Guardado", 3);
+        }
+    }
+
+    public void AbrirDiagramaDeClases() {
+        try {
+            JFileChooser jfc = new JFileChooser();
+            FileNameExtensionFilter filtro = new FileNameExtensionFilter("Diagrama de Clases", "DDC");
+            jfc.addChoosableFileFilter(filtro);
+            int seleccion = jfc.showOpenDialog(this);
+            System.out.println(jfc.getSelectedFile().getPath());
+            String Path = jfc.getSelectedFile().getPath();
+            //Esto reinicia la base donde se colocan los diagramas y el arraylist de clases y el de nombre permitidos
+            clases = new ArrayList();
+            nombresdeclase = new ArrayList();
+            jpBase.removeAll();
+            jpBase.repaint();
+            AdministracionDiagramaClases ap = new AdministracionDiagramaClases(Path);
+            ap.CargarArchivo();
+            for (int i = 0; i < ap.getClases().size(); i++) {
+                JTree arbol = ((JTree) ap.getClases().get(i));
+                this.jpBase.add(arbol);
+                //Esto toma el nombre del nodo raiz
+                String nombre = arbol.getModel().getRoot().toString();
+                jpBase.repaint();
+                arbol.addMouseListener(new MouseListener() {
+                    public void mouseClicked(MouseEvent evt) {
+                        actualT = arbol;
+                        jmPropiedades.setEnabled(true);
+                        txSeleccionado1.setText(nombre);
+                        int row = arbol.getClosestRowForLocation(evt.getX(), evt.getY());
+                        arbol.setSelectionRow(row);
+                        Object v1 = arbol.getSelectionPath().getLastPathComponent();
+                        nodoS = (DefaultMutableTreeNode) v1;
+                        if (evt.isMetaDown()) {
+                            ppMenuClases.show(evt.getComponent(), evt.getX(), evt.getY());
+                        }
+                    }
+
+                    public void mouseEntered(MouseEvent arg0) {
+                        arbol.setBorder(BorderFactory.createLineBorder(new java.awt.Color(254, 146, 0), 2));
+                        arbol.setToolTipText(nombre);
+                    }
+
+                    public void mouseExited(MouseEvent arg0) {
+                        arbol.setBorder(BorderFactory.createLineBorder(new java.awt.Color(165, 105, 189), 1));
+                    }
+
+                    public void mousePressed(MouseEvent arg0) {
+                        actualT = arbol;
+                        txSeleccionado1.setText(nombre);
+                    }
+
+                    public void mouseReleased(MouseEvent arg0) {
+                    }
+                });
+                arbol.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+                    public void mouseDragged(java.awt.event.MouseEvent evt) {
+                        actualT = arbol;
+                        txSeleccionado1.setText(nombre);
+                        if (((arbol.getLocation().x + evt.getX() - arbol.getWidth() / 2) > 5)) {
+                            if (((arbol.getLocation().x + evt.getX() - arbol.getWidth() / 2) < 800)) {
+                                if ((arbol.getLocation().y + evt.getY() - arbol.getWidth() / 2) > -15) {
+                                    if ((arbol.getLocation().y + evt.getY() - arbol.getWidth() / 2) < 520) {
+                                        arbol.setLocation(arbol.getLocation().x + evt.getX() - arbol.getWidth() / 2,
+                                                arbol.getLocation().y + evt.getY() - arbol.getHeight() / 2);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+                //Agregar la Clase al ArrayList
+                clases.add(arbol);
+                nombresdeclase.add(nombre);
+                System.out.println(nombre);
+            }
+            JOptionPane.showMessageDialog(this, "Archivo cargado correctamente.","Cargar",3);
+        } catch (Exception e) {
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PanelClase;
@@ -2637,6 +2794,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -2647,7 +2805,6 @@ public class PanelPrincipal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable jTable1;
     private javax.swing.JButton jbAgregarMetodo;
-    private javax.swing.JButton jbAgregarMetodos1;
     private javax.swing.JButton jbAgregarParametro;
     private javax.swing.JButton jbAtributo;
     private javax.swing.JButton jbColorClase;
@@ -2681,7 +2838,8 @@ public class PanelPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jmiColorTexto;
     private javax.swing.JMenuItem jmiEliminarArbol;
     private javax.swing.JMenuItem jmiFuente;
-    private javax.swing.JMenuItem jmiGuardar;
+    private javax.swing.JMenuItem jmiGDiagramaClases;
+    private javax.swing.JMenuItem jmiGDiagramaFlujo;
     private javax.swing.JMenuItem jmiGuardarComo;
     private javax.swing.JMenuItem jmiMetodos;
     private javax.swing.JMenuItem jmiNuevo;
@@ -2692,7 +2850,6 @@ public class PanelPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel jpDiseno;
     private javax.swing.JPanel jpPropiedadesClase;
     private javax.swing.JPanel jpTexto;
-    private javax.swing.JPanel jpTexto2;
     private javax.swing.JLabel lbFondo;
     private javax.swing.JMenu mArchivo;
     private javax.swing.JMenu mDiseno;
