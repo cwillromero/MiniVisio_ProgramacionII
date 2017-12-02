@@ -1608,18 +1608,18 @@
                       <EmptySpace pref="81" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                               <Component id="jLabel21" min="-2" pref="191" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
-                          <Group type="102" attributes="0">
-                              <Component id="btSeparador1" min="-2" pref="139" max="-2" attributes="0"/>
-                              <EmptySpace pref="72" max="32767" attributes="0"/>
-                              <Component id="btSeparadorV1" min="-2" pref="139" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="btSeparador1" min="-2" pref="149" max="-2" attributes="0"/>
                           </Group>
                       </Group>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="btSeparadorV1" min="-2" pref="149" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -1635,8 +1635,8 @@
                       <Component id="jLabel20" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="btSeparadorV1" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
-                          <Component id="btSeparador1" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="btSeparador1" min="-2" pref="107" max="-2" attributes="0"/>
+                          <Component id="btSeparadorV1" min="-2" pref="103" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -1651,7 +1651,7 @@
                       <Component id="txtConfiguracion" min="-2" pref="21" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jScrollPane2" min="-2" pref="143" max="-2" attributes="0"/>
-                      <EmptySpace pref="42" max="32767" attributes="0"/>
+                      <EmptySpace pref="36" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1697,7 +1697,7 @@
                   <Color blue="99" green="ff" red="ff" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/ComponentesDiagramaUML/9.png"/>
+                  <Image iconType="3" name="/ComponentesDiagramaUML/7.png"/>
                 </Property>
               </Properties>
               <Events>
@@ -2083,7 +2083,7 @@
                   <Color blue="99" green="ff" red="ff" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/ComponentesDiagramaUML/9.png"/>
+                  <Image iconType="3" name="/ComponentesDiagramaUML/7.png"/>
                 </Property>
               </Properties>
               <Events>

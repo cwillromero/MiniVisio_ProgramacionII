@@ -827,7 +827,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
         });
 
         btSeparadorV1.setBackground(new java.awt.Color(255, 255, 153));
-        btSeparadorV1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ComponentesDiagramaUML/9.png"))); // NOI18N
+        btSeparadorV1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ComponentesDiagramaUML/7.png"))); // NOI18N
         btSeparadorV1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btSeparadorV1MouseClicked(evt);
@@ -903,15 +903,15 @@ public class PanelPrincipal extends javax.swing.JFrame {
                         .addComponent(txtConfiguracion, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(81, Short.MAX_VALUE))
             .addGroup(PanelClaseLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
                 .addGroup(PanelClaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PanelClaseLayout.createSequentialGroup()
-                        .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(20, 20, 20)
+                        .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(PanelClaseLayout.createSequentialGroup()
-                        .addComponent(btSeparador1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
-                        .addComponent(btSeparadorV1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap()
+                        .addComponent(btSeparador1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btSeparadorV1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         PanelClaseLayout.setVerticalGroup(
@@ -925,8 +925,8 @@ public class PanelPrincipal extends javax.swing.JFrame {
                 .addComponent(jLabel20)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(PanelClaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btSeparadorV1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btSeparador1, javax.swing.GroupLayout.Alignment.LEADING))
+                    .addComponent(btSeparador1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btSeparadorV1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(PanelClaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel18)
@@ -939,7 +939,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
                 .addComponent(txtConfiguracion, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
         jpBase0.add(PanelClase, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 380, 640));
@@ -1020,7 +1020,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
         });
 
         btSeparadorV.setBackground(new java.awt.Color(255, 255, 153));
-        btSeparadorV.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ComponentesDiagramaUML/9.png"))); // NOI18N
+        btSeparadorV.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ComponentesDiagramaUML/7.png"))); // NOI18N
         btSeparadorV.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btSeparadorVMouseClicked(evt);
