@@ -1287,6 +1287,11 @@ public class PanelPrincipal extends javax.swing.JFrame {
 
         jmiGDiagramaFlujo.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.CTRL_MASK));
         jmiGDiagramaFlujo.setText("Diagrama De Flujo");
+        jmiGDiagramaFlujo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiGDiagramaFlujoActionPerformed(evt);
+            }
+        });
         jMGuardar.add(jmiGDiagramaFlujo);
 
         jmiGDiagramaClases.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
@@ -2111,12 +2116,15 @@ public class PanelPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jmiGuardarComoActionPerformed
 
     private void jmiGDiagramaClasesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiGDiagramaClasesActionPerformed
-        GuardarDiagramaDeClases("Diagrama de Clases", "DDC", "Diagramas De Clases");
+        int nombre = (int) Math.floor(Math.random() * 9 + 1);
+        GuardarDiagramaDeClases("DiagramaDeClases" + nombre, "DDC", "Diagramas De Clases");
     }//GEN-LAST:event_jmiGDiagramaClasesActionPerformed
 
     private void jmiAbrirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiAbrirActionPerformed
         if (centinela == 2) {
             AbrirDiagramaDeClases();
+        }else if(centinela==1){
+            AbrirDiagramaDeFlujo();
         }
     }//GEN-LAST:event_jmiAbrirActionPerformed
 
@@ -2151,6 +2159,11 @@ public class PanelPrincipal extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Debe Seleccionar las clases!", "Error", 0);
         }
     }//GEN-LAST:event_jButton4MouseClicked
+
+    private void jmiGDiagramaFlujoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiGDiagramaFlujoActionPerformed
+        int nombre = (int) Math.floor(Math.random() * 9 + 1);
+        GuardarDiagramaDeFlujo("DiagramaDeFlujo" + nombre, "DDF", "Diagrama De Flujo");
+    }//GEN-LAST:event_jmiGDiagramaFlujoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -2193,8 +2206,6 @@ public class PanelPrincipal extends javax.swing.JFrame {
         objeto = new JLabel();
         //Esto es para poder cambiar de color y ponerle ua imagen con fondo trasnparente
         objeto.setOpaque(true);
-        //El nmbre de La Variable
-        objeto.setName(Nombre + "_" + contador);
         //Se le pone un Color aleatorio
         objeto.setBackground(ColorAletorio());
         //Es para que el texto esté en el centro del Label
@@ -2203,8 +2214,8 @@ public class PanelPrincipal extends javax.swing.JFrame {
         //Lo añade al panel
         this.jpBase.add(objeto);
         //Pone una posicio  aleatroio deliminatdo por el tamaño del Panel BASE
-        int x = (int) Math.floor(Math.random() * 801 + 1);
-        int y = (int) Math.floor(Math.random() * 521 + 1);
+        int x = (int) Math.floor(Math.random() * 770 + 1);
+        int y = (int) Math.floor(Math.random() * 530 + 1);
         //se genera e la posicion aleatoria
         objeto.setLocation(x, y);
         //Esta es la imagen que se le pone
@@ -2213,7 +2224,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
         if (Nombre == "Separador" || Nombre == "SeparadorVertical") {
             objeto.setText("");
         } else {
-            objeto.setText(objeto.getName());
+            objeto.setText(Nombre + contador);
         }
         //Se define el tamaño
         objeto.setSize(135, 90);
@@ -2224,7 +2235,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
         objeto.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 actual = objeto;
-                txSeleccionado.setText(objeto.getName());
+                txSeleccionado.setText(objeto.getText());
                 if (((objeto.getLocation().x + evt.getX() - objeto.getWidth() / 2) > 5)) {
                     if (((objeto.getLocation().x + evt.getX() - objeto.getWidth() / 2) < 770)) {
                         if ((objeto.getLocation().y + evt.getY() - objeto.getWidth() / 2) > -15) {
@@ -2240,7 +2251,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
         objeto.addMouseListener(new MouseListener() {
             public void mouseClicked(MouseEvent evt) {
                 actual = objeto;
-                txSeleccionado.setText(objeto.getName());
+                txSeleccionado.setText(objeto.getText());
                 mDiseno.setEnabled(true);
                 mEdiciontx.setEnabled(true);
                 if (evt.isMetaDown()) {
@@ -2251,7 +2262,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
 
             public void mouseEntered(MouseEvent arg0) {
                 objeto.setBorder(BorderFactory.createLineBorder(new java.awt.Color(165, 105, 189), 1));
-                objeto.setToolTipText(objeto.getName());
+                objeto.setToolTipText(objeto.getText());
             }
 
             public void mouseExited(MouseEvent arg0) {
@@ -2259,7 +2270,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
             }
 
             public void mousePressed(MouseEvent arg0) {
-                txSeleccionado.setText(objeto.getName());
+                txSeleccionado.setText(objeto.getText());
                 actual = objeto;
             }
 
@@ -2348,7 +2359,6 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jfc.setSelectedFile(new File(Nombre + "." + Extension));
         int seleccion = jfc.showSaveDialog(this);
         if (seleccion == JFileChooser.APPROVE_OPTION) {
-            System.out.println(jfc.getSelectedFile().getPath());
             AdministracionDiagramaClases ad = new AdministracionDiagramaClases(jfc.getSelectedFile().getPath());
             ad.CargarArchivo();
             //Este arreglo toma los componentes del panel donde se ponen las clases
@@ -2366,7 +2376,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
             } catch (IOException ex) {
                 Logger.getLogger(JFrame.class.getName()).log(Level.SEVERE, null, ex);
             }
-            JOptionPane.showMessageDialog(this, "Diagrama de Clases guardado correctamente.", "Guardado", 3);
+            JOptionPane.showMessageDialog(this, "Diagrama de Clases guardado correctamente.", "Guardado", 1);
         }
     }
 
@@ -2377,7 +2387,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
             jfc.addChoosableFileFilter(filtro);
             int seleccion = jfc.showOpenDialog(this);
             String Path = jfc.getSelectedFile().getPath();
-            //Esto reinicia la base donde se colocan los diagramas y el arraylist de clases y el de nombre permitidos
+            //Esto reinicia la base donde se colocan las clases y el arraylist de clases y el de nombre permitidos
             clases = new ArrayList();
             nombresdeclase = new ArrayList();
             jpBase.removeAll();
@@ -2447,7 +2457,109 @@ public class PanelPrincipal extends javax.swing.JFrame {
                 jcHijo.setModel(modelH);
                 jcpadre.setModel(model);
             }
-            JOptionPane.showMessageDialog(this, "Archivo cargado correctamente.", "Cargar", 3);
+            JOptionPane.showMessageDialog(this, "Archivo cargado correctamente.", "Cargar", 1);
+        } catch (Exception e) {
+        }
+    }
+
+    public void GuardarDiagramaDeFlujo(String Nombre, String Extension, String Tipo) {
+        JFileChooser jfc = new JFileChooser();
+        //El tipo de aquí es Diagrama de Clases
+        //La extension "DDF"
+        FileNameExtensionFilter filtro = new FileNameExtensionFilter(Tipo, Extension);
+        jfc.addChoosableFileFilter(filtro);
+        jfc.setSelectedFile(new File(Nombre + "." + Extension));
+        int seleccion = jfc.showSaveDialog(this);
+        if (seleccion == JFileChooser.APPROVE_OPTION) {
+            AdministracionDiagramaDeFlujo ad = new AdministracionDiagramaDeFlujo(jfc.getSelectedFile().getPath());
+            ad.CargarArchivo();
+            //Este arreglo toma los componentes del panel donde se ponen las clases
+            Object Componentes[] = jpBase.getComponents();
+            System.out.println("Los componentes que se guardarán son:");
+            for (int i = 0; i < Componentes.length; i++) {
+                if (Componentes[i] instanceof JLabel) {
+                    System.out.println(((JLabel) Componentes[i]).getText());
+                    ad.AgregarComponente((JLabel) Componentes[i]);
+                }
+            }
+            try {
+                ad.EscribirArchivo();
+            } catch (IOException ex) {
+                Logger.getLogger(JFrame.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            JOptionPane.showMessageDialog(this, "Diagrama de Flujo guardado correctamente.", "Guardado", 1);
+        }
+    }
+
+    public void AbrirDiagramaDeFlujo() {
+        try {
+            JFileChooser jfc = new JFileChooser();
+            FileNameExtensionFilter filtro = new FileNameExtensionFilter("Diagrama de Flujo", "DDF");
+            jfc.addChoosableFileFilter(filtro);
+            int seleccion = jfc.showOpenDialog(this);
+            String Path = jfc.getSelectedFile().getPath();
+            //Esto reinicia la base donde se colocan los compoentes y el arraylist de componetes
+            componentes = new ArrayList();
+            jpBase.removeAll();
+            jpBase.repaint();
+            AdministracionDiagramaDeFlujo ap = new AdministracionDiagramaDeFlujo(Path);
+            ap.CargarArchivo();
+            System.out.println("Componentes Abiertos");
+            for (int i = 0; i < ap.getComponentes().size(); i++) {
+                JLabel objeto = ((JLabel) ap.getComponentes().get(i));
+                this.jpBase.add(objeto);
+                jpBase.repaint();
+                objeto.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+                    public void mouseDragged(java.awt.event.MouseEvent evt) {
+                        actual = objeto;
+                        txSeleccionado.setText(objeto.getText());
+                        if (((objeto.getLocation().x + evt.getX() - objeto.getWidth() / 2) > 5)) {
+                            if (((objeto.getLocation().x + evt.getX() - objeto.getWidth() / 2) < 770)) {
+                                if ((objeto.getLocation().y + evt.getY() - objeto.getWidth() / 2) > -15) {
+                                    if ((objeto.getLocation().y + evt.getY() - objeto.getWidth() / 2) < 520) {
+                                        objeto.setLocation(objeto.getLocation().x + evt.getX() - objeto.getWidth() / 2,
+                                                objeto.getLocation().y + evt.getY() - objeto.getHeight() / 2);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+                objeto.addMouseListener(new MouseListener() {
+                    public void mouseClicked(MouseEvent evt) {
+                        actual = objeto;
+                        txSeleccionado.setText(objeto.getText());
+                        mDiseno.setEnabled(true);
+                        mEdiciontx.setEnabled(true);
+                        if (evt.isMetaDown()) {
+                            actual = objeto;
+                            ppMenu.show(evt.getComponent(), evt.getX(), evt.getY());
+                        }
+                    }
+
+                    public void mouseEntered(MouseEvent arg0) {
+                        objeto.setBorder(BorderFactory.createLineBorder(new java.awt.Color(165, 105, 189), 1));
+                        objeto.setToolTipText(objeto.getText());
+                    }
+
+                    public void mouseExited(MouseEvent arg0) {
+                        objeto.setBorder(null);
+                    }
+
+                    public void mousePressed(MouseEvent arg0) {
+                        txSeleccionado.setText(objeto.getText());
+                        actual = objeto;
+                    }
+
+                    public void mouseReleased(MouseEvent arg0) {
+                        actual = objeto;
+                    }    
+                });
+                System.out.println(objeto.getText());
+                //Agregar los Componentes al ArrayList 
+                componentes.add(objeto);
+            }
+            JOptionPane.showMessageDialog(this, "Archivo cargado correctamente.", "Cargar", 1);
         } catch (Exception e) {
         }
     }

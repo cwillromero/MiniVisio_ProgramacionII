@@ -17,19 +17,38 @@ import javax.swing.JLabel;
  *
  * @author Will
  */
-public class AdministracionDiaramaDeFlujo {
+public class AdministracionDiagramaDeFlujo {
 
     private ArrayList<JLabel> componentes = new ArrayList();
     private File archivo = null;
 
-    public AdministracionDiaramaDeFlujo(String path) {
+    public AdministracionDiagramaDeFlujo(String path) {
         archivo = new File(path);
     }
 
-    public AdministracionDiaramaDeFlujo() {
+    public AdministracionDiagramaDeFlujo() {
     }
 
-    
+    public File getArchivo() {
+        return archivo;
+    }
+
+    public void setArchivo(File archivo) {
+        this.archivo = archivo;
+    }
+
+    public ArrayList<JLabel> getComponentes() {
+        return componentes;
+    }
+
+    public void setComponentes(ArrayList<JLabel> componentes) {
+        this.componentes = componentes;
+    }
+
+    public void AgregarComponente(JLabel componente) {
+        componentes.add(componente);
+    }
+
     public void CargarArchivo() {
         try {
             componentes = new ArrayList();
@@ -50,14 +69,14 @@ public class AdministracionDiaramaDeFlujo {
         }
     }
 
-    public void escribirArchivo() throws IOException {
+    public void EscribirArchivo() throws IOException {
         FileOutputStream fw = null;
         ObjectOutputStream bw = null;
         try {
             fw = new FileOutputStream(archivo);
             bw = new ObjectOutputStream(fw);
-            for (JLabel T : componentes) {
-                bw.writeObject(T);
+            for (Object t : componentes) {
+                bw.writeObject(t);
             }
             bw.flush();
         } catch (Exception e) {

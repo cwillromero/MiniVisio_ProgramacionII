@@ -1095,6 +1095,9 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Diagrama De Flujo"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jmiGDiagramaFlujoActionPerformed"/>
+                  </Events>
                 </MenuItem>
                 <MenuItem class="javax.swing.JMenuItem" name="jmiGDiagramaClases">
                   <Properties>
