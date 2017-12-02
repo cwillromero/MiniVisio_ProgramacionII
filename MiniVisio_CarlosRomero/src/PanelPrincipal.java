@@ -74,6 +74,9 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jmiGDiagramaFlujo.setEnabled(false);
         jmiGDiagramaClases.setEnabled(false);
         jmiAbrir.setEnabled(false);
+        jmiGuardarComo.setEnabled(false);
+        jMGuardar.setEnabled(false);
+        jmiAbrir.setEnabled(false);
     }
 
     /**
@@ -213,7 +216,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
         mArchivo = new javax.swing.JMenu();
         jmiNuevo = new javax.swing.JMenuItem();
         jmiAbrir = new javax.swing.JMenuItem();
-        jMenu1 = new javax.swing.JMenu();
+        jMGuardar = new javax.swing.JMenu();
         jmiGDiagramaFlujo = new javax.swing.JMenuItem();
         jmiGDiagramaClases = new javax.swing.JMenuItem();
         jmiGuardarComo = new javax.swing.JMenuItem();
@@ -1280,11 +1283,11 @@ public class PanelPrincipal extends javax.swing.JFrame {
         });
         mArchivo.add(jmiAbrir);
 
-        jMenu1.setText("Guardar Diagrama");
+        jMGuardar.setText("Guardar Diagrama");
 
         jmiGDiagramaFlujo.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.CTRL_MASK));
         jmiGDiagramaFlujo.setText("Diagrama De Flujo");
-        jMenu1.add(jmiGDiagramaFlujo);
+        jMGuardar.add(jmiGDiagramaFlujo);
 
         jmiGDiagramaClases.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
         jmiGDiagramaClases.setText("Diagrama de Clases");
@@ -1293,9 +1296,9 @@ public class PanelPrincipal extends javax.swing.JFrame {
                 jmiGDiagramaClasesActionPerformed(evt);
             }
         });
-        jMenu1.add(jmiGDiagramaClases);
+        jMGuardar.add(jmiGDiagramaClases);
 
-        mArchivo.add(jMenu1);
+        mArchivo.add(jMGuardar);
 
         jmiGuardarComo.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_G, java.awt.event.InputEvent.ALT_MASK));
         jmiGuardarComo.setText("Guardar Diagrama Como");
@@ -1396,6 +1399,9 @@ public class PanelPrincipal extends javax.swing.JFrame {
         nombresdeclase = new ArrayList();
         jmiGDiagramaClases.setEnabled(false);
         jmiGDiagramaFlujo.setEnabled(true);
+        jmiGuardarComo.setEnabled(true);
+        jMGuardar.setEnabled(true);
+        jmiAbrir.setEnabled(true);
         this.repaint();
     }//GEN-LAST:event_btNuevoDiagramaDeFlujoMouseClicked
 
@@ -1665,6 +1671,9 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jmiGDiagramaClases.setEnabled(true);
         jmiGDiagramaFlujo.setEnabled(false);
         jmPropiedades.setVisible(true);
+        jmiGuardarComo.setEnabled(true);
+        jMGuardar.setEnabled(true);
+        jmiAbrir.setEnabled(true);
         this.repaint();
     }//GEN-LAST:event_jbtDiagramaClasesMouseClicked
 
@@ -2909,7 +2918,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMGuardar;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

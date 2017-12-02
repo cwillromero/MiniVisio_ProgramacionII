@@ -1083,7 +1083,7 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jmiAbrirActionPerformed"/>
               </Events>
             </MenuItem>
-            <Menu class="javax.swing.JMenu" name="jMenu1">
+            <Menu class="javax.swing.JMenu" name="jMGuardar">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Guardar Diagrama"/>
               </Properties>
