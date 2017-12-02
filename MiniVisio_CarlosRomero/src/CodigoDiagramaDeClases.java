@@ -4,7 +4,7 @@ import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
 
 public class CodigoDiagramaDeClases {
-
+    private String padre="";
     private JTree arbol;
     private String Codigo = "";
 
@@ -21,6 +21,10 @@ public class CodigoDiagramaDeClases {
 
     public void setCodigo(String Codigo) {
         this.Codigo = Codigo;
+    }
+    
+    public void SetPadre(String padre){
+        this.padre=padre;
     }
 
     public void Inicio() {
@@ -43,11 +47,11 @@ public class CodigoDiagramaDeClases {
         String inicio;
         if (x != 0) {
             inicio = "#include <string> \n" + "#include <iostream> \n"
-                    + "using namespace std;\n\n" + "class " + model.getRoot().toString() + " \n"
+                    + "using namespace std;\n\n" + "class " + model.getRoot().toString() +" "+padre+" \n"
                     + "{ \n";
         } else {
             inicio = "#include <iostream> \n"
-                    + "using namespace std;\n\n" + "class " + model.getRoot().toString() + " \n"
+                    + "using namespace std;\n\n" + "class " + model.getRoot().toString() +" "+padre+ " \n"
                     + "{ \n";
         }
         this.Codigo += inicio;

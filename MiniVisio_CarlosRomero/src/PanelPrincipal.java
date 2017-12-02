@@ -24,6 +24,7 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.BorderFactory;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
 import javax.swing.JColorChooser;
@@ -139,6 +140,14 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jbAgregarParametro = new javax.swing.JButton();
         jcTipoParametro = new javax.swing.JComboBox<>();
         jMenuItem2 = new javax.swing.JMenuItem();
+        jdHerencia = new javax.swing.JDialog();
+        jPanel5 = new javax.swing.JPanel();
+        jcpadre = new javax.swing.JComboBox<>();
+        jcHijo = new javax.swing.JComboBox<>();
+        jLabel37 = new javax.swing.JLabel();
+        jLabel38 = new javax.swing.JLabel();
+        jButton4 = new javax.swing.JButton();
+        jLabel39 = new javax.swing.JLabel();
         jpTexto = new javax.swing.JPanel();
         jButton3 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
@@ -175,6 +184,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         txConfiguracion = new javax.swing.JTextArea();
         jLabel21 = new javax.swing.JLabel();
+        jbHerencia = new javax.swing.JButton();
         PanelFlujo = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         btProceso = new javax.swing.JButton();
@@ -364,9 +374,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
         ppMenuClases.add(jmiFuente);
 
         jdCodigo.setTitle("Código");
-        jdCodigo.setMaximumSize(new java.awt.Dimension(800, 700));
         jdCodigo.setMinimumSize(new java.awt.Dimension(800, 700));
-        jdCodigo.setPreferredSize(new java.awt.Dimension(800, 700));
 
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel1.setMaximumSize(new java.awt.Dimension(800, 700));
@@ -599,6 +607,48 @@ public class PanelPrincipal extends javax.swing.JFrame {
 
         jMenuItem2.setText("jMenuItem2");
 
+        jdHerencia.setTitle("Herencia");
+        jdHerencia.setMaximumSize(new java.awt.Dimension(300, 300));
+        jdHerencia.setMinimumSize(new java.awt.Dimension(300, 300));
+        jdHerencia.setPreferredSize(new java.awt.Dimension(300, 300));
+        jdHerencia.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel5.setBackground(new java.awt.Color(204, 255, 204));
+        jPanel5.setMaximumSize(new java.awt.Dimension(300, 300));
+        jPanel5.setMinimumSize(new java.awt.Dimension(300, 300));
+        jPanel5.setPreferredSize(new java.awt.Dimension(300, 300));
+        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel5.add(jcpadre, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 260, -1));
+
+        jPanel5.add(jcHijo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 260, -1));
+
+        jLabel37.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        jLabel37.setText("Clase Hijo:");
+        jPanel5.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, -1, -1));
+
+        jLabel38.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel38.setForeground(new java.awt.Color(0, 51, 51));
+        jLabel38.setText("Herencia");
+        jPanel5.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, -1, -1));
+
+        jButton4.setBackground(new java.awt.Color(0, 51, 51));
+        jButton4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jButton4.setForeground(new java.awt.Color(255, 255, 255));
+        jButton4.setText("Herencia");
+        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton4MouseClicked(evt);
+            }
+        });
+        jPanel5.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 200, -1, -1));
+
+        jLabel39.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        jLabel39.setText("Clase Padre:");
+        jPanel5.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, -1));
+
+        jdHerencia.getContentPane().add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("MiniVisio - Carlos Wilfredo Romero Maradiaga");
         addMouseListener(new java.awt.event.MouseAdapter() {
@@ -810,6 +860,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jpBase0.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         PanelClase.setBackground(new java.awt.Color(204, 255, 204));
+        PanelClase.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         txtConfiguracion.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
         txtConfiguracion.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
@@ -869,30 +920,21 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jLabel21.setText("Clase Seleccionada:");
         jLabel21.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
 
+        jbHerencia.setBackground(new java.awt.Color(51, 0, 0));
+        jbHerencia.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jbHerencia.setForeground(new java.awt.Color(255, 204, 204));
+        jbHerencia.setText("Herencia");
+        jbHerencia.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jbHerenciaMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout PanelClaseLayout = new javax.swing.GroupLayout(PanelClase);
         PanelClase.setLayout(PanelClaseLayout);
         PanelClaseLayout.setHorizontalGroup(
             PanelClaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(btClase, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelClaseLayout.createSequentialGroup()
-                .addGap(56, 56, 56)
-                .addComponent(jLabel18)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel17)
-                .addGap(24, 24, 24))
-            .addGroup(PanelClaseLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(PanelClaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txSeleccionado1)
-                    .addGroup(PanelClaseLayout.createSequentialGroup()
-                        .addGap(158, 158, 158)
-                        .addComponent(jLabel20)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-            .addGroup(PanelClaseLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane2)
-                .addContainerGap())
             .addGroup(PanelClaseLayout.createSequentialGroup()
                 .addGroup(PanelClaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PanelClaseLayout.createSequentialGroup()
@@ -900,19 +942,36 @@ public class PanelPrincipal extends javax.swing.JFrame {
                         .addComponent(jLabel19))
                     .addGroup(PanelClaseLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(txtConfiguracion, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(81, Short.MAX_VALUE))
-            .addGroup(PanelClaseLayout.createSequentialGroup()
-                .addGroup(PanelClaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PanelClaseLayout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtConfiguracion, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(PanelClaseLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(btSeparador1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btSeparadorV1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                        .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(PanelClaseLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(PanelClaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelClaseLayout.createSequentialGroup()
+                        .addGroup(PanelClaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txSeleccionado1)
+                            .addGroup(PanelClaseLayout.createSequentialGroup()
+                                .addComponent(btSeparador1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                                .addComponent(jLabel20)
+                                .addGap(18, 18, 18)
+                                .addComponent(btSeparadorV1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap())
+                    .addGroup(PanelClaseLayout.createSequentialGroup()
+                        .addComponent(jScrollPane2)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelClaseLayout.createSequentialGroup()
+                        .addComponent(jLabel18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel17)
+                        .addGap(32, 32, 32))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelClaseLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jbHerencia, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         PanelClaseLayout.setVerticalGroup(
             PanelClaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -921,25 +980,30 @@ public class PanelPrincipal extends javax.swing.JFrame {
                 .addComponent(jLabel19)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btClase, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel20)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(PanelClaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btSeparador1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btSeparadorV1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(PanelClaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelClaseLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(PanelClaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btSeparador1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btSeparadorV1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(PanelClaseLayout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(jLabel20)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(PanelClaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel18)
                     .addComponent(jLabel17))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jbHerencia, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(1, 1, 1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txSeleccionado1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtConfiguracion, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
         jpBase0.add(PanelClase, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 380, 640));
@@ -2180,10 +2244,10 @@ public class PanelPrincipal extends javax.swing.JFrame {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 actualT = arbol;
                 txSeleccionado1.setText(modelo.getRoot().toString());
-                if (((arbol.getLocation().x + evt.getX() - arbol.getWidth() / 2) > 5)) {
-                    if (((arbol.getLocation().x + evt.getX() - arbol.getWidth() / 2) < 800)) {
+                if (((arbol.getLocation().x + evt.getX() - arbol.getWidth() / 2) > 0)) {
+                    if (((arbol.getLocation().x + evt.getX() - arbol.getWidth() / 2) < 770)) {
                         if ((arbol.getLocation().y + evt.getY() - arbol.getWidth() / 2) > -15) {
-                            if ((arbol.getLocation().y + evt.getY() - arbol.getWidth() / 2) < 520) {
+                            if ((arbol.getLocation().y + evt.getY() - arbol.getWidth() / 2) < 500) {
                                 arbol.setLocation(arbol.getLocation().x + evt.getX() - arbol.getWidth() / 2,
                                         arbol.getLocation().y + evt.getY() - arbol.getHeight() / 2);
                             }
@@ -2198,6 +2262,12 @@ public class PanelPrincipal extends javax.swing.JFrame {
         arbol.setLocation(x, y);
         clases.add(arbol);
         jpBase.repaint();
+        DefaultComboBoxModel model = (DefaultComboBoxModel) jcpadre.getModel();
+        DefaultComboBoxModel modelH = (DefaultComboBoxModel) jcHijo.getModel();
+        model.addElement(modelo.getRoot());
+        modelH.addElement(modelo.getRoot());
+        jcHijo.setModel(modelH);
+        jcpadre.setModel(model);
     }//GEN-LAST:event_btClaseMouseClicked
 
     private void jmiEliminarArbolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiEliminarArbolActionPerformed
@@ -2266,6 +2336,9 @@ public class PanelPrincipal extends javax.swing.JFrame {
             if (centinela == 2) {
                 for (int i = 0; i < clases.size(); i++) {
                     CodigoDiagramaDeClases cod = new CodigoDiagramaDeClases((JTree) clases.get(i));
+                    if (i == clasehija && clasehija != -1) {
+                        cod.SetPadre(": public " + herencia);
+                    }
                     cod.Inicio();
                     cod.Atributos();
                     cod.Constructor();
@@ -2521,7 +2594,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jmiGDiagramaClasesActionPerformed
 
     private void jmiAbrirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiAbrirActionPerformed
-        if(centinela==2){
+        if (centinela == 2) {
             AbrirDiagramaDeClases();
         }
     }//GEN-LAST:event_jmiAbrirActionPerformed
@@ -2529,6 +2602,34 @@ public class PanelPrincipal extends javax.swing.JFrame {
     private void btNuevoDiagramaDeFlujoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNuevoDiagramaDeFlujoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btNuevoDiagramaDeFlujoActionPerformed
+
+    private void jbHerenciaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbHerenciaMouseClicked
+        if(clases.size()>1){
+        jdHerencia.setModal(true);
+        jdHerencia.pack();
+        jdHerencia.setLocationRelativeTo(this);
+        jdHerencia.setVisible(true);
+        }else{
+            JOptionPane.showMessageDialog(this, "Necesita tener al menos dos clases.", "Herencia", 2);
+        }
+    }//GEN-LAST:event_jbHerenciaMouseClicked
+
+    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
+        try {
+            if (jcHijo.getSelectedIndex() == jcpadre.getSelectedIndex()) {
+                JOptionPane.showMessageDialog(this, "La clase no se puede heredar a sí misma!", "Herencia", 0);
+            } else {
+                int posPadre = jcpadre.getSelectedIndex();
+                herencia = ((JTree) clases.get(posPadre)).getModel().getRoot().toString();
+                System.out.println("Clase Padre:" + herencia);
+                clasehija = jcHijo.getSelectedIndex();
+                System.out.println("Clase Hija:" + ((JTree) clases.get(clasehija)).getModel().getRoot().toString());
+                JOptionPane.showMessageDialog(this, "Herencia Aplicada.", "Herencia", 3);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Debe Seleccionar las clases!", "Error", 0);
+        }
+    }//GEN-LAST:event_jButton4MouseClicked
 
     /**
      * @param args the command line arguments
@@ -2649,10 +2750,13 @@ public class PanelPrincipal extends javax.swing.JFrame {
             ad.CargarArchivo();
             //Este arreglo toma los componentes del panel donde se ponen las clases
             Object Clases[] = jpBase.getComponents();
+            //Solo guarda los arboles si me da tiempo guardo los demás
             System.out.println("Las clases que se guardarán son:");
             for (int i = 0; i < Clases.length; i++) {
-                ad.AgregarClase((JTree) Clases[i]);
-                System.out.println(Clases[i]);
+                if (Clases[i] instanceof JTree) {
+                    System.out.println(((JTree) Clases[i]).getModel().getRoot());
+                    ad.AgregarClase((JTree) Clases[i]);
+                }
             }
             try {
                 ad.EscribirArchivo();
@@ -2676,6 +2780,8 @@ public class PanelPrincipal extends javax.swing.JFrame {
             nombresdeclase = new ArrayList();
             jpBase.removeAll();
             jpBase.repaint();
+            DefaultComboBoxModel model = new DefaultComboBoxModel();
+            DefaultComboBoxModel modelH = new DefaultComboBoxModel();
             AdministracionDiagramaClases ap = new AdministracionDiagramaClases(Path);
             ap.CargarArchivo();
             for (int i = 0; i < ap.getClases().size(); i++) {
@@ -2719,10 +2825,10 @@ public class PanelPrincipal extends javax.swing.JFrame {
                     public void mouseDragged(java.awt.event.MouseEvent evt) {
                         actualT = arbol;
                         txSeleccionado1.setText(nombre);
-                        if (((arbol.getLocation().x + evt.getX() - arbol.getWidth() / 2) > 5)) {
-                            if (((arbol.getLocation().x + evt.getX() - arbol.getWidth() / 2) < 800)) {
+                        if (((arbol.getLocation().x + evt.getX() - arbol.getWidth() / 2) > 0)) {
+                            if (((arbol.getLocation().x + evt.getX() - arbol.getWidth() / 2) < 770)) {
                                 if ((arbol.getLocation().y + evt.getY() - arbol.getWidth() / 2) > -15) {
-                                    if ((arbol.getLocation().y + evt.getY() - arbol.getWidth() / 2) < 520) {
+                                    if ((arbol.getLocation().y + evt.getY() - arbol.getWidth() / 2) < 500) {
                                         arbol.setLocation(arbol.getLocation().x + evt.getX() - arbol.getWidth() / 2,
                                                 arbol.getLocation().y + evt.getY() - arbol.getHeight() / 2);
                                     }
@@ -2731,12 +2837,15 @@ public class PanelPrincipal extends javax.swing.JFrame {
                         }
                     }
                 });
-                //Agregar la Clase al ArrayList
+                //Agregar la Clase al ArrayList y a las combobox
                 clases.add(arbol);
                 nombresdeclase.add(nombre);
-                System.out.println(nombre);
+                model.addElement(nombre);
+                modelH.addElement(nombre);
+                jcHijo.setModel(modelH);
+                jcpadre.setModel(model);
             }
-            JOptionPane.showMessageDialog(this, "Archivo cargado correctamente.","Cargar",3);
+            JOptionPane.showMessageDialog(this, "Archivo cargado correctamente.", "Cargar", 3);
         } catch (Exception e) {
         }
     }
@@ -2759,6 +2868,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -2790,6 +2900,9 @@ public class PanelPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel38;
+    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -2802,6 +2915,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -2813,19 +2927,23 @@ public class PanelPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jbEliminar;
     private javax.swing.JButton jbFuenteClase;
     private javax.swing.JButton jbGuardarCodigo;
+    private javax.swing.JButton jbHerencia;
     private javax.swing.JButton jbMetodo;
     private javax.swing.JButton jbSetTexto;
     private javax.swing.JButton jbVerAtributo;
     private javax.swing.JButton jbVerMetodos;
     private javax.swing.JButton jbtDiagramaClases;
     private javax.swing.JComboBox<String> jcEncapsulamiento;
+    private javax.swing.JComboBox<String> jcHijo;
     private javax.swing.JComboBox<String> jcParametros;
     private javax.swing.JComboBox<String> jcTipoAtributo;
     private javax.swing.JComboBox<String> jcTipoMetodo;
     private javax.swing.JComboBox<String> jcTipoParametro;
+    private javax.swing.JComboBox<String> jcpadre;
     private javax.swing.JDialog jdAgregarAtributo;
     private javax.swing.JDialog jdAgregarMetodo;
     private javax.swing.JDialog jdCodigo;
+    private javax.swing.JDialog jdHerencia;
     private javax.swing.JDialog jdNuevo;
     private javax.swing.JDialog jdParametro;
     private javax.swing.JMenu jmPropiedades;
@@ -2891,4 +3009,6 @@ public class PanelPrincipal extends javax.swing.JFrame {
     ArrayList<JTree> clases = new ArrayList();
     int centinela;
     String parametros = " ";
+    String herencia = "";
+    int clasehija = -1;
 }
