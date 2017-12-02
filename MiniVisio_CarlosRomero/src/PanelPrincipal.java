@@ -1402,222 +1402,36 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jmiGuardarComo.setEnabled(true);
         jMGuardar.setEnabled(true);
         jmiAbrir.setEnabled(true);
+        documento = 0;
+        inicio = 0;
+        desicion = 0;
+        subproceso = 0;
+        proceso = 0;
+        datos = 0;
+        separador = 0;
+        separadorVertical = 0;
         this.repaint();
     }//GEN-LAST:event_btNuevoDiagramaDeFlujoMouseClicked
 
     private void btProcesoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btProcesoMouseClicked
         String Nombre = "Proceso";
         String imagen = "/ComponentesDiagramaUML/5.png";
-        //Se crea o objeti
-        JLabel objeto;
-        objeto = new JLabel();
-        //Esto es para poder cambiar de color y ponerle ua imagen con fondo trasnparente
-        objeto.setOpaque(true);
-        //El nmbre de La Variable
-        objeto.setName(Nombre + "_" + proceso);
-        //Se le pone un Color aleatorio
-        objeto.setBackground(ColorAletorio());
-        //Es para que el texto esté en el centro del Label
-        objeto.setHorizontalTextPosition(SwingConstants.CENTER);
-        //Contador del objeto
         proceso++;
-        //Lo añade al panel
-        this.jpBase.add(objeto);
-        //Pone una posicio  aleatroio deliminatdo por el tamaño del Panel BASE
-        int x = (int) Math.floor(Math.random() * 801 + 1);
-        int y = (int) Math.floor(Math.random() * 521 + 1);
-        //se genera e la posicion aleatoria
-        objeto.setLocation(x, y);
-        //Esta es la imagen que se le pone
-        objeto.setIcon(new ImageIcon(getClass().getResource(imagen)));
-        //El texto es el mismo nombre de la variable
-        objeto.setText(objeto.getName());
-        //Se define el tamaño
-        objeto.setSize(135, 90);
-        actual = objeto;
-        //es para que cada vez que se acerce al objeto, el cursor cambie a una manita
-        objeto.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        //Los eventos para mover el Objeto
-        objeto.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseDragged(java.awt.event.MouseEvent evt) {
-                actual = objeto;
-                txSeleccionado.setText(objeto.getName());
-                if (((objeto.getLocation().x + evt.getX() - objeto.getWidth() / 2) > 5)) {
-                    if (((objeto.getLocation().x + evt.getX() - objeto.getWidth() / 2) < 800)) {
-                        if ((objeto.getLocation().y + evt.getY() - objeto.getWidth() / 2) > -15) {
-                            if ((objeto.getLocation().y + evt.getY() - objeto.getWidth() / 2) < 520) {
-                                objeto.setLocation(objeto.getLocation().x + evt.getX() - objeto.getWidth() / 2,
-                                        objeto.getLocation().y + evt.getY() - objeto.getHeight() / 2);
-                            }
-                        }
-                    }
-                }
-            }
-        });
-        objeto.addMouseListener(new MouseListener() {
-            public void mouseClicked(MouseEvent evt) {
-                actual = objeto;
-                txSeleccionado.setText(objeto.getName());
-                mDiseno.setEnabled(true);
-                mEdiciontx.setEnabled(true);
-                if (evt.isMetaDown()) {
-                    actual = objeto;
-                    ppMenu.show(evt.getComponent(), evt.getX(), evt.getY());
-                }
-            }
-
-            public void mouseEntered(MouseEvent arg0) {
-                objeto.setBorder(BorderFactory.createLineBorder(new java.awt.Color(165, 105, 189), 1));
-                objeto.setToolTipText(objeto.getName());
-            }
-
-            public void mouseExited(MouseEvent arg0) {
-                objeto.setBorder(null);
-            }
-
-            public void mousePressed(MouseEvent arg0) {
-                txSeleccionado.setText(objeto.getName());
-                actual = objeto;
-            }
-
-            public void mouseReleased(MouseEvent arg0) {
-                actual = objeto;
-            }
-        });
+        AgregarObjeto(Nombre, imagen, proceso);
     }//GEN-LAST:event_btProcesoMouseClicked
 
     private void btSeparadorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btSeparadorMouseClicked
-        // TODO add your handling code here:
         String Nombre = "Separador";
         String imagen = "/ComponentesDiagramaUML/8.png";
-        JLabel objeto;
-        objeto = new JLabel();
-        objeto.setOpaque(true);
-        objeto.setName(Nombre + "_" + separador);
-        objeto.setBackground(ColorAletorio());
-        objeto.setHorizontalTextPosition(SwingConstants.CENTER);
         separador++;
-        this.jpBase.add(objeto);
-        int x = (int) Math.floor(Math.random() * 801 + 1);
-        int y = (int) Math.floor(Math.random() * 521 + 1);
-        objeto.setLocation(x, y);
-        objeto.setIcon(new ImageIcon(getClass().getResource(imagen)));
-        objeto.setSize(135, 90);
-        actual = objeto;
-        objeto.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        objeto.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseDragged(java.awt.event.MouseEvent evt) {
-                actual = objeto;
-                txSeleccionado.setText(objeto.getName());
-                if (((objeto.getLocation().x + evt.getX() - objeto.getWidth() / 2) > 5)) {
-                    if (((objeto.getLocation().x + evt.getX() - objeto.getWidth() / 2) < 800)) {
-                        if ((objeto.getLocation().y + evt.getY() - objeto.getWidth() / 2) > -15) {
-                            if ((objeto.getLocation().y + evt.getY() - objeto.getWidth() / 2) < 520) {
-                                objeto.setLocation(objeto.getLocation().x + evt.getX() - objeto.getWidth() / 2,
-                                        objeto.getLocation().y + evt.getY() - objeto.getHeight() / 2);
-                            }
-                        }
-                    }
-                }
-            }
-        });
-        objeto.addMouseListener(new MouseListener() {
-            public void mouseClicked(MouseEvent evt) {
-                actual = objeto;
-                txSeleccionado.setText(objeto.getName());
-                mDiseno.setEnabled(true);
-                mEdiciontx.setEnabled(true);
-                if (evt.isMetaDown()) {
-                    actual = objeto;
-                    ppMenu.show(evt.getComponent(), evt.getX(), evt.getY());
-                }
-            }
-
-            public void mouseEntered(MouseEvent arg0) {
-                objeto.setBorder(BorderFactory.createLineBorder(new java.awt.Color(165, 105, 189), 1));
-                objeto.setToolTipText(objeto.getName());
-            }
-
-            public void mouseExited(MouseEvent arg0) {
-                objeto.setBorder(null);
-            }
-
-            public void mousePressed(MouseEvent arg0) {
-                actual = objeto;
-                txSeleccionado.setText(objeto.getName());
-            }
-
-            public void mouseReleased(MouseEvent arg0) {
-                actual = objeto;
-            }
-        });
+        AgregarObjeto(Nombre, imagen, separador);
     }//GEN-LAST:event_btSeparadorMouseClicked
 
     private void btSeparadorVMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btSeparadorVMouseClicked
-        // TODO add your handling code here:
         String Nombre = "SeparadorVertical";
         String imagen = "/ComponentesDiagramaUML/7.png";
-        JLabel objeto;
-        objeto = new JLabel();
-        objeto.setOpaque(true);
-        objeto.setName(Nombre + "_" + separadorVertical);
-        objeto.setBackground(ColorAletorio());
-        objeto.setHorizontalTextPosition(SwingConstants.CENTER);
         separadorVertical++;
-        this.jpBase.add(objeto);
-        int x = (int) Math.floor(Math.random() * 801 + 1);
-        int y = (int) Math.floor(Math.random() * 521 + 1);
-        objeto.setLocation(x, y);
-        objeto.setIcon(new ImageIcon(getClass().getResource(imagen)));
-        objeto.setSize(135, 90);
-        actual = objeto;
-        objeto.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        objeto.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseDragged(java.awt.event.MouseEvent evt) {
-                actual = objeto;
-                txSeleccionado.setText(objeto.getName());
-                if (((objeto.getLocation().x + evt.getX() - objeto.getWidth() / 2) > 5)) {
-                    if (((objeto.getLocation().x + evt.getX() - objeto.getWidth() / 2) < 800)) {
-                        if ((objeto.getLocation().y + evt.getY() - objeto.getWidth() / 2) > -15) {
-                            if ((objeto.getLocation().y + evt.getY() - objeto.getWidth() / 2) < 520) {
-                                objeto.setLocation(objeto.getLocation().x + evt.getX() - objeto.getWidth() / 2,
-                                        objeto.getLocation().y + evt.getY() - objeto.getHeight() / 2);
-                            }
-                        }
-                    }
-                }
-            }
-        });
-        objeto.addMouseListener(new MouseListener() {
-            public void mouseClicked(MouseEvent evt) {
-                mDiseno.setEnabled(true);
-                mEdiciontx.setEnabled(true);
-                actual = objeto;
-                txSeleccionado.setText(objeto.getName());
-                if (evt.isMetaDown()) {
-                    actual = objeto;
-                    ppMenu.show(evt.getComponent(), evt.getX(), evt.getY());
-                }
-            }
-
-            public void mouseEntered(MouseEvent arg0) {
-                objeto.setBorder(BorderFactory.createLineBorder(new java.awt.Color(165, 105, 189), 1));
-                objeto.setToolTipText(objeto.getName());
-            }
-
-            public void mouseExited(MouseEvent arg0) {
-                objeto.setBorder(null);
-            }
-
-            public void mousePressed(MouseEvent arg0) {
-                actual = objeto;
-                txSeleccionado.setText(objeto.getName());
-            }
-
-            public void mouseReleased(MouseEvent arg0) {
-                actual = objeto;
-            }
-        });
+        AgregarObjeto(Nombre, imagen, separadorVertical);
     }//GEN-LAST:event_btSeparadorVMouseClicked
 
     private void miEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miEliminarActionPerformed
@@ -1674,6 +1488,8 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jmiGuardarComo.setEnabled(true);
         jMGuardar.setEnabled(true);
         jmiAbrir.setEnabled(true);
+        separador = 0;
+        separadorVertical = 0;
         this.repaint();
     }//GEN-LAST:event_jbtDiagramaClasesMouseClicked
 
@@ -1712,340 +1528,36 @@ public class PanelPrincipal extends javax.swing.JFrame {
     private void btInicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btInicioMouseClicked
         String Nombre = "Inicio/Finalizacion";
         String imagen = "/ComponentesDiagramaUML/1.png";
-        JLabel objeto;
-        objeto = new JLabel();
-        objeto.setOpaque(true);
-        objeto.setName(Nombre + "_" + inicio);
-        objeto.setBackground(ColorAletorio());
-        objeto.setHorizontalTextPosition(SwingConstants.CENTER);
         inicio++;
-        this.jpBase.add(objeto);
-        int x = (int) Math.floor(Math.random() * 801 + 1);
-        int y = (int) Math.floor(Math.random() * 521 + 1);
-        objeto.setLocation(x, y);
-        objeto.setIcon(new ImageIcon(getClass().getResource(imagen)));
-        objeto.setText(objeto.getName());
-        objeto.setSize(135, 90);
-        actual = objeto;
-        objeto.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        objeto.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseDragged(java.awt.event.MouseEvent evt) {
-                actual = objeto;
-                txSeleccionado.setText(objeto.getName());
-                if (((objeto.getLocation().x + evt.getX() - objeto.getWidth() / 2) > 5)) {
-                    if (((objeto.getLocation().x + evt.getX() - objeto.getWidth() / 2) < 800)) {
-                        if ((objeto.getLocation().y + evt.getY() - objeto.getWidth() / 2) > -15) {
-                            if ((objeto.getLocation().y + evt.getY() - objeto.getWidth() / 2) < 520) {
-                                objeto.setLocation(objeto.getLocation().x + evt.getX() - objeto.getWidth() / 2,
-                                        objeto.getLocation().y + evt.getY() - objeto.getHeight() / 2);
-                            }
-                        }
-                    }
-                }
-            }
-        });
-        objeto.addMouseListener(new MouseListener() {
-            public void mouseClicked(MouseEvent evt) {
-                actual = objeto;
-                txSeleccionado.setText(objeto.getName());
-                mDiseno.setEnabled(true);
-                mEdiciontx.setEnabled(true);
-                if (evt.isMetaDown()) {
-                    actual = objeto;
-                    ppMenu.show(evt.getComponent(), evt.getX(), evt.getY());
-                }
-            }
-
-            public void mouseEntered(MouseEvent arg0) {
-                objeto.setBorder(BorderFactory.createLineBorder(new java.awt.Color(165, 105, 189), 1));
-                objeto.setToolTipText(objeto.getName());
-            }
-
-            public void mouseExited(MouseEvent arg0) {
-                objeto.setBorder(null);
-            }
-
-            public void mousePressed(MouseEvent arg0) {
-                actual = objeto;
-                txSeleccionado.setText(objeto.getName());
-            }
-
-            public void mouseReleased(MouseEvent arg0) {
-                actual = objeto;
-            }
-        });
+        AgregarObjeto(Nombre, imagen, inicio);
     }//GEN-LAST:event_btInicioMouseClicked
 
     private void btDocumentoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btDocumentoMouseClicked
-        // TODO add your handling code here:
         String Nombre = "Documento";
         String imagen = "/ComponentesDiagramaUML/4.png";
-        JLabel objeto;
-        objeto = new JLabel();
-        objeto.setOpaque(true);
-        objeto.setName(Nombre + "_" + documento);
-        objeto.setBackground(ColorAletorio());
-        objeto.setHorizontalTextPosition(SwingConstants.CENTER);
         documento++;
-        this.jpBase.add(objeto);
-        int x = (int) Math.floor(Math.random() * 801 + 1);
-        int y = (int) Math.floor(Math.random() * 521 + 1);
-        objeto.setLocation(x, y);
-        objeto.setIcon(new ImageIcon(getClass().getResource(imagen)));
-        objeto.setText(objeto.getName());
-        objeto.setSize(135, 90);
-        actual = objeto;
-        objeto.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        objeto.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseDragged(java.awt.event.MouseEvent evt) {
-                actual = objeto;
-                txSeleccionado.setText(objeto.getName());
-                if (((objeto.getLocation().x + evt.getX() - objeto.getWidth() / 2) > 5)) {
-                    if (((objeto.getLocation().x + evt.getX() - objeto.getWidth() / 2) < 800)) {
-                        if ((objeto.getLocation().y + evt.getY() - objeto.getWidth() / 2) > -15) {
-                            if ((objeto.getLocation().y + evt.getY() - objeto.getWidth() / 2) < 520) {
-                                objeto.setLocation(objeto.getLocation().x + evt.getX() - objeto.getWidth() / 2,
-                                        objeto.getLocation().y + evt.getY() - objeto.getHeight() / 2);
-                            }
-                        }
-                    }
-                }
-            }
-        });
-        objeto.addMouseListener(new MouseListener() {
-            public void mouseClicked(MouseEvent evt) {
-                actual = objeto;
-                txSeleccionado.setText(objeto.getName());
-                mDiseno.setEnabled(true);
-                mEdiciontx.setEnabled(true);
-                if (evt.isMetaDown()) {
-                    actual = objeto;
-                    ppMenu.show(evt.getComponent(), evt.getX(), evt.getY());
-                }
-            }
-
-            public void mouseEntered(MouseEvent arg0) {
-                objeto.setBorder(BorderFactory.createLineBorder(new java.awt.Color(165, 105, 189), 1));
-                objeto.setToolTipText(objeto.getName());
-            }
-
-            public void mouseExited(MouseEvent arg0) {
-                objeto.setBorder(null);
-            }
-
-            public void mousePressed(MouseEvent arg0) {
-                actual = objeto;
-                txSeleccionado.setText(objeto.getName());
-            }
-
-            public void mouseReleased(MouseEvent arg0) {
-                actual = objeto;
-            }
-        });
+        AgregarObjeto(Nombre, imagen, documento);
     }//GEN-LAST:event_btDocumentoMouseClicked
 
     private void btSubprocesoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btSubprocesoMouseClicked
-        // TODO add your handling code here:
         String Nombre = "Subproceso";
         String imagen = "/ComponentesDiagramaUML/6.png";
-        JLabel objeto;
-        objeto = new JLabel();
-        objeto.setOpaque(true);
-        objeto.setName(Nombre + "_" + subproceso);
-        objeto.setBackground(ColorAletorio());
-        objeto.setHorizontalTextPosition(SwingConstants.CENTER);
         subproceso++;
-        this.jpBase.add(objeto);
-        int x = (int) Math.floor(Math.random() * 801 + 1);
-        int y = (int) Math.floor(Math.random() * 521 + 1);
-        objeto.setLocation(x, y);
-        objeto.setIcon(new ImageIcon(getClass().getResource(imagen)));
-        objeto.setText(objeto.getName());
-        objeto.setSize(135, 90);
-        actual = objeto;
-        objeto.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        objeto.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseDragged(java.awt.event.MouseEvent evt) {
-                actual = objeto;
-                txSeleccionado.setText(objeto.getName());
-                if (((objeto.getLocation().x + evt.getX() - objeto.getWidth() / 2) > 5)) {
-                    if (((objeto.getLocation().x + evt.getX() - objeto.getWidth() / 2) < 800)) {
-                        if ((objeto.getLocation().y + evt.getY() - objeto.getWidth() / 2) > -15) {
-                            if ((objeto.getLocation().y + evt.getY() - objeto.getWidth() / 2) < 520) {
-                                objeto.setLocation(objeto.getLocation().x + evt.getX() - objeto.getWidth() / 2,
-                                        objeto.getLocation().y + evt.getY() - objeto.getHeight() / 2);
-                            }
-                        }
-                    }
-                }
-            }
-        });
-        objeto.addMouseListener(new MouseListener() {
-            public void mouseClicked(MouseEvent evt) {
-                actual = objeto;
-                txSeleccionado.setText(objeto.getName());
-                mDiseno.setEnabled(true);
-                mEdiciontx.setEnabled(true);
-                if (evt.isMetaDown()) {
-                    actual = objeto;
-                    ppMenu.show(evt.getComponent(), evt.getX(), evt.getY());
-                }
-            }
-
-            public void mouseEntered(MouseEvent arg0) {
-                objeto.setBorder(BorderFactory.createLineBorder(new java.awt.Color(165, 105, 189), 1));
-                objeto.setToolTipText(objeto.getName());
-            }
-
-            public void mouseExited(MouseEvent arg0) {
-                objeto.setBorder(null);
-            }
-
-            public void mousePressed(MouseEvent arg0) {
-                actual = objeto;
-                txSeleccionado.setText(objeto.getName());
-            }
-
-            public void mouseReleased(MouseEvent arg0) {
-                actual = objeto;
-            }
-        });
+        AgregarObjeto(Nombre, imagen, subproceso);
     }//GEN-LAST:event_btSubprocesoMouseClicked
 
     private void btDesicionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btDesicionMouseClicked
-        // TODO add your handling code here:
         String Nombre = "Desicion";
         String imagen = "/ComponentesDiagramaUML/3.png";
-        JLabel objeto;
-        objeto = new JLabel();
-        objeto.setOpaque(true);
-        objeto.setName(Nombre + "_" + desicion);
-        objeto.setBackground(ColorAletorio());
-        objeto.setHorizontalTextPosition(SwingConstants.CENTER);
         desicion++;
-        this.jpBase.add(objeto);
-        int x = (int) Math.floor(Math.random() * 801 + 1);
-        int y = (int) Math.floor(Math.random() * 521 + 1);
-        objeto.setLocation(x, y);
-        objeto.setIcon(new ImageIcon(getClass().getResource(imagen)));
-        objeto.setText(objeto.getName());
-        objeto.setSize(135, 90);
-        actual = objeto;
-        objeto.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        objeto.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseDragged(java.awt.event.MouseEvent evt) {
-                actual = objeto;
-                txSeleccionado.setText(objeto.getName());
-                if (((objeto.getLocation().x + evt.getX() - objeto.getWidth() / 2) > 5)) {
-                    if (((objeto.getLocation().x + evt.getX() - objeto.getWidth() / 2) < 800)) {
-                        if ((objeto.getLocation().y + evt.getY() - objeto.getWidth() / 2) > -15) {
-                            if ((objeto.getLocation().y + evt.getY() - objeto.getWidth() / 2) < 520) {
-                                objeto.setLocation(objeto.getLocation().x + evt.getX() - objeto.getWidth() / 2,
-                                        objeto.getLocation().y + evt.getY() - objeto.getHeight() / 2);
-                            }
-                        }
-                    }
-                }
-            }
-        });
-        objeto.addMouseListener(new MouseListener() {
-            public void mouseClicked(MouseEvent evt) {
-                actual = objeto;
-                txSeleccionado.setText(objeto.getName());
-                mDiseno.setEnabled(true);
-                mEdiciontx.setEnabled(true);
-                if (evt.isMetaDown()) {
-                    actual = objeto;
-                    ppMenu.show(evt.getComponent(), evt.getX(), evt.getY());
-                }
-            }
-
-            public void mouseEntered(MouseEvent arg0) {
-                objeto.setBorder(BorderFactory.createLineBorder(new java.awt.Color(165, 105, 189), 1));
-                objeto.setToolTipText(objeto.getName());
-            }
-
-            public void mouseExited(MouseEvent arg0) {
-                objeto.setBorder(null);
-            }
-
-            public void mousePressed(MouseEvent arg0) {
-                actual = objeto;
-                txSeleccionado.setText(objeto.getName());
-            }
-
-            public void mouseReleased(MouseEvent arg0) {
-                actual = objeto;
-            }
-        });
+        AgregarObjeto(Nombre, imagen, desicion);
     }//GEN-LAST:event_btDesicionMouseClicked
 
     private void btDatosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btDatosMouseClicked
-        // TODO add your handling code here:
         String Nombre = "Datos";
         String imagen = "/ComponentesDiagramaUML/2.png";
-        JLabel objeto;
-        objeto = new JLabel();
-        objeto.setOpaque(true);
-        objeto.setName(Nombre + "_" + datos);
-        objeto.setBackground(ColorAletorio());
-        objeto.setHorizontalTextPosition(SwingConstants.CENTER);
         datos++;
-        this.jpBase.add(objeto);
-        int x = (int) Math.floor(Math.random() * 801 + 1);
-        int y = (int) Math.floor(Math.random() * 521 + 1);
-        objeto.setLocation(x, y);
-        objeto.setIcon(new ImageIcon(getClass().getResource(imagen)));
-        objeto.setText(objeto.getName());
-        objeto.setSize(135, 90);
-        actual = objeto;
-        objeto.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        objeto.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseDragged(java.awt.event.MouseEvent evt) {
-                actual = objeto;
-                txSeleccionado.setText(objeto.getName());
-                if (((objeto.getLocation().x + evt.getX() - objeto.getWidth() / 2) > 5)) {
-                    if (((objeto.getLocation().x + evt.getX() - objeto.getWidth() / 2) < 800)) {
-                        if ((objeto.getLocation().y + evt.getY() - objeto.getWidth() / 2) > -15) {
-                            if ((objeto.getLocation().y + evt.getY() - objeto.getWidth() / 2) < 520) {
-                                objeto.setLocation(objeto.getLocation().x + evt.getX() - objeto.getWidth() / 2,
-                                        objeto.getLocation().y + evt.getY() - objeto.getHeight() / 2);
-                            }
-                        }
-                    }
-                }
-            }
-        });
-        objeto.addMouseListener(new MouseListener() {
-            public void mouseClicked(MouseEvent evt) {
-                actual = objeto;
-                txSeleccionado.setText(objeto.getName());
-                mDiseno.setEnabled(true);
-                mEdiciontx.setEnabled(true);
-                if (evt.isMetaDown()) {
-                    actual = objeto;
-                    ppMenu.show(evt.getComponent(), evt.getX(), evt.getY());
-                }
-            }
-
-            public void mouseEntered(MouseEvent arg0) {
-                objeto.setBorder(BorderFactory.createLineBorder(new java.awt.Color(165, 105, 189), 1));
-                objeto.setToolTipText(objeto.getName());
-            }
-
-            public void mouseExited(MouseEvent arg0) {
-                objeto.setBorder(null);
-            }
-
-            public void mousePressed(MouseEvent arg0) {
-                actual = objeto;
-                txSeleccionado.setText(objeto.getName());
-            }
-
-            public void mouseReleased(MouseEvent arg0) {
-                actual = objeto;
-            }
-        });
+        AgregarObjeto(Nombre, imagen, datos);
     }//GEN-LAST:event_btDatosMouseClicked
 
     private void btSeparador1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btSeparador1MouseClicked
@@ -2578,7 +2090,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jbFuenteClaseMouseClicked
 
     private void jbColorClaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbColorClaseActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_jbColorClaseActionPerformed
 
     private void jmPropiedadesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jmPropiedadesMouseClicked
@@ -2613,12 +2125,12 @@ public class PanelPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btNuevoDiagramaDeFlujoActionPerformed
 
     private void jbHerenciaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbHerenciaMouseClicked
-        if(clases.size()>1){
-        jdHerencia.setModal(true);
-        jdHerencia.pack();
-        jdHerencia.setLocationRelativeTo(this);
-        jdHerencia.setVisible(true);
-        }else{
+        if (clases.size() > 1) {
+            jdHerencia.setModal(true);
+            jdHerencia.pack();
+            jdHerencia.setLocationRelativeTo(this);
+            jdHerencia.setVisible(true);
+        } else {
             JOptionPane.showMessageDialog(this, "Necesita tener al menos dos clases.", "Herencia", 2);
         }
     }//GEN-LAST:event_jbHerenciaMouseClicked
@@ -2675,7 +2187,89 @@ public class PanelPrincipal extends javax.swing.JFrame {
         });
     }
 
-    //retorna un color Aleatorio
+    public void AgregarObjeto(String Nombre, String imagen, int contador) {
+        //Se crea o objeto
+        JLabel objeto;
+        objeto = new JLabel();
+        //Esto es para poder cambiar de color y ponerle ua imagen con fondo trasnparente
+        objeto.setOpaque(true);
+        //El nmbre de La Variable
+        objeto.setName(Nombre + "_" + contador);
+        //Se le pone un Color aleatorio
+        objeto.setBackground(ColorAletorio());
+        //Es para que el texto esté en el centro del Label
+        objeto.setHorizontalTextPosition(SwingConstants.CENTER);
+        //Contador del objeto
+        //Lo añade al panel
+        this.jpBase.add(objeto);
+        //Pone una posicio  aleatroio deliminatdo por el tamaño del Panel BASE
+        int x = (int) Math.floor(Math.random() * 801 + 1);
+        int y = (int) Math.floor(Math.random() * 521 + 1);
+        //se genera e la posicion aleatoria
+        objeto.setLocation(x, y);
+        //Esta es la imagen que se le pone
+        objeto.setIcon(new ImageIcon(getClass().getResource(imagen)));
+        //El texto es el mismo nombre de la variable
+        if (Nombre == "Separador" || Nombre == "SeparadorVertical") {
+            objeto.setText("");
+        } else {
+            objeto.setText(objeto.getName());
+        }
+        //Se define el tamaño
+        objeto.setSize(135, 90);
+        actual = objeto;
+        //es para que cada vez que se acerce al objeto, el cursor cambie a una manita
+        objeto.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        //Los eventos para mover el Objeto
+        objeto.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                actual = objeto;
+                txSeleccionado.setText(objeto.getName());
+                if (((objeto.getLocation().x + evt.getX() - objeto.getWidth() / 2) > 5)) {
+                    if (((objeto.getLocation().x + evt.getX() - objeto.getWidth() / 2) < 770)) {
+                        if ((objeto.getLocation().y + evt.getY() - objeto.getWidth() / 2) > -15) {
+                            if ((objeto.getLocation().y + evt.getY() - objeto.getWidth() / 2) < 520) {
+                                objeto.setLocation(objeto.getLocation().x + evt.getX() - objeto.getWidth() / 2,
+                                        objeto.getLocation().y + evt.getY() - objeto.getHeight() / 2);
+                            }
+                        }
+                    }
+                }
+            }
+        });
+        objeto.addMouseListener(new MouseListener() {
+            public void mouseClicked(MouseEvent evt) {
+                actual = objeto;
+                txSeleccionado.setText(objeto.getName());
+                mDiseno.setEnabled(true);
+                mEdiciontx.setEnabled(true);
+                if (evt.isMetaDown()) {
+                    actual = objeto;
+                    ppMenu.show(evt.getComponent(), evt.getX(), evt.getY());
+                }
+            }
+
+            public void mouseEntered(MouseEvent arg0) {
+                objeto.setBorder(BorderFactory.createLineBorder(new java.awt.Color(165, 105, 189), 1));
+                objeto.setToolTipText(objeto.getName());
+            }
+
+            public void mouseExited(MouseEvent arg0) {
+                objeto.setBorder(null);
+            }
+
+            public void mousePressed(MouseEvent arg0) {
+                txSeleccionado.setText(objeto.getName());
+                actual = objeto;
+            }
+
+            public void mouseReleased(MouseEvent arg0) {
+                actual = objeto;
+            }
+        });
+        componentes.add(objeto);
+    }
+
     public Color ColorAletorio() {
         int numero = (int) (Math.random() * 10) + 1;
         if (numero == 1) {
@@ -2782,7 +2376,6 @@ public class PanelPrincipal extends javax.swing.JFrame {
             FileNameExtensionFilter filtro = new FileNameExtensionFilter("Diagrama de Clases", "DDC");
             jfc.addChoosableFileFilter(filtro);
             int seleccion = jfc.showOpenDialog(this);
-            System.out.println(jfc.getSelectedFile().getPath());
             String Path = jfc.getSelectedFile().getPath();
             //Esto reinicia la base donde se colocan los diagramas y el arraylist de clases y el de nombre permitidos
             clases = new ArrayList();
@@ -3004,18 +2597,19 @@ public class PanelPrincipal extends javax.swing.JFrame {
     JLabel actual = null;
     JTree actualT = null;
     DefaultMutableTreeNode nodoS;
-    int tree = 1;
-    int ctabla = 1;
-    int proceso = 1;
-    int inicio = 1;
-    int subproceso = 1;
-    int separador = 1;
-    int separadorVertical = 1;
-    int datos = 1;
-    int documento = 1;
-    int desicion = 1;
+    int tree = 0;
+    int ctabla = 0;
+    int proceso = 0;
+    int inicio = 0;
+    int subproceso = 0;
+    int separador = 0;
+    int separadorVertical = 0;
+    int datos = 0;
+    int documento = 0;
+    int desicion = 0;
     ArrayList nombresdeclase = new ArrayList();
     ArrayList<JTree> clases = new ArrayList();
+    ArrayList<JLabel> componentes = new ArrayList();
     int centinela;
     String parametros = " ";
     String herencia = "";
