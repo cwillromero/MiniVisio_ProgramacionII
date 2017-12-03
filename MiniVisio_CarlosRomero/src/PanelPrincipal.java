@@ -2159,7 +2159,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
 
     private void jmiImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiImprimirActionPerformed
         PrinterJob printJob = PrinterJob.getPrinterJob();
-        GuardarComo img=new GuardarComo();
+        GuardarComo img = new GuardarComo();
         img.setBase(jpBase);
         img.CrearImagen();
         printJob.setPrintable(new ImagePrintable(printJob, img.GetImagen()));
@@ -2465,7 +2465,11 @@ public class PanelPrincipal extends javax.swing.JFrame {
                 jcHijo.setModel(modelH);
                 jcpadre.setModel(model);
             }
-            JOptionPane.showMessageDialog(this, "Archivo cargado correctamente.", "Cargar", 1);
+            if (jfc.getSelectedFile().getPath().equals("DDC")) {
+                JOptionPane.showMessageDialog(this, "Archivo cargado correctamente.", "Cargar", 1);
+            } else {
+                JOptionPane.showMessageDialog(this, "El archivo no es de tipo Diagrama de Clases", "Cargar", 0);
+            }
         } catch (Exception e) {
         }
     }
@@ -2567,7 +2571,11 @@ public class PanelPrincipal extends javax.swing.JFrame {
                 //Agregar los Componentes al ArrayList 
                 componentes.add(objeto);
             }
-            JOptionPane.showMessageDialog(this, "Archivo cargado correctamente.", "Cargar", 1);
+            if (jfc.getSelectedFile().getPath().equals("DDF")) {
+                JOptionPane.showMessageDialog(this, "Archivo cargado correctamente.", "Cargar", 1);
+            } else {
+                JOptionPane.showMessageDialog(this, "El archivo no es de tipo Diagrama de Flujo.", "Cargar", 0);
+            }
         } catch (Exception e) {
         }
     }
