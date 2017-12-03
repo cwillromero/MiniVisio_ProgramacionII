@@ -1,14 +1,19 @@
 
-import java.awt.Color;
-import java.awt.Component;
-import java.awt.Container;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.Element;
+import com.itextpdf.text.Image;
+import com.itextpdf.text.PageSize;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
+import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.ObjectOutputStream;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -28,8 +33,10 @@ public class GuardarComo {
 
     private JPanel base = new JPanel();
     private File archivo = null;
-    BufferedImage Imagen;
-    int seleccion;
+    private BufferedImage Imagen;
+    private String codigo;
+    private int seleccion;
+    private JFileChooser jfc = new JFileChooser();
 
     public GuardarComo() {
     }
@@ -42,6 +49,10 @@ public class GuardarComo {
         this.base = Base;
     }
 
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
+    }
+    
     public void CrearImagen() {
         //ESTO CREA LA IMAGEN SOLO CON EL TAMAÑO DEL PANEL
         this.Imagen = new BufferedImage(base.getWidth(), base.getHeight(), BufferedImage.TYPE_INT_RGB);
@@ -54,7 +65,7 @@ public class GuardarComo {
     public boolean EscribirImagen() {
         try {
             archivo = null;
-            JFileChooser jfc = new JFileChooser();
+            jfc = new JFileChooser();
             //Extensiones
             FileNameExtensionFilter filtro = new FileNameExtensionFilter("Imagen PNG", "PNG");
             jfc.addChoosableFileFilter(filtro);
@@ -75,7 +86,7 @@ public class GuardarComo {
             } else if (jfc.getFileFilter().getDescription().equals("Imagen GIF")) {
                 formato = "GIF";
             } else if (jfc.getFileFilter().getDescription().equals("Archivo PDF")) {
-                JOptionPane.showMessageDialog(null, "Todavía en Desarrollo", "En Desarrollo", 0);
+                GenerarPDF();
                 return false;
             } else {
                 formato = "PNG";
@@ -85,7 +96,7 @@ public class GuardarComo {
                 try {
                     //ESTE GUARDA LA IMAGEN
                     ImageIO.write(Imagen, formato, archivo);
-                    JOptionPane.showMessageDialog(null, "Archivo " + formato + " guardado correctamente.", "Guardar", 3);
+                    JOptionPane.showMessageDialog(null, "Archivo " + formato + " guardado correctamente.", "Guardar", 1);
                 } catch (IOException e) {
                     JOptionPane.showMessageDialog(null, "Error al guardar Archivo.", "Error", 0);
                 }
@@ -95,4 +106,31 @@ public class GuardarComo {
         return true;
     }
 
+    public void GenerarPDF() {
+        String Path = jfc.getSelectedFile().getPath();
+        try {
+            try {
+                ImageIO.write(Imagen, "png", new File(Path + "1" + ".png"));
+            } catch (IOException ex) {
+                Logger.getLogger(base.getName()).log(Level.SEVERE, null, ex);
+            }
+            Image imagen = Image.getInstance(Path + "1" + ".png");
+            imagen.scaleAbsolute(500, 352);
+            imagen.setAlignment(Element.ALIGN_CENTER);
+            FileOutputStream archivo = new FileOutputStream(Path + ".PDF");
+            Document doc = new Document();
+            PdfWriter.getInstance(doc, archivo);
+            CrearPDF pdf=new CrearPDF();
+            doc.open();
+            doc.setPageSize(PageSize.LETTER);
+            doc.add(pdf.getTitulo("Proyecto Programación II  -  Mini Visio"));
+            doc.add(new Paragraph("                                                  Carlos Wilfredo Romero Maradiaga \n"));
+            doc.add(imagen);
+            doc.add(pdf.getCuerpo("\nCódigo Generado:\n"));
+            doc.add(pdf.getCuerpo(codigo));
+            doc.close();
+            JOptionPane.showMessageDialog(null, "Archivo " + "PDF" + " guardado correctamente.", "Guardar", 1);
+        } catch (Exception e) {
+        }
+    }
 }
