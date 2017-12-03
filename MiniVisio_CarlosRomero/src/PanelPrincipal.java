@@ -338,7 +338,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
         });
         ppMenuClases.add(jmiAtributos);
 
-        jmiMetodos.setText("Agregar Métodos");
+        jmiMetodos.setText("Ver y Agregar Métodos");
         jmiMetodos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jmiMetodosActionPerformed(evt);
@@ -366,9 +366,9 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jdCodigo.setMinimumSize(new java.awt.Dimension(800, 700));
 
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel1.setMaximumSize(new java.awt.Dimension(800, 700));
-        jPanel1.setMinimumSize(new java.awt.Dimension(800, 700));
-        jPanel1.setPreferredSize(new java.awt.Dimension(800, 700));
+        jPanel1.setMaximumSize(new java.awt.Dimension(800, 650));
+        jPanel1.setMinimumSize(new java.awt.Dimension(800, 650));
+        jPanel1.setPreferredSize(new java.awt.Dimension(800, 650));
 
         taCodigo.setEditable(false);
         taCodigo.setColumns(20);
@@ -390,29 +390,26 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(284, 284, 284)
-                        .addComponent(jbGuardarCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 770, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(18, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addGap(0, 311, Short.MAX_VALUE)
                 .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(290, 290, 290))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane3)
+                    .addComponent(jbGuardarCodigo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 546, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 545, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jbGuardarCodigo)
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jdCodigoLayout = new javax.swing.GroupLayout(jdCodigo.getContentPane());
@@ -424,8 +421,8 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jdCodigoLayout.setVerticalGroup(
             jdCodigoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jdCodigoLayout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 670, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 1, Short.MAX_VALUE))
         );
 
         jdAgregarAtributo.setTitle("Atributo");
@@ -504,12 +501,12 @@ public class PanelPrincipal extends javax.swing.JFrame {
                 jcParametrosItemStateChanged(evt);
             }
         });
-        jPanel3.add(jcParametros, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, 162, 20));
+        jPanel3.add(jcParametros, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 170, 162, 20));
 
         jLabel26.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel26.setForeground(new java.awt.Color(255, 255, 255));
         jLabel26.setText("Nombre de Método:");
-        jPanel3.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 130, 20));
+        jPanel3.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 130, 20));
 
         jcTipoMetodo.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
         jcTipoMetodo.setForeground(new java.awt.Color(51, 0, 51));
@@ -525,8 +522,8 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jLabel28.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel28.setForeground(new java.awt.Color(255, 255, 255));
         jLabel28.setText("Parámetros:");
-        jPanel3.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 114, 20));
-        jPanel3.add(txNombreMetodo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 260, -1));
+        jPanel3.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 114, 20));
+        jPanel3.add(txNombreMetodo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 260, -1));
 
         jLabel29.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel29.setForeground(new java.awt.Color(255, 255, 255));
@@ -1268,7 +1265,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
 
         jMGuardar.setText("Guardar Diagrama");
 
-        jmiGDiagramaFlujo.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.CTRL_MASK));
+        jmiGDiagramaFlujo.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_G, java.awt.event.InputEvent.CTRL_MASK));
         jmiGDiagramaFlujo.setText("Diagrama De Flujo");
         jmiGDiagramaFlujo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1277,7 +1274,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
         });
         jMGuardar.add(jmiGDiagramaFlujo);
 
-        jmiGDiagramaClases.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
+        jmiGDiagramaClases.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_G, java.awt.event.InputEvent.CTRL_MASK));
         jmiGDiagramaClases.setText("Diagrama de Clases");
         jmiGDiagramaClases.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1288,7 +1285,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
 
         mArchivo.add(jMGuardar);
 
-        jmiGuardarComo.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_G, java.awt.event.InputEvent.CTRL_MASK));
+        jmiGuardarComo.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_G, java.awt.event.InputEvent.ALT_MASK));
         jmiGuardarComo.setText("Guardar Diagrama Como");
         jmiGuardarComo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1306,7 +1303,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
         });
         mArchivo.add(jmiImprimir);
 
-        jmiCodigo.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.ALT_MASK));
+        jmiCodigo.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
         jmiCodigo.setText("Generar Código C++");
         jmiCodigo.setEnabled(false);
         jmiCodigo.addActionListener(new java.awt.event.ActionListener() {
@@ -2173,7 +2170,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
                 prt.printStackTrace();
             }
         }
-        JOptionPane.showMessageDialog(this, "Impresión realizada.", "Impresión", 1);
+        JOptionPane.showMessageDialog(this, "Impresión realizada correctamente.", "Impresión", 1);
     }//GEN-LAST:event_jmiImprimirActionPerformed
 
     /**
