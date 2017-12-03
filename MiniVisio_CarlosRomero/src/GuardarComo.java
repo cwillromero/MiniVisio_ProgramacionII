@@ -55,7 +55,7 @@ public class GuardarComo {
 
     public void CrearImagen() {
         //ESTO CREA LA IMAGEN SOLO CON EL TAMAÑO DEL PANEL
-        this.Imagen = new BufferedImage(base.getWidth(), base.getHeight(), BufferedImage.TYPE_INT_RGB);
+        this.Imagen = new BufferedImage(base.getWidth(), base.getHeight(), BufferedImage.TYPE_INT_ARGB_PRE);
         //ESTO TOMA LOS COMPONENTES DE LA IMAGEN(EN CUANTO AL DIAGRAMA DE CLASES, PARA
         //PODER VER SUS COMPONENTE SE NECESITA QUE EL ARBOL ESTE DESPLEGAD0)
         Graphics G = Imagen.getGraphics();

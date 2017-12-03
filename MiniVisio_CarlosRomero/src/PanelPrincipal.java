@@ -1205,7 +1205,6 @@ public class PanelPrincipal extends javax.swing.JFrame {
 
         jpBase0.add(PanelFlujo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, -1, -1));
 
-        jpBase.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(102, 102, 102)));
         jpBase.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jpBaseMouseClicked(evt);
@@ -1216,11 +1215,11 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jpBase.setLayout(jpBaseLayout);
         jpBaseLayout.setHorizontalGroup(
             jpBaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 908, Short.MAX_VALUE)
+            .addGap(0, 910, Short.MAX_VALUE)
         );
         jpBaseLayout.setVerticalGroup(
             jpBaseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 638, Short.MAX_VALUE)
+            .addGap(0, 640, Short.MAX_VALUE)
         );
 
         jpBase0.add(jpBase, new org.netbeans.lib.awtextra.AbsoluteConstraints(402, 11, 910, 640));
@@ -2174,6 +2173,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
                 prt.printStackTrace();
             }
         }
+        JOptionPane.showMessageDialog(this, "Impresión realizada.", "Impresión", 1);
     }//GEN-LAST:event_jmiImprimirActionPerformed
 
     /**
