@@ -34,7 +34,7 @@ public class GuardarComo {
     private JPanel base = new JPanel();
     private File archivo = null;
     private BufferedImage Imagen;
-    private String codigo;
+    private String codigo = "";
     private int seleccion;
     private JFileChooser jfc = new JFileChooser();
 
@@ -52,7 +52,7 @@ public class GuardarComo {
     public void setCodigo(String codigo) {
         this.codigo = codigo;
     }
-    
+
     public void CrearImagen() {
         //ESTO CREA LA IMAGEN SOLO CON EL TAMAÑO DEL PANEL
         this.Imagen = new BufferedImage(base.getWidth(), base.getHeight(), BufferedImage.TYPE_INT_RGB);
@@ -62,6 +62,10 @@ public class GuardarComo {
         base.paintAll(G);
     }
 
+    public BufferedImage GetImagen(){
+        return this.Imagen;
+    }
+    
     public boolean EscribirImagen() {
         try {
             archivo = null;
@@ -120,14 +124,18 @@ public class GuardarComo {
             FileOutputStream archivo = new FileOutputStream(Path + ".PDF");
             Document doc = new Document();
             PdfWriter.getInstance(doc, archivo);
-            CrearPDF pdf=new CrearPDF();
+            CrearPDF pdf = new CrearPDF();
             doc.open();
             doc.setPageSize(PageSize.LETTER);
             doc.add(pdf.getTitulo("Proyecto Programación II  -  Mini Visio"));
             doc.add(new Paragraph("                                                  Carlos Wilfredo Romero Maradiaga \n"));
             doc.add(imagen);
             doc.add(pdf.getCuerpo("\nCódigo Generado:\n"));
-            doc.add(pdf.getCuerpo(codigo));
+            if (codigo.length()<2) {
+                doc.add(pdf.getCuerpo("Para poder visualizar el código, primero debe generarlo desde el Sistema y vuelva a guardar el archivo."));
+            } else {
+                doc.add(pdf.getCuerpo(codigo));
+            }
             doc.close();
             JOptionPane.showMessageDialog(null, "Archivo " + "PDF" + " guardado correctamente.", "Guardar", 1);
         } catch (Exception e) {

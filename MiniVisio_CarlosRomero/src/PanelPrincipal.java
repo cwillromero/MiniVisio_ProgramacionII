@@ -1,9 +1,13 @@
 
 import java.awt.Color;
 import java.awt.Cursor;
+import java.awt.Graphics;
 import java.awt.GraphicsEnvironment;
+import java.awt.PrintJob;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.print.PrinterException;
+import java.awt.print.PrinterJob;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -57,6 +61,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jmiGuardarComo.setEnabled(false);
         jMGuardar.setEnabled(false);
         jmiAbrir.setEnabled(false);
+        jmiImprimir.setEnabled(false);
     }
 
     /**
@@ -200,6 +205,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jmiGDiagramaFlujo = new javax.swing.JMenuItem();
         jmiGDiagramaClases = new javax.swing.JMenuItem();
         jmiGuardarComo = new javax.swing.JMenuItem();
+        jmiImprimir = new javax.swing.JMenuItem();
         jmiCodigo = new javax.swing.JMenuItem();
         jmiAcercaDe = new javax.swing.JMenuItem();
         mEdiciontx = new javax.swing.JMenu();
@@ -591,9 +597,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jMenuItem2.setText("jMenuItem2");
 
         jdHerencia.setTitle("Herencia");
-        jdHerencia.setMaximumSize(new java.awt.Dimension(300, 300));
         jdHerencia.setMinimumSize(new java.awt.Dimension(300, 300));
-        jdHerencia.setPreferredSize(new java.awt.Dimension(300, 300));
         jdHerencia.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel5.setBackground(new java.awt.Color(204, 255, 204));
@@ -1285,7 +1289,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
 
         mArchivo.add(jMGuardar);
 
-        jmiGuardarComo.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_G, java.awt.event.InputEvent.ALT_MASK));
+        jmiGuardarComo.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_G, java.awt.event.InputEvent.CTRL_MASK));
         jmiGuardarComo.setText("Guardar Diagrama Como");
         jmiGuardarComo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1293,6 +1297,15 @@ public class PanelPrincipal extends javax.swing.JFrame {
             }
         });
         mArchivo.add(jmiGuardarComo);
+
+        jmiImprimir.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_MASK));
+        jmiImprimir.setText("Imprimir");
+        jmiImprimir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiImprimirActionPerformed(evt);
+            }
+        });
+        mArchivo.add(jmiImprimir);
 
         jmiCodigo.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.ALT_MASK));
         jmiCodigo.setText("Generar Código C++");
@@ -1395,6 +1408,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
         datos = 0;
         separador = 0;
         separadorVertical = 0;
+        jmiImprimir.setEnabled(true);
         this.repaint();
     }//GEN-LAST:event_btNuevoDiagramaDeFlujoMouseClicked
 
@@ -1475,6 +1489,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jmiAbrir.setEnabled(true);
         separador = 0;
         separadorVertical = 0;
+        jmiImprimir.setEnabled(true);
         this.repaint();
     }//GEN-LAST:event_jbtDiagramaClasesMouseClicked
 
@@ -2104,7 +2119,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
     private void jmiAbrirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiAbrirActionPerformed
         if (centinela == 2) {
             AbrirDiagramaDeClases();
-        }else if(centinela==1){
+        } else if (centinela == 1) {
             AbrirDiagramaDeFlujo();
         }
     }//GEN-LAST:event_jmiAbrirActionPerformed
@@ -2145,6 +2160,21 @@ public class PanelPrincipal extends javax.swing.JFrame {
         int nombre = (int) Math.floor(Math.random() * 9 + 1);
         GuardarDiagramaDeFlujo("DiagramaDeFlujo" + nombre, "DDF", "Diagrama De Flujo");
     }//GEN-LAST:event_jmiGDiagramaFlujoActionPerformed
+
+    private void jmiImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiImprimirActionPerformed
+        PrinterJob printJob = PrinterJob.getPrinterJob();
+        GuardarComo img=new GuardarComo();
+        img.setBase(jpBase);
+        img.CrearImagen();
+        printJob.setPrintable(new ImagePrintable(printJob, img.GetImagen()));
+        if (printJob.printDialog()) {
+            try {
+                printJob.print();
+            } catch (PrinterException prt) {
+                prt.printStackTrace();
+            }
+        }
+    }//GEN-LAST:event_jmiImprimirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -2534,7 +2564,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
 
                     public void mouseReleased(MouseEvent arg0) {
                         actual = objeto;
-                    }    
+                    }
                 });
                 System.out.println(objeto.getText());
                 //Agregar los Componentes al ArrayList 
@@ -2544,6 +2574,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
         } catch (Exception e) {
         }
     }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PanelClase;
@@ -2656,6 +2687,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jmiGDiagramaClases;
     private javax.swing.JMenuItem jmiGDiagramaFlujo;
     private javax.swing.JMenuItem jmiGuardarComo;
+    private javax.swing.JMenuItem jmiImprimir;
     private javax.swing.JMenuItem jmiMetodos;
     private javax.swing.JMenuItem jmiNuevo;
     private javax.swing.JButton jmiPropiedades;
