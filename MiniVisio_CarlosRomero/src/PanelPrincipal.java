@@ -74,6 +74,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         ppMenu = new javax.swing.JPopupMenu();
+        jmiCopiar1 = new javax.swing.JMenuItem();
         miEliminar = new javax.swing.JMenuItem();
         jmiCambiarTexto = new javax.swing.JMenuItem();
         jmiCambiarColor = new javax.swing.JMenuItem();
@@ -88,6 +89,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         ppMenuClases = new javax.swing.JPopupMenu();
+        jmiCopiar = new javax.swing.JMenuItem();
         jmiEliminarArbol = new javax.swing.JMenuItem();
         jmiAtributos = new javax.swing.JMenuItem();
         jmiMetodos = new javax.swing.JMenuItem();
@@ -136,6 +138,8 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jLabel38 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
         jLabel39 = new javax.swing.JLabel();
+        jppPegar = new javax.swing.JPopupMenu();
+        jmiPegar = new javax.swing.JMenuItem();
         jpTexto = new javax.swing.JPanel();
         jButton3 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
@@ -211,6 +215,14 @@ public class PanelPrincipal extends javax.swing.JFrame {
         mEdiciontx = new javax.swing.JMenu();
         mDiseno = new javax.swing.JMenu();
         jmPropiedades = new javax.swing.JMenu();
+
+        jmiCopiar1.setText("Copiar ");
+        jmiCopiar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiCopiar1ActionPerformed(evt);
+            }
+        });
+        ppMenu.add(jmiCopiar1);
 
         miEliminar.setText("Eliminar");
         miEliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -320,6 +332,14 @@ public class PanelPrincipal extends javax.swing.JFrame {
             }
         ));
         jScrollPane1.setViewportView(jTable1);
+
+        jmiCopiar.setText("Copiar ");
+        jmiCopiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiCopiarActionPerformed(evt);
+            }
+        });
+        ppMenuClases.add(jmiCopiar);
 
         jmiEliminarArbol.setText("Eliminar Componente");
         jmiEliminarArbol.addActionListener(new java.awt.event.ActionListener() {
@@ -632,6 +652,14 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jPanel5.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, -1));
 
         jdHerencia.getContentPane().add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        jmiPegar.setText("Pegar");
+        jmiPegar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiPegarActionPerformed(evt);
+            }
+        });
+        jppPegar.add(jmiPegar);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("MiniVisio - Carlos Wilfredo Romero Maradiaga");
@@ -1446,6 +1474,11 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jdAgregarAtributo.setVisible(false);
         jpPropiedadesClase.setVisible(false);
         jmPropiedades.setEnabled(false);
+        if (evt.isMetaDown() && copiar != 0) {
+            jppPegar.show(jpBase, evt.getX(), evt.getY());
+            X = evt.getX();
+            Y = evt.getY();
+        }
     }//GEN-LAST:event_jpBaseMouseClicked
 
     private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
@@ -1737,6 +1770,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
                 nodoS = (DefaultMutableTreeNode) v1;
                 if (evt.isMetaDown()) {
                     ppMenuClases.show(evt.getComponent(), evt.getX(), evt.getY());
+                    actualT = arbol;
                 }
             }
 
@@ -2173,6 +2207,90 @@ public class PanelPrincipal extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, "Impresión realizada correctamente.", "Impresión", 1);
     }//GEN-LAST:event_jmiImprimirActionPerformed
 
+    private void jmiPegarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiPegarActionPerformed
+        if (centinela == 1) {
+            JLabel objeto;
+            objeto = new JLabel();
+            objeto.setOpaque(true);
+            objeto.setBackground(copiaro.getBackground());
+            objeto.setHorizontalTextPosition(SwingConstants.CENTER);
+            this.jpBase.add(objeto);
+            objeto.setLocation(X, Y);
+            objeto.setIcon(copiaro.getIcon());
+            copia++;
+            objeto.setText(copiaro.getText()+"("+copia+")");
+            objeto.setSize(135, 90);
+            actual = objeto;
+            objeto.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+            objeto.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+                public void mouseDragged(java.awt.event.MouseEvent evt) {
+                    actual = objeto;
+                    txSeleccionado.setText(objeto.getText());
+                    if (((objeto.getLocation().x + evt.getX() - objeto.getWidth() / 2) > 5)) {
+                        if (((objeto.getLocation().x + evt.getX() - objeto.getWidth() / 2) < 770)) {
+                            if ((objeto.getLocation().y + evt.getY() - objeto.getWidth() / 2) > -15) {
+                                if ((objeto.getLocation().y + evt.getY() - objeto.getWidth() / 2) < 520) {
+                                    objeto.setLocation(objeto.getLocation().x + evt.getX() - objeto.getWidth() / 2,
+                                            objeto.getLocation().y + evt.getY() - objeto.getHeight() / 2);
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+            objeto.addMouseListener(new MouseListener() {
+                public void mouseClicked(MouseEvent evt) {
+                    actual = objeto;
+                    txSeleccionado.setText(objeto.getText());
+                    mDiseno.setEnabled(true);
+                    mEdiciontx.setEnabled(true);
+                    if (evt.isMetaDown()) {
+                        copiaro = objeto;
+                        ppMenu.show(evt.getComponent(), evt.getX(), evt.getY());
+                    }
+                }
+
+                public void mouseEntered(MouseEvent arg0) {
+                    objeto.setBorder(BorderFactory.createLineBorder(new java.awt.Color(165, 105, 189), 1));
+                    objeto.setToolTipText(objeto.getText());
+                }
+
+                public void mouseExited(MouseEvent arg0) {
+                    objeto.setBorder(null);
+                }
+
+                public void mousePressed(MouseEvent arg0) {
+                    txSeleccionado.setText(objeto.getText());
+                    actual = objeto;
+                }
+
+                public void mouseReleased(MouseEvent arg0) {
+                    actual = objeto;
+                }
+            });
+            componentes.add(objeto);
+        } else if (centinela == 2) {
+            JTree arbol = new JTree();
+            arbol = actualT;
+            arbol.setLocation(X, Y);
+            copia++;
+            arbol.setName(arbol.getName() + copia);
+            jpBase.add(arbol);
+            clases.add(arbol);
+            this.repaint();
+        }
+    }//GEN-LAST:event_jmiPegarActionPerformed
+
+    private void jmiCopiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiCopiarActionPerformed
+        copiar++;
+        copia=0;
+    }//GEN-LAST:event_jmiCopiarActionPerformed
+
+    private void jmiCopiar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiCopiar1ActionPerformed
+        copiar++;
+        copia=0;
+    }//GEN-LAST:event_jmiCopiar1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2263,7 +2381,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
                 mDiseno.setEnabled(true);
                 mEdiciontx.setEnabled(true);
                 if (evt.isMetaDown()) {
-                    actual = objeto;
+                    copiaro = objeto;
                     ppMenu.show(evt.getComponent(), evt.getX(), evt.getY());
                 }
             }
@@ -2687,6 +2805,8 @@ public class PanelPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jmiCodigo;
     private javax.swing.JMenuItem jmiColorClase;
     private javax.swing.JMenuItem jmiColorTexto;
+    private javax.swing.JMenuItem jmiCopiar;
+    private javax.swing.JMenuItem jmiCopiar1;
     private javax.swing.JMenuItem jmiEliminarArbol;
     private javax.swing.JMenuItem jmiFuente;
     private javax.swing.JMenuItem jmiGDiagramaClases;
@@ -2695,6 +2815,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jmiImprimir;
     private javax.swing.JMenuItem jmiMetodos;
     private javax.swing.JMenuItem jmiNuevo;
+    private javax.swing.JMenuItem jmiPegar;
     private javax.swing.JButton jmiPropiedades;
     private javax.swing.JButton jmiPropiedades1;
     private javax.swing.JPanel jpBase;
@@ -2702,6 +2823,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel jpDiseno;
     private javax.swing.JPanel jpPropiedadesClase;
     private javax.swing.JPanel jpTexto;
+    private javax.swing.JPopupMenu jppPegar;
     private javax.swing.JLabel lbFondo;
     private javax.swing.JMenu mArchivo;
     private javax.swing.JMenu mDiseno;
@@ -2725,7 +2847,9 @@ public class PanelPrincipal extends javax.swing.JFrame {
     String fuente = "Tahoma";
     String fuenteclase = "Tahoma";
     JLabel actual = null;
+    JLabel copiaro = null;
     JTree actualT = null;
+    JTree copiart = null;
     DefaultMutableTreeNode nodoS;
     int tree = 0;
     int ctabla = 0;
@@ -2737,6 +2861,10 @@ public class PanelPrincipal extends javax.swing.JFrame {
     int datos = 0;
     int documento = 0;
     int desicion = 0;
+    int X;
+    int Y;
+    int copiar = 0;
+    int copia = 0;
     ArrayList nombresdeclase = new ArrayList();
     ArrayList<JTree> clases = new ArrayList();
     ArrayList<JLabel> componentes = new ArrayList();
