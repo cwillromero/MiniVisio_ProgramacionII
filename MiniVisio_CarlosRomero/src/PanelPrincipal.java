@@ -1440,21 +1440,24 @@ public class PanelPrincipal extends javax.swing.JFrame {
         String Nombre = "Proceso";
         String imagen = "/ComponentesDiagramaUML/5.png";
         proceso++;
-        AgregarObjeto(Nombre, imagen, proceso);
+        int tipo = 3;
+        AgregarObjeto(Nombre, imagen, proceso, tipo);
     }//GEN-LAST:event_btProcesoMouseClicked
 
     private void btSeparadorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btSeparadorMouseClicked
         String Nombre = "Separador";
         String imagen = "/ComponentesDiagramaUML/8.png";
         separador++;
-        AgregarObjeto(Nombre, imagen, separador);
+        int tipo = 7;
+        AgregarObjeto(Nombre, imagen, proceso, tipo);
     }//GEN-LAST:event_btSeparadorMouseClicked
 
     private void btSeparadorVMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btSeparadorVMouseClicked
         String Nombre = "SeparadorVertical";
         String imagen = "/ComponentesDiagramaUML/7.png";
         separadorVertical++;
-        AgregarObjeto(Nombre, imagen, separadorVertical);
+        int tipo = 8;
+        AgregarObjeto(Nombre, imagen, proceso, tipo);
     }//GEN-LAST:event_btSeparadorVMouseClicked
 
     private void miEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miEliminarActionPerformed
@@ -1558,35 +1561,40 @@ public class PanelPrincipal extends javax.swing.JFrame {
         String Nombre = "Inicio/Finalizacion";
         String imagen = "/ComponentesDiagramaUML/1.png";
         inicio++;
-        AgregarObjeto(Nombre, imagen, inicio);
+        int tipo = 1;
+        AgregarObjeto(Nombre, imagen, proceso, tipo);
     }//GEN-LAST:event_btInicioMouseClicked
 
     private void btDocumentoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btDocumentoMouseClicked
         String Nombre = "Documento";
         String imagen = "/ComponentesDiagramaUML/4.png";
         documento++;
-        AgregarObjeto(Nombre, imagen, documento);
+        int tipo = 6;
+        AgregarObjeto(Nombre, imagen, proceso, tipo);
     }//GEN-LAST:event_btDocumentoMouseClicked
 
     private void btSubprocesoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btSubprocesoMouseClicked
         String Nombre = "Subproceso";
         String imagen = "/ComponentesDiagramaUML/6.png";
         subproceso++;
-        AgregarObjeto(Nombre, imagen, subproceso);
+        int tipo = 5;
+        AgregarObjeto(Nombre, imagen, proceso, tipo);
     }//GEN-LAST:event_btSubprocesoMouseClicked
 
     private void btDesicionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btDesicionMouseClicked
         String Nombre = "Desicion";
         String imagen = "/ComponentesDiagramaUML/3.png";
         desicion++;
-        AgregarObjeto(Nombre, imagen, desicion);
+        int tipo = 4;
+        AgregarObjeto(Nombre, imagen, proceso, tipo);
     }//GEN-LAST:event_btDesicionMouseClicked
 
     private void btDatosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btDatosMouseClicked
         String Nombre = "Datos";
         String imagen = "/ComponentesDiagramaUML/2.png";
         datos++;
-        AgregarObjeto(Nombre, imagen, datos);
+        int tipo = 2;
+        AgregarObjeto(Nombre, imagen, proceso, tipo);
     }//GEN-LAST:event_btDatosMouseClicked
 
     private void btSeparador1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btSeparador1MouseClicked
@@ -1771,6 +1779,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
                 if (evt.isMetaDown()) {
                     ppMenuClases.show(evt.getComponent(), evt.getX(), evt.getY());
                     actualT = arbol;
+                    copiart = arbol;
                 }
             }
 
@@ -1881,32 +1890,49 @@ public class PanelPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_txConfiguracionMouseClicked
 
     private void jmiCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiCodigoActionPerformed
-        taCodigo.setText("");
-        String c = "";
-        try {
-            if (centinela == 2) {
-                for (int i = 0; i < clases.size(); i++) {
-                    CodigoDiagramaDeClases cod = new CodigoDiagramaDeClases((JTree) clases.get(i));
-                    if (i == clasehija && clasehija != -1) {
-                        cod.SetPadre(": public " + herencia);
+        if (centinela == 2) {
+            taCodigo.setText("");
+            String c = "";
+            try {
+                if (centinela == 2) {
+                    for (int i = 0; i < clases.size(); i++) {
+                        CodigoDiagramaDeClases cod = new CodigoDiagramaDeClases((JTree) clases.get(i));
+                        if (i == clasehija && clasehija != -1) {
+                            cod.SetPadre(": public " + herencia);
+                        }
+                        cod.Inicio();
+                        cod.Atributos();
+                        cod.Constructor();
+                        cod.Metodo();
+                        cod.Final();
+                        c += cod.getCodigo();
                     }
-                    cod.Inicio();
-                    cod.Atributos();
-                    cod.Constructor();
-                    cod.Metodo();
-                    cod.Final();
-                    c += cod.getCodigo();
+                    taCodigo.setText(c);
                 }
-                taCodigo.setText(c);
+                jPanel1.setBackground(Color.BLACK);
+                jdCodigo.setModal(true);
+                jdCodigo.pack();
+                jdCodigo.setLocationRelativeTo(this);
+                jdCodigo.setVisible(true);
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Ocurrió un Error! \nEs probable que usted haya Ingresado mal un Dato.\nFavor Revisar las Clases", "Error", 0);
+                e.printStackTrace();
             }
+        } else if (centinela == 1) {
+            taCodigo.setText("");
+            String c = "";
+            CodigoDiagramaDeFlujo cod = new CodigoDiagramaDeFlujo();
+            cod.Inicio();
+            cod.setObjeto(componentes.get(0));
+            cod.Datos();
+            cod.Final();
+            c = cod.getCodigo();
+            taCodigo.setText(c);
             jPanel1.setBackground(Color.BLACK);
             jdCodigo.setModal(true);
             jdCodigo.pack();
             jdCodigo.setLocationRelativeTo(this);
             jdCodigo.setVisible(true);
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Ocurrió un Error! \nEs probable que usted haya Ingresado mal un Dato.\nFavor Revisar las Clases", "Error", 0);
-            e.printStackTrace();
         }
     }//GEN-LAST:event_jmiCodigoActionPerformed
 
@@ -2218,7 +2244,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
             objeto.setLocation(X, Y);
             objeto.setIcon(copiaro.getIcon());
             copia++;
-            objeto.setText(copiaro.getText()+"("+copia+")");
+            objeto.setText(copiaro.getText() + "(" + copia + ")");
             objeto.setSize(135, 90);
             actual = objeto;
             objeto.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -2270,25 +2296,114 @@ public class PanelPrincipal extends javax.swing.JFrame {
             });
             componentes.add(objeto);
         } else if (centinela == 2) {
-            JTree arbol = new JTree();
-            arbol = actualT;
-            arbol.setLocation(X, Y);
+            nombresdeclase.add(copiart.getModel().getRoot());
             copia++;
-            arbol.setName(arbol.getName() + copia);
-            jpBase.add(arbol);
+            String nombre = copiart.getModel().getRoot().toString() +"("+ copia+")";
+            DefaultMutableTreeNode Root = new DefaultMutableTreeNode(nombre);
+            DefaultTreeModel modelo = new DefaultTreeModel(Root);
+            JTree arbol = new JTree(modelo);
+            DefaultTreeModel m = (DefaultTreeModel) arbol.getModel();
+            DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) m.getRoot();
+            DefaultMutableTreeNode atributos = new DefaultMutableTreeNode("<Atributos>");
+            DefaultMutableTreeNode metodos = new DefaultMutableTreeNode("<Metodos>");
+            raiz.add(atributos);
+            raiz.add(metodos);
+            arbol.setName("Arbol" + tree);
+            arbol.setSize(150, 150);
+            arbol.setBackground(new java.awt.Color(192, 255, 243));
+            arbol.setBorder(BorderFactory.createLineBorder(new java.awt.Color(165, 105, 189), 1));
+            tree++;
+            arbol.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+            arbol.addMouseListener(new MouseListener() {
+                public void mouseClicked(MouseEvent evt) {
+                    actualT = arbol;
+                    jmPropiedades.setEnabled(true);
+                    txSeleccionado1.setText(modelo.getRoot().toString());
+                    int row = arbol.getClosestRowForLocation(evt.getX(), evt.getY());
+                    arbol.setSelectionRow(row);
+                    Object v1 = arbol.getSelectionPath().getLastPathComponent();
+                    nodoS = (DefaultMutableTreeNode) v1;
+                    if (evt.isMetaDown()) {
+                        ppMenuClases.show(evt.getComponent(), evt.getX(), evt.getY());
+                        actualT = arbol;
+                    }
+                }
+
+                public void mouseEntered(MouseEvent arg0) {
+                    arbol.setBorder(BorderFactory.createLineBorder(new java.awt.Color(254, 146, 0), 2));
+                    arbol.setToolTipText(modelo.getRoot().toString());
+                }
+
+                public void mouseExited(MouseEvent arg0) {
+                    arbol.setBorder(BorderFactory.createLineBorder(new java.awt.Color(165, 105, 189), 1));
+                }
+
+                public void mousePressed(MouseEvent arg0) {
+                    actualT = arbol;
+                    txSeleccionado1.setText(modelo.getRoot().toString());
+                }
+
+                public void mouseReleased(MouseEvent arg0) {
+                }
+            });
+            arbol.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+                public void mouseDragged(java.awt.event.MouseEvent evt) {
+                    actualT = arbol;
+                    txSeleccionado1.setText(modelo.getRoot().toString());
+                    if (((arbol.getLocation().x + evt.getX() - arbol.getWidth() / 2) > 0)) {
+                        if (((arbol.getLocation().x + evt.getX() - arbol.getWidth() / 2) < 770)) {
+                            if ((arbol.getLocation().y + evt.getY() - arbol.getWidth() / 2) > -15) {
+                                if ((arbol.getLocation().y + evt.getY() - arbol.getWidth() / 2) < 500) {
+                                    arbol.setLocation(arbol.getLocation().x + evt.getX() - arbol.getWidth() / 2,
+                                            arbol.getLocation().y + evt.getY() - arbol.getHeight() / 2);
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+            DefaultTreeModel modelArbol = (DefaultTreeModel) copiart.getModel();
+            DefaultMutableTreeNode raiz1 = (DefaultMutableTreeNode) modelArbol.getRoot();
+            for (int i = 0; i < raiz1.getChildCount(); i++) {
+                try{
+                if (raiz1.getChildAt(i).toString().equals("<Metodos>")) {
+                    for (int j = 0; j < raiz1.getChildAt(i).getChildCount(); j++) {
+                        String xx=raiz1.getChildAt(i).getChildAt(j).toString();
+                        DefaultMutableTreeNode p = new DefaultMutableTreeNode(xx);
+                        ((DefaultMutableTreeNode) raiz.getChildAt(i)).add(p);
+                    }
+                }else if(raiz1.getChildAt(i).toString().equals("<Atributos>")){
+                    for (int j = 0; j < raiz1.getChildAt(i).getChildCount(); j++) {
+                        String xx=raiz1.getChildAt(i).getChildAt(j).toString();
+                        DefaultMutableTreeNode p = new DefaultMutableTreeNode(xx);
+                        ((DefaultMutableTreeNode) raiz.getChildAt(i)).add(p);
+                    }
+                }
+                }catch(Exception e){
+                    
+                }
+            }
+            this.jpBase.add(arbol);
+            arbol.setLocation(X, Y);
             clases.add(arbol);
-            this.repaint();
+            jpBase.repaint();
+            DefaultComboBoxModel model = (DefaultComboBoxModel) jcpadre.getModel();
+            DefaultComboBoxModel modelH = (DefaultComboBoxModel) jcHijo.getModel();
+            model.addElement(modelo.getRoot());
+            modelH.addElement(modelo.getRoot());
+            jcHijo.setModel(modelH);
+            jcpadre.setModel(model);
         }
     }//GEN-LAST:event_jmiPegarActionPerformed
 
     private void jmiCopiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiCopiarActionPerformed
         copiar++;
-        copia=0;
+        copia = 0;
     }//GEN-LAST:event_jmiCopiarActionPerformed
 
     private void jmiCopiar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiCopiar1ActionPerformed
         copiar++;
-        copia=0;
+        copia = 0;
     }//GEN-LAST:event_jmiCopiar1ActionPerformed
 
     /**
@@ -2326,7 +2441,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
         });
     }
 
-    public void AgregarObjeto(String Nombre, String imagen, int contador) {
+    public void AgregarObjeto(String Nombre, String imagen, int contador, int tipo) {
         //Se crea o objeto
         JLabel objeto;
         objeto = new JLabel();
@@ -2336,7 +2451,8 @@ public class PanelPrincipal extends javax.swing.JFrame {
         objeto.setBackground(ColorAletorio());
         //Es para que el texto esté en el centro del Label
         objeto.setHorizontalTextPosition(SwingConstants.CENTER);
-        //Contador del objeto
+        //Esto diferencia cada tipo de objeto
+        objeto.setDisplayedMnemonic(tipo);
         //Lo añade al panel
         this.jpBase.add(objeto);
         //Pone una posicio  aleatroio deliminatdo por el tamaño del Panel BASE
@@ -2843,6 +2959,15 @@ public class PanelPrincipal extends javax.swing.JFrame {
     private javax.swing.JTextField txSeleccionado1;
     private javax.swing.JLabel txtConfiguracion;
     // End of variables declaration//GEN-END:variables
+//    TIPOS:
+//    1-inicio
+//    2-datos
+//    3-proceso
+//    4-desicion
+//    5-subproceso
+//    6-documento
+//    7-separador
+//    8-separador vertical
     Color color;
     String fuente = "Tahoma";
     String fuenteclase = "Tahoma";

@@ -28,13 +28,25 @@ public class CodigoDiagramaDeFlujo {
         this.Codigo = Codigo;
     }
 
+    public JLabel getObjeto() {
+        return objeto;
+    }
+
+    public void setObjeto(JLabel objeto) {
+        this.objeto = objeto;
+    }
+
     public void Inicio() {
         this.Codigo += "#include <string> \n" + "#include <iostream> \n"
                 + "using namespace std;\n\n"
-                + "int main() {";
+                + "int main() {\n";
     }
     
-    
+    public void Datos(){
+        if(objeto.getDisplayedMnemonic()==2){
+            System.out.println("Cosas");
+        }
+    }
     
     public void Final() {
         Codigo += "return 0;\n};\n";

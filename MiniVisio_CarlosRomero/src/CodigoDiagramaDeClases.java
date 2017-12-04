@@ -4,7 +4,8 @@ import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
 
 public class CodigoDiagramaDeClases {
-    private String padre="";
+
+    private String padre = "";
     private JTree arbol;
     private String Codigo = "";
 
@@ -22,9 +23,9 @@ public class CodigoDiagramaDeClases {
     public void setCodigo(String Codigo) {
         this.Codigo = Codigo;
     }
-    
-    public void SetPadre(String padre){
-        this.padre=padre;
+
+    public void SetPadre(String padre) {
+        this.padre = padre;
     }
 
     public void Inicio() {
@@ -47,11 +48,11 @@ public class CodigoDiagramaDeClases {
         String inicio;
         if (x != 0) {
             inicio = "#include <string> \n" + "#include <iostream> \n"
-                    + "using namespace std;\n\n" + "class " + model.getRoot().toString() +" "+padre+" \n"
+                    + "using namespace std;\n\n" + "class " + model.getRoot().toString() + " " + padre + " \n"
                     + "{ \n";
         } else {
             inicio = "#include <iostream> \n"
-                    + "using namespace std;\n\n" + "class " + model.getRoot().toString() +" "+padre+ " \n"
+                    + "using namespace std;\n\n" + "class " + model.getRoot().toString() + " " + padre + " \n"
                     + "{ \n";
         }
         this.Codigo += inicio;
@@ -86,14 +87,14 @@ public class CodigoDiagramaDeClases {
                 }
             }
         }
-        if(publico.equals("   public:\n")){
-            publico="";
+        if (publico.equals("   public:\n")) {
+            publico = "";
         }
-        if(privado.equals("   private:\n")){
-            privado="";
+        if (privado.equals("   private:\n")) {
+            privado = "";
         }
-        if(protecte.equals("   protected:\n")){
-            protecte="";
+        if (protecte.equals("   protected:\n")) {
+            protecte = "";
         }
         ListaAtributos = publico + privado + protecte;
         Codigo += ListaAtributos;
@@ -153,7 +154,7 @@ public class CodigoDiagramaDeClases {
                     String nombre = componentes[1];
                     String parametros = componentes[2];
                     if (parametros.equals("|")) {
-                        Metodo +="      "+ tipo + " " + nombre + " ( );\n";
+                        Metodo += "      " + tipo + " " + nombre + " ( );\n";
                     } else {
                         String variables = "";
                         String[] Parametros = parametros.split(",");
@@ -167,7 +168,7 @@ public class CodigoDiagramaDeClases {
                                 variables += tipop + " " + nombrep + ",";
                             }
                         }
-                        Metodo +="      "+ tipo + " " + nombre + " (" + variables + ");\n";
+                        Metodo += "      " + tipo + " " + nombre + " (" + variables + ");\n";
                     }
                 }
             }
