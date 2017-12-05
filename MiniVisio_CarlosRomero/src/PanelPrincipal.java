@@ -80,6 +80,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jmiCambiarColor = new javax.swing.JMenuItem();
         jmiColorTexto = new javax.swing.JMenuItem();
         jmiCambiarFuente = new javax.swing.JMenuItem();
+        jmiAgregar = new javax.swing.JMenuItem();
         jdNuevo = new javax.swing.JDialog();
         btNuevoDiagramaDeFlujo = new javax.swing.JButton();
         jbtDiagramaClases = new javax.swing.JButton();
@@ -263,6 +264,9 @@ public class PanelPrincipal extends javax.swing.JFrame {
             }
         });
         ppMenu.add(jmiCambiarFuente);
+
+        jmiAgregar.setText("Agregar Propiedad");
+        ppMenu.add(jmiAgregar);
 
         jdNuevo.setTitle("Nuevo");
         jdNuevo.setBackground(new java.awt.Color(0, 0, 102));
@@ -2246,6 +2250,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
             copia++;
             objeto.setText(copiaro.getText() + "(" + copia + ")");
             objeto.setSize(135, 90);
+            objeto.setDisplayedMnemonic(copiaro.getDisplayedMnemonic());
             actual = objeto;
             objeto.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
             objeto.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -2272,6 +2277,11 @@ public class PanelPrincipal extends javax.swing.JFrame {
                     mEdiciontx.setEnabled(true);
                     if (evt.isMetaDown()) {
                         copiaro = objeto;
+                        if (objeto.getDisplayedMnemonic() == 1) {
+                            jmiAgregar.setVisible(false);
+                        } else {
+                            jmiAgregar.setVisible(true);
+                        }
                         ppMenu.show(evt.getComponent(), evt.getX(), evt.getY());
                     }
                 }
@@ -2298,7 +2308,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
         } else if (centinela == 2) {
             nombresdeclase.add(copiart.getModel().getRoot());
             copia++;
-            String nombre = copiart.getModel().getRoot().toString() +"("+ copia+")";
+            String nombre = copiart.getModel().getRoot().toString() + "(" + copia + ")";
             DefaultMutableTreeNode Root = new DefaultMutableTreeNode(nombre);
             DefaultTreeModel modelo = new DefaultTreeModel(Root);
             JTree arbol = new JTree(modelo);
@@ -2365,22 +2375,22 @@ public class PanelPrincipal extends javax.swing.JFrame {
             DefaultTreeModel modelArbol = (DefaultTreeModel) copiart.getModel();
             DefaultMutableTreeNode raiz1 = (DefaultMutableTreeNode) modelArbol.getRoot();
             for (int i = 0; i < raiz1.getChildCount(); i++) {
-                try{
-                if (raiz1.getChildAt(i).toString().equals("<Metodos>")) {
-                    for (int j = 0; j < raiz1.getChildAt(i).getChildCount(); j++) {
-                        String xx=raiz1.getChildAt(i).getChildAt(j).toString();
-                        DefaultMutableTreeNode p = new DefaultMutableTreeNode(xx);
-                        ((DefaultMutableTreeNode) raiz.getChildAt(i)).add(p);
+                try {
+                    if (raiz1.getChildAt(i).toString().equals("<Metodos>")) {
+                        for (int j = 0; j < raiz1.getChildAt(i).getChildCount(); j++) {
+                            String xx = raiz1.getChildAt(i).getChildAt(j).toString();
+                            DefaultMutableTreeNode p = new DefaultMutableTreeNode(xx);
+                            ((DefaultMutableTreeNode) raiz.getChildAt(i)).add(p);
+                        }
+                    } else if (raiz1.getChildAt(i).toString().equals("<Atributos>")) {
+                        for (int j = 0; j < raiz1.getChildAt(i).getChildCount(); j++) {
+                            String xx = raiz1.getChildAt(i).getChildAt(j).toString();
+                            DefaultMutableTreeNode p = new DefaultMutableTreeNode(xx);
+                            ((DefaultMutableTreeNode) raiz.getChildAt(i)).add(p);
+                        }
                     }
-                }else if(raiz1.getChildAt(i).toString().equals("<Atributos>")){
-                    for (int j = 0; j < raiz1.getChildAt(i).getChildCount(); j++) {
-                        String xx=raiz1.getChildAt(i).getChildAt(j).toString();
-                        DefaultMutableTreeNode p = new DefaultMutableTreeNode(xx);
-                        ((DefaultMutableTreeNode) raiz.getChildAt(i)).add(p);
-                    }
-                }
-                }catch(Exception e){
-                    
+                } catch (Exception e) {
+
                 }
             }
             this.jpBase.add(arbol);
@@ -2498,6 +2508,11 @@ public class PanelPrincipal extends javax.swing.JFrame {
                 mEdiciontx.setEnabled(true);
                 if (evt.isMetaDown()) {
                     copiaro = objeto;
+                    if (objeto.getDisplayedMnemonic() == 1) {
+                        jmiAgregar.setVisible(false);
+                    } else {
+                        jmiAgregar.setVisible(true);
+                    }
                     ppMenu.show(evt.getComponent(), evt.getX(), evt.getY());
                 }
             }
@@ -2914,6 +2929,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jmPropiedades;
     private javax.swing.JMenuItem jmiAbrir;
     private javax.swing.JMenuItem jmiAcercaDe;
+    private javax.swing.JMenuItem jmiAgregar;
     private javax.swing.JMenuItem jmiAtributos;
     private javax.swing.JMenuItem jmiCambiarColor;
     private javax.swing.JMenuItem jmiCambiarFuente;
