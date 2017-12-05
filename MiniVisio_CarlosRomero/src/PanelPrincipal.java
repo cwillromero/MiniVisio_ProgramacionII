@@ -1742,7 +1742,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
         txConfiguracion.setText("");
         String Nombre = "";
         while (X == false) {
-            Nombre = JOptionPane.showInputDialog(this, "Ingrese el Nombre de la Clase:", "Clase!", 1);
+            Nombre = JOptionPane.showInputDialog(this, "Ingrese el Nombre de la Clase:", "Clase!", 3);
             int Y = 0;
             for (int i = 0; i < nombresdeclase.size(); i++) {
                 if (nombresdeclase.get(i).equals(Nombre)) {
@@ -1923,6 +1923,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
                 e.printStackTrace();
             }
         } else if (centinela == 1) {
+            try{
             taCodigo.setText("");
             String c = "";
             CodigoDiagramaDeFlujo cod = new CodigoDiagramaDeFlujo();
@@ -1939,6 +1940,9 @@ public class PanelPrincipal extends javax.swing.JFrame {
             jdCodigo.pack();
             jdCodigo.setLocationRelativeTo(this);
             jdCodigo.setVisible(true);
+            }catch(Exception e){
+                JOptionPane.showMessageDialog(null, "Ocurrió un Error! \nEs probable que usted haya Ingresado mal un Dato.\nFavor Revisar el Diagrama", "Error", 0);                
+            }
         }
     }//GEN-LAST:event_jmiCodigoActionPerformed
 
@@ -1955,7 +1959,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
                 ((DefaultMutableTreeNode) raiz.getChildAt(i)).add(p);
             }
         }
-        JOptionPane.showMessageDialog(this, "Atributo Guardado.", "Atributo", 3);
+        JOptionPane.showMessageDialog(this, "Atributo Guardado.", "Atributo", 1);
         String x = "";
         DefaultTreeModel model = (DefaultTreeModel) actualT.getModel();
         DefaultMutableTreeNode root = (DefaultMutableTreeNode) model.getRoot();
@@ -1985,7 +1989,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
                 ((DefaultMutableTreeNode) raiz.getChildAt(i)).add(p);
             }
         }
-        JOptionPane.showMessageDialog(this, "Método Guardado.", "Método", 3);
+        JOptionPane.showMessageDialog(this, "Método Guardado.", "Método", 1);
         String x = "";
         DefaultTreeModel model = (DefaultTreeModel) actualT.getModel();
         DefaultMutableTreeNode root = (DefaultMutableTreeNode) model.getRoot();
@@ -2023,7 +2027,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
 
     private void jbAgregarParametroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbAgregarParametroMouseClicked
         parametros += jcTipoParametro.getSelectedItem().toString() + ":" + txNombreParametro.getText() + ",";
-        JOptionPane.showMessageDialog(jdParametro, "Parámetro Guardado", "Parámetros", 3);
+        JOptionPane.showMessageDialog(jdParametro, "Parámetro Guardado", "Parámetros", 1);
         txNombreParametro.setText("");
     }//GEN-LAST:event_jbAgregarParametroMouseClicked
 
@@ -2392,7 +2396,6 @@ public class PanelPrincipal extends javax.swing.JFrame {
                         }
                     }
                 } catch (Exception e) {
-
                 }
             }
             this.jpBase.add(arbol);
