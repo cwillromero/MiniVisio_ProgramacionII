@@ -1453,7 +1453,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
         String imagen = "/ComponentesDiagramaUML/8.png";
         separador++;
         int tipo = 7;
-        AgregarObjeto(Nombre, imagen, proceso, tipo);
+        AgregarObjeto(Nombre, imagen, separador, tipo);
     }//GEN-LAST:event_btSeparadorMouseClicked
 
     private void btSeparadorVMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btSeparadorVMouseClicked
@@ -1461,7 +1461,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
         String imagen = "/ComponentesDiagramaUML/7.png";
         separadorVertical++;
         int tipo = 8;
-        AgregarObjeto(Nombre, imagen, proceso, tipo);
+        AgregarObjeto(Nombre, imagen, separadorVertical, tipo);
     }//GEN-LAST:event_btSeparadorVMouseClicked
 
     private void miEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miEliminarActionPerformed
@@ -1566,7 +1566,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
         String imagen = "/ComponentesDiagramaUML/1.png";
         inicio++;
         int tipo = 1;
-        AgregarObjeto(Nombre, imagen, proceso, tipo);
+        AgregarObjeto(Nombre, imagen, inicio, tipo);
     }//GEN-LAST:event_btInicioMouseClicked
 
     private void btDocumentoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btDocumentoMouseClicked
@@ -1574,7 +1574,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
         String imagen = "/ComponentesDiagramaUML/4.png";
         documento++;
         int tipo = 6;
-        AgregarObjeto(Nombre, imagen, proceso, tipo);
+        AgregarObjeto(Nombre, imagen, documento, tipo);
     }//GEN-LAST:event_btDocumentoMouseClicked
 
     private void btSubprocesoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btSubprocesoMouseClicked
@@ -1582,7 +1582,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
         String imagen = "/ComponentesDiagramaUML/6.png";
         subproceso++;
         int tipo = 5;
-        AgregarObjeto(Nombre, imagen, proceso, tipo);
+        AgregarObjeto(Nombre, imagen, subproceso, tipo);
     }//GEN-LAST:event_btSubprocesoMouseClicked
 
     private void btDesicionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btDesicionMouseClicked
@@ -1590,7 +1590,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
         String imagen = "/ComponentesDiagramaUML/3.png";
         desicion++;
         int tipo = 4;
-        AgregarObjeto(Nombre, imagen, proceso, tipo);
+        AgregarObjeto(Nombre, imagen, desicion, tipo);
     }//GEN-LAST:event_btDesicionMouseClicked
 
     private void btDatosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btDatosMouseClicked
@@ -1598,7 +1598,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
         String imagen = "/ComponentesDiagramaUML/2.png";
         datos++;
         int tipo = 2;
-        AgregarObjeto(Nombre, imagen, proceso, tipo);
+        AgregarObjeto(Nombre, imagen, datos, tipo);
     }//GEN-LAST:event_btDatosMouseClicked
 
     private void btSeparador1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btSeparador1MouseClicked
@@ -1927,8 +1927,10 @@ public class PanelPrincipal extends javax.swing.JFrame {
             String c = "";
             CodigoDiagramaDeFlujo cod = new CodigoDiagramaDeFlujo();
             cod.Inicio();
-            cod.setObjeto(componentes.get(0));
-            cod.Datos();
+            for (int i = 0; i < componentes.size(); i++) {
+                cod.setObjeto(componentes.get(i));
+                cod.Datos();
+            }
             cod.Final();
             c = cod.getCodigo();
             taCodigo.setText(c);
