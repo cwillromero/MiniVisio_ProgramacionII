@@ -48,11 +48,11 @@ public class CodigoDiagramaDeClases {
         String inicio;
         if (x != 0) {
             inicio = "#include <string> \n" + "#include <iostream> \n"
-                    + "using namespace std;\n\n" + "class " + model.getRoot().toString() + " " + padre + " \n"
+                    + "using namespace std;\n\n" + "class " + model.getRoot().toString() + " " + arbol.getName() + " \n"
                     + "{ \n";
         } else {
             inicio = "#include <iostream> \n"
-                    + "using namespace std;\n\n" + "class " + model.getRoot().toString() + " " + padre + " \n"
+                    + "using namespace std;\n\n" + "class " + model.getRoot().toString() + " " + arbol.getName() + " \n"
                     + "{ \n";
         }
         this.Codigo += inicio;

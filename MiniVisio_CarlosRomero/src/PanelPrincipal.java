@@ -1853,7 +1853,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
         DefaultMutableTreeNode metodos = new DefaultMutableTreeNode("<Metodos>");
         raiz.add(atributos);
         raiz.add(metodos);
-        arbol.setName("Arbol" + tree);
+        arbol.setName("");
         arbol.setSize(150, 150);
         arbol.setBackground(new java.awt.Color(192, 255, 243));
         arbol.setBorder(BorderFactory.createLineBorder(new java.awt.Color(165, 105, 189), 1));
@@ -1989,9 +1989,6 @@ public class PanelPrincipal extends javax.swing.JFrame {
                 if (centinela == 2) {
                     for (int i = 0; i < clases.size(); i++) {
                         CodigoDiagramaDeClases cod = new CodigoDiagramaDeClases((JTree) clases.get(i));
-                        if (i == clasehija && clasehija != -1) {
-                            cod.SetPadre(": public " + herencia);
-                        }
                         cod.Inicio();
                         cod.Atributos();
                         cod.Constructor();
@@ -2300,9 +2297,10 @@ public class PanelPrincipal extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "La clase no se puede heredar a sí misma!", "Herencia", 0);
             } else {
                 int posPadre = jcpadre.getSelectedIndex();
-                herencia = ((JTree) clases.get(posPadre)).getModel().getRoot().toString();
-                System.out.println("Clase Padre:" + herencia);
+                String Herencia = ((JTree) clases.get(posPadre)).getModel().getRoot().toString();
+                System.out.println("Clase Padre:" + Herencia);
                 clasehija = jcHijo.getSelectedIndex();
+                ((JTree) clases.get(clasehija)).setName(": public " + Herencia);
                 System.out.println("Clase Hija:" + ((JTree) clases.get(clasehija)).getModel().getRoot().toString());
                 JOptionPane.showMessageDialog(this, "Herencia Aplicada.", "Herencia", 3);
             }
@@ -2418,7 +2416,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
             DefaultMutableTreeNode metodos = new DefaultMutableTreeNode("<Metodos>");
             raiz.add(atributos);
             raiz.add(metodos);
-            arbol.setName("Arbol" + tree);
+            arbol.setName(copiart.getName());
             arbol.setSize(150, 150);
             arbol.setBackground(new java.awt.Color(192, 255, 243));
             arbol.setBorder(BorderFactory.createLineBorder(new java.awt.Color(165, 105, 189), 1));
@@ -2846,11 +2844,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
                 jcHijo.setModel(modelH);
                 jcpadre.setModel(model);
             }
-            if (jfc.getSelectedFile().getPath().equals("DDC")) {
-                JOptionPane.showMessageDialog(this, "Archivo cargado correctamente.", "Cargar", 1);
-            } else {
-                JOptionPane.showMessageDialog(this, "El archivo no es de tipo Diagrama de Clases", "Cargar", 0);
-            }
+            JOptionPane.showMessageDialog(this, "Archivo cargado correctamente.", "Cargar", 1);
         } catch (Exception e) {
         }
     }
@@ -2952,11 +2946,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
                 //Agregar los Componentes al ArrayList 
                 componentes.add(objeto);
             }
-            if (jfc.getSelectedFile().getPath().equals("DDF")) {
-                JOptionPane.showMessageDialog(this, "Archivo cargado correctamente.", "Cargar", 1);
-            } else {
-                JOptionPane.showMessageDialog(this, "El archivo no es de tipo Diagrama de Flujo.", "Cargar", 0);
-            }
+            JOptionPane.showMessageDialog(this, "Archivo cargado correctamente.", "Cargar", 1);
         } catch (Exception e) {
         }
     }
