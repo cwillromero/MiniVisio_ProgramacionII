@@ -44,7 +44,16 @@ public class CodigoDiagramaDeFlujo {
     
     public void Datos(){
         if(objeto.getDisplayedMnemonic()==2){
-            System.out.println("Cosas");
+            String x=objeto.getName();
+            String[] S=x.split(";");
+            String variables="";
+            for (int i = 0; i < S.length; i++) {
+                String[] X=S[i].split(" ");
+                String tipo=X[0];
+                String nombre=X[1];
+                variables+="    "+tipo+" "+nombre+";\n";
+            }
+            Codigo+=variables;
         }
     }
     

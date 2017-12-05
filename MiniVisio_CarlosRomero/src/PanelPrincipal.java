@@ -82,6 +82,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jmiColorTexto = new javax.swing.JMenuItem();
         jmiCambiarFuente = new javax.swing.JMenuItem();
         jmiAgregar = new javax.swing.JMenuItem();
+        jmiVerPropiedades = new javax.swing.JMenuItem();
         jdNuevo = new javax.swing.JDialog();
         btNuevoDiagramaDeFlujo = new javax.swing.JButton();
         jbtDiagramaClases = new javax.swing.JButton();
@@ -142,6 +143,14 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jLabel39 = new javax.swing.JLabel();
         jppPegar = new javax.swing.JPopupMenu();
         jmiPegar = new javax.swing.JMenuItem();
+        jdAgregarVariable = new javax.swing.JDialog();
+        jpVariable = new javax.swing.JPanel();
+        jLabel40 = new javax.swing.JLabel();
+        jcTipoVariable = new javax.swing.JComboBox<>();
+        jLabel41 = new javax.swing.JLabel();
+        txNombreVariable = new javax.swing.JTextField();
+        jLabel43 = new javax.swing.JLabel();
+        jButton6 = new javax.swing.JButton();
         jpTexto = new javax.swing.JPanel();
         jButton3 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
@@ -267,7 +276,15 @@ public class PanelPrincipal extends javax.swing.JFrame {
         ppMenu.add(jmiCambiarFuente);
 
         jmiAgregar.setText("Agregar Propiedad");
+        jmiAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiAgregarActionPerformed(evt);
+            }
+        });
         ppMenu.add(jmiAgregar);
+
+        jmiVerPropiedades.setText("Ver Propiedades");
+        ppMenu.add(jmiVerPropiedades);
 
         jdNuevo.setTitle("Nuevo");
         jdNuevo.setBackground(new java.awt.Color(0, 0, 102));
@@ -471,7 +488,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
 
         jLabel22.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel22.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel22.setText("Nombre de Método:");
+        jLabel22.setText("Nombre de Atributo:");
         jPanel2.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 130, 20));
 
         jcTipoAtributo.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
@@ -665,6 +682,53 @@ public class PanelPrincipal extends javax.swing.JFrame {
             }
         });
         jppPegar.add(jmiPegar);
+
+        jdAgregarVariable.setTitle("Variables");
+        jdAgregarVariable.setBackground(new java.awt.Color(204, 204, 255));
+        jdAgregarVariable.setSize(new java.awt.Dimension(300, 300));
+        jdAgregarVariable.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jpVariable.setBackground(new java.awt.Color(0, 0, 0));
+        jpVariable.setMaximumSize(new java.awt.Dimension(272, 100));
+        jpVariable.setMinimumSize(new java.awt.Dimension(272, 100));
+        jpVariable.setPreferredSize(new java.awt.Dimension(272, 100));
+        jpVariable.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel40.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel40.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel40.setText("Nombre de Variable:");
+        jpVariable.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 130, 20));
+
+        jcTipoVariable.setFont(new java.awt.Font("Georgia", 1, 12)); // NOI18N
+        jcTipoVariable.setForeground(new java.awt.Color(51, 0, 51));
+        jcTipoVariable.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "int", "long", "float", "double", "string", "bool", "char", "wchar_t" }));
+        jpVariable.add(jcTipoVariable, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, 162, 20));
+
+        jLabel41.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel41.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel41.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel41.setText("Variables");
+        jpVariable.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, 114, 20));
+        jpVariable.add(txNombreVariable, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 260, -1));
+
+        jLabel43.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel43.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel43.setText("Tipo de Variable:");
+        jLabel43.setName("hahsadbsnbdnbsdnbavnbdnasbdnbasndbvsnabvdnbsavdnbsa"); // NOI18N
+        jpVariable.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 114, 20));
+
+        jButton6.setBackground(new java.awt.Color(204, 204, 255));
+        jButton6.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        jButton6.setForeground(new java.awt.Color(51, 0, 51));
+        jButton6.setText("Agregar");
+        jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton6MouseClicked(evt);
+            }
+        });
+        jpVariable.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 140, -1, -1));
+
+        jdAgregarVariable.getContentPane().add(jpVariable, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 300, 190));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("MiniVisio - Carlos Wilfredo Romero Maradiaga");
@@ -1429,6 +1493,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jmiGuardarComo.setEnabled(true);
         jMGuardar.setEnabled(true);
         jmiAbrir.setEnabled(true);
+        jmPropiedades.setVisible(false);
         documento = 0;
         inicio = 0;
         desicion = 0;
@@ -2254,6 +2319,9 @@ public class PanelPrincipal extends javax.swing.JFrame {
             this.jpBase.add(objeto);
             objeto.setLocation(X, Y);
             objeto.setIcon(copiaro.getIcon());
+            objeto.setName(copiaro.getName());
+            objeto.setForeground(copiaro.getForeground());
+            objeto.setFont(copiaro.getFont());
             copia++;
             objeto.setText(copiaro.getText() + "(" + copia + ")");
             objeto.setSize(135, 90);
@@ -2422,6 +2490,24 @@ public class PanelPrincipal extends javax.swing.JFrame {
         copia = 0;
     }//GEN-LAST:event_jmiCopiar1ActionPerformed
 
+    private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
+        String x=actual.getName()+jcTipoVariable.getSelectedItem().toString()+" "+txNombreVariable.getText()+";";
+        actual.setName(x);
+        JOptionPane.showMessageDialog(this, "Variable agregada.", "Variables", 1);
+    }//GEN-LAST:event_jButton6MouseClicked
+
+    private void jmiAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiAgregarActionPerformed
+        if(actual.getDisplayedMnemonic()==2){
+            txNombreVariable.setText(" ");
+            jdAgregarVariable.setModal(true);
+            jdAgregarVariable.pack();
+            jdAgregarVariable.setLocationRelativeTo(this);
+            jdAgregarVariable.setVisible(true);
+        }else{
+            
+        }
+    }//GEN-LAST:event_jmiAgregarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2486,6 +2572,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
         }
         //Se define el tamaño
         objeto.setSize(135, 90);
+        objeto.setName("");
         actual = objeto;
         //es para que cada vez que se acerce al objeto, el cursor cambie a una manita
         objeto.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -2856,6 +2943,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -2890,6 +2978,9 @@ public class PanelPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel40;
+    private javax.swing.JLabel jLabel41;
+    private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -2925,9 +3016,11 @@ public class PanelPrincipal extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jcTipoAtributo;
     private javax.swing.JComboBox<String> jcTipoMetodo;
     private javax.swing.JComboBox<String> jcTipoParametro;
+    private javax.swing.JComboBox<String> jcTipoVariable;
     private javax.swing.JComboBox<String> jcpadre;
     private javax.swing.JDialog jdAgregarAtributo;
     private javax.swing.JDialog jdAgregarMetodo;
+    private javax.swing.JDialog jdAgregarVariable;
     private javax.swing.JDialog jdCodigo;
     private javax.swing.JDialog jdHerencia;
     private javax.swing.JDialog jdNuevo;
@@ -2956,11 +3049,13 @@ public class PanelPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jmiPegar;
     private javax.swing.JButton jmiPropiedades;
     private javax.swing.JButton jmiPropiedades1;
+    private javax.swing.JMenuItem jmiVerPropiedades;
     private javax.swing.JPanel jpBase;
     private javax.swing.JPanel jpBase0;
     private javax.swing.JPanel jpDiseno;
     private javax.swing.JPanel jpPropiedadesClase;
     private javax.swing.JPanel jpTexto;
+    private javax.swing.JPanel jpVariable;
     private javax.swing.JPopupMenu jppPegar;
     private javax.swing.JLabel lbFondo;
     private javax.swing.JMenu mArchivo;
@@ -2977,6 +3072,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
     private javax.swing.JTextField txNombreAtributo;
     private javax.swing.JTextField txNombreMetodo;
     private javax.swing.JTextField txNombreParametro;
+    private javax.swing.JTextField txNombreVariable;
     private javax.swing.JTextField txSeleccionado;
     private javax.swing.JTextField txSeleccionado1;
     private javax.swing.JLabel txtConfiguracion;
