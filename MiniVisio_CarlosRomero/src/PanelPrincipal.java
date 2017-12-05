@@ -62,6 +62,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jMGuardar.setEnabled(false);
         jmiAbrir.setEnabled(false);
         jmiImprimir.setEnabled(false);
+        txNombreAtributo.setText(" ");
     }
 
     /**
@@ -1973,7 +1974,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
         txConfiguracion.setText("Atributos de la Clase <<" + model.getRoot() + ">>:\n" + x);
         x = "";
         txtConfiguracion.setText("Atributos:");
-        txNombreAtributo.setText("");
+        txNombreAtributo.setText(" ");
     }//GEN-LAST:event_jButton2MouseClicked
 
     private void jbAgregarMetodoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbAgregarMetodoMouseClicked
