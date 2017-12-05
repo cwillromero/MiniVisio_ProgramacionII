@@ -173,6 +173,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jbEliminar = new javax.swing.JButton();
         jmiPropiedades = new javax.swing.JButton();
         jmiPropiedades1 = new javax.swing.JButton();
+        jmiVer = new javax.swing.JButton();
         jpBase0 = new javax.swing.JPanel();
         PanelClase = new javax.swing.JPanel();
         txtConfiguracion = new javax.swing.JLabel();
@@ -284,6 +285,11 @@ public class PanelPrincipal extends javax.swing.JFrame {
         ppMenu.add(jmiAgregar);
 
         jmiVerPropiedades.setText("Ver Propiedades");
+        jmiVerPropiedades.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiVerPropiedadesActionPerformed(evt);
+            }
+        });
         ppMenu.add(jmiVerPropiedades);
 
         jdNuevo.setTitle("Nuevo");
@@ -902,7 +908,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jpDiseno.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton1.setBackground(new java.awt.Color(153, 153, 255));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 204, 153));
         jButton1.setText("Color de Componente");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -910,10 +916,10 @@ public class PanelPrincipal extends javax.swing.JFrame {
                 jButton1MouseClicked(evt);
             }
         });
-        jpDiseno.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 20, 170, 40));
+        jpDiseno.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 20, 150, 40));
 
         jbEliminar.setBackground(new java.awt.Color(255, 153, 153));
-        jbEliminar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jbEliminar.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
         jbEliminar.setForeground(new java.awt.Color(51, 0, 0));
         jbEliminar.setText("Eliminar Componente");
         jbEliminar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -921,19 +927,35 @@ public class PanelPrincipal extends javax.swing.JFrame {
                 jbEliminarMouseClicked(evt);
             }
         });
-        jpDiseno.add(jbEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 170, 40));
+        jpDiseno.add(jbEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 150, 40));
 
         jmiPropiedades.setBackground(new java.awt.Color(51, 0, 51));
         jmiPropiedades.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jmiPropiedades.setForeground(new java.awt.Color(255, 204, 204));
         jmiPropiedades.setText("Agregar Propiedades");
-        jpDiseno.add(jmiPropiedades, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 20, 170, 40));
+        jpDiseno.add(jmiPropiedades, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 20, 150, 40));
 
         jmiPropiedades1.setBackground(new java.awt.Color(0, 0, 51));
         jmiPropiedades1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jmiPropiedades1.setForeground(new java.awt.Color(204, 204, 255));
         jmiPropiedades1.setText("Ver Propiedades");
-        jpDiseno.add(jmiPropiedades1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 20, 170, 40));
+        jpDiseno.add(jmiPropiedades1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 20, 150, 40));
+
+        jmiVer.setBackground(new java.awt.Color(255, 153, 153));
+        jmiVer.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        jmiVer.setForeground(new java.awt.Color(51, 0, 0));
+        jmiVer.setText("Ver Propiedades");
+        jmiVer.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jmiVerMouseClicked(evt);
+            }
+        });
+        jmiVer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiVerActionPerformed(evt);
+            }
+        });
+        jpDiseno.add(jmiVer, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 20, 150, 40));
 
         getContentPane().add(jpDiseno, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 10, 950, 70));
 
@@ -1986,28 +2008,29 @@ public class PanelPrincipal extends javax.swing.JFrame {
                 jdCodigo.setVisible(true);
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, "Ocurrió un Error! \nEs probable que usted haya Ingresado mal un Dato.\nFavor Revisar las Clases", "Error", 0);
-                e.printStackTrace();
+                //e.printStackTrace();
             }
         } else if (centinela == 1) {
-            try{
-            taCodigo.setText("");
-            String c = "";
-            CodigoDiagramaDeFlujo cod = new CodigoDiagramaDeFlujo();
-            cod.Inicio();
-            for (int i = 0; i < componentes.size(); i++) {
-                cod.setObjeto(componentes.get(i));
-                cod.Datos();
-            }
-            cod.Final();
-            c = cod.getCodigo();
-            taCodigo.setText(c);
-            jPanel1.setBackground(Color.BLACK);
-            jdCodigo.setModal(true);
-            jdCodigo.pack();
-            jdCodigo.setLocationRelativeTo(this);
-            jdCodigo.setVisible(true);
-            }catch(Exception e){
-                JOptionPane.showMessageDialog(null, "Ocurrió un Error! \nEs probable que usted haya Ingresado mal un Dato.\nFavor Revisar el Diagrama", "Error", 0);                
+            try {
+                taCodigo.setText("");
+                String c = "";
+                CodigoDiagramaDeFlujo cod = new CodigoDiagramaDeFlujo();
+                cod.Inicio();
+                for (int i = 0; i < componentes.size(); i++) {
+                    cod.setObjeto(componentes.get(i));
+                    cod.Datos();
+                }
+                cod.Final();
+                c = cod.getCodigo();
+                taCodigo.setText(c);
+                jPanel1.setBackground(Color.BLACK);
+                jdCodigo.setModal(true);
+                jdCodigo.pack();
+                jdCodigo.setLocationRelativeTo(this);
+                jdCodigo.setVisible(true);
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Ocurrió un Error! \nEs probable que usted haya Ingresado mal un Dato.\nFavor Revisar el Diagrama", "Error", 0);
+                e.printStackTrace();
             }
         }
     }//GEN-LAST:event_jmiCodigoActionPerformed
@@ -2354,8 +2377,10 @@ public class PanelPrincipal extends javax.swing.JFrame {
                         copiaro = objeto;
                         if (objeto.getDisplayedMnemonic() == 1) {
                             jmiAgregar.setVisible(false);
+                            jmiVerPropiedades.setVisible(false);
                         } else {
                             jmiAgregar.setVisible(true);
+                            jmiVerPropiedades.setVisible(true);
                         }
                         ppMenu.show(evt.getComponent(), evt.getX(), evt.getY());
                     }
@@ -2491,22 +2516,34 @@ public class PanelPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jmiCopiar1ActionPerformed
 
     private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
-        String x=actual.getName()+jcTipoVariable.getSelectedItem().toString()+" "+txNombreVariable.getText()+";";
+        String x = actual.getName() + jcTipoVariable.getSelectedItem().toString() + " " + txNombreVariable.getText() + ";";
         actual.setName(x);
         JOptionPane.showMessageDialog(this, "Variable agregada.", "Variables", 1);
     }//GEN-LAST:event_jButton6MouseClicked
 
     private void jmiAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiAgregarActionPerformed
-        if(actual.getDisplayedMnemonic()==2){
+        if (actual.getDisplayedMnemonic() == 2) {
             txNombreVariable.setText(" ");
             jdAgregarVariable.setModal(true);
             jdAgregarVariable.pack();
             jdAgregarVariable.setLocationRelativeTo(this);
             jdAgregarVariable.setVisible(true);
-        }else{
-            
+        } else {
+
         }
     }//GEN-LAST:event_jmiAgregarActionPerformed
+
+    private void jmiVerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jmiVerMouseClicked
+        VerPropiedades();
+    }//GEN-LAST:event_jmiVerMouseClicked
+
+    private void jmiVerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiVerActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jmiVerActionPerformed
+
+    private void jmiVerPropiedadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiVerPropiedadesActionPerformed
+        VerPropiedades();
+    }//GEN-LAST:event_jmiVerPropiedadesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -2603,8 +2640,10 @@ public class PanelPrincipal extends javax.swing.JFrame {
                     copiaro = objeto;
                     if (objeto.getDisplayedMnemonic() == 1) {
                         jmiAgregar.setVisible(false);
+                        jmiVerPropiedades.setVisible(false);
                     } else {
                         jmiAgregar.setVisible(true);
+                        jmiVerPropiedades.setVisible(true);
                     }
                     ppMenu.show(evt.getComponent(), evt.getX(), evt.getY());
                 }
@@ -2922,7 +2961,21 @@ public class PanelPrincipal extends javax.swing.JFrame {
         }
     }
 
+    public void VerPropiedades() {
+        if (actual.getDisplayedMnemonic() == 2) {
+            String[] v = actual.getName().split(";");
+            String variables = "";
+            for (int i = 0; i < v.length; i++) {
+                variables += v[i] + ";\n";
+            }
+            if (actual.getName().length() < 2) {
+                variables = "No tiene propiedades todavía.";
+            }
+            JOptionPane.showMessageDialog(this, variables, "Propiedades", 1);
+        } else {
 
+        }
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PanelClase;
     private javax.swing.JPanel PanelFlujo;
@@ -3049,6 +3102,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jmiPegar;
     private javax.swing.JButton jmiPropiedades;
     private javax.swing.JButton jmiPropiedades1;
+    private javax.swing.JButton jmiVer;
     private javax.swing.JMenuItem jmiVerPropiedades;
     private javax.swing.JPanel jpBase;
     private javax.swing.JPanel jpBase0;
