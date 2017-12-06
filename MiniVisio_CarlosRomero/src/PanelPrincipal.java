@@ -8,7 +8,11 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.print.PrinterException;
 import java.awt.print.PrinterJob;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -424,6 +428,11 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jbGuardarCodigo.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
         jbGuardarCodigo.setForeground(new java.awt.Color(102, 255, 204));
         jbGuardarCodigo.setText("Guardar Código");
+        jbGuardarCodigo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jbGuardarCodigoMouseClicked(evt);
+            }
+        });
 
         jLabel16.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(204, 204, 255));
@@ -2522,6 +2531,47 @@ public class PanelPrincipal extends javax.swing.JFrame {
             GuardarDiagramaDeClases("DiagramaDeClases" + nombre, "DDC", "Diagramas De Clases");
         }
     }//GEN-LAST:event_jmiGuardarActionPerformed
+
+    private void jbGuardarCodigoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbGuardarCodigoMouseClicked
+        String Nombre = "";
+        String Tipo = "Archivo de Texto";
+        String Extension = "txt";
+        if (centinela == 1) {
+            Nombre = "CodigoDiagramaDeFlujo";
+        } else {
+            Nombre = "CodigoDiagramaDeClases";
+        }
+        JFileChooser jfc = new JFileChooser();
+        FileNameExtensionFilter filtro = new FileNameExtensionFilter(Tipo, Extension);
+        jfc.addChoosableFileFilter(filtro);
+        jfc.setSelectedFile(new File(Nombre + "." + Extension));
+        int seleccion = jfc.showSaveDialog(this);
+        if (seleccion == JFileChooser.APPROVE_OPTION) {
+            File f;
+            FileWriter fw = null;
+            BufferedWriter bw = null;
+            try {
+                f = new File(jfc.getSelectedFile().getPath());
+                fw = new FileWriter(f, false);
+                bw = new BufferedWriter(fw);
+                String codigo=taCodigo.getText();
+                bw.write(codigo);
+                bw.flush();
+            } catch (Exception e) {
+            }
+            try {
+                bw.close();
+            } catch (IOException ex) {
+                Logger.getLogger(PanelPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            try {
+                fw.close();
+            } catch (IOException ex) {
+                Logger.getLogger(PanelPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            JOptionPane.showMessageDialog(this, "Código Guardado.", "Código", 1);
+        }
+    }//GEN-LAST:event_jbGuardarCodigoMouseClicked
 
     /**
      * @param args the command line arguments
