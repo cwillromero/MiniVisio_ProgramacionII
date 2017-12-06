@@ -1993,6 +1993,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
                         cod.Atributos();
                         cod.Constructor();
                         cod.Metodo();
+                        cod.Destructores();
                         cod.Final();
                         c += cod.getCodigo();
                     }

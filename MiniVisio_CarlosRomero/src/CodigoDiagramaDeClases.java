@@ -175,4 +175,13 @@ public class CodigoDiagramaDeClases {
         }
         Codigo += Metodo;
     }
+    
+    public void Destructores(){
+        DefaultTreeModel model = (DefaultTreeModel) arbol.getModel();
+        DefaultMutableTreeNode root = (DefaultMutableTreeNode) model.getRoot();
+        String Destructor="      //Destructor\n" + "      ~"
+                + model.getRoot().toString()
+                + "(" + " " + ");\n";
+        Codigo+=Destructor;
+    }
 }
