@@ -517,6 +517,12 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jLabel24.setForeground(new java.awt.Color(255, 255, 255));
         jLabel24.setText("Encapsulamiento:");
         jPanel2.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 114, 20));
+
+        txNombreAtributo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txNombreAtributoMouseClicked(evt);
+            }
+        });
         jPanel2.add(txNombreAtributo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 260, -1));
 
         jLabel25.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -576,6 +582,12 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jLabel28.setForeground(new java.awt.Color(255, 255, 255));
         jLabel28.setText("Parámetros:");
         jPanel3.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 114, 20));
+
+        txNombreMetodo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txNombreMetodoMouseClicked(evt);
+            }
+        });
         jPanel3.add(txNombreMetodo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 260, -1));
 
         jLabel29.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -614,6 +626,12 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jLabel31.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel31.setText("Parámetro");
         jPanel4.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 0, 114, 20));
+
+        txNombreParametro.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txNombreParametroMouseClicked(evt);
+            }
+        });
         jPanel4.add(txNombreParametro, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 260, -1));
 
         jLabel33.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -720,6 +738,12 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jLabel41.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel41.setText("Variables");
         jpVariable.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, 114, 20));
+
+        txNombreVariable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txNombreVariableMouseClicked(evt);
+            }
+        });
         jpVariable.add(txNombreVariable, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 260, -1));
 
         jLabel43.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -973,6 +997,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
         txtConfiguracion.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
         txtConfiguracion.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
 
+        txSeleccionado1.setEditable(false);
         txSeleccionado1.setBackground(new java.awt.Color(0, 0, 0));
         txSeleccionado1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         txSeleccionado1.setForeground(new java.awt.Color(0, 255, 102));
@@ -1209,6 +1234,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jLabel14.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
         jLabel14.setText("Separador Vertical");
 
+        txSeleccionado.setEditable(false);
         txSeleccionado.setBackground(new java.awt.Color(0, 0, 0));
         txSeleccionado.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         txSeleccionado.setForeground(new java.awt.Color(0, 255, 102));
@@ -2572,6 +2598,22 @@ public class PanelPrincipal extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Código Guardado.", "Código", 1);
         }
     }//GEN-LAST:event_jbGuardarCodigoMouseClicked
+
+    private void txNombreAtributoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txNombreAtributoMouseClicked
+       txNombreAtributo.setText("");
+    }//GEN-LAST:event_txNombreAtributoMouseClicked
+
+    private void txNombreVariableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txNombreVariableMouseClicked
+        txNombreVariable.setText("");
+    }//GEN-LAST:event_txNombreVariableMouseClicked
+
+    private void txNombreParametroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txNombreParametroMouseClicked
+        txNombreParametro.setText("");
+    }//GEN-LAST:event_txNombreParametroMouseClicked
+
+    private void txNombreMetodoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txNombreMetodoMouseClicked
+        txNombreMetodo.setText("");
+    }//GEN-LAST:event_txNombreMetodoMouseClicked
 
     /**
      * @param args the command line arguments
