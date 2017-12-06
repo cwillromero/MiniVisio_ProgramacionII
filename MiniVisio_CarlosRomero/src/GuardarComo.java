@@ -27,6 +27,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  */
 /**
  *
+ *
  * @author Will
  */
 public class GuardarComo {
@@ -62,10 +63,10 @@ public class GuardarComo {
         base.paintAll(G);
     }
 
-    public BufferedImage GetImagen(){
+    public BufferedImage GetImagen() {
         return this.Imagen;
     }
-    
+
     public boolean EscribirImagen() {
         try {
             archivo = null;
@@ -114,11 +115,11 @@ public class GuardarComo {
         String Path = jfc.getSelectedFile().getPath();
         try {
             try {
-                ImageIO.write(Imagen, "png", new File(Path + "1" + ".png"));
+                ImageIO.write(Imagen, "png", new File(Path + "0" + ".png"));
             } catch (IOException ex) {
                 Logger.getLogger(base.getName()).log(Level.SEVERE, null, ex);
             }
-            Image imagen = Image.getInstance(Path + "1" + ".png");
+            Image imagen = Image.getInstance(Path + "0" + ".png");
             imagen.scaleAbsolute(500, 352);
             imagen.setAlignment(Element.ALIGN_CENTER);
             FileOutputStream archivo = new FileOutputStream(Path + ".PDF");
@@ -131,7 +132,7 @@ public class GuardarComo {
             doc.add(new Paragraph("                                                  Carlos Wilfredo Romero Maradiaga \n"));
             doc.add(imagen);
             doc.add(pdf.getCuerpo("\nCódigo Generado:\n"));
-            if (codigo.length()<2) {
+            if (codigo.length() < 2) {
                 doc.add(pdf.getCuerpo("Para poder visualizar el código, primero debe generarlo desde el Sistema y vuelva a guardar el archivo."));
             } else {
                 doc.add(pdf.getCuerpo(codigo));

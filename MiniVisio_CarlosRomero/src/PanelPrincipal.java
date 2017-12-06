@@ -202,12 +202,12 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         btInicio = new javax.swing.JButton();
-        btSubproceso = new javax.swing.JButton();
+        btWhile = new javax.swing.JButton();
         btDatos = new javax.swing.JButton();
         btSeparador = new javax.swing.JButton();
         btDesicion = new javax.swing.JButton();
         btSeparadorV = new javax.swing.JButton();
-        btDocumento = new javax.swing.JButton();
+        btImpresion = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
         txSeleccionado = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
@@ -1149,6 +1149,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
 
         btProceso.setBackground(new java.awt.Color(153, 153, 255));
         btProceso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ComponentesDiagramaUML/5.png"))); // NOI18N
+        btProceso.setToolTipText("Se usa para procesos principales");
         btProceso.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btProcesoMouseClicked(evt);
@@ -1165,35 +1166,37 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jLabel9.setText("Datos");
 
         jLabel10.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
-        jLabel10.setText("Subproceso");
+        jLabel10.setText("While");
 
         jLabel11.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
         jLabel11.setText("Desición");
 
         jLabel12.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
-        jLabel12.setText("Documento");
+        jLabel12.setText("Impresión");
 
         jLabel13.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
         jLabel13.setText("Separador");
 
         btInicio.setBackground(new java.awt.Color(204, 255, 204));
         btInicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ComponentesDiagramaUML/1.png"))); // NOI18N
+        btInicio.setToolTipText("Se usa para iniciar o finalizar");
         btInicio.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btInicioMouseClicked(evt);
             }
         });
 
-        btSubproceso.setBackground(new java.awt.Color(255, 153, 255));
-        btSubproceso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ComponentesDiagramaUML/6.png"))); // NOI18N
-        btSubproceso.addMouseListener(new java.awt.event.MouseAdapter() {
+        btWhile.setBackground(new java.awt.Color(255, 153, 255));
+        btWhile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ComponentesDiagramaUML/6.png"))); // NOI18N
+        btWhile.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btSubprocesoMouseClicked(evt);
+                btWhileMouseClicked(evt);
             }
         });
 
         btDatos.setBackground(new java.awt.Color(0, 153, 153));
         btDatos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ComponentesDiagramaUML/2.png"))); // NOI18N
+        btDatos.setToolTipText("Se utiliza para agregar datos o variables");
         btDatos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btDatosMouseClicked(evt);
@@ -1224,10 +1227,10 @@ public class PanelPrincipal extends javax.swing.JFrame {
             }
         });
 
-        btDocumento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ComponentesDiagramaUML/4.png"))); // NOI18N
-        btDocumento.addMouseListener(new java.awt.event.MouseAdapter() {
+        btImpresion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ComponentesDiagramaUML/4.png"))); // NOI18N
+        btImpresion.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btDocumentoMouseClicked(evt);
+                btImpresionMouseClicked(evt);
             }
         });
 
@@ -1258,7 +1261,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelFlujoLayout.createSequentialGroup()
                                 .addGroup(PanelFlujoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(PanelFlujoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(btSubproceso, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                                        .addComponent(btWhile, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                                         .addComponent(btInicio, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(btDatos, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                                         .addComponent(btSeparador, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
@@ -1274,7 +1277,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
                                         .addComponent(btSeparadorV, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                                         .addComponent(btProceso, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(btDesicion, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                                        .addComponent(btDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))))
+                                        .addComponent(btImpresion, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))))
                         .addContainerGap())
                     .addGroup(PanelFlujoLayout.createSequentialGroup()
                         .addGap(10, 10, 10)
@@ -1289,11 +1292,11 @@ public class PanelPrincipal extends javax.swing.JFrame {
                 .addComponent(jLabel11)
                 .addGap(50, 50, 50))
             .addGroup(PanelFlujoLayout.createSequentialGroup()
-                .addGap(43, 43, 43)
+                .addGap(65, 65, 65)
                 .addComponent(jLabel10)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel12)
-                .addGap(47, 47, 47))
+                .addGap(56, 56, 56))
             .addGroup(PanelFlujoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(txSeleccionado)
@@ -1327,13 +1330,13 @@ public class PanelPrincipal extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(PanelFlujoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PanelFlujoLayout.createSequentialGroup()
-                                .addComponent(btDocumento)
+                                .addComponent(btImpresion)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel12)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btSeparadorV, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PanelFlujoLayout.createSequentialGroup()
-                                .addComponent(btSubproceso)
+                                .addComponent(btWhile)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel10)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1508,6 +1511,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jpDiseno.setVisible(false);
         jpTexto.setVisible(false);
         jmiAbrir.setEnabled(true);
+        copiar=0;
     }//GEN-LAST:event_jmiNuevoActionPerformed
 
     private void mArchivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mArchivoActionPerformed
@@ -1532,10 +1536,10 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jmiGuardar.setEnabled(true);
         jmiAbrir.setEnabled(true);
         jmPropiedades.setVisible(false);
-        documento = 0;
+        whiles = 0;
         inicio = 0;
         desicion = 0;
-        subproceso = 0;
+        impresion = 0;
         proceso = 0;
         datos = 0;
         separador = 0;
@@ -1671,21 +1675,21 @@ public class PanelPrincipal extends javax.swing.JFrame {
         AgregarObjeto(Nombre, imagen, inicio, tipo);
     }//GEN-LAST:event_btInicioMouseClicked
 
-    private void btDocumentoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btDocumentoMouseClicked
-        String Nombre = "Documento";
+    private void btImpresionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btImpresionMouseClicked
+        String Nombre = "Impresion";
         String imagen = "/ComponentesDiagramaUML/4.png";
-        documento++;
+        impresion++;
         int tipo = 6;
-        AgregarObjeto(Nombre, imagen, documento, tipo);
-    }//GEN-LAST:event_btDocumentoMouseClicked
+        AgregarObjeto(Nombre, imagen, impresion, tipo);
+    }//GEN-LAST:event_btImpresionMouseClicked
 
-    private void btSubprocesoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btSubprocesoMouseClicked
-        String Nombre = "Subproceso";
+    private void btWhileMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btWhileMouseClicked
+        String Nombre = "While";
         String imagen = "/ComponentesDiagramaUML/6.png";
-        subproceso++;
+        whiles++;
         int tipo = 5;
-        AgregarObjeto(Nombre, imagen, subproceso, tipo);
-    }//GEN-LAST:event_btSubprocesoMouseClicked
+        AgregarObjeto(Nombre, imagen, whiles, tipo);
+    }//GEN-LAST:event_btWhileMouseClicked
 
     private void btDesicionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btDesicionMouseClicked
         String Nombre = "Desicion";
@@ -2348,6 +2352,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
             objeto.setName(copiaro.getName());
             objeto.setForeground(copiaro.getForeground());
             objeto.setFont(copiaro.getFont());
+            objeto.setDisplayedMnemonic(copiaro.getDisplayedMnemonic());
             copia++;
             objeto.setText(copiaro.getText() + "(" + copia + ")");
             objeto.setSize(135, 90);
@@ -2936,7 +2941,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
             ad.CargarArchivo();
             ArrayList<JLabel> x = new ArrayList();
             ad.setComponentes(x);
-            //Este arreglo toma los componentes del panel donde se ponen las clases
+            //Este arreglo toma los componentes del panel donde se ponen las clases.
             Object Componentes[] = jpBase.getComponents();
             System.out.println("Los componentes que se guardarán son:");
             for (int i = 0; i < Componentes.length; i++) {
@@ -3048,7 +3053,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btClase;
     private javax.swing.JButton btDatos;
     private javax.swing.JButton btDesicion;
-    private javax.swing.JButton btDocumento;
+    private javax.swing.JButton btImpresion;
     private javax.swing.JButton btInicio;
     private javax.swing.JButton btNuevoDiagramaDeFlujo;
     private javax.swing.JButton btProceso;
@@ -3056,7 +3061,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btSeparador1;
     private javax.swing.JButton btSeparadorV;
     private javax.swing.JButton btSeparadorV1;
-    private javax.swing.JButton btSubproceso;
+    private javax.swing.JButton btWhile;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -3216,11 +3221,11 @@ public class PanelPrincipal extends javax.swing.JFrame {
     int ctabla = 0;
     int proceso = 0;
     int inicio = 0;
-    int subproceso = 0;
+    int whiles = 0;
     int separador = 0;
     int separadorVertical = 0;
     int datos = 0;
-    int documento = 0;
+    int impresion = 0;
     int desicion = 0;
     int X;
     int Y;

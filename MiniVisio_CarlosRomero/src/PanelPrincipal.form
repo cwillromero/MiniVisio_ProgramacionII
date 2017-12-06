@@ -2202,7 +2202,7 @@
                                   <Group type="102" alignment="1" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                              <Component id="btSubproceso" pref="0" max="32767" attributes="0"/>
+                                              <Component id="btWhile" pref="0" max="32767" attributes="0"/>
                                               <Component id="btInicio" alignment="0" min="-2" pref="148" max="-2" attributes="0"/>
                                               <Component id="btDatos" alignment="0" pref="0" max="32767" attributes="0"/>
                                               <Component id="btSeparador" pref="0" max="32767" attributes="0"/>
@@ -2222,7 +2222,7 @@
                                               <Component id="btSeparadorV" pref="0" max="32767" attributes="0"/>
                                               <Component id="btProceso" min="-2" pref="147" max="-2" attributes="0"/>
                                               <Component id="btDesicion" pref="0" max="32767" attributes="0"/>
-                                              <Component id="btDocumento" pref="0" max="32767" attributes="0"/>
+                                              <Component id="btImpresion" pref="0" max="32767" attributes="0"/>
                                           </Group>
                                       </Group>
                                   </Group>
@@ -2246,11 +2246,11 @@
                       <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
                       <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
@@ -2291,14 +2291,14 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="btDocumento" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btImpresion" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="btSeparadorV" min="-2" pref="101" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="btSubproceso" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btWhile" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
@@ -2339,6 +2339,7 @@
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/ComponentesDiagramaUML/5.png"/>
                 </Property>
+                <Property name="toolTipText" type="java.lang.String" value="Se usa para procesos principales"/>
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btProcesoMouseClicked"/>
@@ -2373,7 +2374,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Georgia" size="14" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Subproceso"/>
+                <Property name="text" type="java.lang.String" value="While"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel11">
@@ -2389,7 +2390,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Georgia" size="14" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Documento"/>
+                <Property name="text" type="java.lang.String" value="Impresi&#xf3;n"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel13">
@@ -2408,12 +2409,13 @@
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/ComponentesDiagramaUML/1.png"/>
                 </Property>
+                <Property name="toolTipText" type="java.lang.String" value="Se usa para iniciar o finalizar"/>
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btInicioMouseClicked"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btSubproceso">
+            <Component class="javax.swing.JButton" name="btWhile">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="99" red="ff" type="rgb"/>
@@ -2423,7 +2425,7 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btSubprocesoMouseClicked"/>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btWhileMouseClicked"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btDatos">
@@ -2434,6 +2436,7 @@
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/ComponentesDiagramaUML/2.png"/>
                 </Property>
+                <Property name="toolTipText" type="java.lang.String" value="Se utiliza para agregar datos o variables"/>
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btDatosMouseClicked"/>
@@ -2478,14 +2481,14 @@
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btSeparadorVMouseClicked"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btDocumento">
+            <Component class="javax.swing.JButton" name="btImpresion">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/ComponentesDiagramaUML/4.png"/>
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btDocumentoMouseClicked"/>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btImpresionMouseClicked"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel14">
