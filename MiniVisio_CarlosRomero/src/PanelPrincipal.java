@@ -1938,6 +1938,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
         modelH.addElement(modelo.getRoot());
         jcHijo.setModel(modelH);
         jcpadre.setModel(model);
+        
     }//GEN-LAST:event_btClaseMouseClicked
 
     private void jmiEliminarArbolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiEliminarArbolActionPerformed
@@ -2079,6 +2080,8 @@ public class PanelPrincipal extends javax.swing.JFrame {
         x = "";
         txtConfiguracion.setText("Atributos:");
         txNombreAtributo.setText(" ");
+        model.reload();
+        this.repaint();
     }//GEN-LAST:event_jButton2MouseClicked
 
     private void jbAgregarMetodoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbAgregarMetodoMouseClicked
@@ -2111,6 +2114,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
         txNombreMetodo.setText("");
         jcParametros.setSelectedIndex(0);
         parametros = " ";
+        model.reload();
         this.repaint();
     }//GEN-LAST:event_jbAgregarMetodoMouseClicked
 
