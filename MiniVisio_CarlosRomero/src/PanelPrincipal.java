@@ -2065,6 +2065,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
                 ((DefaultMutableTreeNode) raiz.getChildAt(i)).add(p);
             }
         }
+        modelArbol.reload();
         JOptionPane.showMessageDialog(this, "Atributo Guardado.", "Atributo", 1);
         String x = "";
         DefaultTreeModel model = (DefaultTreeModel) actualT.getModel();
@@ -2097,6 +2098,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
                 ((DefaultMutableTreeNode) raiz.getChildAt(i)).add(p);
             }
         }
+        modelArbol.reload();
         JOptionPane.showMessageDialog(this, "Método Guardado.", "Método", 1);
         String x = "";
         DefaultTreeModel model = (DefaultTreeModel) actualT.getModel();
