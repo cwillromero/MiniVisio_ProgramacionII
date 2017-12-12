@@ -63,6 +63,9 @@ public class PanelPrincipal extends javax.swing.JFrame {
         txNombreAtributo.setText(" ");
         jcb_variables2.setVisible(false);
         jLabel46.setVisible(false);
+        jcb_impresion.setVisible(false);
+        jbAgregarVariableAImpresion.setVisible(false);
+        jLabel52.setVisible(false);
     }
 
     /**
@@ -166,6 +169,17 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jcb_variables2 = new javax.swing.JComboBox<>();
         jLabel46 = new javax.swing.JLabel();
         txtIf = new javax.swing.JTextField();
+        jdImpresion = new javax.swing.JDialog();
+        jPanel7 = new javax.swing.JPanel();
+        jLabel45 = new javax.swing.JLabel();
+        jbAgregarVariableAImpresion = new javax.swing.JButton();
+        jcb_impresion = new javax.swing.JComboBox<>();
+        jLabel52 = new javax.swing.JLabel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        ta_impresion = new javax.swing.JTextArea();
+        jbGuardarImpresion = new javax.swing.JButton();
+        ppImpresion = new javax.swing.JPopupMenu();
+        jmiAgregarVariable = new javax.swing.JMenuItem();
         jpTexto = new javax.swing.JPanel();
         jButton3 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
@@ -893,6 +907,95 @@ public class PanelPrincipal extends javax.swing.JFrame {
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
+
+        jPanel7.setBackground(new java.awt.Color(51, 0, 51));
+        jPanel7.setMaximumSize(new java.awt.Dimension(400, 250));
+        jPanel7.setMinimumSize(new java.awt.Dimension(400, 250));
+        jPanel7.setPreferredSize(new java.awt.Dimension(400, 250));
+        jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel45.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel45.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel45.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel45.setText("Impresión");
+        jPanel7.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, 146, 37));
+
+        jbAgregarVariableAImpresion.setBackground(new java.awt.Color(0, 0, 51));
+        jbAgregarVariableAImpresion.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
+        jbAgregarVariableAImpresion.setForeground(new java.awt.Color(204, 204, 255));
+        jbAgregarVariableAImpresion.setText("Agregar");
+        jbAgregarVariableAImpresion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jbAgregarVariableAImpresionMouseClicked(evt);
+            }
+        });
+        jPanel7.add(jbAgregarVariableAImpresion, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 180, 70, 20));
+
+        jcb_impresion.setBackground(new java.awt.Color(0, 0, 0));
+        jcb_impresion.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        jcb_impresion.setForeground(new java.awt.Color(255, 255, 255));
+        jcb_impresion.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jcb_impresionItemStateChanged(evt);
+            }
+        });
+        jcb_impresion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcb_impresionActionPerformed(evt);
+            }
+        });
+        jPanel7.add(jcb_impresion, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 180, 210, -1));
+
+        jLabel52.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
+        jLabel52.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel52.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel52.setText("Variables");
+        jPanel7.add(jLabel52, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 80, -1));
+
+        ta_impresion.setColumns(20);
+        ta_impresion.setRows(5);
+        ta_impresion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ta_impresionMouseClicked(evt);
+            }
+        });
+        jScrollPane4.setViewportView(ta_impresion);
+
+        jPanel7.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 380, 120));
+
+        jbGuardarImpresion.setBackground(new java.awt.Color(0, 51, 51));
+        jbGuardarImpresion.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jbGuardarImpresion.setForeground(new java.awt.Color(204, 255, 204));
+        jbGuardarImpresion.setText("Guardar");
+        jbGuardarImpresion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jbGuardarImpresionMouseClicked(evt);
+            }
+        });
+        jPanel7.add(jbGuardarImpresion, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 210, -1, -1));
+
+        javax.swing.GroupLayout jdImpresionLayout = new javax.swing.GroupLayout(jdImpresion.getContentPane());
+        jdImpresion.getContentPane().setLayout(jdImpresionLayout);
+        jdImpresionLayout.setHorizontalGroup(
+            jdImpresionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jdImpresionLayout.createSequentialGroup()
+                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        jdImpresionLayout.setVerticalGroup(
+            jdImpresionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jdImpresionLayout.createSequentialGroup()
+                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        jmiAgregarVariable.setText("Agregar Variable");
+        jmiAgregarVariable.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiAgregarVariableActionPerformed(evt);
+            }
+        });
+        ppImpresion.add(jmiAgregarVariable);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("MiniVisio - Carlos Wilfredo Romero Maradiaga");
@@ -2663,14 +2766,18 @@ public class PanelPrincipal extends javax.swing.JFrame {
         DefaultComboBoxModel model = (DefaultComboBoxModel) jcb_variables.getModel();
         DefaultComboBoxModel model1 = (DefaultComboBoxModel) jcb_variables1.getModel();
         DefaultComboBoxModel model2 = (DefaultComboBoxModel) jcb_variables2.getModel();
+        DefaultComboBoxModel model3 = (DefaultComboBoxModel) jcb_impresion.getModel();
         model.addElement(txNombreVariable.getText());
         model1.addElement(txNombreVariable.getText());
         model2.addElement(txNombreVariable.getText());
+        model3.addElement(txNombreVariable.getText());
         jcb_variables.setModel(model);
         jcb_variables1.setModel(model1);
         jcb_variables2.setModel(model2);
+        jcb_impresion.setModel(model3);
         JOptionPane.showMessageDialog(this, "Variable agregada.", "Variables", 1);
         txNombreVariable.setText(" ");
+        actual.setToolTipText(actual.getToolTipText()+" (Ya Configurado)");
     }//GEN-LAST:event_jButton6MouseClicked
 
     private void jmiAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiAgregarActionPerformed
@@ -2685,6 +2792,11 @@ public class PanelPrincipal extends javax.swing.JFrame {
             jd_desicion.pack();
             jd_desicion.setLocationRelativeTo(this);
             jd_desicion.setVisible(true);
+        } else if (actual.getDisplayedMnemonic() == 6) {
+            jdImpresion.setModal(true);
+            jdImpresion.pack();
+            jdImpresion.setLocationRelativeTo(this);
+            jdImpresion.setVisible(true);
         }
     }//GEN-LAST:event_jmiAgregarActionPerformed
 
@@ -2908,15 +3020,49 @@ public class PanelPrincipal extends javax.swing.JFrame {
             jcb_variables1.setSelectedIndex(0);
             txtIf.setText(actual.getName());
             JOptionPane.showMessageDialog(this, "Ahora introduzca la otra condición", "Or", 1);
+            actual.setToolTipText(actual.getToolTipText()+" (Ya Configurado)");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "No hay datos todavía!", "Error", 0);
         }
-        System.out.println("Desicion: " + actual.getName());
     }//GEN-LAST:event_jbGuardarIfMouseClicked
 
     private void jcb_variablesItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jcb_variablesItemStateChanged
         txtIf.setText(actual.getName());
     }//GEN-LAST:event_jcb_variablesItemStateChanged
+
+    private void jbAgregarVariableAImpresionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbAgregarVariableAImpresionMouseClicked
+        ta_impresion.append("_"+jcb_impresion.getSelectedItem().toString()+"_");
+    }//GEN-LAST:event_jbAgregarVariableAImpresionMouseClicked
+
+    private void jmiAgregarVariableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiAgregarVariableActionPerformed
+        jcb_impresion.setVisible(true);
+        jbAgregarVariableAImpresion.setVisible(true);
+        jLabel52.setVisible(true);
+    }//GEN-LAST:event_jmiAgregarVariableActionPerformed
+
+    private void ta_impresionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ta_impresionMouseClicked
+        if (evt.isMetaDown() && (jcb_impresion.getItemCount()) != 0) {
+            ppImpresion.show(ta_impresion, evt.getX(), evt.getY());
+        }else{
+            jcb_impresion.setVisible(false);
+        jbAgregarVariableAImpresion.setVisible(false);
+        jLabel52.setVisible(false);
+        }
+    }//GEN-LAST:event_ta_impresionMouseClicked
+
+    private void jcb_impresionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcb_impresionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jcb_impresionActionPerformed
+
+    private void jcb_impresionItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jcb_impresionItemStateChanged
+    }//GEN-LAST:event_jcb_impresionItemStateChanged
+
+    private void jbGuardarImpresionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbGuardarImpresionMouseClicked
+        actual.setName(ta_impresion.getText());
+        JOptionPane.showMessageDialog(this, "Impresion guardada.", "Impresión", 1);
+        ta_impresion.setText("");
+        actual.setToolTipText(actual.getToolTipText()+" (Ya Configurado)");
+    }//GEN-LAST:event_jbGuardarImpresionMouseClicked
 
     /**
      * @param args the command line arguments
@@ -3408,10 +3554,12 @@ public class PanelPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel44;
+    private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel47;
     private javax.swing.JLabel jLabel48;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel52;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -3423,12 +3571,15 @@ public class PanelPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTable jTable1;
     private javax.swing.JButton jbAgregarMetodo;
     private javax.swing.JButton jbAgregarParametro;
+    private javax.swing.JButton jbAgregarVariableAImpresion;
     private javax.swing.JButton jbAnd;
     private javax.swing.JButton jbAtributo;
     private javax.swing.JButton jbColorClase;
@@ -3436,6 +3587,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jbFuenteClase;
     private javax.swing.JButton jbGuardarCodigo;
     private javax.swing.JButton jbGuardarIf;
+    private javax.swing.JButton jbGuardarImpresion;
     private javax.swing.JButton jbHerencia;
     private javax.swing.JButton jbMetodo;
     private javax.swing.JButton jbOr;
@@ -3451,6 +3603,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jcTipoParametro;
     private javax.swing.JComboBox<String> jcTipoVariable;
     private javax.swing.JComboBox<String> jcbRelacion;
+    private javax.swing.JComboBox<String> jcb_impresion;
     private javax.swing.JComboBox<String> jcb_variables;
     private javax.swing.JComboBox<String> jcb_variables1;
     private javax.swing.JComboBox<String> jcb_variables2;
@@ -3460,6 +3613,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
     private javax.swing.JDialog jdAgregarVariable;
     private javax.swing.JDialog jdCodigo;
     private javax.swing.JDialog jdHerencia;
+    private javax.swing.JDialog jdImpresion;
     private javax.swing.JDialog jdNuevo;
     private javax.swing.JDialog jdParametro;
     private javax.swing.JDialog jd_desicion;
@@ -3467,6 +3621,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jmiAbrir;
     private javax.swing.JMenuItem jmiAcercaDe;
     private javax.swing.JMenuItem jmiAgregar;
+    private javax.swing.JMenuItem jmiAgregarVariable;
     private javax.swing.JMenuItem jmiAtributos;
     private javax.swing.JMenuItem jmiCambiarColor;
     private javax.swing.JMenuItem jmiCambiarFuente;
@@ -3501,11 +3656,13 @@ public class PanelPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu mEdiciontx;
     private javax.swing.JMenuBar mbPrincipal;
     private javax.swing.JMenuItem miEliminar;
+    private javax.swing.JPopupMenu ppImpresion;
     private javax.swing.JPopupMenu ppMenu;
     private javax.swing.JPopupMenu ppMenuClases;
     private javax.swing.JSpinner sptamanio;
     private javax.swing.JSpinner stamanioclase;
     private javax.swing.JTextArea taCodigo;
+    private javax.swing.JTextArea ta_impresion;
     private javax.swing.JTextArea txConfiguracion;
     private javax.swing.JTextField txNombreAtributo;
     private javax.swing.JTextField txNombreMetodo;
