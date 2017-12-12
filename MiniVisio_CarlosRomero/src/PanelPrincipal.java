@@ -10,6 +10,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -2011,6 +2012,12 @@ public class PanelPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_mArchivoActionPerformed
 
     private void btNuevoDiagramaDeFlujoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btNuevoDiagramaDeFlujoMouseClicked
+       jcb_variables.setModel(new DefaultComboBoxModel());
+        jcb_variables1.setModel(new DefaultComboBoxModel());
+        jcb_variables2.setModel(new DefaultComboBoxModel());
+        jcb_impresion.setModel(new DefaultComboBoxModel());
+        jcb_whileV.setModel(new DefaultComboBoxModel());
+        jcb_whileV1.setModel(new DefaultComboBoxModel());
         jpBase0.setVisible(true);
         jdNuevo.dispose();
         jpBase.removeAll();
@@ -3041,6 +3048,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jcb_impresion.setModel(model3);
         jcb_whileV.setModel(model);
         jcb_whileV1.setModel(model1);
+        variables.add(txNombreVariable.getText());
         JOptionPane.showMessageDialog(this, "Variable agregada.", "Variables", 1);
         txNombreVariable.setText(" ");
         actual.setToolTipText(actual.getToolTipText() + " (Ya Configurado)");
@@ -3277,7 +3285,10 @@ public class PanelPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jbGuardarIfMouseClicked
 
     private void jcb_variablesItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jcb_variablesItemStateChanged
-        txtIf.setText(actual.getName());
+        try {
+            txtIf.setText(actual.getName());
+        } catch (Exception e) {
+        }
     }//GEN-LAST:event_jcb_variablesItemStateChanged
 
     private void jbAgregarVariableAImpresionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbAgregarVariableAImpresionMouseClicked
@@ -3369,10 +3380,10 @@ public class PanelPrincipal extends javax.swing.JFrame {
             if (jcb_while2.getSelectedIndex() <= 1) {
                 actual.setName("(" + jcb_whileV.getSelectedItem() + " " + relacion + jcb_while2.getSelectedItem() + ")");
             } else {
-                actual.setName("("+jcb_whileV.getSelectedItem()+" "+relacion+ jcb_whileV1.getSelectedItem()+")");
-                JOptionPane.showMessageDialog(this, "Guardado.", "Asignacion de While", 1);
+                actual.setName("(" + jcb_whileV.getSelectedItem() + " " + relacion + jcb_whileV1.getSelectedItem() + ")");
             }
             txtWhile.setText(actual.getName());
+            JOptionPane.showMessageDialog(this, "Guardado.", "Asignacion de While", 1);
         } catch (Exception e) {
         }
     }//GEN-LAST:event_jbGuardarImpresion2MouseClicked
@@ -3743,6 +3754,18 @@ public class PanelPrincipal extends javax.swing.JFrame {
             System.out.println("Los componentes que se guardarán son:");
             for (int i = 0; i < Componentes.length; i++) {
                 if (Componentes[i] instanceof JLabel) {
+                    if (((JLabel) componentes.get(i)).getDisplayedMnemonic() == 2) {
+                        String y = "ª";
+                        for (int l = 0; l < variables.size(); l++) {
+                            if (l == variables.size() - 1) {
+                                y += variables.get(l);
+                            } else {
+                                y += variables.get(l) + ",";
+                            }
+                        }
+                        ((JLabel) componentes.get(i)).setName(((JLabel) componentes.get(i)).getName() + y);
+                        System.out.println(((JLabel) componentes.get(i)).getName());
+                    }
                     System.out.println(((JLabel) Componentes[i]).getText());
                     ad.AgregarComponente((JLabel) Componentes[i]);
                 }
@@ -3767,6 +3790,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
             componentes = new ArrayList();
             jpBase.removeAll();
             jpBase.repaint();
+            variables = new ArrayList();
             AdministracionDiagramaDeFlujo ap = new AdministracionDiagramaDeFlujo(Path);
             ap.CargarArchivo();
             System.out.println("Componentes Abiertos");
@@ -3834,9 +3858,31 @@ public class PanelPrincipal extends javax.swing.JFrame {
                 System.out.println(objeto.getText());
                 //Agregar los Componentes al ArrayList 
                 componentes.add(objeto);
+                if (objeto.getDisplayedMnemonic() == 2) {
+                    String[] c = objeto.getName().split("ª");
+                    String[] f = c[1].split(",");
+                    DefaultComboBoxModel model = (DefaultComboBoxModel) jcb_variables.getModel();
+                    DefaultComboBoxModel model1 = (DefaultComboBoxModel) jcb_variables1.getModel();
+                    DefaultComboBoxModel model2 = (DefaultComboBoxModel) jcb_variables2.getModel();
+                    DefaultComboBoxModel model3 = (DefaultComboBoxModel) jcb_impresion.getModel();
+                    for (int j = 0; j < f.length; j++) {
+                        model.addElement(f[j]);
+                        model1.addElement(f[j]);
+                        model2.addElement(f[j]);
+                        model3.addElement(f[j]);
+                        variables.add(f[i]);
+                    }
+                    jcb_variables.setModel(model);
+                    jcb_variables1.setModel(model1);
+                    jcb_variables2.setModel(model2);
+                    jcb_impresion.setModel(model3);
+                    jcb_whileV.setModel(model);
+                    jcb_whileV1.setModel(model1);
+                }
             }
             JOptionPane.showMessageDialog(this, "Archivo cargado correctamente.", "Cargar", 1);
         } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -4101,7 +4147,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
 //    2-datos listo
 //    3-proceso 
 //    4-desicion listo
-//    5-while   
+//    5-while   listo
 //    6-impresion listo
     Color color;
     String fuente = "Tahoma";
@@ -4132,4 +4178,5 @@ public class PanelPrincipal extends javax.swing.JFrame {
     String parametros = " ";
     String herencia = "";
     int clasehija = -1;
+    ArrayList<String> variables = new ArrayList();
 }

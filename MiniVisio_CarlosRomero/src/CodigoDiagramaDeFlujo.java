@@ -19,6 +19,7 @@ public class CodigoDiagramaDeFlujo {
     private String Codigo = "";
     private boolean x = true;
     private ArrayList nombres = new ArrayList();
+    private String tab="";
 
     public CodigoDiagramaDeFlujo() {
     }
@@ -56,7 +57,7 @@ public class CodigoDiagramaDeFlujo {
                 String tipo = X[0];
                 String nombre = X[1];
                 nombres.add(nombre);
-                variables += "    " + tipo + " " + nombre + ";\n";
+                variables += tab+"    " + tipo + " " + nombre + ";\n";
             }
             Codigo += variables;
         } catch (Exception e) {
@@ -76,13 +77,16 @@ public class CodigoDiagramaDeFlujo {
             Desicion();
         } else if (objeto.getDisplayedMnemonic() == 6) {
             Impresion();
+        } else if (objeto.getDisplayedMnemonic() == 5) {
+            While();
         }
     }
 
     public void Desicion() {
         String X = objeto.getName();
-        String decision = "    " + "if " + X + "\n    {\n";
+        String decision = tab+"    " + "if " + X + "\n    "+tab+"{\n";
         Codigo += decision;
+        tab="    ";
     }
 
     public boolean isX() {
@@ -128,4 +132,10 @@ public class CodigoDiagramaDeFlujo {
         }
     }
 
+    public void While(){
+        String x=objeto.getName();
+        String mientras=tab+"    "+"while"+x+"\n"+tab+"    {\n";
+        Codigo+=mientras;
+        tab="    ";
+    }
 }
