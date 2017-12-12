@@ -186,13 +186,15 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jdProceso = new javax.swing.JDialog();
         jPanel8 = new javax.swing.JPanel();
         jLabel49 = new javax.swing.JLabel();
-        jcb_impresion1 = new javax.swing.JComboBox<>();
-        jLabel53 = new javax.swing.JLabel();
+        jcb_operacion = new javax.swing.JComboBox<>();
+        OPA = new javax.swing.JLabel();
         jbGuardarImpresion1 = new javax.swing.JButton();
-        jcb_impresion2 = new javax.swing.JComboBox<>();
-        jLabel54 = new javax.swing.JLabel();
-        jcb_impresion3 = new javax.swing.JComboBox<>();
-        jLabel55 = new javax.swing.JLabel();
+        jcb_proceso2 = new javax.swing.JComboBox<>();
+        OPV1 = new javax.swing.JLabel();
+        jcb_Proceso = new javax.swing.JComboBox<>();
+        OPV = new javax.swing.JLabel();
+        txtOperacion = new javax.swing.JTextField();
+        jbOC = new javax.swing.JToggleButton();
         jdWhile = new javax.swing.JDialog();
         jPanel9 = new javax.swing.JPanel();
         jLabel50 = new javax.swing.JLabel();
@@ -1035,27 +1037,27 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jLabel49.setText("Proceso");
         jPanel8.add(jLabel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, 146, 37));
 
-        jcb_impresion1.setBackground(new java.awt.Color(0, 0, 0));
-        jcb_impresion1.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
-        jcb_impresion1.setForeground(new java.awt.Color(255, 255, 255));
-        jcb_impresion1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Lectura", "Suma", "Multiplicación", "División", "Residuo", "Otra" }));
-        jcb_impresion1.addItemListener(new java.awt.event.ItemListener() {
+        jcb_operacion.setBackground(new java.awt.Color(0, 0, 0));
+        jcb_operacion.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        jcb_operacion.setForeground(new java.awt.Color(255, 255, 255));
+        jcb_operacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Suma", "Resta", "Multiplicación", "División", "Lectura", "Otra" }));
+        jcb_operacion.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                jcb_impresion1ItemStateChanged(evt);
+                jcb_operacionItemStateChanged(evt);
             }
         });
-        jcb_impresion1.addActionListener(new java.awt.event.ActionListener() {
+        jcb_operacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jcb_impresion1ActionPerformed(evt);
+                jcb_operacionActionPerformed(evt);
             }
         });
-        jPanel8.add(jcb_impresion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, 160, -1));
+        jPanel8.add(jcb_operacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, 160, -1));
 
-        jLabel53.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
-        jLabel53.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel53.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel53.setText("Acción");
-        jPanel8.add(jLabel53, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 90, 90, -1));
+        OPA.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
+        OPA.setForeground(new java.awt.Color(255, 255, 255));
+        OPA.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        OPA.setText("Acción");
+        jPanel8.add(OPA, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 90, 90, -1));
 
         jbGuardarImpresion1.setBackground(new java.awt.Color(0, 51, 51));
         jbGuardarImpresion1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -1068,47 +1070,61 @@ public class PanelPrincipal extends javax.swing.JFrame {
         });
         jPanel8.add(jbGuardarImpresion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 210, -1, -1));
 
-        jcb_impresion2.setBackground(new java.awt.Color(0, 0, 0));
-        jcb_impresion2.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
-        jcb_impresion2.setForeground(new java.awt.Color(255, 255, 255));
-        jcb_impresion2.addItemListener(new java.awt.event.ItemListener() {
+        jcb_proceso2.setBackground(new java.awt.Color(0, 0, 0));
+        jcb_proceso2.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        jcb_proceso2.setForeground(new java.awt.Color(255, 255, 255));
+        jcb_proceso2.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                jcb_impresion2ItemStateChanged(evt);
+                jcb_proceso2ItemStateChanged(evt);
             }
         });
-        jcb_impresion2.addActionListener(new java.awt.event.ActionListener() {
+        jcb_proceso2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jcb_impresion2ActionPerformed(evt);
+                jcb_proceso2ActionPerformed(evt);
             }
         });
-        jPanel8.add(jcb_impresion2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 110, 90, -1));
+        jPanel8.add(jcb_proceso2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 110, 90, -1));
 
-        jLabel54.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
-        jLabel54.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel54.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel54.setText("Variables");
-        jPanel8.add(jLabel54, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 90, 90, -1));
+        OPV1.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
+        OPV1.setForeground(new java.awt.Color(255, 255, 255));
+        OPV1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        OPV1.setText("Variables");
+        jPanel8.add(OPV1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 90, 90, -1));
 
-        jcb_impresion3.setBackground(new java.awt.Color(0, 0, 0));
-        jcb_impresion3.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
-        jcb_impresion3.setForeground(new java.awt.Color(255, 255, 255));
-        jcb_impresion3.addItemListener(new java.awt.event.ItemListener() {
+        jcb_Proceso.setBackground(new java.awt.Color(0, 0, 0));
+        jcb_Proceso.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        jcb_Proceso.setForeground(new java.awt.Color(255, 255, 255));
+        jcb_Proceso.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                jcb_impresion3ItemStateChanged(evt);
+                jcb_ProcesoItemStateChanged(evt);
             }
         });
-        jcb_impresion3.addActionListener(new java.awt.event.ActionListener() {
+        jcb_Proceso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jcb_impresion3ActionPerformed(evt);
+                jcb_ProcesoActionPerformed(evt);
             }
         });
-        jPanel8.add(jcb_impresion3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 90, -1));
+        jPanel8.add(jcb_Proceso, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 90, -1));
 
-        jLabel55.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
-        jLabel55.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel55.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel55.setText("Variables");
-        jPanel8.add(jLabel55, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 90, -1));
+        OPV.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
+        OPV.setForeground(new java.awt.Color(255, 255, 255));
+        OPV.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        OPV.setText("Variables");
+        jPanel8.add(OPV, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 90, -1));
+
+        txtOperacion.setEditable(false);
+        jPanel8.add(txtOperacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 360, -1));
+
+        jbOC.setBackground(new java.awt.Color(0, 0, 0));
+        jbOC.setFont(new java.awt.Font("Georgia", 1, 11)); // NOI18N
+        jbOC.setForeground(new java.awt.Color(255, 255, 255));
+        jbOC.setText("Operacion Combinada");
+        jbOC.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jbOCMouseClicked(evt);
+            }
+        });
+        jPanel8.add(jbOC, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 180, 180, 20));
 
         javax.swing.GroupLayout jdProcesoLayout = new javax.swing.GroupLayout(jdProceso.getContentPane());
         jdProceso.getContentPane().setLayout(jdProcesoLayout);
@@ -2018,6 +2034,8 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jcb_impresion.setModel(new DefaultComboBoxModel());
         jcb_whileV.setModel(new DefaultComboBoxModel());
         jcb_whileV1.setModel(new DefaultComboBoxModel());
+        jcb_Proceso.setModel(new DefaultComboBoxModel());
+        jcb_proceso2.setModel(new DefaultComboBoxModel());
         jpBase0.setVisible(true);
         jdNuevo.dispose();
         jpBase.removeAll();
@@ -3052,6 +3070,8 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jcb_impresion.setModel(model3);
         jcb_whileV.setModel(model);
         jcb_whileV1.setModel(model1);
+        jcb_Proceso.setModel(model);
+        jcb_proceso2.setModel(model1);
         variables.add(txNombreVariable.getText());
         JOptionPane.showMessageDialog(this, "Variable agregada.", "Variables", 1);
         txNombreVariable.setText(" ");
@@ -3333,33 +3353,67 @@ public class PanelPrincipal extends javax.swing.JFrame {
         AgregarPropiedadesDiagramaDeFlujo();
     }//GEN-LAST:event_jbAPropiedadesMouseClicked
 
-    private void jcb_impresion1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jcb_impresion1ItemStateChanged
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jcb_impresion1ItemStateChanged
+    private void jcb_operacionItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jcb_operacionItemStateChanged
+        if (jcb_operacion.getSelectedIndex() == 5) {
+            jbOC.setEnabled(false);
+            jcb_Proceso.setEnabled(false);
+            OPV.setEnabled(false);
+            OPA.setEnabled(false);
+            jcb_operacion.setEnabled(false);
+            jcb_proceso2.setEnabled(false);
+            OPV1.setEnabled(false);
+            if (op < 1) {
+                Operacion = JOptionPane.showInputDialog(this, "Por favor Ingrese la Operación:", "Ingresar Operación", 1);
+                txtOperacion.setText(Operacion);
+                op++;
+            }
+        } else if (jcb_operacion.getSelectedIndex() == 4) {
+            jbOC.setVisible(false);
+            jcb_Proceso.setVisible(false);
+            OPV.setVisible(false);
+        } else {
+            jbOC.setVisible(true);
+            jcb_Proceso.setVisible(true);
+            OPV.setVisible(true);
+            OPA.setVisible(true);
+            jcb_operacion.setVisible(true);
+            jcb_proceso2.setVisible(true);
+        }
+    }//GEN-LAST:event_jcb_operacionItemStateChanged
 
-    private void jcb_impresion1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcb_impresion1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jcb_impresion1ActionPerformed
+    private void jcb_operacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcb_operacionActionPerformed
+
+    }//GEN-LAST:event_jcb_operacionActionPerformed
 
     private void jbGuardarImpresion1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbGuardarImpresion1MouseClicked
-        // TODO add your handling code here:
+        jcb_operacion.setSelectedIndex(0);
+        jbOC.setEnabled(true);
+        jcb_Proceso.setEnabled(true);
+        OPV.setEnabled(true);
+        OPA.setEnabled(true);
+        jcb_operacion.setEnabled(true);
+        jcb_proceso2.setEnabled(true);
+        OPV1.setEnabled(true);
+        txtOperacion.setText("");
+        op = 0;
+        opp = 0;
     }//GEN-LAST:event_jbGuardarImpresion1MouseClicked
 
-    private void jcb_impresion2ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jcb_impresion2ItemStateChanged
+    private void jcb_proceso2ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jcb_proceso2ItemStateChanged
         // TODO add your handling code here:
-    }//GEN-LAST:event_jcb_impresion2ItemStateChanged
+    }//GEN-LAST:event_jcb_proceso2ItemStateChanged
 
-    private void jcb_impresion2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcb_impresion2ActionPerformed
+    private void jcb_proceso2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcb_proceso2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jcb_impresion2ActionPerformed
+    }//GEN-LAST:event_jcb_proceso2ActionPerformed
 
-    private void jcb_impresion3ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jcb_impresion3ItemStateChanged
+    private void jcb_ProcesoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jcb_ProcesoItemStateChanged
         // TODO add your handling code here:
-    }//GEN-LAST:event_jcb_impresion3ItemStateChanged
+    }//GEN-LAST:event_jcb_ProcesoItemStateChanged
 
-    private void jcb_impresion3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcb_impresion3ActionPerformed
+    private void jcb_ProcesoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcb_ProcesoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jcb_impresion3ActionPerformed
+    }//GEN-LAST:event_jcb_ProcesoActionPerformed
 
     private void jbGuardarImpresion2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbGuardarImpresion2MouseClicked
         try {
@@ -3425,6 +3479,33 @@ public class PanelPrincipal extends javax.swing.JFrame {
     private void jcb_whileVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcb_whileVActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jcb_whileVActionPerformed
+
+    private void jbOCMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbOCMouseClicked
+        String operando = "";
+        if (jcb_operacion.getSelectedItem().equals("Suma")) {
+            operando = " + ";
+        } else if (jcb_operacion.getSelectedItem().equals("Resta")) {
+            operando = " - ";
+        } else if (jcb_operacion.getSelectedItem().equals("Multiplicación")) {
+            operando = " * ";
+        } else if (jcb_operacion.getSelectedItem().equals("División")) {
+            operando = " / ";
+        }
+        if (jcb_Proceso.isVisible()) {
+            Operacion = jcb_Proceso.getSelectedItem() + operando + jcb_proceso2.getSelectedItem();
+        }
+        jcb_Proceso.setVisible(false);
+        OPV.setVisible(false);
+        if (opp < 1) {
+            Operacion = jcb_Proceso.getSelectedItem() + operando + jcb_proceso2.getSelectedItem();
+            txtOperacion.setText(Operacion);
+            opp++;
+        } else {
+            Operacion += operando + jcb_proceso2.getSelectedItem();
+            txtOperacion.setText(Operacion);
+        }
+        JOptionPane.showMessageDialog(this, "Operación Agregada", "Operacion Combinada", 1);
+    }//GEN-LAST:event_jbOCMouseClicked
 
     /**
      * @param args the command line arguments
@@ -3889,6 +3970,8 @@ public class PanelPrincipal extends javax.swing.JFrame {
                         jcb_impresion.setModel(model3);
                         jcb_whileV.setModel(model);
                         jcb_whileV1.setModel(model1);
+                        jcb_Proceso.setModel(model);
+                        jcb_proceso2.setModel(model1);
                     }
                 }
                 if (jpBase.getComponents().length != 0) {
@@ -3943,6 +4026,11 @@ public class PanelPrincipal extends javax.swing.JFrame {
             jdAgregarVariable.pack();
             jdAgregarVariable.setLocationRelativeTo(this);
             jdAgregarVariable.setVisible(true);
+        } else if (actual.getDisplayedMnemonic() == 3) {
+            jdProceso.setModal(true);
+            jdProceso.pack();
+            jdProceso.setLocationRelativeTo(this);
+            jdProceso.setVisible(true);
         } else if (actual.getDisplayedMnemonic() == 4) {
             jd_desicion.setModal(true);
             jd_desicion.pack();
@@ -3964,6 +4052,9 @@ public class PanelPrincipal extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel OPA;
+    private javax.swing.JLabel OPV;
+    private javax.swing.JLabel OPV1;
     private javax.swing.JPanel PanelClase;
     private javax.swing.JPanel PanelFlujo;
     private javax.swing.JButton btClase;
@@ -4032,9 +4123,6 @@ public class PanelPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel50;
     private javax.swing.JLabel jLabel52;
-    private javax.swing.JLabel jLabel53;
-    private javax.swing.JLabel jLabel54;
-    private javax.swing.JLabel jLabel55;
     private javax.swing.JLabel jLabel56;
     private javax.swing.JLabel jLabel58;
     private javax.swing.JLabel jLabel6;
@@ -4072,6 +4160,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jbGuardarImpresion2;
     private javax.swing.JButton jbHerencia;
     private javax.swing.JButton jbMetodo;
+    private javax.swing.JToggleButton jbOC;
     private javax.swing.JButton jbOr;
     private javax.swing.JButton jbSetTexto;
     private javax.swing.JButton jbVerAtributo;
@@ -4087,10 +4176,10 @@ public class PanelPrincipal extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jcTipoVariable;
     private javax.swing.JComboBox<String> jcbRelacion;
     private javax.swing.JComboBox<String> jcbRelacionWhile;
+    private javax.swing.JComboBox<String> jcb_Proceso;
     private javax.swing.JComboBox<String> jcb_impresion;
-    private javax.swing.JComboBox<String> jcb_impresion1;
-    private javax.swing.JComboBox<String> jcb_impresion2;
-    private javax.swing.JComboBox<String> jcb_impresion3;
+    private javax.swing.JComboBox<String> jcb_operacion;
+    private javax.swing.JComboBox<String> jcb_proceso2;
     private javax.swing.JComboBox<String> jcb_variables;
     private javax.swing.JComboBox<String> jcb_variables1;
     private javax.swing.JComboBox<String> jcb_variables2;
@@ -4163,6 +4252,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
     private javax.swing.JTextField txSeleccionado1;
     private javax.swing.JLabel txtConfiguracion;
     private javax.swing.JTextField txtIf;
+    private javax.swing.JTextField txtOperacion;
     private javax.swing.JTextField txtWhile;
     // End of variables declaration//GEN-END:variables
 //    TIPOS:
@@ -4200,6 +4290,9 @@ public class PanelPrincipal extends javax.swing.JFrame {
     int centinela;
     String parametros = " ";
     String herencia = "";
+    String Operacion = "";
     int clasehija = -1;
     ArrayList<String> variables = new ArrayList();
+    int op = 0;
+    int opp = 0;
 }
