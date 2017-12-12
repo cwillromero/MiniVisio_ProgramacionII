@@ -1194,6 +1194,11 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jbAPropiedades.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jbAPropiedades.setForeground(new java.awt.Color(255, 204, 204));
         jbAPropiedades.setText("Agregar Propiedades");
+        jbAPropiedades.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jbAPropiedadesMouseClicked(evt);
+            }
+        });
         jpDiseno.add(jbAPropiedades, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 20, 150, 40));
 
         jmiPropiedades1.setBackground(new java.awt.Color(0, 0, 51));
@@ -2785,27 +2790,11 @@ public class PanelPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton6MouseClicked
 
     private void jmiAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiAgregarActionPerformed
-        if (actual.getDisplayedMnemonic() == 2) {
-            txNombreVariable.setText(" ");
-            jdAgregarVariable.setModal(true);
-            jdAgregarVariable.pack();
-            jdAgregarVariable.setLocationRelativeTo(this);
-            jdAgregarVariable.setVisible(true);
-        } else if (actual.getDisplayedMnemonic() == 4) {
-            jd_desicion.setModal(true);
-            jd_desicion.pack();
-            jd_desicion.setLocationRelativeTo(this);
-            jd_desicion.setVisible(true);
-        } else if (actual.getDisplayedMnemonic() == 6) {
-            jdImpresion.setModal(true);
-            jdImpresion.pack();
-            jdImpresion.setLocationRelativeTo(this);
-            jdImpresion.setVisible(true);
-        }
+        AgregarPropiedadesDiagramaDeFlujo();
     }//GEN-LAST:event_jmiAgregarActionPerformed
 
     private void jbVerPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbVerPMouseClicked
-        VerPropiedades();
+        VerPropiedadesDiagramaDeFlujo();
     }//GEN-LAST:event_jbVerPMouseClicked
 
     private void jbVerPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbVerPActionPerformed
@@ -2813,7 +2802,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jbVerPActionPerformed
 
     private void jmiVerPropiedadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiVerPropiedadesActionPerformed
-        VerPropiedades();
+        VerPropiedadesDiagramaDeFlujo();
     }//GEN-LAST:event_jmiVerPropiedadesActionPerformed
 
     private void jmiGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiGuardarActionPerformed
@@ -3068,6 +3057,10 @@ public class PanelPrincipal extends javax.swing.JFrame {
         actual.setToolTipText(actual.getToolTipText() + " (Ya Configurado)");
     }//GEN-LAST:event_jbGuardarImpresionMouseClicked
 
+    private void jbAPropiedadesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbAPropiedadesMouseClicked
+        AgregarPropiedadesDiagramaDeFlujo();
+    }//GEN-LAST:event_jbAPropiedadesMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -3246,6 +3239,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
     public void EliminarComponente() {
         jpBase.remove(actual);
         txSeleccionado.setText("");
+        componentes.remove(actual);
         this.repaint();
     }
 
@@ -3496,7 +3490,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
         }
     }
 
-    public void VerPropiedades() {
+    public void VerPropiedadesDiagramaDeFlujo() {
         if (actual.getDisplayedMnemonic() == 2) {
             String[] v = actual.getName().split(";");
             String variables = "";
@@ -3507,10 +3501,39 @@ public class PanelPrincipal extends javax.swing.JFrame {
                 variables = "No tiene propiedades todavía.";
             }
             JOptionPane.showMessageDialog(this, variables, "Propiedades Datos", 1);
-        } else {
-            if (actual.getDisplayedMnemonic() == 4) {
-                JOptionPane.showMessageDialog(this, actual.getName(), "Propiedades Desición", 1);
+        } else if (actual.getDisplayedMnemonic() == 4) {
+            String v = actual.getName();
+            if (v.length() < 2) {
+                v = "No tiene propiedades todavía.";
             }
+            JOptionPane.showMessageDialog(this, v, "Propiedades Desición", 1);
+        } else if (actual.getDisplayedMnemonic() == 6) {
+            String c = actual.getName();
+            if (c.length() < 2) {
+                c = "No tiene propiedades todavía.";
+            }
+            JOptionPane.showMessageDialog(this, c, "Propiedades Impresión", 1);
+        }
+
+    }
+
+    public void AgregarPropiedadesDiagramaDeFlujo() {
+        if (actual.getDisplayedMnemonic() == 2) {
+            txNombreVariable.setText(" ");
+            jdAgregarVariable.setModal(true);
+            jdAgregarVariable.pack();
+            jdAgregarVariable.setLocationRelativeTo(this);
+            jdAgregarVariable.setVisible(true);
+        } else if (actual.getDisplayedMnemonic() == 4) {
+            jd_desicion.setModal(true);
+            jd_desicion.pack();
+            jd_desicion.setLocationRelativeTo(this);
+            jd_desicion.setVisible(true);
+        } else if (actual.getDisplayedMnemonic() == 6) {
+            jdImpresion.setModal(true);
+            jdImpresion.pack();
+            jdImpresion.setLocationRelativeTo(this);
+            jdImpresion.setVisible(true);
         }
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
