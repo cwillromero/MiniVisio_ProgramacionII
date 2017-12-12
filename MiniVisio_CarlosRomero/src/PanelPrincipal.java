@@ -2012,7 +2012,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_mArchivoActionPerformed
 
     private void btNuevoDiagramaDeFlujoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btNuevoDiagramaDeFlujoMouseClicked
-       jcb_variables.setModel(new DefaultComboBoxModel());
+        jcb_variables.setModel(new DefaultComboBoxModel());
         jcb_variables1.setModel(new DefaultComboBoxModel());
         jcb_variables2.setModel(new DefaultComboBoxModel());
         jcb_impresion.setModel(new DefaultComboBoxModel());
@@ -3888,13 +3888,20 @@ public class PanelPrincipal extends javax.swing.JFrame {
 
     public void VerPropiedadesDiagramaDeFlujo() {
         if (actual.getDisplayedMnemonic() == 2) {
-            String[] v = actual.getName().split(";");
             String variables = "";
-            for (int i = 0; i < v.length; i++) {
-                variables += v[i] + ";\n";
-            }
             if (actual.getName().length() < 2) {
                 variables = "No tiene propiedades todavía.";
+            } else if (actual.getName().contains("ª")) {
+                variables = "";
+                String h[] = actual.getName().split("ª")[0].split(";");
+                for (int i = 0; i < h.length; i++) {
+                    variables += h[i] + ";\n";
+                }
+            } else {
+                String[] v = actual.getName().split(";");
+                for (int i = 0; i < v.length; i++) {
+                    variables += v[i] + ";\n";
+                }
             }
             JOptionPane.showMessageDialog(this, variables, "Propiedades Datos", 1);
         } else if (actual.getDisplayedMnemonic() == 4) {

@@ -129,7 +129,7 @@ public class GuardarComo {
             doc.open();
             doc.setPageSize(PageSize.LETTER);
             doc.add(pdf.getTitulo("Proyecto Programación II  -  Mini Visio"));
-            doc.add(new Paragraph("                                                  Carlos Wilfredo Romero Maradiaga \n"));
+            doc.add(new Paragraph("\n                                                  Carlos Wilfredo Romero Maradiaga \n"));
             doc.add(imagen);
             doc.add(pdf.getCuerpo("\nCódigo Generado:\n"));
             if (codigo.length() < 2) {
