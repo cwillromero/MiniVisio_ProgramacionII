@@ -67,7 +67,6 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jbAgregarVariableAImpresion.setVisible(false);
         jLabel52.setVisible(false);
         jlbwhile.setVisible(false);
-        jcb_whileV.setVisible(false);
         jcb_whileV1.setVisible(false);
     }
 
@@ -198,12 +197,13 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jLabel50 = new javax.swing.JLabel();
         jLabel56 = new javax.swing.JLabel();
         jbGuardarImpresion2 = new javax.swing.JButton();
-        jcb_impresion5 = new javax.swing.JComboBox<>();
+        jcb_while2 = new javax.swing.JComboBox<>();
         jlbwhile = new javax.swing.JLabel();
         jcb_whileV1 = new javax.swing.JComboBox<>();
         jLabel58 = new javax.swing.JLabel();
         jcbRelacionWhile = new javax.swing.JComboBox<>();
         jcb_whileV = new javax.swing.JComboBox<>();
+        txtWhile = new javax.swing.JTextField();
         jpTexto = new javax.swing.JPanel();
         jButton3 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
@@ -1124,7 +1124,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        jPanel9.setBackground(new java.awt.Color(51, 0, 0));
+        jPanel9.setBackground(new java.awt.Color(51, 51, 51));
         jPanel9.setMaximumSize(new java.awt.Dimension(400, 250));
         jPanel9.setMinimumSize(new java.awt.Dimension(400, 250));
         jPanel9.setPreferredSize(new java.awt.Dimension(400, 250));
@@ -1140,7 +1140,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jLabel56.setForeground(new java.awt.Color(255, 255, 255));
         jLabel56.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel56.setText("Acción");
-        jPanel9.add(jLabel56, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 90, 90, -1));
+        jPanel9.add(jLabel56, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 60, 90, -1));
 
         jbGuardarImpresion2.setBackground(new java.awt.Color(0, 51, 51));
         jbGuardarImpresion2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -1153,27 +1153,27 @@ public class PanelPrincipal extends javax.swing.JFrame {
         });
         jPanel9.add(jbGuardarImpresion2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 210, -1, -1));
 
-        jcb_impresion5.setBackground(new java.awt.Color(0, 0, 0));
-        jcb_impresion5.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
-        jcb_impresion5.setForeground(new java.awt.Color(255, 255, 255));
-        jcb_impresion5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "True", "False", "Otra Variable" }));
-        jcb_impresion5.addItemListener(new java.awt.event.ItemListener() {
+        jcb_while2.setBackground(new java.awt.Color(0, 0, 0));
+        jcb_while2.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        jcb_while2.setForeground(new java.awt.Color(255, 255, 255));
+        jcb_while2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "True", "False", "Otra Variable" }));
+        jcb_while2.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                jcb_impresion5ItemStateChanged(evt);
+                jcb_while2ItemStateChanged(evt);
             }
         });
-        jcb_impresion5.addActionListener(new java.awt.event.ActionListener() {
+        jcb_while2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jcb_impresion5ActionPerformed(evt);
+                jcb_while2ActionPerformed(evt);
             }
         });
-        jPanel9.add(jcb_impresion5, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 110, 90, -1));
+        jPanel9.add(jcb_while2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 80, 90, -1));
 
         jlbwhile.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
         jlbwhile.setForeground(new java.awt.Color(255, 255, 255));
         jlbwhile.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jlbwhile.setText("Variables");
-        jPanel9.add(jlbwhile, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 90, 20));
+        jPanel9.add(jlbwhile, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, 90, 20));
 
         jcb_whileV1.setBackground(new java.awt.Color(0, 0, 0));
         jcb_whileV1.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
@@ -1188,13 +1188,13 @@ public class PanelPrincipal extends javax.swing.JFrame {
                 jcb_whileV1ActionPerformed(evt);
             }
         });
-        jPanel9.add(jcb_whileV1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 160, 90, -1));
+        jPanel9.add(jcb_whileV1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 130, 90, -1));
 
         jLabel58.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
         jLabel58.setForeground(new java.awt.Color(255, 255, 255));
         jLabel58.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel58.setText("Variables");
-        jPanel9.add(jLabel58, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 90, -1));
+        jPanel9.add(jLabel58, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 90, -1));
 
         jcbRelacionWhile.setBackground(new java.awt.Color(51, 0, 51));
         jcbRelacionWhile.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -1205,7 +1205,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
                 jcbRelacionWhileItemStateChanged(evt);
             }
         });
-        jPanel9.add(jcbRelacionWhile, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, 160, -1));
+        jPanel9.add(jcbRelacionWhile, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 80, 160, -1));
 
         jcb_whileV.setBackground(new java.awt.Color(0, 0, 0));
         jcb_whileV.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
@@ -1220,7 +1220,10 @@ public class PanelPrincipal extends javax.swing.JFrame {
                 jcb_whileVActionPerformed(evt);
             }
         });
-        jPanel9.add(jcb_whileV, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 90, -1));
+        jPanel9.add(jcb_whileV, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 90, -1));
+
+        txtWhile.setEditable(false);
+        jPanel9.add(txtWhile, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 360, -1));
 
         javax.swing.GroupLayout jdWhileLayout = new javax.swing.GroupLayout(jdWhile.getContentPane());
         jdWhile.getContentPane().setLayout(jdWhileLayout);
@@ -3036,6 +3039,8 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jcb_variables1.setModel(model1);
         jcb_variables2.setModel(model2);
         jcb_impresion.setModel(model3);
+        jcb_whileV.setModel(model);
+        jcb_whileV1.setModel(model1);
         JOptionPane.showMessageDialog(this, "Variable agregada.", "Variables", 1);
         txNombreVariable.setText(" ");
         actual.setToolTipText(actual.getToolTipText() + " (Ya Configurado)");
@@ -3342,16 +3347,49 @@ public class PanelPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jcb_impresion3ActionPerformed
 
     private void jbGuardarImpresion2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbGuardarImpresion2MouseClicked
-        // TODO add your handling code here:
+        try {
+            String relacion = "";
+            if (jcbRelacionWhile.getSelectedItem().equals("Igual que")) {
+                relacion = " == ";
+            } else if (jcbRelacionWhile.getSelectedItem().equals("Distinto de")) {
+                relacion = " != ";
+            } else if (jcbRelacionWhile.getSelectedItem().equals("Menor que")) {
+                relacion = " < ";
+            } else if (jcbRelacionWhile.getSelectedItem().equals("Menor o Igual")) {
+                relacion = " <= ";
+            } else if (jcbRelacionWhile.getSelectedItem().equals("Mayor que")) {
+                relacion = " > ";
+            } else if (jcbRelacionWhile.getSelectedItem().equals("Mayor o igual que")) {
+                relacion = " >= ";
+            } else if (jcbRelacionWhile.getSelectedItem().equals("Residuo igual que")) {
+                relacion = " % ";
+            } else if (jcbRelacionWhile.getSelectedItem().equals("Residuo distinto de")) {
+                relacion = " % ";
+            }
+            if (jcb_while2.getSelectedIndex() <= 1) {
+                actual.setName("(" + jcb_whileV.getSelectedItem() + " " + relacion + jcb_while2.getSelectedItem() + ")");
+            } else {
+                actual.setName("("+jcb_whileV.getSelectedItem()+" "+relacion+ jcb_whileV1.getSelectedItem()+")");
+                JOptionPane.showMessageDialog(this, "Guardado.", "Asignacion de While", 1);
+            }
+            txtWhile.setText(actual.getName());
+        } catch (Exception e) {
+        }
     }//GEN-LAST:event_jbGuardarImpresion2MouseClicked
 
-    private void jcb_impresion5ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jcb_impresion5ItemStateChanged
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jcb_impresion5ItemStateChanged
+    private void jcb_while2ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jcb_while2ItemStateChanged
+        if (jcb_while2.getSelectedIndex() == 2) {
+            jcb_whileV1.setVisible(true);
+            jlbwhile.setVisible(true);
+        } else {
+            jcb_whileV1.setVisible(false);
+            jlbwhile.setVisible(false);
+        }
+    }//GEN-LAST:event_jcb_while2ItemStateChanged
 
-    private void jcb_impresion5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcb_impresion5ActionPerformed
+    private void jcb_while2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcb_while2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jcb_impresion5ActionPerformed
+    }//GEN-LAST:event_jcb_while2ActionPerformed
 
     private void jcb_whileV1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jcb_whileV1ItemStateChanged
         // TODO add your handling code here:
@@ -3841,7 +3879,8 @@ public class PanelPrincipal extends javax.swing.JFrame {
             jd_desicion.pack();
             jd_desicion.setLocationRelativeTo(this);
             jd_desicion.setVisible(true);
-        }else if(actual.getDisplayedMnemonic() == 5){
+        } else if (actual.getDisplayedMnemonic() == 5) {
+            txtWhile.setText("");
             jdWhile.setModal(true);
             jdWhile.pack();
             jdWhile.setLocationRelativeTo(this);
@@ -3853,8 +3892,8 @@ public class PanelPrincipal extends javax.swing.JFrame {
             jdImpresion.setVisible(true);
         }
     }
-    
-    
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PanelClase;
     private javax.swing.JPanel PanelFlujo;
@@ -3983,10 +4022,10 @@ public class PanelPrincipal extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jcb_impresion1;
     private javax.swing.JComboBox<String> jcb_impresion2;
     private javax.swing.JComboBox<String> jcb_impresion3;
-    private javax.swing.JComboBox<String> jcb_impresion5;
     private javax.swing.JComboBox<String> jcb_variables;
     private javax.swing.JComboBox<String> jcb_variables1;
     private javax.swing.JComboBox<String> jcb_variables2;
+    private javax.swing.JComboBox<String> jcb_while2;
     private javax.swing.JComboBox<String> jcb_whileV;
     private javax.swing.JComboBox<String> jcb_whileV1;
     private javax.swing.JComboBox<String> jcpadre;
@@ -4055,6 +4094,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
     private javax.swing.JTextField txSeleccionado1;
     private javax.swing.JLabel txtConfiguracion;
     private javax.swing.JTextField txtIf;
+    private javax.swing.JTextField txtWhile;
     // End of variables declaration//GEN-END:variables
 //    TIPOS:
 //    1-inicio listo
