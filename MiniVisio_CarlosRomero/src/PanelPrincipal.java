@@ -2786,10 +2786,14 @@ public class PanelPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jmiGuardarComoActionPerformed
 
     private void jmiAbrirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiAbrirActionPerformed
-        if (centinela == 2) {
-            AbrirDiagramaDeClases();
-        } else if (centinela == 1) {
-            AbrirDiagramaDeFlujo();
+        try {
+            if (centinela == 2) {
+                AbrirDiagramaDeClases();
+            } else if (centinela == 1) {
+                AbrirDiagramaDeFlujo();
+            }
+        } catch (Exception e) {
+
         }
     }//GEN-LAST:event_jmiAbrirActionPerformed
 
@@ -3660,78 +3664,84 @@ public class PanelPrincipal extends javax.swing.JFrame {
             FileNameExtensionFilter filtro = new FileNameExtensionFilter("Diagrama de Clases", "DDC");
             jfc.addChoosableFileFilter(filtro);
             int seleccion = jfc.showOpenDialog(this);
-            String Path = jfc.getSelectedFile().getPath();
-            //Esto reinicia la base donde se colocan las clases y el arraylist de clases y el de nombre permitidos
-            clases = new ArrayList();
-            nombresdeclase = new ArrayList();
-            jpBase.removeAll();
-            jpBase.repaint();
-            DefaultComboBoxModel model = new DefaultComboBoxModel();
-            DefaultComboBoxModel modelH = new DefaultComboBoxModel();
-            AdministracionDiagramaClases ap = new AdministracionDiagramaClases(Path);
-            ap.CargarArchivo();
-            for (int i = 0; i < ap.getClases().size(); i++) {
-                JTree arbol = ((JTree) ap.getClases().get(i));
-                this.jpBase.add(arbol);
-                //Esto toma el nombre del nodo raiz
-                String nombre = arbol.getModel().getRoot().toString();
+            if (seleccion == JFileChooser.APPROVE_OPTION) {
+                String Path = jfc.getSelectedFile().getPath();
+                //Esto reinicia la base donde se colocan las clases y el arraylist de clases y el de nombre permitidos
+                clases = new ArrayList();
+                nombresdeclase = new ArrayList();
+                jpBase.removeAll();
                 jpBase.repaint();
-                arbol.addMouseListener(new MouseListener() {
-                    public void mouseClicked(MouseEvent evt) {
-                        actualT = arbol;
-                        jmPropiedades.setEnabled(true);
-                        txSeleccionado1.setText(nombre);
-                        int row = arbol.getClosestRowForLocation(evt.getX(), evt.getY());
-                        arbol.setSelectionRow(row);
-                        Object v1 = arbol.getSelectionPath().getLastPathComponent();
-                        nodoS = (DefaultMutableTreeNode) v1;
-                        if (evt.isMetaDown()) {
-                            ppMenuClases.show(evt.getComponent(), evt.getX(), evt.getY());
+                DefaultComboBoxModel model = new DefaultComboBoxModel();
+                DefaultComboBoxModel modelH = new DefaultComboBoxModel();
+                AdministracionDiagramaClases ap = new AdministracionDiagramaClases(Path);
+                ap.CargarArchivo();
+                for (int i = 0; i < ap.getClases().size(); i++) {
+                    JTree arbol = ((JTree) ap.getClases().get(i));
+                    this.jpBase.add(arbol);
+                    //Esto toma el nombre del nodo raiz
+                    String nombre = arbol.getModel().getRoot().toString();
+                    jpBase.repaint();
+                    arbol.addMouseListener(new MouseListener() {
+                        public void mouseClicked(MouseEvent evt) {
+                            actualT = arbol;
+                            jmPropiedades.setEnabled(true);
+                            txSeleccionado1.setText(nombre);
+                            int row = arbol.getClosestRowForLocation(evt.getX(), evt.getY());
+                            arbol.setSelectionRow(row);
+                            Object v1 = arbol.getSelectionPath().getLastPathComponent();
+                            nodoS = (DefaultMutableTreeNode) v1;
+                            if (evt.isMetaDown()) {
+                                ppMenuClases.show(evt.getComponent(), evt.getX(), evt.getY());
+                            }
                         }
-                    }
 
-                    public void mouseEntered(MouseEvent arg0) {
-                        arbol.setBorder(BorderFactory.createLineBorder(new java.awt.Color(254, 146, 0), 2));
-                        arbol.setToolTipText(nombre);
-                    }
+                        public void mouseEntered(MouseEvent arg0) {
+                            arbol.setBorder(BorderFactory.createLineBorder(new java.awt.Color(254, 146, 0), 2));
+                            arbol.setToolTipText(nombre);
+                        }
 
-                    public void mouseExited(MouseEvent arg0) {
-                        arbol.setBorder(BorderFactory.createLineBorder(new java.awt.Color(165, 105, 189), 1));
-                    }
+                        public void mouseExited(MouseEvent arg0) {
+                            arbol.setBorder(BorderFactory.createLineBorder(new java.awt.Color(165, 105, 189), 1));
+                        }
 
-                    public void mousePressed(MouseEvent arg0) {
-                        actualT = arbol;
-                        txSeleccionado1.setText(nombre);
-                    }
+                        public void mousePressed(MouseEvent arg0) {
+                            actualT = arbol;
+                            txSeleccionado1.setText(nombre);
+                        }
 
-                    public void mouseReleased(MouseEvent arg0) {
-                    }
-                });
-                arbol.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-                    public void mouseDragged(java.awt.event.MouseEvent evt) {
-                        actualT = arbol;
-                        txSeleccionado1.setText(nombre);
-                        if (((arbol.getLocation().x + evt.getX() - arbol.getWidth() / 2) > 0)) {
-                            if (((arbol.getLocation().x + evt.getX() - arbol.getWidth() / 2) < 770)) {
-                                if ((arbol.getLocation().y + evt.getY() - arbol.getWidth() / 2) > -15) {
-                                    if ((arbol.getLocation().y + evt.getY() - arbol.getWidth() / 2) < 500) {
-                                        arbol.setLocation(arbol.getLocation().x + evt.getX() - arbol.getWidth() / 2,
-                                                arbol.getLocation().y + evt.getY() - arbol.getHeight() / 2);
+                        public void mouseReleased(MouseEvent arg0) {
+                        }
+                    });
+                    arbol.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+                        public void mouseDragged(java.awt.event.MouseEvent evt) {
+                            actualT = arbol;
+                            txSeleccionado1.setText(nombre);
+                            if (((arbol.getLocation().x + evt.getX() - arbol.getWidth() / 2) > 0)) {
+                                if (((arbol.getLocation().x + evt.getX() - arbol.getWidth() / 2) < 770)) {
+                                    if ((arbol.getLocation().y + evt.getY() - arbol.getWidth() / 2) > -15) {
+                                        if ((arbol.getLocation().y + evt.getY() - arbol.getWidth() / 2) < 500) {
+                                            arbol.setLocation(arbol.getLocation().x + evt.getX() - arbol.getWidth() / 2,
+                                                    arbol.getLocation().y + evt.getY() - arbol.getHeight() / 2);
+                                        }
                                     }
                                 }
                             }
                         }
-                    }
-                });
-                //Agregar la Clase al ArrayList y a las combobox
-                clases.add(arbol);
-                nombresdeclase.add(nombre);
-                model.addElement(nombre);
-                modelH.addElement(nombre);
-                jcHijo.setModel(modelH);
-                jcpadre.setModel(model);
+                    });
+                    //Agregar la Clase al ArrayList y a las combobox
+                    clases.add(arbol);
+                    nombresdeclase.add(nombre);
+                    model.addElement(nombre);
+                    modelH.addElement(nombre);
+                    jcHijo.setModel(modelH);
+                    jcpadre.setModel(model);
+                }
+                if (jpBase.getComponents().length != 0) {
+                    JOptionPane.showMessageDialog(this, "Archivo cargado correctamente.", "Cargar", 1);
+                } else {
+                    JOptionPane.showMessageDialog(this, "Archivo no compatible.", "Error Cargar", 0);
+                }
             }
-            JOptionPane.showMessageDialog(this, "Archivo cargado correctamente.", "Cargar", 1);
         } catch (Exception e) {
         }
     }
@@ -3785,102 +3795,108 @@ public class PanelPrincipal extends javax.swing.JFrame {
             FileNameExtensionFilter filtro = new FileNameExtensionFilter("Diagrama de Flujo", "DDF");
             jfc.addChoosableFileFilter(filtro);
             int seleccion = jfc.showOpenDialog(this);
-            String Path = jfc.getSelectedFile().getPath();
-            //Esto reinicia la base donde se colocan los compoentes y el arraylist de componetes
-            componentes = new ArrayList();
-            jpBase.removeAll();
-            jpBase.repaint();
-            variables = new ArrayList();
-            AdministracionDiagramaDeFlujo ap = new AdministracionDiagramaDeFlujo(Path);
-            ap.CargarArchivo();
-            System.out.println("Componentes Abiertos");
-            for (int i = 0; i < ap.getComponentes().size(); i++) {
-                JLabel objeto = ((JLabel) ap.getComponentes().get(i));
-                this.jpBase.add(objeto);
+            if (seleccion == JFileChooser.APPROVE_OPTION) {
+                String Path = jfc.getSelectedFile().getPath();
+                //Esto reinicia la base donde se colocan los compoentes y el arraylist de componetes
+                componentes = new ArrayList();
+                jpBase.removeAll();
                 jpBase.repaint();
-                objeto.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-                    public void mouseDragged(java.awt.event.MouseEvent evt) {
-                        actual = objeto;
-                        txSeleccionado.setText(objeto.getText());
-                        if (((objeto.getLocation().x + evt.getX() - objeto.getWidth() / 2) > 5)) {
-                            if (((objeto.getLocation().x + evt.getX() - objeto.getWidth() / 2) < 770)) {
-                                if ((objeto.getLocation().y + evt.getY() - objeto.getWidth() / 2) > -15) {
-                                    if ((objeto.getLocation().y + evt.getY() - objeto.getWidth() / 2) < 520) {
-                                        objeto.setLocation(objeto.getLocation().x + evt.getX() - objeto.getWidth() / 2,
-                                                objeto.getLocation().y + evt.getY() - objeto.getHeight() / 2);
+                variables = new ArrayList();
+                AdministracionDiagramaDeFlujo ap = new AdministracionDiagramaDeFlujo(Path);
+                ap.CargarArchivo();
+                System.out.println("Componentes Abiertos");
+                for (int i = 0; i < ap.getComponentes().size(); i++) {
+                    JLabel objeto = ((JLabel) ap.getComponentes().get(i));
+                    this.jpBase.add(objeto);
+                    jpBase.repaint();
+                    objeto.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+                        public void mouseDragged(java.awt.event.MouseEvent evt) {
+                            actual = objeto;
+                            txSeleccionado.setText(objeto.getText());
+                            if (((objeto.getLocation().x + evt.getX() - objeto.getWidth() / 2) > 5)) {
+                                if (((objeto.getLocation().x + evt.getX() - objeto.getWidth() / 2) < 770)) {
+                                    if ((objeto.getLocation().y + evt.getY() - objeto.getWidth() / 2) > -15) {
+                                        if ((objeto.getLocation().y + evt.getY() - objeto.getWidth() / 2) < 520) {
+                                            objeto.setLocation(objeto.getLocation().x + evt.getX() - objeto.getWidth() / 2,
+                                                    objeto.getLocation().y + evt.getY() - objeto.getHeight() / 2);
+                                        }
                                     }
                                 }
                             }
                         }
-                    }
-                });
-                objeto.addMouseListener(new MouseListener() {
-                    public void mouseClicked(MouseEvent evt) {
-                        actual = objeto;
-                        txSeleccionado.setText(objeto.getText());
-                        mDiseno.setEnabled(true);
-                        mEdiciontx.setEnabled(true);
-                        if (objeto.getDisplayedMnemonic() == 1 || objeto.getDisplayedMnemonic() == 7 || objeto.getDisplayedMnemonic() == 8) {
-                            jmiAgregar.setVisible(false);
-                            jmiVerPropiedades.setVisible(false);
-                            jbAPropiedades.setEnabled(false);
-                            jbVerP.setEnabled(false);
-                        } else {
-                            jmiAgregar.setVisible(true);
-                            jmiVerPropiedades.setVisible(true);
-                            jbAPropiedades.setEnabled(true);
-                            jbVerP.setEnabled(true);
+                    });
+                    objeto.addMouseListener(new MouseListener() {
+                        public void mouseClicked(MouseEvent evt) {
+                            actual = objeto;
+                            txSeleccionado.setText(objeto.getText());
+                            mDiseno.setEnabled(true);
+                            mEdiciontx.setEnabled(true);
+                            if (objeto.getDisplayedMnemonic() == 1 || objeto.getDisplayedMnemonic() == 7 || objeto.getDisplayedMnemonic() == 8) {
+                                jmiAgregar.setVisible(false);
+                                jmiVerPropiedades.setVisible(false);
+                                jbAPropiedades.setEnabled(false);
+                                jbVerP.setEnabled(false);
+                            } else {
+                                jmiAgregar.setVisible(true);
+                                jmiVerPropiedades.setVisible(true);
+                                jbAPropiedades.setEnabled(true);
+                                jbVerP.setEnabled(true);
+                            }
+                            if (evt.isMetaDown()) {
+                                copiaro = objeto;
+                                ppMenu.show(evt.getComponent(), evt.getX(), evt.getY());
+                            }
                         }
-                        if (evt.isMetaDown()) {
-                            copiaro = objeto;
-                            ppMenu.show(evt.getComponent(), evt.getX(), evt.getY());
+
+                        public void mouseEntered(MouseEvent arg0) {
+                            objeto.setBorder(BorderFactory.createLineBorder(new java.awt.Color(165, 105, 189), 1));
+                            objeto.setToolTipText(objeto.getText());
                         }
-                    }
 
-                    public void mouseEntered(MouseEvent arg0) {
-                        objeto.setBorder(BorderFactory.createLineBorder(new java.awt.Color(165, 105, 189), 1));
-                        objeto.setToolTipText(objeto.getText());
-                    }
+                        public void mouseExited(MouseEvent arg0) {
+                            objeto.setBorder(null);
+                        }
 
-                    public void mouseExited(MouseEvent arg0) {
-                        objeto.setBorder(null);
-                    }
+                        public void mousePressed(MouseEvent arg0) {
+                            txSeleccionado.setText(objeto.getText());
+                            actual = objeto;
+                        }
 
-                    public void mousePressed(MouseEvent arg0) {
-                        txSeleccionado.setText(objeto.getText());
-                        actual = objeto;
+                        public void mouseReleased(MouseEvent arg0) {
+                            actual = objeto;
+                        }
+                    });
+                    System.out.println(objeto.getText());
+                    //Agregar los Componentes al ArrayList 
+                    componentes.add(objeto);
+                    if (objeto.getDisplayedMnemonic() == 2) {
+                        String[] c = objeto.getName().split("ª");
+                        String[] f = c[1].split(",");
+                        DefaultComboBoxModel model = (DefaultComboBoxModel) jcb_variables.getModel();
+                        DefaultComboBoxModel model1 = (DefaultComboBoxModel) jcb_variables1.getModel();
+                        DefaultComboBoxModel model2 = (DefaultComboBoxModel) jcb_variables2.getModel();
+                        DefaultComboBoxModel model3 = (DefaultComboBoxModel) jcb_impresion.getModel();
+                        for (int j = 0; j < f.length; j++) {
+                            model.addElement(f[j]);
+                            model1.addElement(f[j]);
+                            model2.addElement(f[j]);
+                            model3.addElement(f[j]);
+                            variables.add(f[i]);
+                        }
+                        jcb_variables.setModel(model);
+                        jcb_variables1.setModel(model1);
+                        jcb_variables2.setModel(model2);
+                        jcb_impresion.setModel(model3);
+                        jcb_whileV.setModel(model);
+                        jcb_whileV1.setModel(model1);
                     }
-
-                    public void mouseReleased(MouseEvent arg0) {
-                        actual = objeto;
-                    }
-                });
-                System.out.println(objeto.getText());
-                //Agregar los Componentes al ArrayList 
-                componentes.add(objeto);
-                if (objeto.getDisplayedMnemonic() == 2) {
-                    String[] c = objeto.getName().split("ª");
-                    String[] f = c[1].split(",");
-                    DefaultComboBoxModel model = (DefaultComboBoxModel) jcb_variables.getModel();
-                    DefaultComboBoxModel model1 = (DefaultComboBoxModel) jcb_variables1.getModel();
-                    DefaultComboBoxModel model2 = (DefaultComboBoxModel) jcb_variables2.getModel();
-                    DefaultComboBoxModel model3 = (DefaultComboBoxModel) jcb_impresion.getModel();
-                    for (int j = 0; j < f.length; j++) {
-                        model.addElement(f[j]);
-                        model1.addElement(f[j]);
-                        model2.addElement(f[j]);
-                        model3.addElement(f[j]);
-                        variables.add(f[i]);
-                    }
-                    jcb_variables.setModel(model);
-                    jcb_variables1.setModel(model1);
-                    jcb_variables2.setModel(model2);
-                    jcb_impresion.setModel(model3);
-                    jcb_whileV.setModel(model);
-                    jcb_whileV1.setModel(model1);
+                }
+                if (jpBase.getComponents().length != 0) {
+                    JOptionPane.showMessageDialog(this, "Archivo cargado correctamente.", "Cargar", 1);
+                } else {
+                    JOptionPane.showMessageDialog(this, "Archivo no compatible.", "Error Cargar", 0);
                 }
             }
-            JOptionPane.showMessageDialog(this, "Archivo cargado correctamente.", "Cargar", 1);
         } catch (Exception e) {
             e.printStackTrace();
         }
