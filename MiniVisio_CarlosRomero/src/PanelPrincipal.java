@@ -200,9 +200,9 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jpDiseno = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jbEliminar = new javax.swing.JButton();
-        jmiPropiedades = new javax.swing.JButton();
+        jbAPropiedades = new javax.swing.JButton();
         jmiPropiedades1 = new javax.swing.JButton();
-        jmiVer = new javax.swing.JButton();
+        jbVerP = new javax.swing.JButton();
         jpBase0 = new javax.swing.JPanel();
         PanelClase = new javax.swing.JPanel();
         txtConfiguracion = new javax.swing.JLabel();
@@ -1190,33 +1190,33 @@ public class PanelPrincipal extends javax.swing.JFrame {
         });
         jpDiseno.add(jbEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 150, 40));
 
-        jmiPropiedades.setBackground(new java.awt.Color(51, 0, 51));
-        jmiPropiedades.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jmiPropiedades.setForeground(new java.awt.Color(255, 204, 204));
-        jmiPropiedades.setText("Agregar Propiedades");
-        jpDiseno.add(jmiPropiedades, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 20, 150, 40));
+        jbAPropiedades.setBackground(new java.awt.Color(51, 0, 51));
+        jbAPropiedades.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jbAPropiedades.setForeground(new java.awt.Color(255, 204, 204));
+        jbAPropiedades.setText("Agregar Propiedades");
+        jpDiseno.add(jbAPropiedades, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 20, 150, 40));
 
         jmiPropiedades1.setBackground(new java.awt.Color(0, 0, 51));
         jmiPropiedades1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jmiPropiedades1.setForeground(new java.awt.Color(204, 204, 255));
-        jmiPropiedades1.setText("Ver Propiedades");
+        jmiPropiedades1.setText("Aun no sé");
         jpDiseno.add(jmiPropiedades1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 20, 150, 40));
 
-        jmiVer.setBackground(new java.awt.Color(255, 153, 153));
-        jmiVer.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
-        jmiVer.setForeground(new java.awt.Color(51, 0, 0));
-        jmiVer.setText("Ver Propiedades");
-        jmiVer.addMouseListener(new java.awt.event.MouseAdapter() {
+        jbVerP.setBackground(new java.awt.Color(255, 153, 153));
+        jbVerP.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        jbVerP.setForeground(new java.awt.Color(51, 0, 0));
+        jbVerP.setText("Ver Propiedades");
+        jbVerP.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jmiVerMouseClicked(evt);
+                jbVerPMouseClicked(evt);
             }
         });
-        jmiVer.addActionListener(new java.awt.event.ActionListener() {
+        jbVerP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jmiVerActionPerformed(evt);
+                jbVerPActionPerformed(evt);
             }
         });
-        jpDiseno.add(jmiVer, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 20, 150, 40));
+        jpDiseno.add(jbVerP, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 20, 150, 40));
 
         getContentPane().add(jpDiseno, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 10, 950, 70));
 
@@ -2618,15 +2618,19 @@ public class PanelPrincipal extends javax.swing.JFrame {
                     mDiseno.setEnabled(true);
                     mEdiciontx.setEnabled(true);
                     txtIf.setText("");
+                    if (objeto.getDisplayedMnemonic() == 1 || objeto.getDisplayedMnemonic() == 7 || objeto.getDisplayedMnemonic() == 8) {
+                        jmiAgregar.setVisible(false);
+                        jmiVerPropiedades.setVisible(false);
+                        jbAPropiedades.setEnabled(false);
+                        jbVerP.setEnabled(false);
+                    } else {
+                        jmiAgregar.setVisible(true);
+                        jmiVerPropiedades.setVisible(true);
+                        jbAPropiedades.setEnabled(true);
+                        jbVerP.setEnabled(true);
+                    }
                     if (evt.isMetaDown()) {
                         copiaro = objeto;
-                        if (objeto.getDisplayedMnemonic() == 1) {
-                            jmiAgregar.setVisible(false);
-                            jmiVerPropiedades.setVisible(false);
-                        } else {
-                            jmiAgregar.setVisible(true);
-                            jmiVerPropiedades.setVisible(true);
-                        }
                         ppMenu.show(evt.getComponent(), evt.getX(), evt.getY());
                     }
                 }
@@ -2777,7 +2781,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jcb_impresion.setModel(model3);
         JOptionPane.showMessageDialog(this, "Variable agregada.", "Variables", 1);
         txNombreVariable.setText(" ");
-        actual.setToolTipText(actual.getToolTipText()+" (Ya Configurado)");
+        actual.setToolTipText(actual.getToolTipText() + " (Ya Configurado)");
     }//GEN-LAST:event_jButton6MouseClicked
 
     private void jmiAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiAgregarActionPerformed
@@ -2800,13 +2804,13 @@ public class PanelPrincipal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jmiAgregarActionPerformed
 
-    private void jmiVerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jmiVerMouseClicked
+    private void jbVerPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbVerPMouseClicked
         VerPropiedades();
-    }//GEN-LAST:event_jmiVerMouseClicked
+    }//GEN-LAST:event_jbVerPMouseClicked
 
-    private void jmiVerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiVerActionPerformed
+    private void jbVerPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbVerPActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jmiVerActionPerformed
+    }//GEN-LAST:event_jbVerPActionPerformed
 
     private void jmiVerPropiedadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiVerPropiedadesActionPerformed
         VerPropiedades();
@@ -3020,7 +3024,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
             jcb_variables1.setSelectedIndex(0);
             txtIf.setText(actual.getName());
             JOptionPane.showMessageDialog(this, "Ahora introduzca la otra condición", "Or", 1);
-            actual.setToolTipText(actual.getToolTipText()+" (Ya Configurado)");
+            actual.setToolTipText(actual.getToolTipText() + " (Ya Configurado)");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "No hay datos todavía!", "Error", 0);
         }
@@ -3031,7 +3035,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jcb_variablesItemStateChanged
 
     private void jbAgregarVariableAImpresionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbAgregarVariableAImpresionMouseClicked
-        ta_impresion.append("_"+jcb_impresion.getSelectedItem().toString()+"_");
+        ta_impresion.append("_" + jcb_impresion.getSelectedItem().toString() + "_");
     }//GEN-LAST:event_jbAgregarVariableAImpresionMouseClicked
 
     private void jmiAgregarVariableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiAgregarVariableActionPerformed
@@ -3043,10 +3047,10 @@ public class PanelPrincipal extends javax.swing.JFrame {
     private void ta_impresionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ta_impresionMouseClicked
         if (evt.isMetaDown() && (jcb_impresion.getItemCount()) != 0) {
             ppImpresion.show(ta_impresion, evt.getX(), evt.getY());
-        }else{
+        } else {
             jcb_impresion.setVisible(false);
-        jbAgregarVariableAImpresion.setVisible(false);
-        jLabel52.setVisible(false);
+            jbAgregarVariableAImpresion.setVisible(false);
+            jLabel52.setVisible(false);
         }
     }//GEN-LAST:event_ta_impresionMouseClicked
 
@@ -3061,7 +3065,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
         actual.setName(ta_impresion.getText());
         JOptionPane.showMessageDialog(this, "Impresion guardada.", "Impresión", 1);
         ta_impresion.setText("");
-        actual.setToolTipText(actual.getToolTipText()+" (Ya Configurado)");
+        actual.setToolTipText(actual.getToolTipText() + " (Ya Configurado)");
     }//GEN-LAST:event_jbGuardarImpresionMouseClicked
 
     /**
@@ -3156,15 +3160,19 @@ public class PanelPrincipal extends javax.swing.JFrame {
                 mDiseno.setEnabled(true);
                 mEdiciontx.setEnabled(true);
                 txtIf.setText("");
+                if (objeto.getDisplayedMnemonic() == 1 || objeto.getDisplayedMnemonic() == 7 || objeto.getDisplayedMnemonic() == 8) {
+                    jmiAgregar.setVisible(false);
+                    jmiVerPropiedades.setVisible(false);
+                    jbAPropiedades.setEnabled(false);
+                    jbVerP.setEnabled(false);
+                } else {
+                    jmiAgregar.setVisible(true);
+                    jmiVerPropiedades.setVisible(true);
+                    jbAPropiedades.setEnabled(true);
+                    jbVerP.setEnabled(true);
+                }
                 if (evt.isMetaDown()) {
                     copiaro = objeto;
-                    if (objeto.getDisplayedMnemonic() == 1) {
-                        jmiAgregar.setVisible(false);
-                        jmiVerPropiedades.setVisible(false);
-                    } else {
-                        jmiAgregar.setVisible(true);
-                        jmiVerPropiedades.setVisible(true);
-                    }
                     ppMenu.show(evt.getComponent(), evt.getX(), evt.getY());
                 }
             }
@@ -3444,8 +3452,19 @@ public class PanelPrincipal extends javax.swing.JFrame {
                         txSeleccionado.setText(objeto.getText());
                         mDiseno.setEnabled(true);
                         mEdiciontx.setEnabled(true);
+                        if (objeto.getDisplayedMnemonic() == 1 || objeto.getDisplayedMnemonic() == 7 || objeto.getDisplayedMnemonic() == 8) {
+                            jmiAgregar.setVisible(false);
+                            jmiVerPropiedades.setVisible(false);
+                            jbAPropiedades.setEnabled(false);
+                            jbVerP.setEnabled(false);
+                        } else {
+                            jmiAgregar.setVisible(true);
+                            jmiVerPropiedades.setVisible(true);
+                            jbAPropiedades.setEnabled(true);
+                            jbVerP.setEnabled(true);
+                        }
                         if (evt.isMetaDown()) {
-                            actual = objeto;
+                            copiaro = objeto;
                             ppMenu.show(evt.getComponent(), evt.getX(), evt.getY());
                         }
                     }
@@ -3577,6 +3596,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTable jTable1;
+    private javax.swing.JButton jbAPropiedades;
     private javax.swing.JButton jbAgregarMetodo;
     private javax.swing.JButton jbAgregarParametro;
     private javax.swing.JButton jbAgregarVariableAImpresion;
@@ -3594,6 +3614,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jbSetTexto;
     private javax.swing.JButton jbVerAtributo;
     private javax.swing.JButton jbVerMetodos;
+    private javax.swing.JButton jbVerP;
     private javax.swing.JButton jbtDiagramaClases;
     private javax.swing.JComboBox<String> jcEncapsulamiento;
     private javax.swing.JComboBox<String> jcHijo;
@@ -3639,9 +3660,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jmiMetodos;
     private javax.swing.JMenuItem jmiNuevo;
     private javax.swing.JMenuItem jmiPegar;
-    private javax.swing.JButton jmiPropiedades;
     private javax.swing.JButton jmiPropiedades1;
-    private javax.swing.JButton jmiVer;
     private javax.swing.JMenuItem jmiVerPropiedades;
     private javax.swing.JPanel jpBase;
     private javax.swing.JPanel jpBase0;
@@ -3674,14 +3693,12 @@ public class PanelPrincipal extends javax.swing.JFrame {
     private javax.swing.JTextField txtIf;
     // End of variables declaration//GEN-END:variables
 //    TIPOS:
-//    1-inicio
-//    2-datos
-//    3-proceso
-//    4-desicion
-//    5-while
-//    6-impresion
-//    7-separador
-//    8-separador vertical
+//    1-inicio listo
+//    2-datos listo
+//    3-proceso 
+//    4-desicion listo
+//    5-while   
+//    6-impresion listo
     Color color;
     String fuente = "Tahoma";
     String fuenteclase = "Tahoma";
