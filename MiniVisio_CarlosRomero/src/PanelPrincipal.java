@@ -3386,6 +3386,29 @@ public class PanelPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jcb_operacionActionPerformed
 
     private void jbGuardarImpresion1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbGuardarImpresion1MouseClicked
+        if (op != 0 && opp != 0) {
+            String operando = "";
+            txtOperacion.setText(actual.getName());
+            System.out.println(actual.getName());
+        } else {
+            String operando = "";
+            if (jcb_operacion.getSelectedItem().equals("Suma")) {
+                operando = " + ";
+                actual.setName(jcb_Proceso.getSelectedItem() + operando + jcb_proceso2.getSelectedItem());
+            } else if (jcb_operacion.getSelectedItem().equals("Resta")) {
+                operando = " - ";
+                actual.setName(jcb_Proceso.getSelectedItem() + operando + jcb_proceso2.getSelectedItem());
+            } else if (jcb_operacion.getSelectedItem().equals("Multiplicación")) {
+                operando = " * ";
+                actual.setName(jcb_Proceso.getSelectedItem() + operando + jcb_proceso2.getSelectedItem());
+            } else if (jcb_operacion.getSelectedItem().equals("División")) {
+                operando = " / ";
+                actual.setName(jcb_Proceso.getSelectedItem() + operando + jcb_proceso2.getSelectedItem());
+                actual.setName(jcb_Proceso.getSelectedItem() + operando + jcb_proceso2.getSelectedItem());
+            } else if (jcb_operacion.getSelectedItem().equals("Lectura")) {
+                actual.setName("cin<<" + jcb_proceso2.getSelectedItem());
+            }
+        }
         jcb_operacion.setSelectedIndex(0);
         jbOC.setEnabled(true);
         jcb_Proceso.setEnabled(true);
@@ -3394,7 +3417,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jcb_operacion.setEnabled(true);
         jcb_proceso2.setEnabled(true);
         OPV1.setEnabled(true);
-        txtOperacion.setText("");
+        txtOperacion.setText(actual.getName());
         op = 0;
         opp = 0;
     }//GEN-LAST:event_jbGuardarImpresion1MouseClicked
@@ -3503,6 +3526,8 @@ public class PanelPrincipal extends javax.swing.JFrame {
         } else {
             Operacion += operando + jcb_proceso2.getSelectedItem();
             txtOperacion.setText(Operacion);
+            actual.setName(Operacion);
+            System.out.println(actual.getName());
         }
         JOptionPane.showMessageDialog(this, "Operación Agregada", "Operacion Combinada", 1);
     }//GEN-LAST:event_jbOCMouseClicked
@@ -3686,6 +3711,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jpBase.remove(actual);
         txSeleccionado.setText("");
         componentes.remove(actual);
+        actual=null;
         this.repaint();
     }
 
