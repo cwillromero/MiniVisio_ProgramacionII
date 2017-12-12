@@ -1,17 +1,13 @@
 
 import java.awt.Color;
 import java.awt.Cursor;
-import java.awt.Graphics;
 import java.awt.GraphicsEnvironment;
-import java.awt.PrintJob;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.print.PrinterException;
 import java.awt.print.PrinterJob;
-import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -65,6 +61,8 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jmiAbrir.setEnabled(false);
         jmiImprimir.setEnabled(false);
         txNombreAtributo.setText(" ");
+        jcb_variables2.setVisible(false);
+        jLabel46.setVisible(false);
     }
 
     /**
@@ -153,6 +151,21 @@ public class PanelPrincipal extends javax.swing.JFrame {
         txNombreVariable = new javax.swing.JTextField();
         jLabel43 = new javax.swing.JLabel();
         jButton6 = new javax.swing.JButton();
+        jd_desicion = new javax.swing.JDialog();
+        jPanel6 = new javax.swing.JPanel();
+        jcbRelacion = new javax.swing.JComboBox<>();
+        jcb_variables = new javax.swing.JComboBox<>();
+        jLabel42 = new javax.swing.JLabel();
+        jLabel44 = new javax.swing.JLabel();
+        jLabel47 = new javax.swing.JLabel();
+        jLabel48 = new javax.swing.JLabel();
+        jcb_variables1 = new javax.swing.JComboBox<>();
+        jbGuardarIf = new javax.swing.JButton();
+        jbAnd = new javax.swing.JButton();
+        jbOr = new javax.swing.JButton();
+        jcb_variables2 = new javax.swing.JComboBox<>();
+        jLabel46 = new javax.swing.JLabel();
+        txtIf = new javax.swing.JTextField();
         jpTexto = new javax.swing.JPanel();
         jButton3 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
@@ -764,6 +777,122 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jpVariable.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 140, -1, -1));
 
         jdAgregarVariable.getContentPane().add(jpVariable, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 300, 190));
+
+        jPanel6.setBackground(new java.awt.Color(0, 0, 51));
+        jPanel6.setMaximumSize(new java.awt.Dimension(400, 250));
+        jPanel6.setMinimumSize(new java.awt.Dimension(400, 250));
+        jPanel6.setPreferredSize(new java.awt.Dimension(400, 250));
+        jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jcbRelacion.setBackground(new java.awt.Color(51, 0, 51));
+        jcbRelacion.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jcbRelacion.setForeground(new java.awt.Color(255, 255, 255));
+        jcbRelacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Igual que", "Distinto de", "Menor que", "Menor o Igual", "Mayor que", "Mayor o igual que", "Residuo igual que", "Residuo distinto de" }));
+        jcbRelacion.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jcbRelacionItemStateChanged(evt);
+            }
+        });
+        jPanel6.add(jcbRelacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, 170, -1));
+
+        jcb_variables.setBackground(new java.awt.Color(0, 0, 0));
+        jcb_variables.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        jcb_variables.setForeground(new java.awt.Color(255, 255, 255));
+        jcb_variables.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jcb_variablesItemStateChanged(evt);
+            }
+        });
+        jPanel6.add(jcb_variables, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 82, -1));
+
+        jLabel42.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel42.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel42.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel42.setText("Desición");
+        jPanel6.add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, 146, 37));
+
+        jLabel44.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
+        jLabel44.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel44.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel44.setText("Variable");
+        jPanel6.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 90, 80, -1));
+
+        jLabel47.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
+        jLabel47.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel47.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel47.setText("Variable");
+        jPanel6.add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 80, -1));
+
+        jLabel48.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
+        jLabel48.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel48.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel48.setText("Relación");
+        jPanel6.add(jLabel48, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 90, 80, -1));
+
+        jcb_variables1.setBackground(new java.awt.Color(0, 0, 0));
+        jcb_variables1.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        jcb_variables1.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel6.add(jcb_variables1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 60, 82, -1));
+
+        jbGuardarIf.setBackground(new java.awt.Color(0, 51, 51));
+        jbGuardarIf.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jbGuardarIf.setForeground(new java.awt.Color(204, 255, 204));
+        jbGuardarIf.setText("Guardar");
+        jbGuardarIf.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jbGuardarIfMouseClicked(evt);
+            }
+        });
+        jPanel6.add(jbGuardarIf, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 210, -1, -1));
+
+        jbAnd.setBackground(new java.awt.Color(51, 0, 0));
+        jbAnd.setFont(new java.awt.Font("Segoe UI", 1, 8)); // NOI18N
+        jbAnd.setForeground(new java.awt.Color(255, 204, 204));
+        jbAnd.setText("And");
+        jbAnd.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jbAndMouseClicked(evt);
+            }
+        });
+        jPanel6.add(jbAnd, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 200, -1, 20));
+
+        jbOr.setBackground(new java.awt.Color(51, 0, 0));
+        jbOr.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
+        jbOr.setForeground(new java.awt.Color(255, 204, 204));
+        jbOr.setText("Or");
+        jbOr.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jbOrMouseClicked(evt);
+            }
+        });
+        jPanel6.add(jbOr, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 200, 50, 20));
+
+        jcb_variables2.setBackground(new java.awt.Color(0, 0, 0));
+        jcb_variables2.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        jcb_variables2.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel6.add(jcb_variables2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 110, 82, -1));
+
+        jLabel46.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
+        jLabel46.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel46.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel46.setText("Mod");
+        jPanel6.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, 80, -1));
+        jPanel6.add(txtIf, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 360, -1));
+
+        javax.swing.GroupLayout jd_desicionLayout = new javax.swing.GroupLayout(jd_desicion.getContentPane());
+        jd_desicion.getContentPane().setLayout(jd_desicionLayout);
+        jd_desicionLayout.setHorizontalGroup(
+            jd_desicionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_desicionLayout.createSequentialGroup()
+                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        jd_desicionLayout.setVerticalGroup(
+            jd_desicionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_desicionLayout.createSequentialGroup()
+                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("MiniVisio - Carlos Wilfredo Romero Maradiaga");
@@ -1511,7 +1640,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jpDiseno.setVisible(false);
         jpTexto.setVisible(false);
         jmiAbrir.setEnabled(true);
-        copiar=0;
+        copiar = 0;
     }//GEN-LAST:event_jmiNuevoActionPerformed
 
     private void mArchivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mArchivoActionPerformed
@@ -1594,6 +1723,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
             X = evt.getX();
             Y = evt.getY();
         }
+        txtIf.setText("");
     }//GEN-LAST:event_jpBaseMouseClicked
 
     private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
@@ -1627,7 +1757,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
         nombresdeclase = new ArrayList();
         jmPropiedades.setVisible(true);
         jmiGuardarComo.setEnabled(true);
-        jmiGuardar.setEnabled(false);
+        jmiGuardar.setEnabled(true);
         jmiAbrir.setEnabled(true);
         separador = 0;
         separadorVertical = 0;
@@ -1938,7 +2068,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
         modelH.addElement(modelo.getRoot());
         jcHijo.setModel(modelH);
         jcpadre.setModel(model);
-        
+
     }//GEN-LAST:event_btClaseMouseClicked
 
     private void jmiEliminarArbolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiEliminarArbolActionPerformed
@@ -2004,29 +2134,24 @@ public class PanelPrincipal extends javax.swing.JFrame {
         if (centinela == 2) {
             taCodigo.setText("");
             String c = "";
-            try {
-                if (centinela == 2) {
-                    for (int i = 0; i < clases.size(); i++) {
-                        CodigoDiagramaDeClases cod = new CodigoDiagramaDeClases((JTree) clases.get(i));
-                        cod.Inicio();
-                        cod.Atributos();
-                        cod.Constructor();
-                        cod.Metodo();
-                        cod.Destructores();
-                        cod.Final();
-                        c += cod.getCodigo();
-                    }
-                    taCodigo.setText(c);
+            if (centinela == 2) {
+                for (int i = 0; i < clases.size(); i++) {
+                    CodigoDiagramaDeClases cod = new CodigoDiagramaDeClases((JTree) clases.get(i));
+                    cod.Inicio();
+                    cod.Atributos();
+                    cod.Constructor();
+                    cod.Metodo();
+                    cod.Destructores();
+                    cod.Final();
+                    c += cod.getCodigo();
                 }
-                jPanel1.setBackground(Color.BLACK);
-                jdCodigo.setModal(true);
-                jdCodigo.pack();
-                jdCodigo.setLocationRelativeTo(this);
-                jdCodigo.setVisible(true);
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, "Ocurrió un Error! \nEs probable que usted haya Ingresado mal un Dato.\nFavor Revisar las Clases", "Error", 0);
-                //e.printStackTrace();
+                taCodigo.setText(c);
             }
+            jPanel1.setBackground(Color.BLACK);
+            jdCodigo.setModal(true);
+            jdCodigo.pack();
+            jdCodigo.setLocationRelativeTo(this);
+            jdCodigo.setVisible(true);
         } else if (centinela == 1) {
             try {
                 taCodigo.setText("");
@@ -2035,16 +2160,18 @@ public class PanelPrincipal extends javax.swing.JFrame {
                 cod.Inicio();
                 for (int i = 0; i < componentes.size(); i++) {
                     cod.setObjeto(componentes.get(i));
-                    cod.Datos();
+                    cod.Generar();
                 }
                 cod.Final();
                 c = cod.getCodigo();
-                taCodigo.setText(c);
-                jPanel1.setBackground(Color.BLACK);
-                jdCodigo.setModal(true);
-                jdCodigo.pack();
-                jdCodigo.setLocationRelativeTo(this);
-                jdCodigo.setVisible(true);
+                if (cod.isX() == true) {
+                    taCodigo.setText(c);
+                    jPanel1.setBackground(Color.BLACK);
+                    jdCodigo.setModal(true);
+                    jdCodigo.pack();
+                    jdCodigo.setLocationRelativeTo(this);
+                    jdCodigo.setVisible(true);
+                }
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, "Ocurrió un Error! \nEs probable que usted haya Ingresado mal un Dato.\nFavor Revisar el Diagrama", "Error", 0);
                 e.printStackTrace();
@@ -2387,6 +2514,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
                     txSeleccionado.setText(objeto.getText());
                     mDiseno.setEnabled(true);
                     mEdiciontx.setEnabled(true);
+                    txtIf.setText("");
                     if (evt.isMetaDown()) {
                         copiaro = objeto;
                         if (objeto.getDisplayedMnemonic() == 1) {
@@ -2532,7 +2660,17 @@ public class PanelPrincipal extends javax.swing.JFrame {
     private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
         String x = actual.getName() + jcTipoVariable.getSelectedItem().toString() + " " + txNombreVariable.getText() + ";";
         actual.setName(x);
+        DefaultComboBoxModel model = (DefaultComboBoxModel) jcb_variables.getModel();
+        DefaultComboBoxModel model1 = (DefaultComboBoxModel) jcb_variables1.getModel();
+        DefaultComboBoxModel model2 = (DefaultComboBoxModel) jcb_variables2.getModel();
+        model.addElement(txNombreVariable.getText());
+        model1.addElement(txNombreVariable.getText());
+        model2.addElement(txNombreVariable.getText());
+        jcb_variables.setModel(model);
+        jcb_variables1.setModel(model1);
+        jcb_variables2.setModel(model2);
         JOptionPane.showMessageDialog(this, "Variable agregada.", "Variables", 1);
+        txNombreVariable.setText(" ");
     }//GEN-LAST:event_jButton6MouseClicked
 
     private void jmiAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiAgregarActionPerformed
@@ -2542,8 +2680,11 @@ public class PanelPrincipal extends javax.swing.JFrame {
             jdAgregarVariable.pack();
             jdAgregarVariable.setLocationRelativeTo(this);
             jdAgregarVariable.setVisible(true);
-        } else {
-
+        } else if (actual.getDisplayedMnemonic() == 4) {
+            jd_desicion.setModal(true);
+            jd_desicion.pack();
+            jd_desicion.setLocationRelativeTo(this);
+            jd_desicion.setVisible(true);
         }
     }//GEN-LAST:event_jmiAgregarActionPerformed
 
@@ -2591,7 +2732,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
                 f = new File(jfc.getSelectedFile().getPath());
                 fw = new FileWriter(f, false);
                 bw = new BufferedWriter(fw);
-                String codigo=taCodigo.getText();
+                String codigo = taCodigo.getText();
                 bw.write(codigo);
                 bw.flush();
             } catch (Exception e) {
@@ -2611,7 +2752,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jbGuardarCodigoMouseClicked
 
     private void txNombreAtributoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txNombreAtributoMouseClicked
-       txNombreAtributo.setText("");
+        txNombreAtributo.setText("");
     }//GEN-LAST:event_txNombreAtributoMouseClicked
 
     private void txNombreVariableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txNombreVariableMouseClicked
@@ -2625,6 +2766,157 @@ public class PanelPrincipal extends javax.swing.JFrame {
     private void txNombreMetodoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txNombreMetodoMouseClicked
         txNombreMetodo.setText("");
     }//GEN-LAST:event_txNombreMetodoMouseClicked
+
+    private void jbOrMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbOrMouseClicked
+        try {
+            String relacion = "";
+            String mod = "";
+            if (jcbRelacion.getSelectedItem().equals("Igual que")) {
+                relacion = " == ";
+            } else if (jcbRelacion.getSelectedItem().equals("Distinto de")) {
+                relacion = " != ";
+            } else if (jcbRelacion.getSelectedItem().equals("Menor que")) {
+                relacion = " < ";
+            } else if (jcbRelacion.getSelectedItem().equals("Menor o Igual")) {
+                relacion = " <= ";
+            } else if (jcbRelacion.getSelectedItem().equals("Mayor que")) {
+                relacion = " > ";
+            } else if (jcbRelacion.getSelectedItem().equals("Mayor o igual que")) {
+                relacion = " >= ";
+            } else if (jcbRelacion.getSelectedItem().equals("Residuo igual que")) {
+                relacion = " % ";
+                mod = " == ";
+            } else if (jcbRelacion.getSelectedItem().equals("Residuo distinto de")) {
+                relacion = " % ";
+                mod = " != ";
+            }
+            if (mod.length() >= 1) {
+                if (actual.getName().contains("||") || actual.getName().contains("&&")) {
+                    actual.setName(actual.getName() + "(" + jcb_variables.getSelectedItem().toString() + relacion + jcb_variables1.getSelectedItem().toString() + mod + jcb_variables2.getSelectedItem().toString() + ")" + " || ");
+                } else {
+                    actual.setName(actual.getName() + "((" + jcb_variables.getSelectedItem().toString() + relacion + jcb_variables1.getSelectedItem().toString() + mod + jcb_variables2.getSelectedItem().toString() + ")" + " || ");
+                }
+            } else {
+                if (actual.getName().contains("||") || actual.getName().contains("&&")) {
+                    actual.setName(actual.getName() + "(" + jcb_variables.getSelectedItem().toString() + relacion + jcb_variables1.getSelectedItem().toString() + ")" + " || ");
+                } else {
+                    actual.setName(actual.getName() + "((" + jcb_variables.getSelectedItem().toString() + relacion + jcb_variables1.getSelectedItem().toString() + ")" + " || ");
+                }
+            }
+            jcbRelacion.setSelectedIndex(0);
+            jcb_variables.setSelectedIndex(0);
+            jcb_variables1.setSelectedIndex(0);
+            txtIf.setText(actual.getName());
+            JOptionPane.showMessageDialog(this, "Ahora introduzca la otra condición", "Or", 1);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "No hay datos todavía!", "Error", 0);
+        }
+        System.out.println("Desicion: " + actual.getName());
+    }//GEN-LAST:event_jbOrMouseClicked
+
+    private void jbAndMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbAndMouseClicked
+        try {
+            String relacion = "";
+            String mod = "";
+            if (jcbRelacion.getSelectedItem().equals("Igual que")) {
+                relacion = " == ";
+            } else if (jcbRelacion.getSelectedItem().equals("Distinto de")) {
+                relacion = " != ";
+            } else if (jcbRelacion.getSelectedItem().equals("Menor que")) {
+                relacion = " < ";
+            } else if (jcbRelacion.getSelectedItem().equals("Menor o Igual")) {
+                relacion = " <= ";
+            } else if (jcbRelacion.getSelectedItem().equals("Mayor que")) {
+                relacion = " > ";
+            } else if (jcbRelacion.getSelectedItem().equals("Mayor o igual que")) {
+                relacion = " >= ";
+            } else if (jcbRelacion.getSelectedItem().equals("Residuo igual que")) {
+                relacion = " % ";
+                mod = " == ";
+            } else if (jcbRelacion.getSelectedItem().equals("Residuo distinto de")) {
+                relacion = " % ";
+                mod = " != ";
+            }
+            if (mod.length() >= 1) {
+                if (actual.getName().contains("||") || actual.getName().contains("&&")) {
+                    actual.setName(actual.getName() + "(" + jcb_variables.getSelectedItem().toString() + relacion + jcb_variables1.getSelectedItem().toString() + mod + jcb_variables2.getSelectedItem().toString() + ")" + " && ");
+                } else {
+                    actual.setName(actual.getName() + "((" + jcb_variables.getSelectedItem().toString() + relacion + jcb_variables1.getSelectedItem().toString() + mod + jcb_variables2.getSelectedItem().toString() + ")" + " && ");
+                }
+            } else {
+                if (actual.getName().contains("||") || actual.getName().contains("&&")) {
+                    actual.setName(actual.getName() + "(" + jcb_variables.getSelectedItem().toString() + relacion + jcb_variables1.getSelectedItem().toString() + ")" + " && ");
+                } else {
+                    actual.setName(actual.getName() + "((" + jcb_variables.getSelectedItem().toString() + relacion + jcb_variables1.getSelectedItem().toString() + ")" + " && ");
+                }
+            }
+            jcbRelacion.setSelectedIndex(0);
+            jcb_variables.setSelectedIndex(0);
+            jcb_variables1.setSelectedIndex(0);
+            txtIf.setText(actual.getName());
+            JOptionPane.showMessageDialog(this, "Ahora introduzca la otra condición", "Or", 1);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "No hay datos todavía!", "Error", 0);
+        }
+        System.out.println("Desicion: " + actual.getName());
+    }//GEN-LAST:event_jbAndMouseClicked
+
+    private void jcbRelacionItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jcbRelacionItemStateChanged
+        if (jcbRelacion.getSelectedIndex() == 6 || jcbRelacion.getSelectedIndex() == 7) {
+            jLabel46.setVisible(true);
+            jcb_variables2.setVisible(true);
+        } else {
+            jLabel46.setVisible(false);
+            jcb_variables2.setVisible(false);
+        }
+    }//GEN-LAST:event_jcbRelacionItemStateChanged
+
+    private void jbGuardarIfMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbGuardarIfMouseClicked
+        try {
+            String relacion = "";
+            String mod = "";
+            if (jcbRelacion.getSelectedItem().equals("Igual que")) {
+                relacion = " == ";
+            } else if (jcbRelacion.getSelectedItem().equals("Distinto de")) {
+                relacion = " != ";
+            } else if (jcbRelacion.getSelectedItem().equals("Menor que")) {
+                relacion = " < ";
+            } else if (jcbRelacion.getSelectedItem().equals("Menor o Igual")) {
+                relacion = " <= ";
+            } else if (jcbRelacion.getSelectedItem().equals("Mayor que")) {
+                relacion = " > ";
+            } else if (jcbRelacion.getSelectedItem().equals("Mayor o igual que")) {
+                relacion = " >= ";
+            } else if (jcbRelacion.getSelectedItem().equals("Residuo igual que")) {
+                relacion = " % ";
+                mod = " == ";
+            } else if (jcbRelacion.getSelectedItem().equals("Residuo distinto de")) {
+                relacion = " % ";
+                mod = " != ";
+            }
+            if (actual.getName().contains("||") || actual.getName().contains("&&")) {
+                if (mod.length() >= 1) {
+                    actual.setName(actual.getName() + "(" + jcb_variables.getSelectedItem() + relacion + jcb_variables1.getSelectedItem() + mod + jcb_variables2.getSelectedItem() + "))");
+                } else {
+                    actual.setName(actual.getName() + "(" + jcb_variables.getSelectedItem() + relacion + jcb_variables1.getSelectedItem() + "))");
+                }
+            } else {
+                actual.setName(actual.getName() + "(" + jcb_variables.getSelectedItem() + relacion + jcb_variables1.getSelectedItem() + ")");
+            }
+            jcbRelacion.setSelectedIndex(0);
+            jcb_variables.setSelectedIndex(0);
+            jcb_variables1.setSelectedIndex(0);
+            txtIf.setText(actual.getName());
+            JOptionPane.showMessageDialog(this, "Ahora introduzca la otra condición", "Or", 1);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "No hay datos todavía!", "Error", 0);
+        }
+        System.out.println("Desicion: " + actual.getName());
+    }//GEN-LAST:event_jbGuardarIfMouseClicked
+
+    private void jcb_variablesItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jcb_variablesItemStateChanged
+        txtIf.setText(actual.getName());
+    }//GEN-LAST:event_jcb_variablesItemStateChanged
 
     /**
      * @param args the command line arguments
@@ -2717,6 +3009,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
                 txSeleccionado.setText(objeto.getText());
                 mDiseno.setEnabled(true);
                 mEdiciontx.setEnabled(true);
+                txtIf.setText("");
                 if (evt.isMetaDown()) {
                     copiaro = objeto;
                     if (objeto.getDisplayedMnemonic() == 1) {
@@ -3048,9 +3341,11 @@ public class PanelPrincipal extends javax.swing.JFrame {
             if (actual.getName().length() < 2) {
                 variables = "No tiene propiedades todavía.";
             }
-            JOptionPane.showMessageDialog(this, variables, "Propiedades", 1);
+            JOptionPane.showMessageDialog(this, variables, "Propiedades Datos", 1);
         } else {
-
+            if (actual.getDisplayedMnemonic() == 4) {
+                JOptionPane.showMessageDialog(this, actual.getName(), "Propiedades Desición", 1);
+            }
         }
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -3110,7 +3405,12 @@ public class PanelPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
+    private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel43;
+    private javax.swing.JLabel jLabel44;
+    private javax.swing.JLabel jLabel46;
+    private javax.swing.JLabel jLabel47;
+    private javax.swing.JLabel jLabel48;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -3122,19 +3422,23 @@ public class PanelPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable jTable1;
     private javax.swing.JButton jbAgregarMetodo;
     private javax.swing.JButton jbAgregarParametro;
+    private javax.swing.JButton jbAnd;
     private javax.swing.JButton jbAtributo;
     private javax.swing.JButton jbColorClase;
     private javax.swing.JButton jbEliminar;
     private javax.swing.JButton jbFuenteClase;
     private javax.swing.JButton jbGuardarCodigo;
+    private javax.swing.JButton jbGuardarIf;
     private javax.swing.JButton jbHerencia;
     private javax.swing.JButton jbMetodo;
+    private javax.swing.JButton jbOr;
     private javax.swing.JButton jbSetTexto;
     private javax.swing.JButton jbVerAtributo;
     private javax.swing.JButton jbVerMetodos;
@@ -3146,6 +3450,10 @@ public class PanelPrincipal extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jcTipoMetodo;
     private javax.swing.JComboBox<String> jcTipoParametro;
     private javax.swing.JComboBox<String> jcTipoVariable;
+    private javax.swing.JComboBox<String> jcbRelacion;
+    private javax.swing.JComboBox<String> jcb_variables;
+    private javax.swing.JComboBox<String> jcb_variables1;
+    private javax.swing.JComboBox<String> jcb_variables2;
     private javax.swing.JComboBox<String> jcpadre;
     private javax.swing.JDialog jdAgregarAtributo;
     private javax.swing.JDialog jdAgregarMetodo;
@@ -3154,6 +3462,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
     private javax.swing.JDialog jdHerencia;
     private javax.swing.JDialog jdNuevo;
     private javax.swing.JDialog jdParametro;
+    private javax.swing.JDialog jd_desicion;
     private javax.swing.JMenu jmPropiedades;
     private javax.swing.JMenuItem jmiAbrir;
     private javax.swing.JMenuItem jmiAcercaDe;
@@ -3205,14 +3514,15 @@ public class PanelPrincipal extends javax.swing.JFrame {
     private javax.swing.JTextField txSeleccionado;
     private javax.swing.JTextField txSeleccionado1;
     private javax.swing.JLabel txtConfiguracion;
+    private javax.swing.JTextField txtIf;
     // End of variables declaration//GEN-END:variables
 //    TIPOS:
 //    1-inicio
 //    2-datos
 //    3-proceso
 //    4-desicion
-//    5-subproceso
-//    6-documento
+//    5-while
+//    6-impresion
 //    7-separador
 //    8-separador vertical
     Color color;

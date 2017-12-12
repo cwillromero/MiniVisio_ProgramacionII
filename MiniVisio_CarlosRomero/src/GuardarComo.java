@@ -133,7 +133,7 @@ public class GuardarComo {
             doc.add(imagen);
             doc.add(pdf.getCuerpo("\nCódigo Generado:\n"));
             if (codigo.length() < 2) {
-                doc.add(pdf.getCuerpo("Para poder visualizar el código, primero debe generarlo desde el Sistema y vuelva a guardar el archivo."));
+                doc.add(pdf.getCuerpo("Para poder visualizar el código, primero debe generarlo desde el Sistema y volver a guardar el archivo."));
             } else {
                 doc.add(pdf.getCuerpo(codigo));
             }
