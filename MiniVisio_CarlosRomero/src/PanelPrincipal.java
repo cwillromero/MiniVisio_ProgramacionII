@@ -66,6 +66,9 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jcb_impresion.setVisible(false);
         jbAgregarVariableAImpresion.setVisible(false);
         jLabel52.setVisible(false);
+        jlbwhile.setVisible(false);
+        jcb_whileV.setVisible(false);
+        jcb_whileV1.setVisible(false);
     }
 
     /**
@@ -190,6 +193,17 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jLabel54 = new javax.swing.JLabel();
         jcb_impresion3 = new javax.swing.JComboBox<>();
         jLabel55 = new javax.swing.JLabel();
+        jdWhile = new javax.swing.JDialog();
+        jPanel9 = new javax.swing.JPanel();
+        jLabel50 = new javax.swing.JLabel();
+        jLabel56 = new javax.swing.JLabel();
+        jbGuardarImpresion2 = new javax.swing.JButton();
+        jcb_impresion5 = new javax.swing.JComboBox<>();
+        jlbwhile = new javax.swing.JLabel();
+        jcb_whileV1 = new javax.swing.JComboBox<>();
+        jLabel58 = new javax.swing.JLabel();
+        jcbRelacionWhile = new javax.swing.JComboBox<>();
+        jcb_whileV = new javax.swing.JComboBox<>();
         jpTexto = new javax.swing.JPanel();
         jButton3 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
@@ -1107,6 +1121,119 @@ public class PanelPrincipal extends javax.swing.JFrame {
             jdProcesoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jdProcesoLayout.createSequentialGroup()
                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        jPanel9.setBackground(new java.awt.Color(51, 0, 0));
+        jPanel9.setMaximumSize(new java.awt.Dimension(400, 250));
+        jPanel9.setMinimumSize(new java.awt.Dimension(400, 250));
+        jPanel9.setPreferredSize(new java.awt.Dimension(400, 250));
+        jPanel9.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel50.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel50.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel50.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel50.setText("Mientras");
+        jPanel9.add(jLabel50, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, 146, 37));
+
+        jLabel56.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
+        jLabel56.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel56.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel56.setText("Acción");
+        jPanel9.add(jLabel56, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 90, 90, -1));
+
+        jbGuardarImpresion2.setBackground(new java.awt.Color(0, 51, 51));
+        jbGuardarImpresion2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jbGuardarImpresion2.setForeground(new java.awt.Color(204, 255, 204));
+        jbGuardarImpresion2.setText("Guardar");
+        jbGuardarImpresion2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jbGuardarImpresion2MouseClicked(evt);
+            }
+        });
+        jPanel9.add(jbGuardarImpresion2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 210, -1, -1));
+
+        jcb_impresion5.setBackground(new java.awt.Color(0, 0, 0));
+        jcb_impresion5.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        jcb_impresion5.setForeground(new java.awt.Color(255, 255, 255));
+        jcb_impresion5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "True", "False", "Otra Variable" }));
+        jcb_impresion5.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jcb_impresion5ItemStateChanged(evt);
+            }
+        });
+        jcb_impresion5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcb_impresion5ActionPerformed(evt);
+            }
+        });
+        jPanel9.add(jcb_impresion5, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 110, 90, -1));
+
+        jlbwhile.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
+        jlbwhile.setForeground(new java.awt.Color(255, 255, 255));
+        jlbwhile.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jlbwhile.setText("Variables");
+        jPanel9.add(jlbwhile, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 90, 20));
+
+        jcb_whileV1.setBackground(new java.awt.Color(0, 0, 0));
+        jcb_whileV1.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        jcb_whileV1.setForeground(new java.awt.Color(255, 255, 255));
+        jcb_whileV1.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jcb_whileV1ItemStateChanged(evt);
+            }
+        });
+        jcb_whileV1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcb_whileV1ActionPerformed(evt);
+            }
+        });
+        jPanel9.add(jcb_whileV1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 160, 90, -1));
+
+        jLabel58.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
+        jLabel58.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel58.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel58.setText("Variables");
+        jPanel9.add(jLabel58, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 90, -1));
+
+        jcbRelacionWhile.setBackground(new java.awt.Color(51, 0, 51));
+        jcbRelacionWhile.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jcbRelacionWhile.setForeground(new java.awt.Color(255, 255, 255));
+        jcbRelacionWhile.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Igual que", "Distinto de", "Menor que", "Menor o Igual", "Mayor que", "Mayor o igual que", "Residuo igual que", "Residuo distinto de" }));
+        jcbRelacionWhile.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jcbRelacionWhileItemStateChanged(evt);
+            }
+        });
+        jPanel9.add(jcbRelacionWhile, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, 160, -1));
+
+        jcb_whileV.setBackground(new java.awt.Color(0, 0, 0));
+        jcb_whileV.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        jcb_whileV.setForeground(new java.awt.Color(255, 255, 255));
+        jcb_whileV.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jcb_whileVItemStateChanged(evt);
+            }
+        });
+        jcb_whileV.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcb_whileVActionPerformed(evt);
+            }
+        });
+        jPanel9.add(jcb_whileV, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 90, -1));
+
+        javax.swing.GroupLayout jdWhileLayout = new javax.swing.GroupLayout(jdWhile.getContentPane());
+        jdWhile.getContentPane().setLayout(jdWhileLayout);
+        jdWhileLayout.setHorizontalGroup(
+            jdWhileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jdWhileLayout.createSequentialGroup()
+                .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        jdWhileLayout.setVerticalGroup(
+            jdWhileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jdWhileLayout.createSequentialGroup()
+                .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -3214,6 +3341,38 @@ public class PanelPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jcb_impresion3ActionPerformed
 
+    private void jbGuardarImpresion2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbGuardarImpresion2MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbGuardarImpresion2MouseClicked
+
+    private void jcb_impresion5ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jcb_impresion5ItemStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jcb_impresion5ItemStateChanged
+
+    private void jcb_impresion5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcb_impresion5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jcb_impresion5ActionPerformed
+
+    private void jcb_whileV1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jcb_whileV1ItemStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jcb_whileV1ItemStateChanged
+
+    private void jcb_whileV1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcb_whileV1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jcb_whileV1ActionPerformed
+
+    private void jcbRelacionWhileItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jcbRelacionWhileItemStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jcbRelacionWhileItemStateChanged
+
+    private void jcb_whileVItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jcb_whileVItemStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jcb_whileVItemStateChanged
+
+    private void jcb_whileVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcb_whileVActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jcb_whileVActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -3682,6 +3841,11 @@ public class PanelPrincipal extends javax.swing.JFrame {
             jd_desicion.pack();
             jd_desicion.setLocationRelativeTo(this);
             jd_desicion.setVisible(true);
+        }else if(actual.getDisplayedMnemonic() == 5){
+            jdWhile.setModal(true);
+            jdWhile.pack();
+            jdWhile.setLocationRelativeTo(this);
+            jdWhile.setVisible(true);
         } else if (actual.getDisplayedMnemonic() == 6) {
             jdImpresion.setModal(true);
             jdImpresion.pack();
@@ -3689,6 +3853,8 @@ public class PanelPrincipal extends javax.swing.JFrame {
             jdImpresion.setVisible(true);
         }
     }
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PanelClase;
     private javax.swing.JPanel PanelFlujo;
@@ -3756,10 +3922,13 @@ public class PanelPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel48;
     private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel50;
     private javax.swing.JLabel jLabel52;
     private javax.swing.JLabel jLabel53;
     private javax.swing.JLabel jLabel54;
     private javax.swing.JLabel jLabel55;
+    private javax.swing.JLabel jLabel56;
+    private javax.swing.JLabel jLabel58;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -3773,6 +3942,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -3791,6 +3961,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jbGuardarIf;
     private javax.swing.JButton jbGuardarImpresion;
     private javax.swing.JButton jbGuardarImpresion1;
+    private javax.swing.JButton jbGuardarImpresion2;
     private javax.swing.JButton jbHerencia;
     private javax.swing.JButton jbMetodo;
     private javax.swing.JButton jbOr;
@@ -3807,13 +3978,17 @@ public class PanelPrincipal extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jcTipoParametro;
     private javax.swing.JComboBox<String> jcTipoVariable;
     private javax.swing.JComboBox<String> jcbRelacion;
+    private javax.swing.JComboBox<String> jcbRelacionWhile;
     private javax.swing.JComboBox<String> jcb_impresion;
     private javax.swing.JComboBox<String> jcb_impresion1;
     private javax.swing.JComboBox<String> jcb_impresion2;
     private javax.swing.JComboBox<String> jcb_impresion3;
+    private javax.swing.JComboBox<String> jcb_impresion5;
     private javax.swing.JComboBox<String> jcb_variables;
     private javax.swing.JComboBox<String> jcb_variables1;
     private javax.swing.JComboBox<String> jcb_variables2;
+    private javax.swing.JComboBox<String> jcb_whileV;
+    private javax.swing.JComboBox<String> jcb_whileV1;
     private javax.swing.JComboBox<String> jcpadre;
     private javax.swing.JDialog jdAgregarAtributo;
     private javax.swing.JDialog jdAgregarMetodo;
@@ -3824,7 +3999,9 @@ public class PanelPrincipal extends javax.swing.JFrame {
     private javax.swing.JDialog jdNuevo;
     private javax.swing.JDialog jdParametro;
     private javax.swing.JDialog jdProceso;
+    private javax.swing.JDialog jdWhile;
     private javax.swing.JDialog jd_desicion;
+    private javax.swing.JLabel jlbwhile;
     private javax.swing.JMenu jmPropiedades;
     private javax.swing.JMenuItem jmiAbrir;
     private javax.swing.JMenuItem jmiAcercaDe;
