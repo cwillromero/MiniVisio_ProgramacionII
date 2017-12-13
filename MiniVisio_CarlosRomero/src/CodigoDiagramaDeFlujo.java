@@ -58,7 +58,7 @@ public class CodigoDiagramaDeFlujo {
                     String tipo = X[0];
                     String nombre = X[1];
                     nombres.add(nombre);
-                    variables +="    " + tipo + " " + nombre + ";\n";
+                    variables += "    " + tipo + " " + nombre + ";\n";
                 }
                 Codigo += variables;
             } else {
@@ -96,12 +96,14 @@ public class CodigoDiagramaDeFlujo {
             While();
         } else if (objeto.getDisplayedMnemonic() == 6) {
             Impresion();
+        } else if (objeto.getDisplayedMnemonic() == 7) {
+            FinBloque();
         }
     }
 
     public void Desicion() {
         String X = objeto.getName();
-        String decision ="    " + "if " + X + "\n    " + "{\n";
+        String decision = "    " + "if " + X + "\n    " + "{\n";
         Codigo += decision;
     }
 
@@ -143,19 +145,23 @@ public class CodigoDiagramaDeFlujo {
             Codigo += X;
             System.out.println(X);
         } else {
-            String X ="    cout<<“" + objeto.getName() + "”<<endl;\n";
+            String X = "    cout<<“" + objeto.getName() + "”<<endl;\n";
             Codigo += X;
         }
     }
 
     public void While() {
         String x = objeto.getName();
-        String mientras ="    " + "while" + x + "\n" + "    {\n";
+        String mientras = "    " + "while" + x + "\n" + "    {\n";
         Codigo += mientras;
     }
 
     public void Proceso() {
-        String X ="    " + objeto.getName() + ";\n";
+        String X = "    " + objeto.getName() + ";\n";
         Codigo += X;
+    }
+
+    public void FinBloque() {
+        Codigo += "    " + "}\n";
     }
 }

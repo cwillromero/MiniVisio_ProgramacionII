@@ -2088,7 +2088,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btProcesoMouseClicked
 
     private void btSeparadorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btSeparadorMouseClicked
-        String Nombre = "Separador";
+        String Nombre = "FinBloque";
         String imagen = "/ComponentesDiagramaUML/8.png";
         separador++;
         int tipo = 7;
@@ -4340,7 +4340,8 @@ public class PanelPrincipal extends javax.swing.JFrame {
 //    3-proceso 
 //    4-desicion listo
 //    5-while   listo
-//    6-impresion listo
+//    6-impresion listo7
+//    7-fin de bloquqe 
     Color color;
     String fuente = "Tahoma";
     String fuenteclase = "Tahoma";
