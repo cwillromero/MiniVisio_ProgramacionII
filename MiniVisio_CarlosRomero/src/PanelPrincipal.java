@@ -834,6 +834,8 @@ public class PanelPrincipal extends javax.swing.JFrame {
 
         jdAgregarVariable.getContentPane().add(jpVariable, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 300, 190));
 
+        jd_desicion.setTitle("Desición");
+
         jPanel6.setBackground(new java.awt.Color(0, 0, 51));
         jPanel6.setMaximumSize(new java.awt.Dimension(400, 250));
         jPanel6.setMinimumSize(new java.awt.Dimension(400, 250));
@@ -950,6 +952,8 @@ public class PanelPrincipal extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
+        jdImpresion.setTitle("Impresión");
+
         jPanel7.setBackground(new java.awt.Color(51, 0, 51));
         jPanel7.setMaximumSize(new java.awt.Dimension(400, 250));
         jPanel7.setMinimumSize(new java.awt.Dimension(400, 250));
@@ -1038,6 +1042,8 @@ public class PanelPrincipal extends javax.swing.JFrame {
             }
         });
         ppImpresion.add(jmiAgregarVariable);
+
+        jdProceso.setTitle("Proceso");
 
         jPanel8.setBackground(new java.awt.Color(51, 0, 51));
         jPanel8.setMaximumSize(new java.awt.Dimension(400, 250));
@@ -1164,6 +1170,8 @@ public class PanelPrincipal extends javax.swing.JFrame {
                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
+
+        jdWhile.setTitle("While");
 
         jPanel9.setBackground(new java.awt.Color(51, 51, 51));
         jPanel9.setMaximumSize(new java.awt.Dimension(400, 250));
@@ -4341,15 +4349,6 @@ public class PanelPrincipal extends javax.swing.JFrame {
     private javax.swing.JTextField txtOperacion;
     private javax.swing.JTextField txtWhile;
     // End of variables declaration//GEN-END:variables
-//    TIPOS:
-//    1-inicio listo
-//    2-datos listo
-//    3-proceso 
-//    4-desicion listo
-//    5-while   listo
-//    6-impresion listo7
-//    7-fin de bloquqe ya
-//    8-else ya
     Color color;
     String fuente = "Tahoma";
     String fuenteclase = "Tahoma";

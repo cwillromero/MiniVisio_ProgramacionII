@@ -1249,6 +1249,9 @@
       </SubComponents>
     </Container>
     <Container class="javax.swing.JDialog" name="jd_desicion">
+      <Properties>
+        <Property name="title" type="java.lang.String" value="Desici&#xf3;n"/>
+      </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
@@ -1563,6 +1566,9 @@
       </SubComponents>
     </Container>
     <Container class="javax.swing.JDialog" name="jdImpresion">
+      <Properties>
+        <Property name="title" type="java.lang.String" value="Impresi&#xf3;n"/>
+      </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
@@ -1753,6 +1759,9 @@
       </SubComponents>
     </Container>
     <Container class="javax.swing.JDialog" name="jdProceso">
+      <Properties>
+        <Property name="title" type="java.lang.String" value="Proceso"/>
+      </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
@@ -2034,6 +2043,9 @@
       </SubComponents>
     </Container>
     <Container class="javax.swing.JDialog" name="jdWhile">
+      <Properties>
+        <Property name="title" type="java.lang.String" value="While"/>
+      </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
