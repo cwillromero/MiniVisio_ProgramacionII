@@ -2045,6 +2045,10 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jcb_variables.setModel(new DefaultComboBoxModel());
         jcb_variables1.setModel(new DefaultComboBoxModel());
         jcb_variables2.setModel(new DefaultComboBoxModel());
+        DefaultComboBoxModel model6=(DefaultComboBoxModel) jcb_variables1.getModel();
+        model6.addElement("True");
+        model6.addElement("False");
+        jcb_variables1.setModel(model6);
         jcb_impresion.setModel(new DefaultComboBoxModel());
         jcb_whileV.setModel(new DefaultComboBoxModel());
         jcb_whileV1.setModel(new DefaultComboBoxModel());
@@ -3103,6 +3107,8 @@ public class PanelPrincipal extends javax.swing.JFrame {
         DefaultComboBoxModel model3 = (DefaultComboBoxModel) jcb_impresion.getModel();
         model.addElement(txNombreVariable.getText());
         model1.addElement(txNombreVariable.getText());
+        model1.addElement("true");
+        model1.addElement("false");
         model2.addElement(txNombreVariable.getText());
         model3.addElement(txNombreVariable.getText());
         jcb_variables.setModel(model);
@@ -3110,9 +3116,9 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jcb_variables2.setModel(model2);
         jcb_impresion.setModel(model3);
         jcb_whileV.setModel(model);
-        jcb_whileV1.setModel(model1);
-        jcb_Proceso.setModel(model);
-        jcb_proceso2.setModel(model1);
+        jcb_whileV1.setModel(model2);
+        jcb_Proceso.setModel(model3);
+        jcb_proceso2.setModel(model2);
         jcb_variableIgual.setModel(model3);
         variables.add(txNombreVariable.getText());
         JOptionPane.showMessageDialog(this, "Variable agregada.", "Variables", 1);
