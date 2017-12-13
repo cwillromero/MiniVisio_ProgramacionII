@@ -194,7 +194,8 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jcb_Proceso = new javax.swing.JComboBox<>();
         OPV = new javax.swing.JLabel();
         txtOperacion = new javax.swing.JTextField();
-        jbOC = new javax.swing.JToggleButton();
+        jcb_variableIgual = new javax.swing.JComboBox<>();
+        OPV2 = new javax.swing.JLabel();
         jdWhile = new javax.swing.JDialog();
         jPanel9 = new javax.swing.JPanel();
         jLabel50 = new javax.swing.JLabel();
@@ -265,7 +266,6 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         txSeleccionado = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
-        jButton7 = new javax.swing.JButton();
         jpBase = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         lbFondo = new javax.swing.JLabel();
@@ -486,6 +486,11 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jbGuardarCodigo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jbGuardarCodigoMouseClicked(evt);
+            }
+        });
+        jbGuardarCodigo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbGuardarCodigoActionPerformed(evt);
             }
         });
 
@@ -1051,13 +1056,13 @@ public class PanelPrincipal extends javax.swing.JFrame {
                 jcb_operacionActionPerformed(evt);
             }
         });
-        jPanel8.add(jcb_operacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, 160, -1));
+        jPanel8.add(jcb_operacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 160, 160, -1));
 
         OPA.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
         OPA.setForeground(new java.awt.Color(255, 255, 255));
         OPA.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         OPA.setText("Acción");
-        jPanel8.add(OPA, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 90, 90, -1));
+        jPanel8.add(OPA, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, 90, -1));
 
         jbGuardarImpresion1.setBackground(new java.awt.Color(0, 51, 51));
         jbGuardarImpresion1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -1083,13 +1088,13 @@ public class PanelPrincipal extends javax.swing.JFrame {
                 jcb_proceso2ActionPerformed(evt);
             }
         });
-        jPanel8.add(jcb_proceso2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 110, 90, -1));
+        jPanel8.add(jcb_proceso2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 160, 90, -1));
 
         OPV1.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
         OPV1.setForeground(new java.awt.Color(255, 255, 255));
         OPV1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         OPV1.setText("Variables");
-        jPanel8.add(OPV1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 90, 90, -1));
+        jPanel8.add(OPV1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 140, 90, -1));
 
         jcb_Proceso.setBackground(new java.awt.Color(0, 0, 0));
         jcb_Proceso.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
@@ -1104,27 +1109,37 @@ public class PanelPrincipal extends javax.swing.JFrame {
                 jcb_ProcesoActionPerformed(evt);
             }
         });
-        jPanel8.add(jcb_Proceso, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 90, -1));
+        jPanel8.add(jcb_Proceso, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 90, -1));
 
         OPV.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
         OPV.setForeground(new java.awt.Color(255, 255, 255));
         OPV.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         OPV.setText("Variables");
-        jPanel8.add(OPV, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 90, -1));
+        jPanel8.add(OPV, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 90, -1));
 
         txtOperacion.setEditable(false);
-        jPanel8.add(txtOperacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 360, -1));
+        jPanel8.add(txtOperacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 90, 220, -1));
 
-        jbOC.setBackground(new java.awt.Color(0, 0, 0));
-        jbOC.setFont(new java.awt.Font("Georgia", 1, 11)); // NOI18N
-        jbOC.setForeground(new java.awt.Color(255, 255, 255));
-        jbOC.setText("Operacion Combinada");
-        jbOC.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jbOCMouseClicked(evt);
+        jcb_variableIgual.setBackground(new java.awt.Color(0, 0, 0));
+        jcb_variableIgual.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        jcb_variableIgual.setForeground(new java.awt.Color(255, 255, 255));
+        jcb_variableIgual.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jcb_variableIgualItemStateChanged(evt);
             }
         });
-        jPanel8.add(jbOC, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 180, 180, 20));
+        jcb_variableIgual.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcb_variableIgualActionPerformed(evt);
+            }
+        });
+        jPanel8.add(jcb_variableIgual, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 90, -1));
+
+        OPV2.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
+        OPV2.setForeground(new java.awt.Color(255, 255, 255));
+        OPV2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        OPV2.setText("=");
+        jPanel8.add(OPV2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, 30, -1));
 
         javax.swing.GroupLayout jdProcesoLayout = new javax.swing.GroupLayout(jdProceso.getContentPane());
         jdProceso.getContentPane().setLayout(jdProcesoLayout);
@@ -1672,7 +1687,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jLabel12.setText("Impresión");
 
         jLabel13.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
-        jLabel13.setText("Separador");
+        jLabel13.setText("Fin Bloque");
 
         btInicio.setBackground(new java.awt.Color(204, 255, 204));
         btInicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ComponentesDiagramaUML/1.png"))); // NOI18N
@@ -1732,7 +1747,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
         });
 
         jLabel14.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
-        jLabel14.setText("Separador Vertical");
+        jLabel14.setText("Else");
 
         txSeleccionado.setEditable(false);
         txSeleccionado.setBackground(new java.awt.Color(0, 0, 0));
@@ -1743,11 +1758,6 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel15.setText("Objeto Seleccionado:");
         jLabel15.setToolTipText("");
-
-        jButton7.setBackground(new java.awt.Color(255, 255, 204));
-        jButton7.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
-        jButton7.setForeground(new java.awt.Color(204, 102, 0));
-        jButton7.setText("Fin Bloque");
 
         javax.swing.GroupLayout PanelFlujoLayout = new javax.swing.GroupLayout(PanelFlujo);
         PanelFlujo.setLayout(PanelFlujoLayout);
@@ -1800,20 +1810,16 @@ public class PanelPrincipal extends javax.swing.JFrame {
                                         .addComponent(jLabel13)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(PanelFlujoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(PanelFlujoLayout.createSequentialGroup()
-                                        .addGap(10, 10, 10)
-                                        .addComponent(jLabel14))
-                                    .addComponent(btSeparadorV, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addComponent(btSeparadorV, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelFlujoLayout.createSequentialGroup()
+                                        .addComponent(jLabel14)
+                                        .addGap(60, 60, 60))))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelFlujoLayout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel15)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txSeleccionado, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
-            .addGroup(PanelFlujoLayout.createSequentialGroup()
-                .addGap(131, 131, 131)
-                .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(127, 127, 127))
         );
         PanelFlujoLayout.setVerticalGroup(
             PanelFlujoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1853,9 +1859,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
                 .addGroup(PanelFlujoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel13)
                     .addComponent(jLabel14))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
                 .addGroup(PanelFlujoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(txSeleccionado, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
                     .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -2036,6 +2040,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jcb_whileV1.setModel(new DefaultComboBoxModel());
         jcb_Proceso.setModel(new DefaultComboBoxModel());
         jcb_proceso2.setModel(new DefaultComboBoxModel());
+        jcb_variableIgual.setModel(new DefaultComboBoxModel());
         jpBase0.setVisible(true);
         jdNuevo.dispose();
         jpBase.removeAll();
@@ -3072,6 +3077,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jcb_whileV1.setModel(model1);
         jcb_Proceso.setModel(model);
         jcb_proceso2.setModel(model1);
+        jcb_variableIgual.setModel(model3);
         variables.add(txNombreVariable.getText());
         JOptionPane.showMessageDialog(this, "Variable agregada.", "Variables", 1);
         txNombreVariable.setText(" ");
@@ -3355,7 +3361,6 @@ public class PanelPrincipal extends javax.swing.JFrame {
 
     private void jcb_operacionItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jcb_operacionItemStateChanged
         if (jcb_operacion.getSelectedIndex() == 5) {
-            jbOC.setEnabled(false);
             jcb_Proceso.setEnabled(false);
             OPV.setEnabled(false);
             OPA.setEnabled(false);
@@ -3363,21 +3368,24 @@ public class PanelPrincipal extends javax.swing.JFrame {
             jcb_proceso2.setEnabled(false);
             OPV1.setEnabled(false);
             if (op < 1) {
-                Operacion = JOptionPane.showInputDialog(this, "Por favor Ingrese la Operación:", "Ingresar Operación", 1);
+                Operacion = jcb_variableIgual + "=" + JOptionPane.showInputDialog(this, "Por favor Ingrese la Operación:", "Ingresar Operación", 1);
                 txtOperacion.setText(Operacion);
+                actual.setName(Operacion);
                 op++;
             }
         } else if (jcb_operacion.getSelectedIndex() == 4) {
-            jbOC.setVisible(false);
             jcb_Proceso.setVisible(false);
             OPV.setVisible(false);
+            jcb_variableIgual.setVisible(false);
+            OPV2.setVisible(false);
         } else {
-            jbOC.setVisible(true);
             jcb_Proceso.setVisible(true);
             OPV.setVisible(true);
             OPA.setVisible(true);
             jcb_operacion.setVisible(true);
             jcb_proceso2.setVisible(true);
+            jcb_variableIgual.setVisible(true);
+            OPV2.setVisible(true);
         }
     }//GEN-LAST:event_jcb_operacionItemStateChanged
 
@@ -3386,7 +3394,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jcb_operacionActionPerformed
 
     private void jbGuardarImpresion1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbGuardarImpresion1MouseClicked
-        if (op != 0 && opp != 0) {
+        if (Operacion.length() > 5) {
             String operando = "";
             txtOperacion.setText(actual.getName());
             System.out.println(actual.getName());
@@ -3394,23 +3402,22 @@ public class PanelPrincipal extends javax.swing.JFrame {
             String operando = "";
             if (jcb_operacion.getSelectedItem().equals("Suma")) {
                 operando = " + ";
-                actual.setName(jcb_Proceso.getSelectedItem() + operando + jcb_proceso2.getSelectedItem());
+                actual.setName(jcb_variableIgual.getSelectedItem() + "=" + jcb_Proceso.getSelectedItem() + operando + jcb_proceso2.getSelectedItem());
             } else if (jcb_operacion.getSelectedItem().equals("Resta")) {
                 operando = " - ";
-                actual.setName(jcb_Proceso.getSelectedItem() + operando + jcb_proceso2.getSelectedItem());
+                actual.setName(jcb_variableIgual.getSelectedItem() + "=" + jcb_Proceso.getSelectedItem() + operando + jcb_proceso2.getSelectedItem());
             } else if (jcb_operacion.getSelectedItem().equals("Multiplicación")) {
                 operando = " * ";
-                actual.setName(jcb_Proceso.getSelectedItem() + operando + jcb_proceso2.getSelectedItem());
+                actual.setName(jcb_variableIgual.getSelectedItem() + "=" + jcb_Proceso.getSelectedItem() + operando + jcb_proceso2.getSelectedItem());
             } else if (jcb_operacion.getSelectedItem().equals("División")) {
                 operando = " / ";
-                actual.setName(jcb_Proceso.getSelectedItem() + operando + jcb_proceso2.getSelectedItem());
-                actual.setName(jcb_Proceso.getSelectedItem() + operando + jcb_proceso2.getSelectedItem());
-            } else if (jcb_operacion.getSelectedItem().equals("Lectura")) {
+                actual.setName(jcb_variableIgual.getSelectedItem() + "=" + jcb_Proceso.getSelectedItem() + operando + jcb_proceso2.getSelectedItem());
+            } else if (jcb_operacion.getSelectedIndex() == 4) {
                 actual.setName("cin<<" + jcb_proceso2.getSelectedItem());
             }
         }
+        System.out.println(actual.getName());
         jcb_operacion.setSelectedIndex(0);
-        jbOC.setEnabled(true);
         jcb_Proceso.setEnabled(true);
         OPV.setEnabled(true);
         OPA.setEnabled(true);
@@ -3419,7 +3426,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
         OPV1.setEnabled(true);
         txtOperacion.setText(actual.getName());
         op = 0;
-        opp = 0;
+        JOptionPane.showMessageDialog(this, "Operacion Guardada", "Operacion", 1);
     }//GEN-LAST:event_jbGuardarImpresion1MouseClicked
 
     private void jcb_proceso2ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jcb_proceso2ItemStateChanged
@@ -3503,34 +3510,17 @@ public class PanelPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jcb_whileVActionPerformed
 
-    private void jbOCMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbOCMouseClicked
-        String operando = "";
-        if (jcb_operacion.getSelectedItem().equals("Suma")) {
-            operando = " + ";
-        } else if (jcb_operacion.getSelectedItem().equals("Resta")) {
-            operando = " - ";
-        } else if (jcb_operacion.getSelectedItem().equals("Multiplicación")) {
-            operando = " * ";
-        } else if (jcb_operacion.getSelectedItem().equals("División")) {
-            operando = " / ";
-        }
-        if (jcb_Proceso.isVisible()) {
-            Operacion = jcb_Proceso.getSelectedItem() + operando + jcb_proceso2.getSelectedItem();
-        }
-        jcb_Proceso.setVisible(false);
-        OPV.setVisible(false);
-        if (opp < 1) {
-            Operacion = jcb_Proceso.getSelectedItem() + operando + jcb_proceso2.getSelectedItem();
-            txtOperacion.setText(Operacion);
-            opp++;
-        } else {
-            Operacion += operando + jcb_proceso2.getSelectedItem();
-            txtOperacion.setText(Operacion);
-            actual.setName(Operacion);
-            System.out.println(actual.getName());
-        }
-        JOptionPane.showMessageDialog(this, "Operación Agregada", "Operacion Combinada", 1);
-    }//GEN-LAST:event_jbOCMouseClicked
+    private void jbGuardarCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarCodigoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbGuardarCodigoActionPerformed
+
+    private void jcb_variableIgualItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jcb_variableIgualItemStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jcb_variableIgualItemStateChanged
+
+    private void jcb_variableIgualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcb_variableIgualActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jcb_variableIgualActionPerformed
 
     /**
      * @param args the command line arguments
@@ -3711,7 +3701,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jpBase.remove(actual);
         txSeleccionado.setText("");
         componentes.remove(actual);
-        actual=null;
+        actual = null;
         this.repaint();
     }
 
@@ -3998,6 +3988,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
                         jcb_whileV1.setModel(model1);
                         jcb_Proceso.setModel(model);
                         jcb_proceso2.setModel(model1);
+                        jcb_variableIgual.setModel(model3);
                     }
                 }
                 if (jpBase.getComponents().length != 0) {
@@ -4041,6 +4032,12 @@ public class PanelPrincipal extends javax.swing.JFrame {
                 c = "No tiene propiedades todavía.";
             }
             JOptionPane.showMessageDialog(this, c, "Propiedades Impresión", 1);
+        } else if (actual.getDisplayedMnemonic() == 5) {
+            String c = actual.getName();
+            JOptionPane.showMessageDialog(this, c, "Propiedades While", 1);
+        } else if (actual.getDisplayedMnemonic() == 3) {
+            String c = actual.getName();
+            JOptionPane.showMessageDialog(this, c, "Propiedades Proceso", 1);
         }
 
     }
@@ -4081,6 +4078,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel OPA;
     private javax.swing.JLabel OPV;
     private javax.swing.JLabel OPV1;
+    private javax.swing.JLabel OPV2;
     private javax.swing.JPanel PanelClase;
     private javax.swing.JPanel PanelFlujo;
     private javax.swing.JButton btClase;
@@ -4101,7 +4099,6 @@ public class PanelPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -4186,7 +4183,6 @@ public class PanelPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jbGuardarImpresion2;
     private javax.swing.JButton jbHerencia;
     private javax.swing.JButton jbMetodo;
-    private javax.swing.JToggleButton jbOC;
     private javax.swing.JButton jbOr;
     private javax.swing.JButton jbSetTexto;
     private javax.swing.JButton jbVerAtributo;
@@ -4206,6 +4202,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jcb_impresion;
     private javax.swing.JComboBox<String> jcb_operacion;
     private javax.swing.JComboBox<String> jcb_proceso2;
+    private javax.swing.JComboBox<String> jcb_variableIgual;
     private javax.swing.JComboBox<String> jcb_variables;
     private javax.swing.JComboBox<String> jcb_variables1;
     private javax.swing.JComboBox<String> jcb_variables2;
@@ -4320,5 +4317,4 @@ public class PanelPrincipal extends javax.swing.JFrame {
     int clasehija = -1;
     ArrayList<String> variables = new ArrayList();
     int op = 0;
-    int opp = 0;
 }

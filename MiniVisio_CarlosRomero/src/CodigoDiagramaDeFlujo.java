@@ -19,7 +19,6 @@ public class CodigoDiagramaDeFlujo {
     private String Codigo = "";
     private boolean x = true;
     private ArrayList nombres = new ArrayList();
-    private String tab="";
 
     public CodigoDiagramaDeFlujo() {
     }
@@ -48,19 +47,35 @@ public class CodigoDiagramaDeFlujo {
     }
 
     public void Datos() {
+        System.out.println(objeto.getName());
         try {
-            String x = objeto.getName();
-            String[] S = x.split(";");
-            String variables = "";
-            for (int i = 0; i < S.length; i++) {
-                String[] X = S[i].split(" ");
-                String tipo = X[0];
-                String nombre = X[1];
-                nombres.add(nombre);
-                variables += tab+"    " + tipo + " " + nombre + ";\n";
+            if (objeto.getName().contains("ª")) {
+                String x = objeto.getName().split("ª")[0];
+                String[] S = x.split(";");
+                String variables = "";
+                for (int i = 0; i < S.length; i++) {
+                    String[] X = S[i].split(" ");
+                    String tipo = X[0];
+                    String nombre = X[1];
+                    nombres.add(nombre);
+                    variables +="    " + tipo + " " + nombre + ";\n";
+                }
+                Codigo += variables;
+            } else {
+                String x = objeto.getName();
+                String[] S = x.split(";");
+                String variables = "";
+                for (int i = 0; i < S.length; i++) {
+                    String[] X = S[i].split(" ");
+                    String tipo = X[0];
+                    String nombre = X[1];
+                    nombres.add(nombre);
+                    variables += "    " + tipo + " " + nombre + ";\n";
+                }
+                Codigo += variables;
             }
-            Codigo += variables;
         } catch (Exception e) {
+            e.printStackTrace();
             JOptionPane.showMessageDialog(null, "Error en los datos!", "Error", 0);
             x = false;
         }
@@ -73,20 +88,21 @@ public class CodigoDiagramaDeFlujo {
     public void Generar() {
         if (objeto.getDisplayedMnemonic() == 2) {
             Datos();
+        } else if (objeto.getDisplayedMnemonic() == 3) {
+            Proceso();
         } else if (objeto.getDisplayedMnemonic() == 4) {
             Desicion();
-        } else if (objeto.getDisplayedMnemonic() == 6) {
-            Impresion();
         } else if (objeto.getDisplayedMnemonic() == 5) {
             While();
+        } else if (objeto.getDisplayedMnemonic() == 6) {
+            Impresion();
         }
     }
 
     public void Desicion() {
         String X = objeto.getName();
-        String decision = tab+"    " + "if " + X + "\n    "+tab+"{\n";
+        String decision ="    " + "if " + X + "\n    " + "{\n";
         Codigo += decision;
-        tab="    ";
     }
 
     public boolean isX() {
@@ -127,15 +143,19 @@ public class CodigoDiagramaDeFlujo {
             Codigo += X;
             System.out.println(X);
         } else {
-            String X = "    cout<<“" + objeto.getName() + "”<<endl;\n";
+            String X ="    cout<<“" + objeto.getName() + "”<<endl;\n";
             Codigo += X;
         }
     }
 
-    public void While(){
-        String x=objeto.getName();
-        String mientras=tab+"    "+"while"+x+"\n"+tab+"    {\n";
-        Codigo+=mientras;
-        tab="    ";
+    public void While() {
+        String x = objeto.getName();
+        String mientras ="    " + "while" + x + "\n" + "    {\n";
+        Codigo += mientras;
+    }
+
+    public void Proceso() {
+        String X ="    " + objeto.getName() + ";\n";
+        Codigo += X;
     }
 }
