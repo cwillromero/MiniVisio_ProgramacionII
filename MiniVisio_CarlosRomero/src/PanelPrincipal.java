@@ -2479,7 +2479,6 @@ public class PanelPrincipal extends javax.swing.JFrame {
         modelH.addElement(modelo.getRoot());
         jcHijo.setModel(modelH);
         jcpadre.setModel(model);
-
     }//GEN-LAST:event_btClaseMouseClicked
 
     private void jmiEliminarArbolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiEliminarArbolActionPerformed
