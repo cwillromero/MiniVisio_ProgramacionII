@@ -1741,7 +1741,8 @@ public class PanelPrincipal extends javax.swing.JFrame {
         });
 
         btSeparadorV.setBackground(new java.awt.Color(255, 255, 153));
-        btSeparadorV.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ComponentesDiagramaUML/7.png"))); // NOI18N
+        btSeparadorV.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ComponentesDiagramaUML/10.png"))); // NOI18N
+        btSeparadorV.setToolTipText("");
         btSeparadorV.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btSeparadorVMouseClicked(evt);
@@ -2096,8 +2097,8 @@ public class PanelPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btSeparadorMouseClicked
 
     private void btSeparadorVMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btSeparadorVMouseClicked
-        String Nombre = "SeparadorVertical";
-        String imagen = "/ComponentesDiagramaUML/7.png";
+        String Nombre = "Else";
+        String imagen = "/ComponentesDiagramaUML/10.png";
         separadorVertical++;
         int tipo = 8;
         AgregarObjeto(Nombre, imagen, separadorVertical, tipo);
@@ -4341,7 +4342,8 @@ public class PanelPrincipal extends javax.swing.JFrame {
 //    4-desicion listo
 //    5-while   listo
 //    6-impresion listo7
-//    7-fin de bloquqe 
+//    7-fin de bloquqe ya
+//    8-else ya
     Color color;
     String fuente = "Tahoma";
     String fuenteclase = "Tahoma";

@@ -98,6 +98,8 @@ public class CodigoDiagramaDeFlujo {
             Impresion();
         } else if (objeto.getDisplayedMnemonic() == 7) {
             FinBloque();
+        } else if (objeto.getDisplayedMnemonic() == 8) {
+            Else();
         }
     }
 
@@ -163,5 +165,9 @@ public class CodigoDiagramaDeFlujo {
 
     public void FinBloque() {
         Codigo += "    " + "}\n";
+    }
+
+    public void Else() {
+        Codigo += "    " + "else{" + "\n";
     }
 }
