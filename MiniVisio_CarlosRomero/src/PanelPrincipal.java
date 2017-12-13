@@ -1985,6 +1985,11 @@ public class PanelPrincipal extends javax.swing.JFrame {
         mArchivo.add(jmiCodigo);
 
         jmiAcercaDe.setText("Acerca De");
+        jmiAcercaDe.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiAcercaDeActionPerformed(evt);
+            }
+        });
         mArchivo.add(jmiAcercaDe);
 
         mbPrincipal.add(mArchivo);
@@ -3580,6 +3585,13 @@ public class PanelPrincipal extends javax.swing.JFrame {
         } catch (Exception e) {
         }
     }//GEN-LAST:event_jmiEliminarNodoActionPerformed
+
+    private void jmiAcercaDeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiAcercaDeActionPerformed
+       String u="            Proyecto: MiniVisio\n"+
+                "              Programación II\n"+
+                "Carlos Wilfredo Romero Maradiaga";
+       JOptionPane.showMessageDialog(this, u,"Carlos Romero",1);
+    }//GEN-LAST:event_jmiAcercaDeActionPerformed
 
     /**
      * @param args the command line arguments
