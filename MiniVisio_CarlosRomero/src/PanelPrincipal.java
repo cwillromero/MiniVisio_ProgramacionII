@@ -100,6 +100,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
         ppMenuClases = new javax.swing.JPopupMenu();
         jmiCopiar = new javax.swing.JMenuItem();
         jmiEliminarArbol = new javax.swing.JMenuItem();
+        jmiEliminarNodo = new javax.swing.JMenuItem();
         jmiAtributos = new javax.swing.JMenuItem();
         jmiMetodos = new javax.swing.JMenuItem();
         jmiColorClase = new javax.swing.JMenuItem();
@@ -431,6 +432,14 @@ public class PanelPrincipal extends javax.swing.JFrame {
             }
         });
         ppMenuClases.add(jmiEliminarArbol);
+
+        jmiEliminarNodo.setText("Eliminar Metodo/Atributo");
+        jmiEliminarNodo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiEliminarNodoActionPerformed(evt);
+            }
+        });
+        ppMenuClases.add(jmiEliminarNodo);
 
         jmiAtributos.setText("Ver y Agregar Atributos");
         jmiAtributos.setActionCommand("");
@@ -2410,9 +2419,18 @@ public class PanelPrincipal extends javax.swing.JFrame {
                 Object v1 = arbol.getSelectionPath().getLastPathComponent();
                 nodoS = (DefaultMutableTreeNode) v1;
                 if (evt.isMetaDown()) {
-                    ppMenuClases.show(evt.getComponent(), evt.getX(), evt.getY());
                     actualT = arbol;
                     copiart = arbol;
+                    if (v1.toString().contains("<Metodos>")) {
+                        jmiEliminarNodo.setVisible(false);
+                    } else if (v1.toString().contains("<Atributos>")) {
+                        jmiEliminarNodo.setVisible(false);
+                    } else if (v1.toString().contains(raiz.toString())) {
+                        jmiEliminarNodo.setVisible(false);
+                    } else {
+                        jmiEliminarNodo.setVisible(true);
+                    }
+                    ppMenuClases.show(evt.getComponent(), evt.getX(), evt.getY());
                 }
             }
 
@@ -2472,6 +2490,14 @@ public class PanelPrincipal extends javax.swing.JFrame {
         txSeleccionado1.setText("");
         System.out.println(clases);
         System.out.println(nombresdeclase);
+        DefaultComboBoxModel modelo=new DefaultComboBoxModel();
+        DefaultComboBoxModel modelo1=new DefaultComboBoxModel();
+        for (int i = 0; i < nombresdeclase.size(); i++) {
+            modelo.addElement(nombresdeclase.get(i));
+            modelo1.addElement(nombresdeclase.get(i));
+        }
+        jcpadre.setModel(modelo);
+        jcHijo.setModel(modelo1);
         this.repaint();
     }//GEN-LAST:event_jmiEliminarArbolActionPerformed
 
@@ -2977,8 +3003,18 @@ public class PanelPrincipal extends javax.swing.JFrame {
                     Object v1 = arbol.getSelectionPath().getLastPathComponent();
                     nodoS = (DefaultMutableTreeNode) v1;
                     if (evt.isMetaDown()) {
-                        ppMenuClases.show(evt.getComponent(), evt.getX(), evt.getY());
                         actualT = arbol;
+                        copiart = arbol;
+                        if (v1.toString().contains("<Metodos>")) {
+                            jmiEliminarNodo.setVisible(false);
+                        } else if (v1.toString().contains("<Atributos>")) {
+                            jmiEliminarNodo.setVisible(false);
+                        } else if (v1.toString().contains(arbol.getModel().getRoot().toString())) {
+                            jmiEliminarNodo.setVisible(false);
+                        } else {
+                            jmiEliminarNodo.setVisible(true);
+                        }
+                        ppMenuClases.show(evt.getComponent(), evt.getX(), evt.getY());
                     }
                 }
 
@@ -3522,6 +3558,15 @@ public class PanelPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jcb_variableIgualActionPerformed
 
+    private void jmiEliminarNodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiEliminarNodoActionPerformed
+        try {
+            DefaultTreeModel m = (DefaultTreeModel) actualT.getModel();
+            m.removeNodeFromParent(nodoS);
+            m.reload();
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_jmiEliminarNodoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -3788,6 +3833,17 @@ public class PanelPrincipal extends javax.swing.JFrame {
                             Object v1 = arbol.getSelectionPath().getLastPathComponent();
                             nodoS = (DefaultMutableTreeNode) v1;
                             if (evt.isMetaDown()) {
+                                actualT = arbol;
+                                copiart = arbol;
+                                if (v1.toString().contains("<Metodos>")) {
+                                    jmiEliminarNodo.setVisible(false);
+                                } else if (v1.toString().contains("<Atributos>")) {
+                                    jmiEliminarNodo.setVisible(false);
+                                } else if (v1.toString().contains(arbol.getModel().getRoot().toString())) {
+                                    jmiEliminarNodo.setVisible(false);
+                                } else {
+                                    jmiEliminarNodo.setVisible(true);
+                                }
                                 ppMenuClases.show(evt.getComponent(), evt.getX(), evt.getY());
                             }
                         }
@@ -4237,6 +4293,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jmiCopiar;
     private javax.swing.JMenuItem jmiCopiar1;
     private javax.swing.JMenuItem jmiEliminarArbol;
+    private javax.swing.JMenuItem jmiEliminarNodo;
     private javax.swing.JMenuItem jmiFuente;
     private javax.swing.JMenuItem jmiGuardar;
     private javax.swing.JMenuItem jmiGuardarComo;

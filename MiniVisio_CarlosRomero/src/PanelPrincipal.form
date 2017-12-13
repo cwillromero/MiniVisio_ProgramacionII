@@ -237,6 +237,14 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jmiEliminarArbolActionPerformed"/>
           </Events>
         </MenuItem>
+        <MenuItem class="javax.swing.JMenuItem" name="jmiEliminarNodo">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Eliminar Metodo/Atributo"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jmiEliminarNodoActionPerformed"/>
+          </Events>
+        </MenuItem>
         <MenuItem class="javax.swing.JMenuItem" name="jmiAtributos">
           <Properties>
             <Property name="text" type="java.lang.String" value="Ver y Agregar Atributos"/>
