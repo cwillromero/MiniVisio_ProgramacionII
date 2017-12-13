@@ -75,7 +75,6 @@ public class CodigoDiagramaDeFlujo {
                 Codigo += variables;
             }
         } catch (Exception e) {
-            e.printStackTrace();
             JOptionPane.showMessageDialog(null, "Error en los datos!", "Error", 0);
             x = false;
         }
