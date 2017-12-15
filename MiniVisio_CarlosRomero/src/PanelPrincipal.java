@@ -230,7 +230,6 @@ public class PanelPrincipal extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jbEliminar = new javax.swing.JButton();
         jbAPropiedades = new javax.swing.JButton();
-        jmiPropiedades1 = new javax.swing.JButton();
         jbVerP = new javax.swing.JButton();
         jpBase0 = new javax.swing.JPanel();
         PanelClase = new javax.swing.JPanel();
@@ -1492,12 +1491,6 @@ public class PanelPrincipal extends javax.swing.JFrame {
             }
         });
         jpDiseno.add(jbAPropiedades, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 20, 150, 40));
-
-        jmiPropiedades1.setBackground(new java.awt.Color(0, 0, 51));
-        jmiPropiedades1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jmiPropiedades1.setForeground(new java.awt.Color(204, 204, 255));
-        jmiPropiedades1.setText("Aun no sé");
-        jpDiseno.add(jmiPropiedades1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 20, 150, 40));
 
         jbVerP.setBackground(new java.awt.Color(255, 153, 153));
         jbVerP.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
@@ -3423,7 +3416,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
             jcb_proceso2.setEnabled(false);
             OPV1.setEnabled(false);
             if (op < 1) {
-                Operacion = jcb_variableIgual + "=" + JOptionPane.showInputDialog(this, "Por favor Ingrese la Operación:", "Ingresar Operación", 1);
+                Operacion = jcb_variableIgual.getSelectedItem() + "=" + JOptionPane.showInputDialog(this, "Por favor Ingrese la Operación:", "Ingresar Operación", 1);
                 txtOperacion.setText(Operacion);
                 actual.setName(Operacion);
                 op++;
@@ -4326,7 +4319,6 @@ public class PanelPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jmiMetodos;
     private javax.swing.JMenuItem jmiNuevo;
     private javax.swing.JMenuItem jmiPegar;
-    private javax.swing.JButton jmiPropiedades1;
     private javax.swing.JMenuItem jmiVerPropiedades;
     private javax.swing.JPanel jpBase;
     private javax.swing.JPanel jpBase0;
